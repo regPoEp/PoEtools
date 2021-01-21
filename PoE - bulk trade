@@ -1,0 +1,740 @@
+/* ==UserStyle==
+@name         PoE - bulk trade
+@namespace    PathOfExile/regularPoEplayer
+@version      1.0.5
+@description  Custom CSS layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
+@author       regularPoEplayer
+@homepageURL  https://github.com/regPoEp/PoEtools
+==/UserStyle== */
+
+/*
+Table of contents:
+    Hide useless items
+	Hide borders
+	Add "I want/I have" after headers of search filters
+	Reduce size of the logo
+	"Currency" section
+	"Shards & Splinters" section
+	"Fragments & Sets" section
+	"Scarabs" section
+	"Fossils" section
+	"Essences" section
+	"Cards" and "Maps" sections
+*/
+
+:root {
+	--poe-custom-filter-group-name-color: #cec59f !important;
+	
+	--poe-custom-item-size: 40px !important;
+	--poe-custom-item-indent: 2px !important;
+	--poe-custom-item-distance: calc(var(--poe-custom-item-size) + var(--poe-custom-item-indent)) !important;
+    --poe-custom-is-fragment-set-shown: 1 !important;
+}
+
+
+
+/*------------------------------
+    Hide useless items
+------------------------------*/
+
+/* legacy */
+[data-id=eternal], [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key] {
+    display: none !important;
+}
+
+/* non-functional */
+:root { --poe-custom-is-fragment-set-shown: 0 !important; }
+[data-id=sacrifice-set], [data-id=mortal-set], [data-id=pale-court-set], [data-id=shaper-set], [data-id=key-to-decay], [data-id=maddening-object] {
+    display: none !important;
+}
+
+/* cheap shards */
+/*[data-id=chaos-shard], [data-id=regal-shard], [data-id=binding-shard], [data-id=engineers-shard], [data-id=horizon-shard] {
+    display: none !important;
+}*/
+
+
+
+/*------------------------------
+	Hide borders
+------------------------------*/
+
+/* hide borders for icon items */
+
+.exchange-filter-item:not(.text):not(.highlighted):not(.active) {
+	border-color: transparent !important;
+}
+
+
+
+/*------------------------------
+	Add "I want/I have" after headers of search filters
+------------------------------*/
+
+/* fix color of names for filter-groups */
+
+.filter-group-header .filter-title {
+	color: var(--poe-custom-filter-group-name-color) !important;
+}
+
+/* add "I want/have" */
+
+.search-advanced-pane:nth-of-type(1) > .filter-group > .filter-group-body > .filter > .filter-title-clickable > span:not(.pull-right)::after {
+	content: " I want" !important;
+	color: grey !important;
+}
+
+.search-advanced-pane:nth-of-type(2) > .filter-group > .filter-group-body > .filter > .filter-title-clickable > span:not(.pull-right)::after {
+	content: " I have" !important;
+	color: grey !important;
+}
+
+
+
+/*------------------------------
+	Reduce size of the logo
+------------------------------*/
+
+.logo > a {
+	max-width: 96px !important;
+}
+
+
+
+/*---------------------------
+	"Currency" section
+---------------------------*/
+
+/* setup currency container(1) */
+
+div.filter-group-body > div.filter:nth-of-type(1) > div.filter-options {
+	position: relative !important;
+	height: calc(5*var(--poe-custom-item-distance)) !important;
+	width: calc(14*var(--poe-custom-item-distance)) !important;
+	margin: auto !important;
+}
+
+div.filter-group-body > div.filter:nth-of-type(1) > div.filter-options > .exchange-filter-item[data-id] {
+	position: absolute !important;
+}
+
+
+
+/* set Y-coordinate for each row */
+
+[data-id=chaos], [data-id=fusing], [data-id=alch], [data-id=scour], [data-id=regal], [data-id=orb-of-binding], [data-id=vaal], [data-id=regret], [data-id=apprentice-sextant], [data-id=journeyman-sextant], [data-id=master-sextant], [data-id=orb-of-horizons], [data-id=chisel] {
+    top: calc(0*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=alt], [data-id=transmute], [data-id=aug], [data-id=chance], [data-id=chrome], [data-id=jewellers], [data-id=silver], [data-id=engineers], [data-id=whetstone], [data-id=scrap], [data-id=bauble], [data-id=gcp], [data-id=blessed] {
+    top: calc(1*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=exalted], [data-id=crusaders-exalted-orb], [data-id=redeemers-exalted-orb], [data-id=hunters-exalted-orb], [data-id=warlords-exalted-orb], [data-id=awakeners-orb], [data-id=mavens-orb], [data-id=elevated-sextant], [data-id=orb-of-unmaking], [data-id=annul], [data-id=ancient-orb], [data-id=harbingers-orb], [data-id=divine] {
+    top: calc(2*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=ritual-vessel], [data-id=prime-regrading-lens], [data-id=secondary-regrading-lens], [data-id=tempering-orb], [data-id=tailoring-orb], [data-id=infused-engineers-orb], [data-id=facetors]  {
+    top: calc(3*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=stacked-deck], [data-id=blessing-xoph], [data-id=blessing-tul], [data-id=blessing-esh], [data-id=blessing-uul-netol], [data-id=blessing-chayula], [data-id=mirror], [data-id=eternal], [data-id=wisdom], [data-id=portal], [data-id=p], [data-id=rogues-marker] {
+    top: calc(4*var(--poe-custom-item-distance)) !important;
+}
+
+
+
+/* set X-coordinate for each column */
+
+[data-id=chaos], [data-id=alt], [data-id=exalted], [data-id=ritual-vessel], [data-id=stacked-deck], [data-id=exalted-shard], [data-id=ritual-splinter] {
+	left: calc(0*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=fusing], [data-id=chrome], [data-id=crusaders-exalted-orb], [data-id=prime-regrading-lens], [data-id=mirror-shard], [data-id=blessing-xoph], [data-id=splinter-xoph] {
+	left: calc(1*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=alch], [data-id=transmute], [data-id=redeemers-exalted-orb], [data-id=secondary-regrading-lens], [data-id=blessing-tul], [data-id=splinter-tul] {
+	left: calc(2*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=scour], [data-id=chance], [data-id=hunters-exalted-orb], [data-id=tempering-orb], [data-id=chaos-shard], [data-id=blessing-esh], [data-id=splinter-esh] {
+	left: calc(3*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=regal], [data-id=aug], [data-id=warlords-exalted-orb], [data-id=tailoring-orb], [data-id=regal-shard], [data-id=blessing-uul-netol], [data-id=splinter-uul] {
+	left: calc(4*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=orb-of-binding], [data-id=jewellers], [data-id=awakeners-orb], [data-id=binding-shard], [data-id=blessing-chayula], [data-id=splinter-chayula] {
+	left: calc(5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=vaal], [data-id=silver], [data-id=mavens-orb], [data-id=horizon-shard] {
+	left: calc(6*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=regret], [data-id=facetors], [data-id=mirror], [data-id=engineers-shard], [data-id=timeless-eternal-empire-splinter] {
+	left: calc(7*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=engineers], [data-id=elevated-sextant], [data-id=infused-engineers-orb], [data-id=eternal], [data-id=timeless-karui-splinter] {
+	left: calc(8*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=apprentice-sextant], [data-id=whetstone], [data-id=orb-of-unmaking], [data-id=timeless-maraketh-splinter] {
+	left: calc(9*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=journeyman-sextant], [data-id=scrap], [data-id=annul], [data-id=annulment-shard], [data-id=wisdom], [data-id=timeless-templar-splinter] {
+	left: calc(10*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=master-sextant], [data-id=bauble], [data-id=ancient-orb], [data-id=ancient-shard], [data-id=portal], [data-id=timeless-vaal-splinter] {
+	left: calc(11*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=orb-of-horizons], [data-id=gcp], [data-id=harbingers-orb], [data-id=harbingers-shard], [data-id=p], [data-id=simulacrum-splinter] {
+	left: calc(12*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=chisel], [data-id=blessed], [data-id=divine], [data-id=rogues-marker], [data-id=crescent-splinter] {
+	left: calc(13*var(--poe-custom-item-distance)) !important;
+}
+
+
+
+/*---------------------------
+	"Shards & Splinters" section
+---------------------------*/
+
+/* setup shards/splinters container(2) */
+
+div.filter-group-body > div.filter:nth-of-type(2) > div.filter-options {
+	position: relative !important;
+	height: calc(2*var(--poe-custom-item-distance)) !important;
+	width: calc(14*var(--poe-custom-item-distance)) !important;
+	margin: auto !important;
+}
+
+div.filter-group-body > div.filter:nth-of-type(2) > div.filter-options > .exchange-filter-item[data-id] {
+	position: absolute !important;
+}
+
+
+
+/* set Y-coordinate for each row */
+[data-id=exalted-shard], [data-id=mirror-shard], [data-id=chaos-shard], [data-id=regal-shard], [data-id=binding-shard], [data-id=engineers-shard], [data-id=horizon-shard], [data-id=annulment-shard], [data-id=ancient-shard], [data-id=harbingers-shard] {
+    top: calc(0*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=ritual-splinter], [data-id=splinter-xoph], [data-id=splinter-tul], [data-id=splinter-esh], [data-id=splinter-uul], [data-id=splinter-chayula], [data-id=timeless-eternal-empire-splinter], [data-id=timeless-karui-splinter], [data-id=timeless-maraketh-splinter], [data-id=timeless-templar-splinter], [data-id=timeless-vaal-splinter], [data-id=simulacrum-splinter], [data-id=crescent-splinter] {
+    top: calc(1*var(--poe-custom-item-distance)) !important;
+}
+
+
+
+/* set X-coordinate for each column */
+/* (they are set in the currency section) */
+
+
+
+/*---------------------------
+	"Fragments & Sets" section
+---------------------------*/
+
+/* setup fragments container(3) */
+
+div.filter-group-body > div.filter:nth-of-type(3) > div.filter-options {
+	position: relative !important;
+	height: calc((6 + var(--poe-custom-is-fragment-set-shown))*var(--poe-custom-item-distance)) !important;
+	width: calc(14*var(--poe-custom-item-distance)) !important;
+	margin: auto !important;
+}
+
+div.filter-group-body > div.filter:nth-of-type(3) > div.filter-options > .exchange-filter-item[data-id] {
+	position: absolute !important;
+}
+
+
+
+/* set Y-coordinate for each row */
+
+[data-id=dusk], [data-id=mid], [data-id=grie], [data-id=rage], [data-id=volkuur], [data-id=eber], [data-id=hydra], [data-id=phoenix], [data-id=fragment-of-purification], [data-id=fragment-of-enslavement], [data-id=fragment-of-knowledge], [data-id=fragment-of-terror] {
+    top: calc(0*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=noon], [data-id=dawn], [data-id=ign], [data-id=hope], [data-id=inya], [data-id=yriel], [data-id=chimer], [data-id=minot], [data-id=fragment-of-constriction], [data-id=fragment-of-eradication], [data-id=fragment-of-shape], [data-id=fragment-of-emptiness] {
+    top: calc(1*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=sacrifice-set], [data-id=mortal-set], [data-id=pale-court-set], [data-id=shaper-set], [data-id=key-to-decay], [data-id=maddening-object] {
+    top: calc(2*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=offer], [data-id=xophs-breachstone], [data-id=tuls-breachstone], [data-id=eshs-breachstone], [data-id=uul-breachstone], [data-id=chayulas-breachstone], [data-id=timeless-eternal-emblem], [data-id=timeless-karui-emblem], [data-id=timeless-maraketh-emblem], [data-id=timeless-templar-emblem], [data-id=timeless-vaal-emblem], [data-id=simulacrum] {
+    top: calc((2 + var(--poe-custom-is-fragment-set-shown))*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=offer-tribute], [data-id=xophs-charged-breachstone], [data-id=tuls-charged-breachstone], [data-id=eshs-charged-breachstone], [data-id=uul-charged-breachstone], [data-id=chayulas-charged-breachstone], [data-id=haewark-hamlet], [data-id=tirns-end], [data-id=lex-proxima], [data-id=lex-ejoris], [data-id=ancient-reliquary-key] {
+    top: calc((3 + var(--poe-custom-is-fragment-set-shown))*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=offer-gift], [data-id=xophs-enriched-breachstone], [data-id=tuls-enriched-breachstone], [data-id=eshs-enriched-breachstone], [data-id=uul-enriched-breachstone], [data-id=chayulas-enriched-breachstone], [data-id=new-vastir], [data-id=glennach-cairns], [data-id=valdos-rest], [data-id=lira-arthain], [data-id=timeworn-reliquary-key] {
+    top: calc((4 + var(--poe-custom-is-fragment-set-shown))*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=offer-dedication], [data-id=xophs-pure-breachstone], [data-id=tuls-pure-breachstone], [data-id=eshs-pure-breachstone], [data-id=uul-pure-breachstone], [data-id=chayulas-pure-breachstone], [data-id=the-formed], [data-id=the-twisted], [data-id=the-forgotten], [data-id=the-hidden], [data-id=the-feared], [data-id=the-mavens-writ] {
+    top: calc((5 + var(--poe-custom-is-fragment-set-shown))*var(--poe-custom-item-distance)) !important;
+}
+
+/**/
+
+[data-id=divine-vessel] {
+    top: calc(0.5*var(--poe-custom-item-distance)) !important;
+}
+
+
+
+/* set X-coordinate for each column */
+
+[data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication] {
+	left: calc(0*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=dusk], [data-id=noon] {
+	left: calc(1*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=mid], [data-id=dawn] {
+	left: calc(2*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=grie], [data-id=ign] {
+	left: calc(3*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=rage], [data-id=hope] {
+	left: calc(4*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=volkuur], [data-id=inya] {
+	left: calc(5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=eber], [data-id=yriel] {
+	left: calc(6*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=hydra], [data-id=chimer] {
+	left: calc(7*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=phoenix], [data-id=minot], [data-id=haewark-hamlet], [data-id=new-vastir] {
+	left: calc(8*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=fragment-of-purification], [data-id=fragment-of-constriction], [data-id=tirns-end], [data-id=glennach-cairns] {
+	left: calc(9*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=fragment-of-enslavement], [data-id=fragment-of-eradication], [data-id=lex-proxima], [data-id=valdos-rest] {
+	left: calc(10*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=lex-ejoris], [data-id=lira-arthain] {
+	left: calc(11*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=fragment-of-terror], [data-id=fragment-of-emptiness] {
+	left: calc(12*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=simulacrum], [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=the-mavens-writ] {
+	left: calc(13*var(--poe-custom-item-distance)) !important;
+}
+
+/**/
+
+[data-id=sacrifice-set],    [data-id=xophs-breachstone], [data-id=xophs-charged-breachstone], [data-id=xophs-enriched-breachstone], [data-id=xophs-pure-breachstone] {
+	left: calc(1.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=tuls-breachstone], [data-id=tuls-charged-breachstone], [data-id=tuls-enriched-breachstone], [data-id=tuls-pure-breachstone] {
+	left: calc(2.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=mortal-set],       [data-id=eshs-breachstone], [data-id=eshs-charged-breachstone], [data-id=eshs-enriched-breachstone], [data-id=eshs-pure-breachstone] {
+	left: calc(3.5*var(--poe-custom-item-distance)) !important;
+}
+
+                            [data-id=uul-breachstone], [data-id=uul-charged-breachstone], [data-id=uul-enriched-breachstone], [data-id=uul-pure-breachstone] {
+	left: calc(4.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=pale-court-set],   [data-id=chayulas-breachstone], [data-id=chayulas-charged-breachstone], [data-id=chayulas-enriched-breachstone], [data-id=chayulas-pure-breachstone] {
+	left: calc(5.5*var(--poe-custom-item-distance)) !important;
+}
+
+/* {
+	left: calc(6.5*var(--poe-custom-item-distance)) !important;
+}*/
+
+[data-id=shaper-set], [data-id=timeless-eternal-emblem], [data-id=the-formed] {
+	left: calc(7.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=timeless-karui-emblem], [data-id=the-twisted] {
+	left: calc(8.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=key-to-decay], [data-id=timeless-maraketh-emblem], [data-id=the-forgotten] {
+	left: calc(9.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=timeless-templar-emblem], [data-id=the-hidden] {
+	left: calc(10.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=maddening-object], [data-id=timeless-vaal-emblem], [data-id=the-feared] {
+	left: calc(11.5*var(--poe-custom-item-distance)) !important;
+}
+
+
+
+/*---------------------------
+	"Scarabs" section
+---------------------------*/
+
+/* setup scarabs container(8) */
+
+div.filter-group-body > div.filter:nth-of-type(8) > div.filter-options {
+	position: relative !important;
+	height: calc(7.5*var(--poe-custom-item-distance)) !important;
+	width: calc(13*var(--poe-custom-item-distance)) !important;
+	margin: auto !important;
+}
+
+div.filter-group-body > div.filter:nth-of-type(8) > div.filter-options > .exchange-filter-item[data-id] {
+	position: absolute !important;
+}
+
+
+
+/* set Y-coordinate for each row */
+
+[data-id$=-metamorph-scarab] {
+    top: calc(0*var(--poe-custom-item-distance)) !important;
+}
+[data-id$=-legion-scarab] {
+    top: calc(1*var(--poe-custom-item-distance)) !important;
+}
+[data-id$=-bestiary-scarab], [data-id$=-ambush-scarab], [data-id$=-harbinger-scarab] {
+    top: calc(2*var(--poe-custom-item-distance)) !important;
+}
+[data-id$=-reliquary-scarab], [data-id$=-shaper-scarab], [data-id$=-elder-scarab] {
+    top: calc(3*var(--poe-custom-item-distance)) !important;
+}
+[data-id$=-torment-scarab], [data-id$=-perandus-scarab], [data-id$=-divination-scarab] {
+    top: calc(4*var(--poe-custom-item-distance)) !important;
+}
+[data-id$=-sulphite-scarab], [data-id$=-cartography-scarab], [data-id$=-breach-scarab] {
+    top: calc(5*var(--poe-custom-item-distance)) !important;
+}
+
+/**/
+
+[data-id$=-lure] {
+    top: calc(6.5*var(--poe-custom-item-distance)) !important;
+}
+
+
+
+/* set X-coordinate for each column */
+
+[data-id=rusted-bestiary-scarab], [data-id=rusted-reliquary-scarab], [data-id=rusted-torment-scarab], [data-id=rusted-sulphite-scarab] {
+	left: calc(0*var(--poe-custom-item-distance)) !important;
+}
+[data-id=polished-bestiary-scarab], [data-id=polished-reliquary-scarab], [data-id=polished-torment-scarab], [data-id=polished-sulphite-scarab] {
+	left: calc(1*var(--poe-custom-item-distance)) !important;
+}
+[data-id=gilded-bestiary-scarab], [data-id=gilded-reliquary-scarab], [data-id=gilded-torment-scarab], [data-id=gilded-sulphite-scarab] {
+	left: calc(2*var(--poe-custom-item-distance)) !important;
+}
+[data-id=jewelled-bestiary-scarab], [data-id=jewelled-reliquary-scarab], [data-id=jewelled-torment-scarab], [data-id=jewelled-sulphite-scarab] {
+	left: calc(3*var(--poe-custom-item-distance)) !important;
+}
+
+/**/
+
+[data-id=farric-lure], [data-id=rusted-metamorph-scarab], [data-id=rusted-legion-scarab], [data-id=rusted-ambush-scarab], [data-id=rusted-shaper-scarab], [data-id=rusted-perandus-scarab], [data-id=rusted-cartography-scarab] {
+	left: calc(4.5*var(--poe-custom-item-distance)) !important;
+}
+[data-id=saqawine-lure], [data-id=polished-metamorph-scarab], [data-id=polished-legion-scarab], [data-id=polished-ambush-scarab], [data-id=polished-shaper-scarab], [data-id=polished-perandus-scarab], [data-id=polished-cartography-scarab] {
+	left: calc(5.5*var(--poe-custom-item-distance)) !important;
+}
+[data-id=fenumal-lure], [data-id=gilded-metamorph-scarab], [data-id=gilded-legion-scarab], [data-id=gilded-ambush-scarab], [data-id=gilded-shaper-scarab], [data-id=gilded-perandus-scarab], [data-id=gilded-cartography-scarab] {
+	left: calc(6.5*var(--poe-custom-item-distance)) !important;
+}
+[data-id=craicic-lure], [data-id=jewelled-metamorph-scarab], [data-id=jewelled-legion-scarab], [data-id=jewelled-ambush-scarab], [data-id=jewelled-shaper-scarab], [data-id=jewelled-perandus-scarab], [data-id=jewelled-cartography-scarab] {
+	left: calc(7.5*var(--poe-custom-item-distance)) !important;
+}
+
+/**/
+
+[data-id=rusted-harbinger-scarab], [data-id=rusted-elder-scarab], [data-id=rusted-divination-scarab], [data-id=rusted-breach-scarab] {
+	left: calc(9*var(--poe-custom-item-distance)) !important;
+}
+[data-id=polished-harbinger-scarab], [data-id=polished-elder-scarab], [data-id=polished-divination-scarab], [data-id=polished-breach-scarab] {
+	left: calc(10*var(--poe-custom-item-distance)) !important;
+}
+[data-id=gilded-harbinger-scarab], [data-id=gilded-elder-scarab], [data-id=gilded-divination-scarab], [data-id=gilded-breach-scarab] {
+	left: calc(11*var(--poe-custom-item-distance)) !important;
+}
+[data-id=jewelled-harbinger-scarab], [data-id=jewelled-elder-scarab], [data-id=jewelled-divination-scarab], [data-id=jewelled-breach-scarab] {
+	left: calc(12*var(--poe-custom-item-distance)) !important;
+}
+
+
+
+/*------------------------------
+	"Fossils" section
+------------------------------*/
+
+/* setup fossils container(10) */
+
+div.filter-group-body > div.filter:nth-of-type(10) > div.filter-options {
+	position: relative !important;
+	height: calc(4*var(--poe-custom-item-distance)) !important;
+	width: calc(9*var(--poe-custom-item-distance)) !important;
+	margin: auto !important;
+}
+
+div.filter-group-body > div.filter:nth-of-type(10) > div.filter-options > .exchange-filter-item[data-id] {
+	position: absolute !important;
+}
+
+
+
+/* set Y-coordinate for each row */
+
+[data-id=jagged-fossil], [data-id=dense-fossil], [data-id=frigid-fossil], [data-id=aberrant-fossil], [data-id=scorched-fossil], [data-id=metallic-fossil], [data-id=pristine-fossil] {
+	top: calc(0*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=bound-fossil], [data-id=corroded-fossil], [data-id=perfect-fossil], [data-id=prismatic-fossil], [data-id=enchanted-fossil], [data-id=aetheric-fossil], [data-id=lucent-fossil], [data-id=serrated-fossil], [data-id=shuddering-fossil] {
+	top: calc(1*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=tangled-fossil], [data-id=bloodstained-fossil], [data-id=gilded-fossil], [data-id=encrusted-fossil], [data-id=sanctified-fossil], [data-id=hollow-fossil], [data-id=fractured-fossil] {
+	top: calc(2*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=glyphic-fossil], [data-id=faceted-fossil] {
+	top: calc(3*var(--poe-custom-item-distance)) !important;
+}
+
+
+
+/* set X-coordinate for each column */
+
+[data-id=bound-fossil] {
+	left: calc(0*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=jagged-fossil], [data-id=corroded-fossil], [data-id=glyphic-fossil] {
+	left: calc(1*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=dense-fossil], [data-id=perfect-fossil] {
+	left: calc(2*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=frigid-fossil], [data-id=prismatic-fossil], [data-id=gilded-fossil] {
+	left: calc(3*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=aberrant-fossil], [data-id=enchanted-fossil], [data-id=encrusted-fossil] {
+	left: calc(4*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=scorched-fossil], [data-id=aetheric-fossil], [data-id=sanctified-fossil] {
+	left: calc(5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=metallic-fossil], [data-id=lucent-fossil] {
+	left: calc(6*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=pristine-fossil], [data-id=serrated-fossil], [data-id=faceted-fossil] {
+	left: calc(7*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=shuddering-fossil] {
+	left: calc(8*var(--poe-custom-item-distance)) !important;
+}
+
+/**/
+
+[data-id=tangled-fossil] {
+	left: calc(0.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=bloodstained-fossil] {
+	left: calc(1.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=hollow-fossil] {
+	left: calc(6.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=fractured-fossil] {
+	left: calc(7.5*var(--poe-custom-item-distance)) !important;
+}
+
+
+
+/*---------------------------
+	"Essences" section
+---------------------------*/
+
+/* setup essences container(11) */
+
+div.filter-group-body > div.filter:nth-of-type(11) > div.filter-options {
+	position: relative !important;
+	height: calc(12*var(--poe-custom-item-distance)) !important;
+	width: calc(11.5*var(--poe-custom-item-distance)) !important;
+	margin: auto !important;
+}
+
+div.filter-group-body > div.filter:nth-of-type(11) > div.filter-options > .exchange-filter-item[data-id] {
+	position: absolute !important;
+}
+
+
+
+/* set Y-coordinate for each row */
+
+[data-id$=-essence-of-greed], [data-id$=-essence-of-loathing] {
+    top: calc(0*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id$=-essence-of-contempt], [data-id$=-essence-of-zeal] {
+    top: calc(1*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id$=-essence-of-hatred], [data-id$=-essence-of-anguish] {
+    top: calc(2*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id$=-essence-of-woe], [data-id$=-essence-of-spite] {
+    top: calc(3*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id$=-essence-of-fear], [data-id$=-essence-of-scorn] {
+    top: calc(4*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id$=-essence-of-anger], [data-id$=-essence-of-envy] {
+    top: calc(5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id$=-essence-of-torment], [data-id$=-essence-of-misery] {
+    top: calc(6*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id$=-essence-of-sorrow], [data-id$=-essence-of-dread] {
+    top: calc(7*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id$=-essence-of-rage], [data-id=essence-of-insanity], [data-id=remnant-of-corruption] {
+    top: calc(8*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id$=-essence-of-suffering], [data-id=essence-of-horror] {
+    top: calc(9*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id$=-essence-of-wrath], [data-id=essence-of-delirium] {
+    top: calc(10*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id$=-essence-of-doubt], [data-id=essence-of-hysteria] {
+    top: calc(11*var(--poe-custom-item-distance)) !important;
+}
+
+
+
+/* set X-coordinate for each column */
+
+[data-id^=deafening-essence-of-] {
+	left: calc(0*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=shrieking-essence-of-] {
+	left: calc(1*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=screaming-essence-of-] {
+	left: calc(2*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=wailing-essence-of-] {
+	left: calc(3*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=weeping-essence-of-] {
+	left: calc(4*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=muttering-essence-of-] {
+	left: calc(5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=whispering-essence-of-] {
+	left: calc(6*var(--poe-custom-item-distance)) !important;
+}
+
+/**/
+
+[data-id=wailing-essence-of-loathing], [data-id=wailing-essence-of-zeal], [data-id=wailing-essence-of-anguish], [data-id=wailing-essence-of-spite] {
+	left: calc(7.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=screaming-essence-of-loathing], [data-id=screaming-essence-of-zeal], [data-id=screaming-essence-of-anguish], [data-id=screaming-essence-of-spite], [data-id=screaming-essence-of-scorn], [data-id=screaming-essence-of-envy], [data-id=screaming-essence-of-misery], [data-id=screaming-essence-of-dread] {
+	left: calc(8.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=shrieking-essence-of-loathing], [data-id=shrieking-essence-of-zeal], [data-id=shrieking-essence-of-anguish], [data-id=shrieking-essence-of-spite], [data-id=shrieking-essence-of-scorn], [data-id=shrieking-essence-of-envy], [data-id=shrieking-essence-of-misery], [data-id=shrieking-essence-of-dread], [data-id=remnant-of-corruption] {
+	left: calc(9.5*var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=deafening-essence-of-loathing], [data-id=deafening-essence-of-zeal], [data-id=deafening-essence-of-anguish], [data-id=deafening-essence-of-spite], [data-id=deafening-essence-of-scorn], [data-id=deafening-essence-of-envy], [data-id=deafening-essence-of-misery], [data-id=deafening-essence-of-dread], [data-id=essence-of-insanity], [data-id=essence-of-horror], [data-id=essence-of-delirium], [data-id=essence-of-hysteria] {
+	left: calc(10.5*var(--poe-custom-item-distance)) !important;
+}
+
+
+
+/*------------------------------
+	"Cards" and "Maps" sections
+------------------------------*/
+
+/* change font, color and background color of text items */
+
+.exchange-filter-item.text {
+    font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif !important;
+    color:#b1a38e !important;
+}
+
+.exchange-filter-item.text:not(.highlighted):not(.active) {
+    background-color: #111 !important;
+}
+
+/* double width of cards container */
+
+@media (min-width: 1200px) {
+	.search-advanced-pane:nth-of-type(1) > .filter-group > div.filter-group-body > div.filter:nth-of-type(12) > div.filter-options {
+		width: calc(200% + 20px) !important;
+		padding-top: 33px !important;
+	}
+}

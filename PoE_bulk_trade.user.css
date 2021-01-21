@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         PoE - bulk trade
 @namespace    PathOfExile/regularPoEplayer
-@version      1.0.7
+@version      1.0.8
 @description  Custom CSS layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -39,9 +39,9 @@ Table of contents:
 ------------------------------*/
 
 /* legacy */
-/*[data-id=eternal], [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key] {
+[data-id=eternal], [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key] {
     display: none !important;
-}*/
+}
 
 /* non-functional */
 /*:root { --poe-custom-is-fragment-set-shown: 0 !important; }

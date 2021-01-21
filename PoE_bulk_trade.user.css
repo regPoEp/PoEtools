@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         PoE - bulk trade
 @namespace    PathOfExile/regularPoEplayer
-@version      1.0.6
+@version      1.0.7
 @description  Custom CSS layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -44,10 +44,10 @@ Table of contents:
 }*/
 
 /* non-functional */
-:root { --poe-custom-is-fragment-set-shown: 0 !important; }
+/*:root { --poe-custom-is-fragment-set-shown: 0 !important; }
 [data-id=sacrifice-set], [data-id=mortal-set], [data-id=pale-court-set], [data-id=shaper-set], [data-id=key-to-decay], [data-id=maddening-object] {
     display: none !important;
-}
+}/*
 
 /* cheap shards */
 /*[data-id=chaos-shard], [data-id=regal-shard], [data-id=binding-shard], [data-id=engineers-shard], [data-id=horizon-shard] {

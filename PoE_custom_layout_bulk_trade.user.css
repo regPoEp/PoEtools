@@ -1,18 +1,24 @@
 /* ==UserStyle==
-@name         PoE - bulk trade
-@namespace    PathOfExile/regularPoEplayer
-@version      1.0.8
-@description  Custom CSS layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
+@name         PoE - custom layout (bulk trade)
+@version      1.0.9
+@description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
-@updateURL    https://raw.githubusercontent.com/regPoEp/PoEtools/main/PoE_bulk_trade.user.css
+
+@namespace    PathOfExile/regularPoEplayer
+@updateURL    https://raw.githubusercontent.com/regPoEp/PoEtools/main/PoE_custom_layout_bulk_trade.user.css
+@preprocessor stylus
+@var          checkbox poe-custom-option-hide-legacy "Hide legacy items" 1
+@var          checkbox poe-custom-option-hide-fragment-sets "Hide fragment sets" 1
+@var          checkbox poe-custom-option-double-cards-width "Double the width of the 'Cards' section" 1
+@var          checkbox poe-custom-option-cards_maps-font_background "Change font/background for Cards and Maps" 1
 ==/UserStyle== */
 
-@-moz-document url-prefix("https://www.pathofexile.com/trade/exchange/") {
+/*@*/@-moz-document url-prefix("https://www.pathofexile.com/trade/exchange/") {
 
 /*
 Table of contents:
-    Hide useless items
+	Options
 	Hide borders
 	Add "I want/I have" after headers of search filters
 	Reduce size of the logo
@@ -26,35 +32,39 @@ Table of contents:
 */
 
 :root {
-	--poe-custom-filter-group-name-color: #cec59f !important;
+    --poe-custom-filter-group-name-color: #cec59f !important;
 	
-	--poe-custom-item-size: 40px !important;
-	--poe-custom-item-indent: 2px !important;
-	--poe-custom-item-distance: calc(var(--poe-custom-item-size) + var(--poe-custom-item-indent)) !important;
+    --poe-custom-item-size: 40px !important;
+    --poe-custom-item-indent: 2px !important;
+    --poe-custom-item-distance: calc(var(--poe-custom-item-size) + var(--poe-custom-item-indent)) !important;
     --poe-custom-is-fragment-set-shown: 1 !important;
+    --poe-custom-is-cards-width-doubled: 0 !important;
 }
 
 
 
 /*------------------------------
-    Hide useless items
+	Options
 ------------------------------*/
 
-/* legacy */
+/* hide legacy items */
+/*@*/if poe-custom-option-hide-legacy {
 [data-id=eternal], [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key] {
     display: none !important;
 }
+/*@*/}
 
-/* non-functional */
-/*:root { --poe-custom-is-fragment-set-shown: 0 !important; }
+/* hide fragment sets */
+/*@*/if poe-custom-option-hide-fragment-sets {
+:root { --poe-custom-is-fragment-set-shown: 0 !important; }
 [data-id=sacrifice-set], [data-id=mortal-set], [data-id=pale-court-set], [data-id=shaper-set], [data-id=key-to-decay], [data-id=maddening-object] {
     display: none !important;
-}/*
+}
+/*@*/}
 
-/* cheap shards */
-/*[data-id=chaos-shard], [data-id=regal-shard], [data-id=binding-shard], [data-id=engineers-shard], [data-id=horizon-shard] {
-    display: none !important;
-}*/
+/* double the width of the 'Cards' section */
+:root { --poe-custom-is-cards-width-doubled: 1 !important; }
+/*@*/if !poe-custom-option-double-cards-width { :root { --poe-custom-is-cards-width-doubled: 0 !important; } }
 
 
 
@@ -724,6 +734,7 @@ div.filter-group-body > div.filter:nth-of-type(11) > div.filter-options > .excha
 
 /* change font, color and background color of text items */
 
+/*@*/if poe-custom-option-cards_maps-font_background {
 .exchange-filter-item.text {
     font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif !important;
     color:#b1a38e !important;
@@ -732,14 +743,15 @@ div.filter-group-body > div.filter:nth-of-type(11) > div.filter-options > .excha
 .exchange-filter-item.text:not(.highlighted):not(.active) {
     background-color: #111 !important;
 }
+/*@*/}
 
-/* double width of cards container */
+/* double the width of the cards container */
 
 @media (min-width: 1200px) {
 	.search-advanced-pane:nth-of-type(1) > .filter-group > div.filter-group-body > div.filter:nth-of-type(12) > div.filter-options {
-		width: calc(200% + 20px) !important;
-		padding-top: 33px !important;
+		width: calc(100% + (100% + 20px)*var(--poe-custom-is-cards-width-doubled)) !important;
+		padding-top: calc(33px*var(--poe-custom-is-cards-width-doubled)) !important;
 	}
 }
 
-}
+/*@*/}

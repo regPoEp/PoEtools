@@ -23,6 +23,8 @@ Table of contents:
 	"Cards" and "Maps" sections
 */
 
+@-moz-document url-prefix("https://www.pathofexile.com/trade/exchange/") {
+
 :root {
 	--poe-custom-filter-group-name-color: #cec59f !important;
 	
@@ -738,4 +740,6 @@ div.filter-group-body > div.filter:nth-of-type(11) > div.filter-options > .excha
 		width: calc(200% + 20px) !important;
 		padding-top: 33px !important;
 	}
+}
+
 }

@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.0.9
+@version      1.0.10
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -11,7 +11,7 @@
 @var          checkbox poe-custom-option-hide-legacy "Hide legacy items" 1
 @var          checkbox poe-custom-option-hide-fragment-sets "Hide fragment sets" 1
 @var          checkbox poe-custom-option-double-cards-width "Double the width of the 'Cards' section" 1
-@var          checkbox poe-custom-option-cards_maps-font_background "Change font/background for Cards and Maps" 1
+@var          checkbox poe-custom-option-cards_maps-font_background "Change font/background for Cards and Maps" 0
 ==/UserStyle== */
 
 /*@*/@-moz-document url-prefix("https://www.pathofexile.com/trade/exchange/") {
@@ -33,10 +33,11 @@ Table of contents:
 
 :root {
     --poe-custom-filter-group-name-color: #cec59f !important;
-	
+
     --poe-custom-item-size: 40px !important;
     --poe-custom-item-indent: 2px !important;
     --poe-custom-item-distance: calc(var(--poe-custom-item-size) + var(--poe-custom-item-indent)) !important;
+
     --poe-custom-is-fragment-set-shown: 1 !important;
     --poe-custom-is-cards-width-doubled: 0 !important;
 }

@@ -8,6 +8,8 @@
 @updateURL    https://raw.githubusercontent.com/regPoEp/PoEtools/main/PoE_bulk_trade.user.css
 ==/UserStyle== */
 
+@-moz-document url-prefix("https://www.pathofexile.com/trade/exchange/") {
+
 /*
 Table of contents:
     Hide useless items
@@ -22,8 +24,6 @@ Table of contents:
 	"Essences" section
 	"Cards" and "Maps" sections
 */
-
-@-moz-document url-prefix("https://www.pathofexile.com/trade/exchange/") {
 
 :root {
 	--poe-custom-filter-group-name-color: #cec59f !important;

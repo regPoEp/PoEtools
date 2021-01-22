@@ -1,1 +1,1 @@
-Repository for custom tools for online game PathOfExile.
+Repository for custom tools for the online game PathOfExile.

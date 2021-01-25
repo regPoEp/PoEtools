@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.1.0
+@version      1.1.1
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -26,6 +26,7 @@ Table of contents:
 	"Shards & Splinters" section
 	"Fragments & Sets" section
 	"Scarabs" section
+	"Resonators" section
 	"Fossils" section
 	"Essences" section
 	"Cards" and "Maps" sections
@@ -34,9 +35,10 @@ Table of contents:
 :root {
     --poe-custom-filter-group-name-color: #cec59f !important;
 
-    --poe-custom-item-size: 40px !important;
-    --poe-custom-item-indent: 2px !important;
-    --poe-custom-item-distance: calc(var(--poe-custom-item-size) + var(--poe-custom-item-indent)) !important;
+    --poe-custom-image-size: 32px !important;
+    --poe-custom-item-size: calc(var(--poe-custom-image-size) + 8px) !important;
+    --poe-custom-item-margin: 2px !important;
+    --poe-custom-item-distance: calc(var(--poe-custom-item-size) + var(--poe-custom-item-margin)) !important;
 
     --poe-custom-is-fragment-set-shown: 1 !important;
     --poe-custom-is-cards-width-doubled: 0 !important;
@@ -110,7 +112,7 @@ Table of contents:
 ------------------------------*/
 
 .logo > a {
-    max-width: 96px !important;
+    max-width: calc(3 * var(--poe-custom-image-size)) !important;
 }
 
 
@@ -123,7 +125,7 @@ Table of contents:
 
 div.filter-group-body > div.filter:nth-of-type(1) > div.filter-options {
     position: relative !important;
-    height: calc(5*var(--poe-custom-item-distance)) !important;
+    height: calc(5*var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
     width: calc(14*var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
@@ -226,7 +228,7 @@ div.filter-group-body > div.filter:nth-of-type(1) > div.filter-options > .exchan
 
 div.filter-group-body > div.filter:nth-of-type(2) > div.filter-options {
     position: relative !important;
-    height: calc(2*var(--poe-custom-item-distance)) !important;
+    height: calc(2*var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
     width: calc(14*var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
@@ -261,7 +263,7 @@ div.filter-group-body > div.filter:nth-of-type(2) > div.filter-options > .exchan
 
 div.filter-group-body > div.filter:nth-of-type(3) > div.filter-options {
     position: relative !important;
-    height: calc((6 + var(--poe-custom-is-fragment-set-shown))*var(--poe-custom-item-distance)) !important;
+    height: calc((6 + var(--poe-custom-is-fragment-set-shown)) * var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
     width: calc(14*var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
@@ -424,7 +426,7 @@ div.filter-group-body > div.filter:nth-of-type(3) > div.filter-options > .exchan
 
 div.filter-group-body > div.filter:nth-of-type(8) > div.filter-options {
     position: relative !important;
-    height: calc(7.5*var(--poe-custom-item-distance)) !important;
+    height: calc(7.5*var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
     width: calc(13*var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
@@ -512,6 +514,74 @@ div.filter-group-body > div.filter:nth-of-type(8) > div.filter-options > .exchan
 
 
 /*------------------------------
+	"Resonators" section
+------------------------------*/
+
+/* setup resonators container(9) */
+div.filter-group-body > div.filter:nth-of-type(9) > div.filter-options {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    align-content: flex-start !important;
+}
+
+/* set display order for each resonator (by number of sockets) */
+[data-id=primitive-alchemical-resonator] { order: 10 !important; }
+[data-id=potent-alchemical-resonator]    { order: 30 !important; }
+[data-id=powerful-alchemical-resonator]  { order: 50 !important; }
+[data-id=prime-alchemical-resonator]     { order: 70 !important; }
+[data-id=primitive-chaotic-resonator]    { order: 20 !important; }
+[data-id=potent-chaotic-resonator]       { order: 40 !important; }
+[data-id=powerful-chaotic-resonator]     { order: 60 !important; }
+[data-id=prime-chaotic-resonator]        { order: 80 !important; }
+
+/* add spacing between different groups with different number of sockets */
+[data-id=primitive-chaotic-resonator],
+[data-id=potent-chaotic-resonator],
+[data-id=powerful-chaotic-resonator] {
+    margin-right: calc(0.5 * var(--poe-custom-item-distance)) !important;
+}
+
+/* double the size of the large resonators */
+
+/* 2x1 items */
+[data-id=potent-alchemical-resonator],
+[data-id=potent-chaotic-resonator] {
+    height:     calc(var(--poe-custom-item-size) + var(--poe-custom-image-size)) !important;
+}
+
+/* 2x1 images */
+[data-id=potent-alchemical-resonator] > img,
+[data-id=potent-chaotic-resonator] > img {
+    height:     calc(2 * var(--poe-custom-image-size)) !important;
+    max-height: calc(2 * var(--poe-custom-image-size)) !important;
+}
+
+/* 2x2 items */
+[data-id=powerful-alchemical-resonator],
+[data-id=powerful-chaotic-resonator],
+[data-id=prime-alchemical-resonator],
+[data-id=prime-chaotic-resonator] {
+    height:     calc(var(--poe-custom-item-size) + var(--poe-custom-image-size)) !important;
+    width:      calc(var(--poe-custom-item-size) + var(--poe-custom-image-size)) !important;
+}
+
+/* 2x2 images */
+[data-id=powerful-alchemical-resonator] > img,
+[data-id=powerful-chaotic-resonator] > img,
+[data-id=prime-alchemical-resonator] > img,
+[data-id=prime-chaotic-resonator] > img {
+    height:     calc(2 * var(--poe-custom-image-size)) !important;
+    width:      calc(2 * var(--poe-custom-image-size)) !important;
+    max-height: calc(2 * var(--poe-custom-image-size)) !important;
+    max-width:  calc(2 * var(--poe-custom-image-size)) !important;
+}
+
+
+
+/*------------------------------
 	"Fossils" section
 ------------------------------*/
 
@@ -519,7 +589,7 @@ div.filter-group-body > div.filter:nth-of-type(8) > div.filter-options > .exchan
 
 div.filter-group-body > div.filter:nth-of-type(10) > div.filter-options {
     position: relative !important;
-    height: calc(4*var(--poe-custom-item-distance)) !important;
+    height: calc(4*var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
     width: calc(9*var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
@@ -616,7 +686,7 @@ div.filter-group-body > div.filter:nth-of-type(10) > div.filter-options > .excha
 
 div.filter-group-body > div.filter:nth-of-type(11) > div.filter-options {
     position: relative !important;
-    height: calc(12*var(--poe-custom-item-distance)) !important;
+    height: calc(12*var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
     width: calc(11.5*var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }

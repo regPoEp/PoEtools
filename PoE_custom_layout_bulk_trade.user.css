@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.3.0
+@version      1.4.0
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -28,6 +28,7 @@ Table of contents:
 	"Shards & Splinters" section
 	"Fragments & Sets" section
 	"Scarabs" section
+	"Expedition" section
 	"Resonators" section
 	"Fossils" section
 	"Essences" section
@@ -59,7 +60,9 @@ Table of contents:
     --poe-custom-prophecy-text-alt-color: LightSlateGray !important;
 
     --poe-custom-image-size: 32px !important;
+    --poe-custom-image-size-double: calc(2 * var(--poe-custom-image-size)) !important;
     --poe-custom-item-size: calc(var(--poe-custom-image-size) + 8px) !important;
+    --poe-custom-item-size-double: calc(var(--poe-custom-item-size) + var(--poe-custom-image-size)) !important;
     --poe-custom-item-margin: 2px !important;
     --poe-custom-item-distance: calc(var(--poe-custom-item-size) + var(--poe-custom-item-margin)) !important;
 
@@ -76,7 +79,7 @@ Table of contents:
 /* hide legacy items */
 
 /*@*/if poe-custom-option-hide-legacy {
-[data-id=eternal], [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key] {
+[data-id=eternal], [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=vaal-reliquary-key] {
     display: none !important;
 }
 /*@*/}
@@ -409,7 +412,7 @@ Table of contents:
     --ratio-symbol-length: 4.01666px !important;
     --ratio-symbol-padding: 3.5px !important;
     --price-label-length: 49.2px !important;
-    --price-label-length-extended: calc(var(--price-label-length) + var(--one-symbol-lenth) + var(--ratio-symbol-length) + 2 * var(--ratio-symbol-padding)) !important; /* I don't know why this works */
+    --price-label-length-extended: calc(var(--price-label-length) + var(--one-symbol-lenth) + var(--ratio-symbol-length) + 2 * var(--ratio-symbol-padding)) !important;
 }
 
 /* adjust font size */
@@ -456,7 +459,6 @@ Table of contents:
     order: -1 !important;
 }
 
-/*49.2px*/
 /* add min width to numbers */
 .left > .price > :is(.per-have, .per-want) > span              > :nth-child(1) {
     display: inline-block !important;
@@ -656,7 +658,7 @@ Table of contents:
 	"Currency" section
 ---------------------------*/
 
-/* setup currency container(1) */
+/* setup currency container */
 
 .filter-group-body > .filter:nth-of-type(1) > .filter-options {
     position: relative !important;
@@ -755,7 +757,7 @@ Table of contents:
 	"Shards & Splinters" section
 ---------------------------*/
 
-/* setup shards/splinters container(2) */
+/* setup shards/splinters container */
 
 .filter-group-body > .filter:nth-of-type(2) > .filter-options {
     position: relative !important;
@@ -787,7 +789,7 @@ Table of contents:
 	"Fragments & Sets" section
 ---------------------------*/
 
-/* setup fragments container(3) */
+/* setup fragments container */
 
 .filter-group-body > .filter:nth-of-type(3) > .filter-options {
     position: relative !important;
@@ -818,19 +820,19 @@ Table of contents:
     top: calc(2 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=the-formed], [data-id=the-twisted], [data-id=the-forgotten], [data-id=the-hidden], [data-id=the-feared], [data-id=the-mavens-writ], [data-id=xophs-charged-breachstone], [data-id=tuls-charged-breachstone], [data-id=eshs-charged-breachstone], [data-id=uul-charged-breachstone], [data-id=chayulas-charged-breachstone] {
+[data-id=haewark-hamlet], [data-id=tirns-end], [data-id=lex-proxima], [data-id=lex-ejoris], [data-id=the-mavens-writ], [data-id=xophs-charged-breachstone], [data-id=tuls-charged-breachstone], [data-id=eshs-charged-breachstone], [data-id=uul-charged-breachstone], [data-id=chayulas-charged-breachstone] {
     top: calc(3 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=haewark-hamlet], [data-id=tirns-end], [data-id=lex-proxima], [data-id=lex-ejoris], [data-id=xophs-enriched-breachstone], [data-id=tuls-enriched-breachstone], [data-id=eshs-enriched-breachstone], [data-id=uul-enriched-breachstone], [data-id=chayulas-enriched-breachstone] {
+[data-id=new-vastir], [data-id=glennach-cairns], [data-id=valdos-rest], [data-id=lira-arthain], [data-id=sacred-blossom], [data-id=xophs-enriched-breachstone], [data-id=tuls-enriched-breachstone], [data-id=eshs-enriched-breachstone], [data-id=uul-enriched-breachstone], [data-id=chayulas-enriched-breachstone] {
     top: calc(4 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=new-vastir], [data-id=glennach-cairns], [data-id=valdos-rest], [data-id=lira-arthain], [data-id=xophs-pure-breachstone], [data-id=tuls-pure-breachstone], [data-id=eshs-pure-breachstone], [data-id=uul-pure-breachstone], [data-id=chayulas-pure-breachstone] {
+[data-id=the-formed], [data-id=the-twisted], [data-id=the-forgotten], [data-id=the-hidden], [data-id=the-feared], [data-id=xophs-pure-breachstone], [data-id=tuls-pure-breachstone], [data-id=eshs-pure-breachstone], [data-id=uul-pure-breachstone], [data-id=chayulas-pure-breachstone] {
     top: calc(5 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication], [data-id=sacred-blossom], [data-id=vaal-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=ancient-reliquary-key] {
+[data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication], [data-id=vaal-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=ancient-reliquary-key] {
     top: calc(6.5 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent)) !important;
 }
 
@@ -915,7 +917,7 @@ Table of contents:
 	"Scarabs" section
 ---------------------------*/
 
-/* setup scarabs container(8) */
+/* setup scarabs container */
 
 .filter-group-body > .filter:nth-of-type(9) > .filter-options {
     position: relative !important;
@@ -999,10 +1001,147 @@ Table of contents:
 
 
 /*------------------------------
+	"Expedition" section
+------------------------------*/
+
+/* set some local constants */
+.filter-group-body > .filter:nth-of-type(4) > .filter-options {
+    --poe-custom-item-size-double-plus: calc(2 * var(--poe-custom-item-size) + var(--poe-custom-item-margin)) !important;
+    --poe-custom-item-size-double-diff: calc(var(--poe-custom-item-size-double-plus) - var(--poe-custom-item-size-double)) !important;
+    --poe-custom-image-margin-double-plus: calc(var(--poe-custom-item-size-double-diff) / 2) !important;
+}
+
+/* setup expedition container */
+
+.filter-group-body > .filter:nth-of-type(4) > .filter-options {
+    position: relative !important;
+    height: calc(5 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin) - 1 * var(--poe-custom-item-size-double-diff)) !important;
+    width: calc(9.5 * var(--poe-custom-item-distance)) !important;
+    margin: auto !important;
+}
+
+.filter-group-body > .filter:nth-of-type(4) > .filter-options > .exchange-filter-item[data-id] {
+    position: absolute !important;
+}
+
+/* set Y-coordinate for each row */
+
+[data-id=astragali], [data-id=exotic-coinage], [data-id=scrap-metal], [data-id=burial-medallion] {
+    top: calc(0 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=lesser-broken-circle-artifact], [data-id=greater-broken-circle-artifact], [data-id=lesser-black-scythe-artifact], [data-id=greater-black-scythe-artifact], [data-id=lesser-order-artifact], [data-id=greater-order-artifact], [data-id=lesser-sun-artifact], [data-id=greater-sun-artifact] {
+    top: calc(1 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=common-broken-circle-artifact], [data-id=common-black-scythe-artifact], [data-id=common-order-artifact], [data-id=common-sun-artifact] {
+    top: calc(2 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=grand-broken-circle-artifact], [data-id=grand-black-scythe-artifact], [data-id=grand-order-artifact], [data-id=grand-sun-artifact] {
+    top: calc(3 * var(--poe-custom-item-distance)) !important;
+}
+
+/* set X-coordinate for each column */
+
+[data-id=lesser-broken-circle-artifact], [data-id=common-broken-circle-artifact], [data-id=grand-broken-circle-artifact] {
+    left: calc(0 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=greater-broken-circle-artifact] {
+    left: calc(1 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=lesser-black-scythe-artifact], [data-id=common-black-scythe-artifact], [data-id=grand-black-scythe-artifact] {
+    left: calc(2.5 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=greater-black-scythe-artifact] {
+    left: calc(3.5 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=lesser-order-artifact], [data-id=common-order-artifact], [data-id=grand-order-artifact] {
+    left: calc(5 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=greater-order-artifact] {
+    left: calc(6 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=lesser-sun-artifact], [data-id=common-sun-artifact], [data-id=grand-sun-artifact] {
+    left: calc(7.5 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=greater-sun-artifact] {
+    left: calc(8.5 * var(--poe-custom-item-distance)) !important;
+}
+
+/**/
+
+[data-id=astragali] {
+    left: calc(0.5 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=exotic-coinage] {
+    left: calc(3 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=scrap-metal] {
+    left: calc(5.5 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=burial-medallion] {
+    left: calc(8 * var(--poe-custom-item-distance)) !important;
+}
+
+/* double the size of the large items */
+
+/* 2x1 items */
+[data-id=greater-broken-circle-artifact],
+[data-id=greater-black-scythe-artifact],
+[data-id=greater-order-artifact],
+[data-id=greater-sun-artifact] {
+    height:     var(--poe-custom-item-size-double-plus) !important;
+}
+
+/* 2x1 images */
+[data-id=greater-broken-circle-artifact] > img,
+[data-id=greater-black-scythe-artifact] > img,
+[data-id=greater-order-artifact] > img,
+[data-id=greater-sun-artifact] > img {
+    height:     var(--poe-custom-image-size-double) !important;
+    max-height: var(--poe-custom-image-size-double) !important;
+    margin: var(--poe-custom-image-margin-double-plus) 0 !important;
+}
+
+/* 2x2 items */
+[data-id=grand-broken-circle-artifact],
+[data-id=grand-black-scythe-artifact],
+[data-id=grand-order-artifact],
+[data-id=grand-sun-artifact] {
+    height:     var(--poe-custom-item-size-double) !important;
+    width:      var(--poe-custom-item-size-double-plus) !important;
+}
+
+/* 2x2 images */
+[data-id=grand-broken-circle-artifact] > img,
+[data-id=grand-black-scythe-artifact] > img,
+[data-id=grand-order-artifact] > img,
+[data-id=grand-sun-artifact] > img {
+    height:     var(--poe-custom-image-size-double) !important;
+    width:      var(--poe-custom-image-size-double) !important;
+    max-height: var(--poe-custom-image-size-double) !important;
+    max-width:  var(--poe-custom-image-size-double) !important;
+    margin: 0 var(--poe-custom-image-margin-double-plus) !important;
+}
+
+
+
+/*------------------------------
 	"Resonators" section
 ------------------------------*/
 
-/* setup resonators container(9) */
+/* setup resonators container */
 .filter-group-body > .filter:nth-of-type(10) > .filter-options {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -1034,14 +1173,14 @@ Table of contents:
 /* 2x1 items */
 [data-id=potent-alchemical-resonator],
 [data-id=potent-chaotic-resonator] {
-    height:     calc(var(--poe-custom-item-size) + var(--poe-custom-image-size)) !important;
+    height:     var(--poe-custom-item-size-double) !important;
 }
 
 /* 2x1 images */
 [data-id=potent-alchemical-resonator] > img,
 [data-id=potent-chaotic-resonator] > img {
-    height:     calc(2 * var(--poe-custom-image-size)) !important;
-    max-height: calc(2 * var(--poe-custom-image-size)) !important;
+    height:     var(--poe-custom-image-size-double) !important;
+    max-height: var(--poe-custom-image-size-double) !important;
 }
 
 /* 2x2 items */
@@ -1049,8 +1188,8 @@ Table of contents:
 [data-id=powerful-chaotic-resonator],
 [data-id=prime-alchemical-resonator],
 [data-id=prime-chaotic-resonator] {
-    height:     calc(var(--poe-custom-item-size) + var(--poe-custom-image-size)) !important;
-    width:      calc(var(--poe-custom-item-size) + var(--poe-custom-image-size)) !important;
+    height:     var(--poe-custom-item-size-double) !important;
+    width:      var(--poe-custom-item-size-double) !important;
 }
 
 /* 2x2 images */
@@ -1058,10 +1197,10 @@ Table of contents:
 [data-id=powerful-chaotic-resonator] > img,
 [data-id=prime-alchemical-resonator] > img,
 [data-id=prime-chaotic-resonator] > img {
-    height:     calc(2 * var(--poe-custom-image-size)) !important;
-    width:      calc(2 * var(--poe-custom-image-size)) !important;
-    max-height: calc(2 * var(--poe-custom-image-size)) !important;
-    max-width:  calc(2 * var(--poe-custom-image-size)) !important;
+    height:     var(--poe-custom-image-size-double) !important;
+    width:      var(--poe-custom-image-size-double) !important;
+    max-height: var(--poe-custom-image-size-double) !important;
+    max-width:  var(--poe-custom-image-size-double) !important;
 }
 
 
@@ -1070,7 +1209,7 @@ Table of contents:
 	"Fossils" section
 ------------------------------*/
 
-/* setup fossils container(10) */
+/* setup fossils container */
 
 .filter-group-body > .filter:nth-of-type(11) > .filter-options {
     position: relative !important;
@@ -1163,7 +1302,7 @@ Table of contents:
 	"Essences" section
 ---------------------------*/
 
-/* setup essences container(11) */
+/* setup essences container */
 
 .filter-group-body > .filter:nth-of-type(12) > .filter-options {
     position: relative !important;
@@ -1280,7 +1419,7 @@ Table of contents:
 	"Prophecies" section
 ------------------------------*/
 
-/* setup prophecies container(11) */
+/* setup prophecies container */
 
 .filter-group-body > .filter:nth-of-type(14) > .filter-options {
     display: flex !important;
@@ -1317,7 +1456,6 @@ Table of contents:
 .filter-group-body > .filter:nth-of-type(14) > .filter-options > [data-id]::before {
     position: absolute !important;
     color: var(--poe-custom-filter-title-color) !important;
-    /*color: var(--poe-custom-item-text-color) !important;*/
     font-family: var(--poe-custom-item-text-font-family-enhanced) !important;
     right: calc(100% + 8px) !important;
 }
@@ -1782,7 +1920,7 @@ Table of contents:
     display: none !important;
 }
 
-/* apply pseudo-names */
+/* set pseudo-names */
 
 :is(
     [data-id=deadly-rivalry-iv],
@@ -1841,10 +1979,10 @@ Table of contents:
     content: 'I' !important;
 }
 
-/* Skip */
+/* Useless */
 
-[data-id=defiled-in-the-sceptre]::before    { content: 'Skip' !important; }
-[data-id=defiled-in-the-sceptre]            { margin-left: 54.422px !important; }
+[data-id=defiled-in-the-sceptre]::before    { content: 'Useless' !important; }
+[data-id=defiled-in-the-sceptre]            { margin-left: 76.313px !important; }
 [data-id=defiled-in-the-sceptre]    { order: 9001 !important; }
 [data-id=echoes-of-witchcraft]      { order: 9002 !important; }
 [data-id=fallow-at-last]            { order: 9003 !important; }
@@ -1868,7 +2006,7 @@ Table of contents:
 [data-id=visions-of-the-drowned]    { order: 9023 !important; }
 [data-id=vital-transformation]      { order: 9024 !important; }
 
-/* set skip color */
+/* set dimmed color */
 .exchange-filter-item.text:is(
     [data-id=golden-touch],
     [data-id=lasting-impressions],
@@ -1900,5 +2038,4 @@ Table of contents:
 
 
 
-/*@*/
-}
+/*@*/}

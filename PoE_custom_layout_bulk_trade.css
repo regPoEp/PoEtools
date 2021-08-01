@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.4.0
+@version      1.4.1
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -415,6 +415,7 @@ Table of contents:
 /* move per-have image/text in between lines */
 .left > .price > .per-have > span > :nth-child(3) {
     position: relative !important;
+    vertical-align: top !important;
     top: 50% !important;
 }
 

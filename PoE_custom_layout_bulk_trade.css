@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.5.1
+@version      1.5.2
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -654,6 +654,7 @@ Table of contents:
     --image-size-scale-to: 24 !important;
     --image-original-size-scale-from: 48 !important;
     --image-original-size-scuffed-scale-from: 47 !important;
+    --image-original-size-large-scale-from: 95 !important;
     --image-position-left: 6px !important;
 }
 
@@ -678,14 +679,17 @@ Table of contents:
 
 /* special handling of scuffed image size */
 .filter-group:first-child > .filter-group-body > :is(
-    .filter:nth-child(11),
-    .filter:nth-child(14),
-    .filter:nth-child(15),
-    .filter:nth-child(16),
     .filter:nth-child(17),
-    .filter:nth-child(19),
+    .filter:nth-child(18),
 ) > .filter-title-clickable > span:first-child::before {
     transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-scuffed-scale-from) )) !important;
+}
+
+/* special handling of large image size */
+.filter-group:first-child > .filter-group-body > :is(
+    .filter:nth-child(11),
+) > .filter-title-clickable > span:first-child::before {
+    transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-large-scale-from) )) !important;
 }
 
 /* push headers to the right */
@@ -761,6 +765,10 @@ Table of contents:
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(17) > .filter-title-clickable > span:first-child::before {
     content: url('https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXNcL01hcHNcL0F0bGFzMk1hcHNcL05ld1wvTHVuYXJpc1RlbXBsZSIsInciOjEsImgiOjEsInNjYWxlIjp0cnVlLCJtbiI6MTAsIm10IjoxNCwibWIiOnRydWV9XQ/038c28d2e1/Item.png') !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(18) > .filter-title-clickable > span:first-child::before {
+    content: url('https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9DYW55b24iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjEyLCJtdCI6MTQsIm11YiI6dHJ1ZX1d/89aee98cfa/Canyon.png') !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-title-clickable > span:first-child::before {

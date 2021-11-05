@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.5.2
+@version      1.5.3
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -13,6 +13,7 @@ Table of contents:
 	Search panel
 	Search results
 	Category icons
+	Catch new items
 	"Currency" section
 	"Shards & Splinters" section
 	"Fragments & Sets" section
@@ -119,16 +120,25 @@ Table of contents:
 }
 
 @media (min-width: 1200px) {
+    /* double the width of containers */
+    .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > :is(
+        .filter:nth-child(14),
+        .filter:nth-child(15),
+        .filter:nth-child(19),
+    ) > .filter-options {
+        --padding-top-row-height: calc(33px * var(--poe-custom-is-cards-width-doubled)) !important;
+        
+        width: calc(100% + (100% + 20px) * var(--poe-custom-is-cards-width-doubled)) !important;
+    }
+    
     /* double the width of the cards container */
     .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(14) > .filter-options {
-        width: calc(100% + (100% + 20px) * var(--poe-custom-is-cards-width-doubled)) !important;
-        padding-top: calc(5 * 33px * var(--poe-custom-is-cards-width-doubled)) !important;
+        padding-top: calc(5 * var(--padding-top-row-height)) !important;
     }
     
     /* double the width of the prophecies container */
     .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(15) > .filter-options {
-        width: calc(100% + (100% + 20px) * var(--poe-custom-is-cards-width-doubled)) !important;
-        padding-top: calc(4 * 33px * var(--poe-custom-is-cards-width-doubled)) !important;
+        padding-top: calc(4 * var(--padding-top-row-height)) !important;
     }
 }
 
@@ -778,16 +788,20 @@ Table of contents:
 
 
 /*---------------------------
-	"Currency" section
+	Catch new items
 ---------------------------*/
 
-/* move all items that don't have coordinates specified 
-.filter-group:first-child > .filter-group-body > .filter:not(:nth-child(15)) > .filter-options[data-id] {
-    top: calc(-1 * var(--poe-custom-item-margin)) !important;
+/* move all items that don't have coordinates specified */
+:where(.filter-group:first-child > .filter-group-body > .filter:not(:nth-child(15)) > .filter-options > [data-id]) {
+    top: calc(0 * var(--poe-custom-item-margin)) !important;
     left: calc(-1 * var(--poe-custom-item-distance)) !important;
-}*/
+}
 
 
+
+/*---------------------------
+	"Currency" section
+---------------------------*/
 
 /* setup currency container */
 
@@ -812,7 +826,7 @@ Table of contents:
     top: calc(1 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=exalted], [data-id=crusaders-exalted-orb], [data-id=redeemers-exalted-orb], [data-id=hunters-exalted-orb], [data-id=warlords-exalted-orb], [data-id=awakeners-orb], [data-id=mavens-orb], [data-id=elevated-sextant], [data-id=orb-of-unmaking], [data-id=annul], [data-id=ancient-orb], [data-id=harbingers-orb], [data-id=divine] {
+[data-id=exalted], [data-id=crusaders-exalted-orb], [data-id=redeemers-exalted-orb], [data-id=hunters-exalted-orb], [data-id=warlords-exalted-orb], [data-id=awakeners-orb], [data-id=mavens-orb], [data-id=sacred-orb], [data-id=elevated-sextant], [data-id=orb-of-unmaking], [data-id=annul], [data-id=ancient-orb], [data-id=harbingers-orb], [data-id=divine] {
     top: calc(2 * var(--poe-custom-item-distance)) !important;
 }
 
@@ -854,7 +868,7 @@ Table of contents:
     left: calc(6 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=regret], [data-id=mirror], [data-id=engineers-shard], [data-id=crescent-splinter] {
+[data-id=regret], [data-id=sacred-orb], [data-id=mirror], [data-id=engineers-shard], [data-id=crescent-splinter] {
     left: calc(7 * var(--poe-custom-item-distance)) !important;
 }
 

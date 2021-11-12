@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.5.4
+@version      1.5.5
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -246,12 +246,17 @@ Table of contents:
     :root {
         --poe-custom-search-highlight-input-left: 15px !important;
         --poe-custom-search-highlight-input-width: 256px !important;
-        --poe-custom-search-stock-label-left: calc(40px + var(--poe-custom-search-highlight-input-left) + var(--poe-custom-search-highlight-input-width)) !important;
+        --poe-custom-search-stock-label-left: calc(35px + var(--poe-custom-search-highlight-input-left) + var(--poe-custom-search-highlight-input-width)) !important;
         --poe-custom-search-stock-label-width: 37.5px !important;
         --poe-custom-search-stock-input-left: calc(8px + var(--poe-custom-search-stock-label-left) + var(--poe-custom-search-stock-label-width)) !important;
         --poe-custom-search-stock-input-width: 64px !important;
-        --poe-custom-search-swap-button-right: calc(15px + 128px + 5px + 96px + 4px) !important;
+        --poe-custom-search-offset-right: 15px !important;
+        --poe-custom-search-swap-button-right: calc(var(--poe-custom-search-offset-right) + 128px + 5px + 96px + 4px) !important;
         --poe-custom-search-height: 34px !important;
+
+        /* offcet-right */
+        --poe-custom-search-bt-width: 400px !important;
+        --poe-custom-search-bt-induced-offset: calc(var(--poe-custom-search-bt-width) / 2) !important;
     }
 
     /* pin search to the bottom of the page */
@@ -317,6 +322,9 @@ Table of contents:
         margin: 0 !important;
         border: 1px solid var(--poe-custom-background-color) !important;
     }
+    body.bt-body:not(.bt-is-collapsed) .search-advanced-pane:nth-child(2) > .filter-group > .filter-group-header > .filter > .input-group-btn > button.filter-toggle {
+        right: calc(var(--poe-custom-search-swap-button-right) + var(--poe-custom-search-bt-width)) !important;
+    }
 
     /* +add background color */
     .search-advanced-pane:nth-child(2) > .filter-group > .filter-group-header > .filter > .input-group-btn > button.filter-toggle:not(:active):not(:hover) {
@@ -337,6 +345,9 @@ Table of contents:
         /*height: 42px !important;
         border-top: 1px solid var(--poe-custom-filter-title-border-color) !important;*/
     }
+    body.bt-body:not(.bt-is-collapsed) .search-panel > .controls {
+        width: calc(100% - 10px - var(--poe-custom-search-bt-width)) !important;
+    }
 
     /* move buttons on search panel to the bottom 
     .search-panel > .controls > div > button.btn {
@@ -356,7 +367,11 @@ Table of contents:
     /* adjust "^^" fixed button position */
     #trade > .top-btn {
         bottom: var(--poe-custom-search-height) !important;
-        right: 15px !important;
+        right: var(--poe-custom-search-offset-right) !important;
+    }
+    body.bt-body:not(.bt-is-collapsed) #trade > .top-btn {
+        bottom: var(--poe-custom-search-height) !important;
+        right: calc(var(--poe-custom-search-offset-right) + var(--poe-custom-search-bt-width)) !important;
     }
 }
 
@@ -366,20 +381,43 @@ Table of contents:
     }
 
     /* highlight items input */
-    .search-panel > .search-bar:not(search-advanced) > .search-left > input {
+    :is(body:not(.bt-body), body.bt-is-collapsed) .search-panel > .search-bar:not(search-advanced) > .search-left > input {
         left: calc(var(--poe-custom-search-highlight-input-left) + var(--poe-custom-horizontal-margin)) !important;
     }
     /* text label before stock input */
-    .filter-group.blue > .filter-group-body > .filter.filter-property:nth-child(2) > .filter-title::before {
+    :is(body:not(.bt-body), body.bt-is-collapsed) .filter-group.blue > .filter-group-body > .filter.filter-property:nth-child(2) > .filter-title::before {
         left: calc(var(--poe-custom-search-stock-label-left) + var(--poe-custom-horizontal-margin)) !important;
     }
     /* stock input */
-    .filter-group.blue > .filter-group-body > .filter.filter-property:nth-child(2) > input {
+    :is(body:not(.bt-body), body.bt-is-collapsed) .filter-group.blue > .filter-group-body > .filter.filter-property:nth-child(2) > input {
         left: calc(var(--poe-custom-search-stock-input-left) + var(--poe-custom-horizontal-margin)) !important;
     }
     /* "swap want/have" button */
-    .search-advanced-pane:nth-child(2) > .filter-group > .filter-group-header > .filter > .input-group-btn > button.filter-toggle {
+    :is(body:not(.bt-body), body.bt-is-collapsed) .search-advanced-pane:nth-child(2) > .filter-group > .filter-group-header > .filter > .input-group-btn > button.filter-toggle {
         right: calc(var(--poe-custom-search-swap-button-right) + var(--poe-custom-horizontal-margin)) !important;
+    }
+}
+
+@media (min-width: 1930px) {
+    :root {
+        --poe-custom-horizontal-margin: calc((100% - var(--poe-custom-layout-absolute-max-width)) / 2) !important;
+    }
+
+    /* highlight items input */
+    body.bt-body:not(.bt-is-collapsed) .search-panel > .search-bar:not(search-advanced) > .search-left > input {
+        left: calc(var(--poe-custom-search-highlight-input-left) + var(--poe-custom-horizontal-margin) - var(--poe-custom-search-bt-induced-offset)) !important;
+    }
+    /* text label before stock input */
+    body.bt-body:not(.bt-is-collapsed) .filter-group.blue > .filter-group-body > .filter.filter-property:nth-child(2) > .filter-title::before {
+        left: calc(var(--poe-custom-search-stock-label-left) + var(--poe-custom-horizontal-margin) - var(--poe-custom-search-bt-induced-offset)) !important;
+    }
+    /* stock input */
+    body.bt-body:not(.bt-is-collapsed) .filter-group.blue > .filter-group-body > .filter.filter-property:nth-child(2) > input {
+        left: calc(var(--poe-custom-search-stock-input-left) + var(--poe-custom-horizontal-margin) - var(--poe-custom-search-bt-induced-offset)) !important;
+    }
+    /* "swap want/have" button */
+    body.bt-body:not(.bt-is-collapsed) .search-advanced-pane:nth-child(2) > .filter-group > .filter-group-header > .filter > .input-group-btn > button.filter-toggle {
+        right: calc(var(--poe-custom-search-swap-button-right) + var(--poe-custom-horizontal-margin) + var(--poe-custom-search-bt-induced-offset)) !important;
     }
 }
 

@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.6.0
+@version      1.6.1
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -12,8 +12,8 @@
 @var          checkbox poe-custom-option-show-icons "Show category icons" 1
 @var          checkbox poe-custom-option-hide-legacy "Hide legacy items" 1
 @var          checkbox poe-custom-option-hide-fragment-sets "Hide fragment sets" 1
-@var          checkbox poe-custom-option-double-cards-width "Double the width (Cards, Prophecies, Maps (Unique))" 1
-@var          checkbox poe-custom-option-cards_maps-font_background "Change font/background (Cards, Prophecies, all Maps)" 1
+@var          checkbox poe-custom-option-double-cards-width "Double the width (Cards, Maps (Unique))" 1
+@var          checkbox poe-custom-option-cards_maps-font_background "Change font/background (Cards, all Maps)" 1
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://www.pathofexile.com/trade/exchange/") {
@@ -82,10 +82,12 @@ Table of contents:
 
 /*@*/if poe-custom-option-hide-legacy {
 [data-id=eternal], 
-[data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=vaal-reliquary-key], 
-[data-id=whispering-incubator], [data-id=gemcutters-incubator], [data-id=feral-incubator], [data-id=fine-incubator], [data-id=eldritch-incubator], 
-[data-id=primitive-alchemical-resonator], [data-id=potent-alchemical-resonator], [data-id=powerful-alchemical-resonator], [data-id=prime-alchemical-resonator], 
-[data-id=delirium-orb], [data-id=kalguuran-delirium-orb], [data-id=portentous-delirium-orb], [data-id=primal-delirium-orb] {
+, [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=vaal-reliquary-key]
+, [data-id=whispering-incubator], [data-id=gemcutters-incubator], [data-id=feral-incubator], [data-id=fine-incubator], [data-id=eldritch-incubator]
+, [data-id=primitive-alchemical-resonator], [data-id=potent-alchemical-resonator], [data-id=powerful-alchemical-resonator], [data-id=prime-alchemical-resonator]
+, [data-id=delirium-orb], [data-id=kalguuran-delirium-orb], [data-id=portentous-delirium-orb], [data-id=primal-delirium-orb]
+, [data-id=tainted-chromatic-orb], [data-id=tainted-orb-of-fusing], [data-id=tainted-jewellers-orb], [data-id=tainted-chaos-orb], [data-id=tainted-exalted-orb], [data-id=tainted-mythic-orb], [data-id=tainted-armourers-scrap], [data-id=tainted-blacksmiths-whetstone], [data-id=tainted-divine-teardrop]
+{
     display: none !important;
 }
 /*@*/}
@@ -753,6 +755,7 @@ Table of contents:
 
 /* special handling of scuffed image size */
 .filter-group:first-child > .filter-group-body > :is(
+    .filter:nth-child(5),
     .filter:nth-child(18),
     .filter:nth-child(19),
 ) > .filter-title-clickable > span:first-child::before {
@@ -787,6 +790,10 @@ Table of contents:
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-title-clickable > span:first-child::before {
     content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ2xlYW5zaW5nRmlyZU9yYlJhbms0Iiwic2NhbGUiOjF9XQ/c2c828fa16/CleansingFireOrbRank4.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(5) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NvdXRpbmdSZXBvcnQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/584635f3c8/ScoutingReport.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(12) > .filter-title-clickable > span:first-child::before {
@@ -906,7 +913,7 @@ Table of contents:
 
 /* set X-coordinate for each column */
 
-[data-id=chaos], [data-id=alt], [data-id=divine], [data-id=exalted], [data-id=stacked-deck], [data-id=exalted-shard], [data-id=ritual-splinter] {
+[data-id=chaos], [data-id=alt], [data-id=divine], [data-id=exalted], [data-id=stacked-deck], [data-id=exalted-shard], [data-id=crescent-splinter] {
     left: calc(0 * var(--poe-custom-item-distance)) !important;
 }
 
@@ -918,48 +925,53 @@ Table of contents:
     left: calc(2 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=scour], [data-id=chance], [data-id=infused-engineers-orb], [data-id=hunters-exalted-orb], [data-id=portal], [data-id=chaos-shard], [data-id=timeless-vaal-splinter] {
+[data-id=scour], [data-id=chance], [data-id=infused-engineers-orb], [data-id=hunters-exalted-orb], [data-id=portal], [data-id=annulment-shard], [data-id=timeless-vaal-splinter] {
     left: calc(3 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=regal], [data-id=aug], [data-id=facetors], [data-id=warlords-exalted-orb], [data-id=regal-shard], [data-id=timeless-templar-splinter] {
+[data-id=regal], [data-id=aug], [data-id=facetors], [data-id=warlords-exalted-orb], [data-id=ancient-shard], [data-id=timeless-templar-splinter] {
     left: calc(4 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=orb-of-binding], [data-id=jewellers], [data-id=veiled-chaos-orb], [data-id=awakeners-orb], [data-id=mirror], [data-id=binding-shard], [data-id=timeless-maraketh-splinter] {
+[data-id=orb-of-binding], [data-id=jewellers], [data-id=veiled-chaos-orb], [data-id=awakeners-orb], [data-id=mirror], [data-id=harbingers-shard], [data-id=timeless-maraketh-splinter] {
     left: calc(5 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=vaal], [data-id=mavens-orb], [data-id=eternal], [data-id=horizon-shard], [data-id=simulacrum-splinter] {
+[data-id=vaal], [data-id=mavens-orb], [data-id=eternal] {
     left: calc(6 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=regret], [data-id=orb-of-unmaking], [data-id=engineers-shard], [data-id=crescent-splinter] {
+[data-id=regret], [data-id=orb-of-unmaking], [data-id=chaos-shard] {
     left: calc(7 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=blessed], [data-id=surveyors-compass], [data-id=sacred-orb], [data-id=blessing-xoph], [data-id=splinter-xoph] {
+[data-id=blessed], [data-id=surveyors-compass], [data-id=sacred-orb], [data-id=regal-shard], [data-id=blessing-xoph], [data-id=splinter-xoph] {
     left: calc(8 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=engineers], [data-id=awakened-sextant], [data-id=blessing-tul], [data-id=splinter-tul] {
+[data-id=engineers], [data-id=awakened-sextant], [data-id=binding-shard], [data-id=blessing-tul], [data-id=splinter-tul] {
     left: calc(9 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=whetstone], [data-id=elevated-sextant], [data-id=prime-regrading-lens], [data-id=annulment-shard], [data-id=blessing-esh], [data-id=splinter-esh] {
+[data-id=whetstone], [data-id=elevated-sextant], [data-id=prime-regrading-lens], [data-id=horizon-shard], [data-id=blessing-esh], [data-id=splinter-esh] {
     left: calc(10 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=scrap], [data-id=harbingers-orb], [data-id=ancient-shard], [data-id=secondary-regrading-lens], [data-id=blessing-uul-netol], [data-id=splinter-uul] {
+[data-id=scrap], [data-id=harbingers-orb], [data-id=secondary-regrading-lens], [data-id=engineers-shard], [data-id=blessing-uul-netol], [data-id=splinter-uul] {
     left: calc(11 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=enkindling-orb], [data-id=bauble], [data-id=orb-of-horizons], [data-id=tempering-orb], [data-id=harbingers-shard], /*[data-id=p],*/ [data-id=blessing-chayula], [data-id=splinter-chayula] {
+[data-id=enkindling-orb], [data-id=bauble], [data-id=orb-of-horizons], [data-id=tempering-orb], /*[data-id=p],*/ [data-id=blessing-chayula], [data-id=splinter-chayula] {
     left: calc(12 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=instilling-orb], [data-id=gcp], [data-id=chisel], [data-id=tailoring-orb] {
+[data-id=instilling-orb], [data-id=gcp], [data-id=chisel], [data-id=tailoring-orb], [data-id=ritual-splinter] {
     left: calc(13 * var(--poe-custom-item-distance)) !important;
+}
+
+/**/
+[data-id=simulacrum-splinter] {
+    left: calc(6.5 * var(--poe-custom-item-distance)) !important;
 }
 
 

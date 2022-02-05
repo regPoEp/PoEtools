@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.6.1
+@version      1.6.2
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -81,7 +81,7 @@ Table of contents:
 /* hide legacy items */
 
 /*@*/if poe-custom-option-hide-legacy {
-[data-id=eternal], 
+[data-id=eternal]
 , [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=vaal-reliquary-key]
 , [data-id=whispering-incubator], [data-id=gemcutters-incubator], [data-id=feral-incubator], [data-id=fine-incubator], [data-id=eldritch-incubator]
 , [data-id=primitive-alchemical-resonator], [data-id=potent-alchemical-resonator], [data-id=powerful-alchemical-resonator], [data-id=prime-alchemical-resonator]
@@ -147,7 +147,7 @@ Table of contents:
     /* double the width of containers */
     .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > :is(
         .filter:nth-child(16),
-        .filter:nth-child(20),
+        .filter:nth-child(20)
     ) > .filter-options {
         --padding-top-row-height: calc(33px * var(--poe-custom-is-cards-width-doubled)) !important;
         
@@ -757,14 +757,14 @@ Table of contents:
 .filter-group:first-child > .filter-group-body > :is(
     .filter:nth-child(5),
     .filter:nth-child(18),
-    .filter:nth-child(19),
+    .filter:nth-child(19)
 ) > .filter-title-clickable > span:first-child::before {
     transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-scuffed-scale-from) )) !important;
 }
 
 /* special handling of large image size */
 .filter-group:first-child > .filter-group-body > :is(
-    .filter:nth-child(13),
+    .filter:nth-child(13)
 ) > .filter-title-clickable > span:first-child::before {
     transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-large-scale-from) )) !important;
 }
@@ -1547,7 +1547,7 @@ Table of contents:
     [data-id=lair-of-the-hydra-map],
     [data-id=maze-of-the-minotaur-map],
     [data-id=pit-of-the-chimera-map],
-    [data-id=vaal-temple-map-tier-16],
+    [data-id=vaal-temple-map-tier-16]
 ) > span {
     position: relative !important;
     margin-left: var(--image-indent) !important;
@@ -1559,7 +1559,7 @@ Table of contents:
     [data-id=lair-of-the-hydra-map],
     [data-id=maze-of-the-minotaur-map],
     [data-id=pit-of-the-chimera-map],
-    [data-id=vaal-temple-map-tier-16],
+    [data-id=vaal-temple-map-tier-16]
 ) > span::before {
     position: absolute !important;
     transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-scuffed-scale-from) )) !important;

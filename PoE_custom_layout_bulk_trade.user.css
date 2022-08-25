@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.6.5
+@version      1.6.6
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -70,7 +70,8 @@ Table of contents:
     --poe-custom-item-margin: 2px !important;
     --poe-custom-item-distance: calc(var(--poe-custom-item-size) + var(--poe-custom-item-margin)) !important;
 
-    --poe-custom-fragment-set-indent: var(--poe-custom-item-distance) !important;
+    --poe-custom-lures-indent: 0px !important;
+    --poe-custom-fragment-set-indent: 0px !important;
     --poe-custom-is-cards-width-doubled: 0 !important;
 }
 
@@ -81,12 +82,17 @@ Table of contents:
 /* hide legacy items */
 
 /*@*/if poe-custom-option-hide-legacy {
-[data-id=eternal]
+:root {
+    --poe-custom-lures-indent: calc(1.5 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=eternal], [data-id=infused-engineers-orb]
 , [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=vaal-reliquary-key]
-, [data-id=whispering-incubator], [data-id=gemcutters-incubator], [data-id=feral-incubator], [data-id=fine-incubator], [data-id=eldritch-incubator]
+, [data-id=whispering-incubator], [data-id=gemcutters-incubator], [data-id=feral-incubator], [data-id=fine-incubator], [data-id=eldritch-incubator], [data-id=time-lost-incubator]
 , [data-id=primitive-alchemical-resonator], [data-id=potent-alchemical-resonator], [data-id=powerful-alchemical-resonator], [data-id=prime-alchemical-resonator]
 , [data-id=delirium-orb], [data-id=kalguuran-delirium-orb], [data-id=portentous-delirium-orb], [data-id=primal-delirium-orb]
 , [data-id=armour-recombinator], [data-id=weapon-recombinator], [data-id=jewellery-recombinator]
+, [data-id=farric-lure], [data-id=saqawine-lure], [data-id=fenumal-lure], [data-id=craicic-lure]
 {
     display: none !important;
 }
@@ -96,7 +102,6 @@ Table of contents:
 
 /*@*/if poe-custom-option-hide-fragment-sets {
 :root {
-    --poe-custom-fragment-set-indent: 0px !important;
     --poe-custom-fragment-set-indent: calc(0.5 * var(--poe-custom-item-distance)) !important;
 }
 
@@ -808,7 +813,7 @@ Table of contents:
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(5) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/protected/image/kalandra/items/NikosMemoryofDemonicOnslaught.png?key=XIYvnZmoe3Opfc5ZbjBNlA") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTWVtb3J5TGluZS9OaWtvTWVtb3J5SXRlbSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/5c560ea8fd/NikoMemoryItem.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-title-clickable > span:first-child::before {
@@ -1027,7 +1032,7 @@ Table of contents:
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-options {
     position: relative !important;
-    height: calc(10 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent) + var(--poe-custom-item-margin)) !important;
+    height: calc(11 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent) + var(--poe-custom-item-margin)) !important;
     width: calc(12 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
@@ -1051,31 +1056,31 @@ Table of contents:
 }
 
 [data-id=timeless-eternal-emblem], [data-id=timeless-karui-emblem], [data-id=timeless-maraketh-emblem], [data-id=timeless-templar-emblem], [data-id=timeless-vaal-emblem], [data-id=simulacrum], [data-id=xophs-breachstone], [data-id=tuls-breachstone], [data-id=eshs-breachstone], [data-id=uul-breachstone], [data-id=chayulas-breachstone] {
-    top: calc(2 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent)) !important;
+    top: calc(3 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
 [data-id=uber-timeless-eternal-emblem], [data-id=uber-timeless-karui-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=uber-timeless-templar-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=the-mavens-writ], [data-id=xophs-charged-breachstone], [data-id=tuls-charged-breachstone], [data-id=eshs-charged-breachstone], [data-id=uul-charged-breachstone], [data-id=chayulas-charged-breachstone] {
-    top: calc(3 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent)) !important;
+    top: calc(4 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
 [data-id=sacred-blossom], [data-id=xophs-enriched-breachstone], [data-id=tuls-enriched-breachstone], [data-id=eshs-enriched-breachstone], [data-id=uul-enriched-breachstone], [data-id=chayulas-enriched-breachstone] {
-    top: calc(4 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent)) !important;
+    top: calc(5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
 [data-id=the-atlas], [data-id=writhing-invitation], [data-id=screaming-invitation], [data-id=polaric-invitation], [data-id=incandescent-invitation], [data-id=xophs-pure-breachstone], [data-id=tuls-pure-breachstone], [data-id=eshs-pure-breachstone], [data-id=uul-pure-breachstone], [data-id=chayulas-pure-breachstone] {
-    top: calc(5 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent)) !important;
+    top: calc(6 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
 [data-id=the-formed], [data-id=the-twisted], [data-id=the-forgotten], [data-id=the-hidden], [data-id=the-elderslayers], [data-id=the-feared], [data-id=xophs-flawless-breachstone], [data-id=tuls-flawless-breachstone], [data-id=eshs-flawless-breachstone], [data-id=uul-flawless-breachstone], [data-id=chayulas-flawless-breachstone] {
-    top: calc(6 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent)) !important;
+    top: calc(7 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
 [data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication], [data-id=ritual-vessel], [data-id=victorious-fate], [data-id=deadly-fate], [data-id=will-of-chaos], [data-id=ignominious-fate] {
-    top: calc(7.5 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent)) !important;
+    top: calc(8.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
 [data-id=forgotten-reliquary-key], [data-id=visceral-reliquary-key], [data-id=shiny-reliquary-key], [data-id=archive-reliquary-key], [data-id=oubliette-reliquary-key], [data-id=cosmic-reliquary-key], [data-id=decaying-reliquary-key], [data-id=vaal-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=ancient-reliquary-key] {
-    top: calc(9 * var(--poe-custom-item-distance) + var(--poe-custom-fragment-set-indent)) !important;
+    top: calc(10 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
 /* set X-coordinate for each column */
@@ -1163,7 +1168,7 @@ Table of contents:
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(12) > .filter-options {
     position: relative !important;
-    height: calc(9.5 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
+    height: calc(9.5 * var(--poe-custom-item-distance) - var(--poe-custom-lures-indent) + var(--poe-custom-item-margin)) !important;
     width: calc(8.5 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }

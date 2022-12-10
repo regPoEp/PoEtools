@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.6.6
+@version      1.6.7
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -13,7 +13,7 @@
 @var          checkbox poe-custom-option-hide-legacy "Hide legacy items" 1
 @var          checkbox poe-custom-option-hide-fragment-sets "Hide fragment sets" 1
 @var          checkbox poe-custom-option-double-cards-width "Double the width (Cards, Maps (Unique))" 1
-@var          checkbox poe-custom-option-cards_maps-font_background "Change font/background (Cards, all Maps)" 1
+@var          checkbox poe-custom-option-cards_maps-font_background "Change font/background for text items" 1
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://www.pathofexile.com/trade/exchange/") {
@@ -40,6 +40,7 @@ Table of contents:
 
 :root {
     /* firm values */
+
     --poe-custom-layout-absolute-max-width: 1530px !important;
     --poe-custom-layout-absolute-horizontal-padding: 10px !important;
     --poe-custom-background-color: black !important;
@@ -54,14 +55,15 @@ Table of contents:
     --poe-custom-item-color-search-highlighted: #abab5a !important;
     --poe-custom-button-background-color-grey: #1e2124 !important;
 
+    --poe-custom-filter-title-height: 30px !important;
+    --poe-custom-filter-title-bottom-margin: 3px !important;
+    --poe-custom-filter-title-text-vertical-padding: 6px !important;
+    
     /* custom values */
 
     --poe-custom-filter-group-name-color: #cec59f !important;
     --poe-custom-item-text-font-family-enhanced: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif !important;
     --poe-custom-item-color-dimmed: Grey !important;
-
-    --poe-custom-prophecy-indent: 25px !important;
-    --poe-custom-prophecy-text-alt-color: LightSlateGray !important;
 
     --poe-custom-image-size: 32px !important;
     --poe-custom-image-size-double: calc(2 * var(--poe-custom-image-size)) !important;
@@ -154,15 +156,19 @@ Table of contents:
         .filter:nth-child(16),
         .filter:nth-child(20)
     ) > .filter-options {
-        --padding-top-row-height: calc(33px * var(--poe-custom-is-cards-width-doubled)) !important;
+        /*--padding-top-row-height: calc(( var(--poe-custom-filter-title-height) + var(--poe-custom-filter-title-bottom-margin) ) * var(--poe-custom-is-cards-width-doubled)) !important;*/
         
         width: calc(100% + (100% + 20px) * var(--poe-custom-is-cards-width-doubled)) !important;
     }
     
     /* double the width of the cards container */
-    .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-options {
+    /*.search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-options {
         padding-top: calc(4 * var(--padding-top-row-height)) !important;
+    }*/
+    .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-title:has(+.filter-options) {
+        padding-bottom: calc( var(--poe-custom-filter-title-text-vertical-padding) + 4 * calc(( var(--poe-custom-filter-title-height) + var(--poe-custom-filter-title-bottom-margin) ) * var(--poe-custom-is-cards-width-doubled)) ) !important;
     }
+    
 }
 
 
@@ -740,7 +746,6 @@ Table of contents:
 /*@*/if poe-custom-option-show-icons {
 
 .filter-group {
-    --filter-title-height: 30px !important;
     --image-size: 24px !important;
     --image-size-scale-to: 24 !important;
     --image-original-size-scale-from: 48 !important;
@@ -765,7 +770,7 @@ Table of contents:
     transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-scale-from) )) !important;
     transform-origin: 0% 0% !important;
     left: var(--image-position-left) !important;
-    top: calc( (var(--filter-title-height) - var(--image-size)) / 2 ) !important;
+    top: calc( (var(--poe-custom-filter-title-height) - var(--image-size)) / 2 ) !important;
 }
 
 /* special handling of scuffed image size */
@@ -919,7 +924,7 @@ Table of contents:
     top: calc(2 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=divine], /*[data-id=crusaders-exalted-orb], [data-id=redeemers-exalted-orb], [data-id=hunters-exalted-orb], [data-id=warlords-exalted-orb], [data-id=awakeners-orb], [data-id=mavens-orb],*/ [data-id=sacred-orb], [data-id=prime-regrading-lens], [data-id=secondary-regrading-lens], [data-id=tempering-orb], [data-id=tailoring-orb] {
+[data-id=divine], [data-id=fracturing-orb], /*[data-id=crusaders-exalted-orb], [data-id=redeemers-exalted-orb], [data-id=hunters-exalted-orb], [data-id=warlords-exalted-orb], [data-id=awakeners-orb], [data-id=mavens-orb],*/ [data-id=sacred-orb], [data-id=prime-regrading-lens], [data-id=secondary-regrading-lens], [data-id=tempering-orb], [data-id=tailoring-orb] {
     top: calc(3 * var(--poe-custom-item-distance)) !important;
 }
 
@@ -933,7 +938,7 @@ Table of contents:
     left: calc(0 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=fusing], [data-id=chrome], [data-id=annul], [data-id=rogues-marker], [data-id=timeless-eternal-empire-splinter] {
+[data-id=fusing], [data-id=chrome], [data-id=annul], [data-id=fracturing-orb], [data-id=rogues-marker], [data-id=fracturing-shard], [data-id=timeless-eternal-empire-splinter] {
     left: calc(1 * var(--poe-custom-item-distance)) !important;
 }
 
@@ -1011,7 +1016,7 @@ Table of contents:
 
 /* set Y-coordinate for each row */
 
-[data-id=exalted-shard], [data-id=mirror-shard], [data-id=chaos-shard], [data-id=regal-shard], [data-id=binding-shard], [data-id=engineers-shard], [data-id=horizon-shard], [data-id=annulment-shard], [data-id=ancient-shard], [data-id=harbingers-shard] {
+[data-id=exalted-shard], [data-id=mirror-shard], [data-id=fracturing-shard], [data-id=chaos-shard], [data-id=regal-shard], [data-id=binding-shard], [data-id=engineers-shard], [data-id=horizon-shard], [data-id=annulment-shard], [data-id=ancient-shard], [data-id=harbingers-shard] {
     top: calc(0 * var(--poe-custom-item-distance)) !important;
 }
 
@@ -1555,6 +1560,21 @@ Table of contents:
 	"Maps" section
 ------------------------------*/
 
+/* hide non-functional duplicates */
+:is(
+    [data-id=forge-of-the-phoenix-map],
+    [data-id=lair-of-the-hydra-map],
+    [data-id=maze-of-the-minotaur-map],
+    [data-id=pit-of-the-chimera-map]
+) {
+    display: none !important;
+}
+
+
+
+/*@*/if poe-custom-option-show-icons {
+
+/* setup */
 .text[data-id] {
     --text-height: 15px !important;
     --text-inner-margin: 3px !important;
@@ -1563,10 +1583,10 @@ Table of contents:
 
 /* setup text item */
 :is(
-    [data-id=forge-of-the-phoenix-map],
-    [data-id=lair-of-the-hydra-map],
-    [data-id=maze-of-the-minotaur-map],
-    [data-id=pit-of-the-chimera-map],
+    [data-id=forge-of-the-phoenix-map-tier-16],
+    [data-id=lair-of-the-hydra-map-tier-16],
+    [data-id=maze-of-the-minotaur-map-tier-16],
+    [data-id=pit-of-the-chimera-map-tier-16],
     [data-id=vaal-temple-map-tier-16]
 ) > span {
     position: relative !important;
@@ -1575,10 +1595,10 @@ Table of contents:
 
 /* setup span ::before */
 :is(
-    [data-id=forge-of-the-phoenix-map],
-    [data-id=lair-of-the-hydra-map],
-    [data-id=maze-of-the-minotaur-map],
-    [data-id=pit-of-the-chimera-map],
+    [data-id=forge-of-the-phoenix-map-tier-16],
+    [data-id=lair-of-the-hydra-map-tier-16],
+    [data-id=maze-of-the-minotaur-map-tier-16],
+    [data-id=pit-of-the-chimera-map-tier-16],
     [data-id=vaal-temple-map-tier-16]
 ) > span::before {
     position: absolute !important;
@@ -1588,25 +1608,27 @@ Table of contents:
     top: calc( (var(--text-height) - var(--image-size)) / 2 ) !important;
 }
 
-[data-id=forge-of-the-phoenix-map] > span::before {
+[data-id=forge-of-the-phoenix-map-tier-16] > span::before {
     content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9QaG9lbml4IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxMiwibXQiOjAsIm1pIjoxfV0/b6e03170bd/Phoenix.png") !important;
 }
 
-[data-id=lair-of-the-hydra-map] > span::before {
+[data-id=lair-of-the-hydra-map-tier-16] > span::before {
     content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9IeWRyYSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTIsIm10IjowLCJtaSI6MX1d/7ce44c86b1/Hydra.png") !important;
 }
 
-[data-id=maze-of-the-minotaur-map] > span::before {
+[data-id=maze-of-the-minotaur-map-tier-16] > span::before {
     content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9NaW5vdGF1ciIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTIsIm10IjowLCJtaSI6MX1d/7c6b0ef649/Minotaur.png") !important;
 }
 
-[data-id=pit-of-the-chimera-map] > span::before {
+[data-id=pit-of-the-chimera-map-tier-16] > span::before {
     content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9DaGltZXJhIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxMiwibXQiOjAsIm1pIjoxfV0/bda06c2ea6/Chimera.png") !important;
 }
 
 [data-id=vaal-temple-map-tier-16] > span::before {
     content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9WYWFsVGVtcGxlQmFzZSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTIsIm10IjowfV0/509857e3ba/VaalTempleBase.png") !important;
 }
+
+/*@*/}
 
 
 

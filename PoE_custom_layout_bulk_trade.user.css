@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.6.7
+@version      1.6.8
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -81,6 +81,12 @@ Table of contents:
 	Options
 ------------------------------*/
 
+.split:last-of-type {
+    color: red !important;
+}
+
+
+
 /* hide legacy items */
 
 /*@*/if poe-custom-option-hide-legacy {
@@ -99,6 +105,10 @@ Table of contents:
     display: none !important;
 }
 /*@*/}
+
+[data-id=gold] {
+    display: none !important;
+}
 
 /* hide fragment sets */
 
@@ -146,15 +156,15 @@ Table of contents:
 }
 
 /* fixing overlapping of sections with doubled width */
-.search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(16) {
+.search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(17) {
     z-index: var(--poe-custom-is-cards-width-doubled) !important;
 }
 
 @media (min-width: 1200px) {
     /* double the width of containers */
     .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > :is(
-        .filter:nth-child(16),
-        .filter:nth-child(20)
+        .filter:nth-child(17),
+        .filter:nth-child(21)
     ) > .filter-options {
         /*--padding-top-row-height: calc(( var(--poe-custom-filter-title-height) + var(--poe-custom-filter-title-bottom-margin) ) * var(--poe-custom-is-cards-width-doubled)) !important;*/
         
@@ -162,10 +172,10 @@ Table of contents:
     }
     
     /* double the width of the cards container */
-    /*.search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-options {
+    /*.search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(17) > .filter-options {
         padding-top: calc(4 * var(--padding-top-row-height)) !important;
     }*/
-    .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-title:has(+.filter-options) {
+    .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(17) > .filter-title:has(+.filter-options) {
         padding-bottom: calc( var(--poe-custom-filter-title-text-vertical-padding) + 4 * calc(( var(--poe-custom-filter-title-height) + var(--poe-custom-filter-title-bottom-margin) ) * var(--poe-custom-is-cards-width-doubled)) ) !important;
     }
     
@@ -186,24 +196,25 @@ Table of contents:
 }
 .filter-group:first-child > .filter-group-body > .filter:nth-child(1)  { order:  10 !important; } /* Currency */
 .filter-group:first-child > .filter-group-body > .filter:nth-child(2)  { order:  20 !important; } /* Exotic Currency */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(3)  { order:  30 !important; } /* Shards & Splinters */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(4)  { order:  40 !important; } /* Fragments & Sets */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(5)  { order:  60 !important; } /* Memory Lines */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(6)  { order:  70 !important; } /* Scouting Reports */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(7)  { order:  80 !important; } /* Expedition Currencies */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(8)  { order:  90 !important; } /* Delirium Orbs */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(9)  { order: 100 !important; } /* Catalysts */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(10) { order: 110 !important; } /* Oils */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(11) { order: 120 !important; } /* Incubators */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(12) { order:  50 !important; } /* Scarabs */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(13) { order: 130 !important; } /* Delve Resonators */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(14) { order: 140 !important; } /* Delve Fossils */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(15) { order: 150 !important; } /* Essences */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(16) { order: 160 !important; } /* Cards */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(17) { order: 170 !important; } /* Maps */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(18) { order: 180 !important; } /* Maps (Blighted) */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(19) { order: 190 !important; } /* Maps (Blight-ravaged) */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(20) { order: 200 !important; } /* Maps (Unique) */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(3)  { order:  25 !important; } /* Crucible Currency & Remnants */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(4)  { order:  30 !important; } /* Shards & Splinters */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(5)  { order:  40 !important; } /* Fragments & Sets */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(6)  { order:  60 !important; } /* Memory Lines */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(7)  { order:  70 !important; } /* Scouting Reports */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(8)  { order:  80 !important; } /* Expedition Currencies */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(9)  { order:  90 !important; } /* Delirium Orbs */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(10) { order: 100 !important; } /* Catalysts */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(11) { order: 110 !important; } /* Oils */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(12) { order: 120 !important; } /* Incubators */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(13) { order:  50 !important; } /* Scarabs */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(14) { order: 130 !important; } /* Delve Resonators */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(15) { order: 140 !important; } /* Delve Fossils */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(16) { order: 150 !important; } /* Essences */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(17) { order: 160 !important; } /* Cards */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(18) { order: 170 !important; } /* Maps */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(19) { order: 180 !important; } /* Maps (Blighted) */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(20) { order: 190 !important; } /* Maps (Blight-ravaged) */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(21) { order: 200 !important; } /* Maps (Unique) */
 
 /* hide borders for icon items */
 .exchange-filter-item:not(.text):not(.highlighted):not(.active) {
@@ -775,17 +786,17 @@ Table of contents:
 
 /* special handling of scuffed image size */
 .filter-group:first-child > .filter-group-body > :is(
-    .filter:nth-child(5),
-    .filter:nth-child(6),
-    .filter:nth-child(18),
-    .filter:nth-child(19)
+    .filter:nth-child(7),
+    .filter:nth-child(8),
+    .filter:nth-child(19),
+    .filter:nth-child(20)
 ) > .filter-title-clickable > span:first-child::before {
     transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-scuffed-scale-from) )) !important;
 }
 
 /* special handling of large image size */
 .filter-group:first-child > .filter-group-body > :is(
-    .filter:nth-child(13)
+    .filter:nth-child(14)
 ) > .filter-title-clickable > span:first-child::before {
     transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-large-scale-from) )) !important;
 }
@@ -806,74 +817,78 @@ Table of contents:
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(3) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaFNoYXJkQ2hhb3MiLCJzY2FsZSI6MX1d/14332eaec8/BreachShardChaos.png") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9DcnVjaWJsZVViZXJHZW9kZU9wZW4iLCJzY2FsZSI6MX1d/3c29e56d61/CrucibleUberGeodeOpen.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhc01hcHMvRnJhZ21lbnRQaG9lbml4Iiwic2NhbGUiOjF9XQ/3091d971ad/FragmentPhoenix.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(12) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiQnJlYWNoIiwic2NhbGUiOjF9XQ/b129897f73/GreaterScarabBreach.png") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaFNoYXJkQ2hhb3MiLCJzY2FsZSI6MX1d/14332eaec8/BreachShardChaos.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(5) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTWVtb3J5TGluZS9OaWtvTWVtb3J5SXRlbSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/5c560ea8fd/NikoMemoryItem.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NvdXRpbmdSZXBvcnQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/584635f3c8/ScoutingReport.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(7) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXhwZWRpdGlvbi9HYW1ibGVyUmVmcmVzaEN1cnJlbmN5Iiwic2NhbGUiOjF9XQ/ff5640db4c/GamblerRefreshCurrency.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(8) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsaXJpdW0vRGVsaXJpdW1PcmJTY2FyYWJzIiwic2NhbGUiOjF9XQ/ca1dcdc38b/DeliriumOrbScarabs.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(9) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ2F0YWx5c3RzL0ltYnVlZENhdGFseXN0Iiwic2NhbGUiOjF9XQ/cce071aa45/ImbuedCatalyst.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(10) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT2lscy9PcGFsZXNjZW50T2lsIiwic2NhbGUiOjF9XQ/abd419a154/OpalescentOil.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(11) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQWJ5c3MiLCJzY2FsZSI6MX1d/f3c36d1eb4/IncubationAbyss.png") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhc01hcHMvRnJhZ21lbnRQaG9lbml4Iiwic2NhbGUiOjF9XQ/3091d971ad/FragmentPhoenix.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(13) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/image/Art/2DItems/Currency/Delve/Reroll2x2A.png?scale=1&w=1&h=1") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiQnJlYWNoIiwic2NhbGUiOjF9XQ/b129897f73/GreaterScarabBreach.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTWVtb3J5TGluZS9OaWtvTWVtb3J5SXRlbSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/5c560ea8fd/NikoMemoryItem.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(7) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NvdXRpbmdSZXBvcnQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/584635f3c8/ScoutingReport.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(8) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXhwZWRpdGlvbi9HYW1ibGVyUmVmcmVzaEN1cnJlbmN5Iiwic2NhbGUiOjF9XQ/ff5640db4c/GamblerRefreshCurrency.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(9) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsaXJpdW0vRGVsaXJpdW1PcmJTY2FyYWJzIiwic2NhbGUiOjF9XQ/ca1dcdc38b/DeliriumOrbScarabs.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(10) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ2F0YWx5c3RzL0ltYnVlZENhdGFseXN0Iiwic2NhbGUiOjF9XQ/cce071aa45/ImbuedCatalyst.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(11) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT2lscy9PcGFsZXNjZW50T2lsIiwic2NhbGUiOjF9XQ/abd419a154/OpalescentOil.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(12) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQWJ5c3MiLCJzY2FsZSI6MX1d/f3c36d1eb4/IncubationAbyss.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(14) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvU2FuY3RpZmllZEZvc3NpbCIsInNjYWxlIjoxfV0/7240f907f2/SanctifiedFossil.png") !important;
+    content: url("https://web.poecdn.com/image/Art/2DItems/Currency/Delve/Reroll2x2A.png?scale=1&w=1&h=1") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(15) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9Xb2U3Iiwic2NhbGUiOjF9XQ/6bb5af5409/Woe7.png") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvU2FuY3RpZmllZEZvc3NpbCIsInNjYWxlIjoxfV0/7240f907f2/SanctifiedFossil.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?scale=1&w=1&h=1") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9Xb2U3Iiwic2NhbGUiOjF9XQ/6bb5af5409/Woe7.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(17) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/image/Art/2DItems/Maps/AtlasMaps/Gorge3.png?scale=1&w=1&h=1") !important;
+    content: url("https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?scale=1&w=1&h=1") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(18) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXNcL01hcHNcL0F0bGFzMk1hcHNcL05ld1wvTHVuYXJpc1RlbXBsZSIsInciOjEsImgiOjEsInNjYWxlIjp0cnVlLCJtbiI6MTAsIm10IjoxNCwibWIiOnRydWV9XQ/038c28d2e1/Item.png") !important;
+    content: url("https://web.poecdn.com/image/Art/2DItems/Maps/AtlasMaps/Gorge3.png?scale=1&w=1&h=1") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9GaWVsZHMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjEyLCJtdCI6MTYsIm11YiI6dHJ1ZX1d/a7ab3884c4/Fields.png") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXNcL01hcHNcL0F0bGFzMk1hcHNcL05ld1wvTHVuYXJpc1RlbXBsZSIsInciOjEsImgiOjEsInNjYWxlIjp0cnVlLCJtbiI6MTAsIm10IjoxNCwibWIiOnRydWV9XQ/038c28d2e1/Item.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(20) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9GaWVsZHMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjEyLCJtdCI6MTYsIm11YiI6dHJ1ZX1d/a7ab3884c4/Fields.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-title-clickable > span:first-child::before {
     content: url("https://web.poecdn.com/image/Art/2DItems/Maps/UndeadSiege.png?scale=1&w=1&h=1") !important;
 }
 
@@ -1003,14 +1018,14 @@ Table of contents:
 
 /* setup shards/splinters container */
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(3) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-options {
     position: relative !important;
     height: calc(2 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
     width: calc(14 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(3) > .filter-options > [data-id] {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-options > [data-id] {
     position: absolute !important;
 }
 
@@ -1035,14 +1050,14 @@ Table of contents:
 
 /* setup fragments container */
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(5) > .filter-options {
     position: relative !important;
-    height: calc(11 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent) + var(--poe-custom-item-margin)) !important;
+    height: calc(9.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent) + var(--poe-custom-item-margin)) !important;
     width: calc(12 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-options > [data-id] {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(5) > .filter-options > [data-id] {
     position: absolute !important;
 }
 
@@ -1064,11 +1079,11 @@ Table of contents:
     top: calc(3 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=uber-timeless-eternal-emblem], [data-id=uber-timeless-karui-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=uber-timeless-templar-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=the-mavens-writ], [data-id=xophs-charged-breachstone], [data-id=tuls-charged-breachstone], [data-id=eshs-charged-breachstone], [data-id=uul-charged-breachstone], [data-id=chayulas-charged-breachstone] {
+[data-id=uber-timeless-eternal-emblem], [data-id=uber-timeless-karui-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=uber-timeless-templar-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=the-mavens-writ], [data-id=xophs-flawless-breachstone], [data-id=tuls-flawless-breachstone], [data-id=eshs-flawless-breachstone], [data-id=uul-flawless-breachstone], [data-id=chayulas-flawless-breachstone], [data-id=xophs-charged-breachstone], [data-id=tuls-charged-breachstone], [data-id=eshs-charged-breachstone], [data-id=uul-charged-breachstone], [data-id=chayulas-charged-breachstone] {
     top: calc(4 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=sacred-blossom], [data-id=xophs-enriched-breachstone], [data-id=tuls-enriched-breachstone], [data-id=eshs-enriched-breachstone], [data-id=uul-enriched-breachstone], [data-id=chayulas-enriched-breachstone] {
+[data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication], [data-id=sacred-blossom], [data-id=xophs-enriched-breachstone], [data-id=tuls-enriched-breachstone], [data-id=eshs-enriched-breachstone], [data-id=uul-enriched-breachstone], [data-id=chayulas-enriched-breachstone] {
     top: calc(5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
@@ -1076,33 +1091,29 @@ Table of contents:
     top: calc(6 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=the-formed], [data-id=the-twisted], [data-id=the-forgotten], [data-id=the-hidden], [data-id=the-elderslayers], [data-id=the-feared], [data-id=xophs-flawless-breachstone], [data-id=tuls-flawless-breachstone], [data-id=eshs-flawless-breachstone], [data-id=uul-flawless-breachstone], [data-id=chayulas-flawless-breachstone] {
+[data-id=ritual-vessel], [data-id=victorious-fate], [data-id=deadly-fate], [data-id=will-of-chaos], [data-id=ignominious-fate], [data-id=the-formed], [data-id=the-twisted], [data-id=the-forgotten], [data-id=the-hidden], [data-id=the-elderslayers], [data-id=the-feared] {
     top: calc(7 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication], [data-id=ritual-vessel], [data-id=victorious-fate], [data-id=deadly-fate], [data-id=will-of-chaos], [data-id=ignominious-fate] {
+[data-id=voidborn-reliquary-key], [data-id=forgotten-reliquary-key], [data-id=visceral-reliquary-key], [data-id=shiny-reliquary-key], [data-id=archive-reliquary-key], [data-id=oubliette-reliquary-key], [data-id=cosmic-reliquary-key], [data-id=decaying-reliquary-key], [data-id=vaal-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=ancient-reliquary-key] {
     top: calc(8.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
-}
-
-[data-id=forgotten-reliquary-key], [data-id=visceral-reliquary-key], [data-id=shiny-reliquary-key], [data-id=archive-reliquary-key], [data-id=oubliette-reliquary-key], [data-id=cosmic-reliquary-key], [data-id=decaying-reliquary-key], [data-id=vaal-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=ancient-reliquary-key] {
-    top: calc(10 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
 /* set X-coordinate for each column */
 
-[data-id=divine-vessel], [data-id=dusk], [data-id=noon], [data-id=timeless-eternal-emblem], [data-id=uber-timeless-eternal-emblem], [data-id=the-atlas], [data-id=the-formed], [data-id=forgotten-reliquary-key] {
+[data-id=divine-vessel], [data-id=ritual-vessel], [data-id=dusk], [data-id=noon], [data-id=timeless-eternal-emblem], [data-id=uber-timeless-eternal-emblem], [data-id=forgotten-reliquary-key] {
     left: calc(0 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=offer], [data-id=mid], [data-id=dawn], [data-id=timeless-karui-emblem], [data-id=uber-timeless-karui-emblem], [data-id=writhing-invitation], [data-id=the-twisted], [data-id=visceral-reliquary-key] {
+[data-id=offer], [data-id=mid], [data-id=dawn], [data-id=timeless-karui-emblem], [data-id=uber-timeless-karui-emblem], [data-id=victorious-fate], [data-id=visceral-reliquary-key] {
     left: calc(1 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=veritanias-crest], [data-id=droxs-crest], [data-id=timeless-vaal-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=screaming-invitation], [data-id=the-forgotten], [data-id=offer-dedication], [data-id=shiny-reliquary-key] {
+[data-id=veritanias-crest], [data-id=droxs-crest], [data-id=timeless-vaal-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=offer-dedication], [data-id=deadly-fate], [data-id=shiny-reliquary-key] {
     left: calc(2 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=al-hezmins-crest], [data-id=barans-crest], [data-id=timeless-templar-emblem], [data-id=uber-timeless-templar-emblem], [data-id=polaric-invitation], [data-id=the-hidden], [data-id=offer-gift], [data-id=archive-reliquary-key] {
+[data-id=al-hezmins-crest], [data-id=barans-crest], [data-id=timeless-templar-emblem], [data-id=uber-timeless-templar-emblem], [data-id=offer-gift], [data-id=will-of-chaos], [data-id=archive-reliquary-key] {
     left: calc(3 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=grie], [data-id=ign], [data-id=timeless-maraketh-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=incandescent-invitation], [data-id=the-elderslayers], [data-id=offer-tribute], [data-id=oubliette-reliquary-key] {
+[data-id=grie], [data-id=ign], [data-id=timeless-maraketh-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=offer-tribute], [data-id=ignominious-fate], [data-id=oubliette-reliquary-key] {
     left: calc(4 * var(--poe-custom-item-distance)) !important;
 }
 [data-id=rage], [data-id=hope], [data-id=cosmic-reliquary-key] {
@@ -1111,19 +1122,19 @@ Table of contents:
 [data-id=fragment-of-purification], [data-id=fragment-of-constriction], [data-id=decaying-reliquary-key] {
     left: calc(6 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=fragment-of-enslavement], [data-id=fragment-of-eradication], [data-id=xophs-breachstone], [data-id=xophs-charged-breachstone], [data-id=xophs-enriched-breachstone], [data-id=xophs-pure-breachstone], [data-id=xophs-flawless-breachstone], [data-id=victorious-fate], [data-id=ancient-reliquary-key] {
+[data-id=fragment-of-enslavement], [data-id=fragment-of-eradication], [data-id=xophs-breachstone], [data-id=xophs-charged-breachstone], [data-id=xophs-enriched-breachstone], [data-id=xophs-pure-breachstone], [data-id=xophs-flawless-breachstone], [data-id=the-atlas], [data-id=the-formed], [data-id=voidborn-reliquary-key] {
     left: calc(7 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=hydra], [data-id=chimer], [data-id=tuls-breachstone], [data-id=tuls-charged-breachstone], [data-id=tuls-enriched-breachstone], [data-id=tuls-pure-breachstone], [data-id=tuls-flawless-breachstone], [data-id=deadly-fate], [data-id=timeworn-reliquary-key] {
+[data-id=hydra], [data-id=chimer], [data-id=tuls-breachstone], [data-id=tuls-charged-breachstone], [data-id=tuls-enriched-breachstone], [data-id=tuls-pure-breachstone], [data-id=tuls-flawless-breachstone], [data-id=writhing-invitation], [data-id=the-twisted], [data-id=ancient-reliquary-key] {
     left: calc(8 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=phoenix], [data-id=minot], [data-id=eshs-breachstone], [data-id=eshs-charged-breachstone], [data-id=eshs-enriched-breachstone], [data-id=eshs-pure-breachstone], [data-id=eshs-flawless-breachstone], [data-id=will-of-chaos], [data-id=vaal-reliquary-key] {
+[data-id=phoenix], [data-id=minot], [data-id=eshs-breachstone], [data-id=eshs-charged-breachstone], [data-id=eshs-enriched-breachstone], [data-id=eshs-pure-breachstone], [data-id=eshs-flawless-breachstone], [data-id=screaming-invitation], [data-id=the-forgotten], [data-id=timeworn-reliquary-key] {
     left: calc(9 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=uul-breachstone], [data-id=uul-charged-breachstone], [data-id=uul-enriched-breachstone], [data-id=uul-pure-breachstone], [data-id=uul-flawless-breachstone], [data-id=ignominious-fate] {
+[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=uul-breachstone], [data-id=uul-charged-breachstone], [data-id=uul-enriched-breachstone], [data-id=uul-pure-breachstone], [data-id=uul-flawless-breachstone], [data-id=polaric-invitation], [data-id=the-hidden], [data-id=vaal-reliquary-key] {
     left: calc(10 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=fragment-of-terror], [data-id=fragment-of-emptiness], [data-id=chayulas-breachstone], [data-id=chayulas-charged-breachstone], [data-id=chayulas-enriched-breachstone], [data-id=chayulas-pure-breachstone], [data-id=chayulas-flawless-breachstone] {
+[data-id=fragment-of-terror], [data-id=fragment-of-emptiness], [data-id=chayulas-breachstone], [data-id=chayulas-charged-breachstone], [data-id=chayulas-enriched-breachstone], [data-id=chayulas-pure-breachstone], [data-id=chayulas-flawless-breachstone], [data-id=incandescent-invitation], [data-id=the-elderslayers] {
     left: calc(11 * var(--poe-custom-item-distance)) !important;
 }
 
@@ -1144,7 +1155,7 @@ Table of contents:
 [data-id=mortal-set] {
     left: calc(4.5 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=simulacrum], [data-id=sacred-blossom], [data-id=the-mavens-writ], [data-id=the-feared], [data-id=ritual-vessel] {
+[data-id=simulacrum], [data-id=sacred-blossom], [data-id=the-mavens-writ], [data-id=the-feared] {
     left: calc(5.5 * var(--poe-custom-item-distance)) !important;
 }
 [data-id=key-to-decay] {
@@ -1171,14 +1182,14 @@ Table of contents:
 
 /* setup scarabs container */
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(12) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(13) > .filter-options {
     position: relative !important;
     height: calc(9.5 * var(--poe-custom-item-distance) - var(--poe-custom-lures-indent) + var(--poe-custom-item-margin)) !important;
     width: calc(8.5 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(12) > .filter-options > [data-id] {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(13) > .filter-options > [data-id] {
     position: absolute !important;
 }
 
@@ -1282,7 +1293,7 @@ Table of contents:
 ------------------------------*/
 
 /* setup resonators container */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(13) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(14) > .filter-options {
     display: flex !important;
     flex-wrap: wrap !important;
     flex-direction: row !important;
@@ -1352,14 +1363,14 @@ Table of contents:
 
 /* setup fossils container */
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(14) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(15) > .filter-options {
     position: relative !important;
     height: calc(4 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
     width: calc(9 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(14) > .filter-options > [data-id] {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(15) > .filter-options > [data-id] {
     position: absolute !important;
 }
 
@@ -1445,14 +1456,14 @@ Table of contents:
 
 /* setup essences container */
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(15) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-options {
     position: relative !important;
     height: calc(12 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
     width: calc(11.5 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(15) > .filter-options > [data-id] {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-options > [data-id] {
     position: absolute !important;
 }
 

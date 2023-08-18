@@ -1,11 +1,9 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.6.7
+@version      1.7.0
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
-
-@updateURL    https://raw.githubusercontent.com/regPoEp/PoEtools/main/PoE_custom_layout_bulk_trade.user.css
 ==/UserStyle== */
 
 /*
@@ -25,6 +23,7 @@ Table of contents:
 	"Fossils" section
 	"Essences" section
 	"Maps" section
+	"Maps (Unique)" section
 */
 
 :root {
@@ -70,6 +69,12 @@ Table of contents:
 	Options
 ------------------------------*/
 
+.split:last-of-type {
+    color: red !important;
+}
+
+
+
 /* hide legacy items */
 
 :root {
@@ -83,7 +88,12 @@ Table of contents:
 , [data-id=delirium-orb], [data-id=kalguuran-delirium-orb], [data-id=portentous-delirium-orb], [data-id=primal-delirium-orb]
 , [data-id=armour-recombinator], [data-id=weapon-recombinator], [data-id=jewellery-recombinator]
 , [data-id=farric-lure], [data-id=saqawine-lure], [data-id=fenumal-lure], [data-id=craicic-lure]
+, .filter-group:first-child > .filter-group-body > .filter:nth-child(5)
 {
+    display: none !important;
+}
+
+[data-id=gold] {
     display: none !important;
 }
 
@@ -127,15 +137,15 @@ Table of contents:
 }
 
 /* fixing overlapping of sections with doubled width */
-.search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(16) {
+.search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(19) {
     z-index: var(--poe-custom-is-cards-width-doubled) !important;
 }
 
 @media (min-width: 1200px) {
     /* double the width of containers */
     .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > :is(
-        .filter:nth-child(16),
-        .filter:nth-child(20)
+        .filter:nth-child(19),
+        .filter:nth-child(23)
     ) > .filter-options {
         /*--padding-top-row-height: calc(( var(--poe-custom-filter-title-height) + var(--poe-custom-filter-title-bottom-margin) ) * var(--poe-custom-is-cards-width-doubled)) !important;*/
         
@@ -143,10 +153,10 @@ Table of contents:
     }
     
     /* double the width of the cards container */
-    /*.search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-options {
+    /*.search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options {
         padding-top: calc(4 * var(--padding-top-row-height)) !important;
     }*/
-    .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-title:has(+.filter-options) {
+    .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-title:has(+.filter-options) {
         padding-bottom: calc( var(--poe-custom-filter-title-text-vertical-padding) + 4 * calc(( var(--poe-custom-filter-title-height) + var(--poe-custom-filter-title-bottom-margin) ) * var(--poe-custom-is-cards-width-doubled)) ) !important;
     }
     
@@ -167,24 +177,27 @@ Table of contents:
 }
 .filter-group:first-child > .filter-group-body > .filter:nth-child(1)  { order:  10 !important; } /* Currency */
 .filter-group:first-child > .filter-group-body > .filter:nth-child(2)  { order:  20 !important; } /* Exotic Currency */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(3)  { order:  30 !important; } /* Shards & Splinters */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(4)  { order:  40 !important; } /* Fragments & Sets */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(5)  { order:  60 !important; } /* Memory Lines */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(6)  { order:  70 !important; } /* Scouting Reports */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(7)  { order:  80 !important; } /* Expedition Currencies */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(8)  { order:  90 !important; } /* Delirium Orbs */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(9)  { order: 100 !important; } /* Catalysts */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(10) { order: 110 !important; } /* Oils */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(11) { order: 120 !important; } /* Incubators */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(12) { order:  50 !important; } /* Scarabs */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(13) { order: 130 !important; } /* Delve Resonators */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(14) { order: 140 !important; } /* Delve Fossils */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(15) { order: 150 !important; } /* Essences */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(16) { order: 160 !important; } /* Cards */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(17) { order: 170 !important; } /* Maps */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(18) { order: 180 !important; } /* Maps (Blighted) */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(19) { order: 190 !important; } /* Maps (Blight-ravaged) */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(20) { order: 200 !important; } /* Maps (Unique) */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(3)  { order:  51 !important; } /* Ancestor Currency */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(4)  { order:  52 !important; } /* Sanctum & Unique Relics */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(5)  { order:  53 !important; } /* Crucible Currency & Remnants */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(6)  { order:  30 !important; } /* Shards & Splinters */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(7)  { order:  40 !important; } /* Fragments & Sets */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(8)  { order:  60 !important; } /* Memory Lines */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(9)  { order:  70 !important; } /* Scouting Reports */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(10) { order:  80 !important; } /* Expedition Currencies */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(11) { order:  90 !important; } /* Delirium Orbs */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(12) { order: 100 !important; } /* Catalysts */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(13) { order: 110 !important; } /* Oils */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(14) { order: 120 !important; } /* Incubators */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(15) { order:  50 !important; } /* Scarabs */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(16) { order: 130 !important; } /* Delve Resonators */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(17) { order: 140 !important; } /* Delve Fossils */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(18) { order: 150 !important; } /* Essences */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(19) { order: 160 !important; } /* Cards */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(20) { order: 170 !important; } /* Maps */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(21) { order: 180 !important; } /* Maps (Blighted) */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(22) { order: 190 !important; } /* Maps (Blight-ravaged) */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(23) { order: 200 !important; } /* Maps (Unique) */
 
 /* hide borders for icon items */
 .exchange-filter-item:not(.text):not(.highlighted):not(.active) {
@@ -750,19 +763,27 @@ Table of contents:
 
 /* special handling of scuffed image size */
 .filter-group:first-child > .filter-group-body > :is(
-    .filter:nth-child(5),
-    .filter:nth-child(6),
-    .filter:nth-child(18),
-    .filter:nth-child(19)
+    .filter:nth-child(9),
+    .filter:nth-child(10),
+    .filter:nth-child(21),
+    .filter:nth-child(22)
 ) > .filter-title-clickable > span:first-child::before {
     transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-scuffed-scale-from) )) !important;
 }
 
 /* special handling of large image size */
 .filter-group:first-child > .filter-group-body > :is(
-    .filter:nth-child(13)
+    .filter:nth-child(16)
 ) > .filter-title-clickable > span:first-child::before {
     transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-large-scale-from) )) !important;
+}
+
+/* special handling of 47*94 image size */
+.filter-group:first-child > .filter-group-body > :is(
+    .filter:nth-child(4)
+) > .filter-title-clickable > span:first-child::before {
+    transform: scale(calc( var(--image-size-scale-to) / 94 )) !important;
+    transform-origin: 18% 0% !important;
 }
 
 /* push headers to the right */
@@ -781,74 +802,86 @@ Table of contents:
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(3) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaFNoYXJkQ2hhb3MiLCJzY2FsZSI6MX1d/14332eaec8/BreachShardChaos.png") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL05hdmFsaUNvaW4iLCJzY2FsZSI6MX1d/a3c7bc5c8f/NavaliCoin.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhc01hcHMvRnJhZ21lbnRQaG9lbml4Iiwic2NhbGUiOjF9XQ/3091d971ad/FragmentPhoenix.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(12) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiQnJlYWNoIiwic2NhbGUiOjF9XQ/b129897f73/GreaterScarabBreach.png") !important;
+    content: url("https://web.poecdn.com/protected/image/promo/sanctum/items/UpliftingCenserRelicoftheTrove.png?key=6FzPSLWtvezi0d7kRGuXKA") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(5) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTWVtb3J5TGluZS9OaWtvTWVtb3J5SXRlbSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/5c560ea8fd/NikoMemoryItem.png") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9DcnVjaWJsZVViZXJHZW9kZU9wZW4iLCJzY2FsZSI6MX1d/3c29e56d61/CrucibleUberGeodeOpen.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NvdXRpbmdSZXBvcnQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/584635f3c8/ScoutingReport.png") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaFNoYXJkQ2hhb3MiLCJzY2FsZSI6MX1d/14332eaec8/BreachShardChaos.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(7) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXhwZWRpdGlvbi9HYW1ibGVyUmVmcmVzaEN1cnJlbmN5Iiwic2NhbGUiOjF9XQ/ff5640db4c/GamblerRefreshCurrency.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(8) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsaXJpdW0vRGVsaXJpdW1PcmJTY2FyYWJzIiwic2NhbGUiOjF9XQ/ca1dcdc38b/DeliriumOrbScarabs.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(9) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ2F0YWx5c3RzL0ltYnVlZENhdGFseXN0Iiwic2NhbGUiOjF9XQ/cce071aa45/ImbuedCatalyst.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(10) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT2lscy9PcGFsZXNjZW50T2lsIiwic2NhbGUiOjF9XQ/abd419a154/OpalescentOil.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(11) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQWJ5c3MiLCJzY2FsZSI6MX1d/f3c36d1eb4/IncubationAbyss.png") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(13) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/image/Art/2DItems/Currency/Delve/Reroll2x2A.png?scale=1&w=1&h=1") !important;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(14) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvU2FuY3RpZmllZEZvc3NpbCIsInNjYWxlIjoxfV0/7240f907f2/SanctifiedFossil.png") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhc01hcHMvRnJhZ21lbnRQaG9lbml4Iiwic2NhbGUiOjF9XQ/3091d971ad/FragmentPhoenix.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(15) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9Xb2U3Iiwic2NhbGUiOjF9XQ/6bb5af5409/Woe7.png") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiQnJlYWNoIiwic2NhbGUiOjF9XQ/b129897f73/GreaterScarabBreach.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(8) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTWVtb3J5TGluZS9OaWtvTWVtb3J5SXRlbSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/5c560ea8fd/NikoMemoryItem.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(9) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NvdXRpbmdSZXBvcnQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/584635f3c8/ScoutingReport.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(10) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXhwZWRpdGlvbi9HYW1ibGVyUmVmcmVzaEN1cnJlbmN5Iiwic2NhbGUiOjF9XQ/ff5640db4c/GamblerRefreshCurrency.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(11) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsaXJpdW0vRGVsaXJpdW1PcmJTY2FyYWJzIiwic2NhbGUiOjF9XQ/ca1dcdc38b/DeliriumOrbScarabs.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(12) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ2F0YWx5c3RzL0ltYnVlZENhdGFseXN0Iiwic2NhbGUiOjF9XQ/cce071aa45/ImbuedCatalyst.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(13) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT2lscy9PcGFsZXNjZW50T2lsIiwic2NhbGUiOjF9XQ/abd419a154/OpalescentOil.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(14) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQWJ5c3MiLCJzY2FsZSI6MX1d/f3c36d1eb4/IncubationAbyss.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?scale=1&w=1&h=1") !important;
+    content: url("https://web.poecdn.com/image/Art/2DItems/Currency/Delve/Reroll2x2A.png?scale=1&w=1&h=1") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(17) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/image/Art/2DItems/Maps/AtlasMaps/Gorge3.png?scale=1&w=1&h=1") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvU2FuY3RpZmllZEZvc3NpbCIsInNjYWxlIjoxfV0/7240f907f2/SanctifiedFossil.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(18) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXNcL01hcHNcL0F0bGFzMk1hcHNcL05ld1wvTHVuYXJpc1RlbXBsZSIsInciOjEsImgiOjEsInNjYWxlIjp0cnVlLCJtbiI6MTAsIm10IjoxNCwibWIiOnRydWV9XQ/038c28d2e1/Item.png") !important;
+    content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9Xb2U3Iiwic2NhbGUiOjF9XQ/6bb5af5409/Woe7.png") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-title-clickable > span:first-child::before {
-    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9GaWVsZHMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjEyLCJtdCI6MTYsIm11YiI6dHJ1ZX1d/a7ab3884c4/Fields.png") !important;
+    content: url("https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?scale=1&w=1&h=1") !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(20) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/image/Art/2DItems/Maps/AtlasMaps/Gorge3.png?scale=1&w=1&h=1") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXNcL01hcHNcL0F0bGFzMk1hcHNcL05ld1wvTHVuYXJpc1RlbXBsZSIsInciOjEsImgiOjEsInNjYWxlIjp0cnVlLCJtbiI6MTAsIm10IjoxNCwibWIiOnRydWV9XQ/038c28d2e1/Item.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(22) > .filter-title-clickable > span:first-child::before {
+    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9GaWVsZHMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjEyLCJtdCI6MTYsIm11YiI6dHJ1ZX1d/a7ab3884c4/Fields.png") !important;
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(23) > .filter-title-clickable > span:first-child::before {
     content: url("https://web.poecdn.com/image/Art/2DItems/Maps/UndeadSiege.png?scale=1&w=1&h=1") !important;
 }
 
@@ -859,7 +892,7 @@ Table of contents:
 ---------------------------*/
 
 /* move all items that dont have coordinates specified */
-:where(.filter-group:first-child > .filter-group-body > .filter > .filter-options > [data-id]) {
+:where(.filter-group:first-child > .filter-group-body > .filter > .filter-options > [data-id]:not(.text)) {
     top: calc(0 * var(--poe-custom-item-margin)) !important;
     left: calc(-1 * var(--poe-custom-item-distance)) !important;
 }
@@ -976,14 +1009,14 @@ Table of contents:
 
 /* setup shards/splinters container */
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(3) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-options {
     position: relative !important;
     height: calc(2 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
     width: calc(14 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(3) > .filter-options > [data-id] {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-options > [data-id] {
     position: absolute !important;
 }
 
@@ -1008,14 +1041,14 @@ Table of contents:
 
 /* setup fragments container */
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(7) > .filter-options {
     position: relative !important;
-    height: calc(11 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent) + var(--poe-custom-item-margin)) !important;
+    height: calc(9.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent) + var(--poe-custom-item-margin)) !important;
     width: calc(12 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-options > [data-id] {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(7) > .filter-options > [data-id] {
     position: absolute !important;
 }
 
@@ -1037,11 +1070,11 @@ Table of contents:
     top: calc(3 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=uber-timeless-eternal-emblem], [data-id=uber-timeless-karui-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=uber-timeless-templar-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=the-mavens-writ], [data-id=xophs-charged-breachstone], [data-id=tuls-charged-breachstone], [data-id=eshs-charged-breachstone], [data-id=uul-charged-breachstone], [data-id=chayulas-charged-breachstone] {
+[data-id=uber-timeless-eternal-emblem], [data-id=uber-timeless-karui-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=uber-timeless-templar-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=the-mavens-writ], [data-id=xophs-flawless-breachstone], [data-id=tuls-flawless-breachstone], [data-id=eshs-flawless-breachstone], [data-id=uul-flawless-breachstone], [data-id=chayulas-flawless-breachstone], [data-id=xophs-charged-breachstone], [data-id=tuls-charged-breachstone], [data-id=eshs-charged-breachstone], [data-id=uul-charged-breachstone], [data-id=chayulas-charged-breachstone] {
     top: calc(4 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=sacred-blossom], [data-id=xophs-enriched-breachstone], [data-id=tuls-enriched-breachstone], [data-id=eshs-enriched-breachstone], [data-id=uul-enriched-breachstone], [data-id=chayulas-enriched-breachstone] {
+[data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication], [data-id=sacred-blossom], [data-id=xophs-enriched-breachstone], [data-id=tuls-enriched-breachstone], [data-id=eshs-enriched-breachstone], [data-id=uul-enriched-breachstone], [data-id=chayulas-enriched-breachstone] {
     top: calc(5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
@@ -1049,33 +1082,29 @@ Table of contents:
     top: calc(6 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=the-formed], [data-id=the-twisted], [data-id=the-forgotten], [data-id=the-hidden], [data-id=the-elderslayers], [data-id=the-feared], [data-id=xophs-flawless-breachstone], [data-id=tuls-flawless-breachstone], [data-id=eshs-flawless-breachstone], [data-id=uul-flawless-breachstone], [data-id=chayulas-flawless-breachstone] {
+[data-id=ritual-vessel], [data-id=victorious-fate], [data-id=deadly-fate], [data-id=will-of-chaos], [data-id=ignominious-fate], [data-id=the-formed], [data-id=the-twisted], [data-id=the-forgotten], [data-id=the-hidden], [data-id=the-elderslayers], [data-id=the-feared] {
     top: calc(7 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication], [data-id=ritual-vessel], [data-id=victorious-fate], [data-id=deadly-fate], [data-id=will-of-chaos], [data-id=ignominious-fate] {
+[data-id=voidborn-reliquary-key], [data-id=forgotten-reliquary-key], [data-id=visceral-reliquary-key], [data-id=shiny-reliquary-key], [data-id=archive-reliquary-key], [data-id=oubliette-reliquary-key], [data-id=cosmic-reliquary-key], [data-id=decaying-reliquary-key], [data-id=vaal-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=ancient-reliquary-key] {
     top: calc(8.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
-}
-
-[data-id=forgotten-reliquary-key], [data-id=visceral-reliquary-key], [data-id=shiny-reliquary-key], [data-id=archive-reliquary-key], [data-id=oubliette-reliquary-key], [data-id=cosmic-reliquary-key], [data-id=decaying-reliquary-key], [data-id=vaal-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=ancient-reliquary-key] {
-    top: calc(10 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
 /* set X-coordinate for each column */
 
-[data-id=divine-vessel], [data-id=dusk], [data-id=noon], [data-id=timeless-eternal-emblem], [data-id=uber-timeless-eternal-emblem], [data-id=the-atlas], [data-id=the-formed], [data-id=forgotten-reliquary-key] {
+[data-id=divine-vessel], [data-id=ritual-vessel], [data-id=dusk], [data-id=noon], [data-id=timeless-eternal-emblem], [data-id=uber-timeless-eternal-emblem], [data-id=forgotten-reliquary-key] {
     left: calc(0 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=offer], [data-id=mid], [data-id=dawn], [data-id=timeless-karui-emblem], [data-id=uber-timeless-karui-emblem], [data-id=writhing-invitation], [data-id=the-twisted], [data-id=visceral-reliquary-key] {
+[data-id=offer], [data-id=mid], [data-id=dawn], [data-id=timeless-karui-emblem], [data-id=uber-timeless-karui-emblem], [data-id=victorious-fate], [data-id=visceral-reliquary-key] {
     left: calc(1 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=veritanias-crest], [data-id=droxs-crest], [data-id=timeless-vaal-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=screaming-invitation], [data-id=the-forgotten], [data-id=offer-dedication], [data-id=shiny-reliquary-key] {
+[data-id=veritanias-crest], [data-id=droxs-crest], [data-id=timeless-vaal-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=offer-dedication], [data-id=deadly-fate], [data-id=shiny-reliquary-key] {
     left: calc(2 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=al-hezmins-crest], [data-id=barans-crest], [data-id=timeless-templar-emblem], [data-id=uber-timeless-templar-emblem], [data-id=polaric-invitation], [data-id=the-hidden], [data-id=offer-gift], [data-id=archive-reliquary-key] {
+[data-id=al-hezmins-crest], [data-id=barans-crest], [data-id=timeless-templar-emblem], [data-id=uber-timeless-templar-emblem], [data-id=offer-gift], [data-id=will-of-chaos], [data-id=archive-reliquary-key] {
     left: calc(3 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=grie], [data-id=ign], [data-id=timeless-maraketh-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=incandescent-invitation], [data-id=the-elderslayers], [data-id=offer-tribute], [data-id=oubliette-reliquary-key] {
+[data-id=grie], [data-id=ign], [data-id=timeless-maraketh-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=offer-tribute], [data-id=ignominious-fate], [data-id=oubliette-reliquary-key] {
     left: calc(4 * var(--poe-custom-item-distance)) !important;
 }
 [data-id=rage], [data-id=hope], [data-id=cosmic-reliquary-key] {
@@ -1084,19 +1113,19 @@ Table of contents:
 [data-id=fragment-of-purification], [data-id=fragment-of-constriction], [data-id=decaying-reliquary-key] {
     left: calc(6 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=fragment-of-enslavement], [data-id=fragment-of-eradication], [data-id=xophs-breachstone], [data-id=xophs-charged-breachstone], [data-id=xophs-enriched-breachstone], [data-id=xophs-pure-breachstone], [data-id=xophs-flawless-breachstone], [data-id=victorious-fate], [data-id=ancient-reliquary-key] {
+[data-id=fragment-of-enslavement], [data-id=fragment-of-eradication], [data-id=xophs-breachstone], [data-id=xophs-charged-breachstone], [data-id=xophs-enriched-breachstone], [data-id=xophs-pure-breachstone], [data-id=xophs-flawless-breachstone], [data-id=the-atlas], [data-id=the-formed], [data-id=voidborn-reliquary-key] {
     left: calc(7 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=hydra], [data-id=chimer], [data-id=tuls-breachstone], [data-id=tuls-charged-breachstone], [data-id=tuls-enriched-breachstone], [data-id=tuls-pure-breachstone], [data-id=tuls-flawless-breachstone], [data-id=deadly-fate], [data-id=timeworn-reliquary-key] {
+[data-id=hydra], [data-id=chimer], [data-id=tuls-breachstone], [data-id=tuls-charged-breachstone], [data-id=tuls-enriched-breachstone], [data-id=tuls-pure-breachstone], [data-id=tuls-flawless-breachstone], [data-id=writhing-invitation], [data-id=the-twisted] {
     left: calc(8 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=phoenix], [data-id=minot], [data-id=eshs-breachstone], [data-id=eshs-charged-breachstone], [data-id=eshs-enriched-breachstone], [data-id=eshs-pure-breachstone], [data-id=eshs-flawless-breachstone], [data-id=will-of-chaos], [data-id=vaal-reliquary-key] {
+[data-id=phoenix], [data-id=minot], [data-id=eshs-breachstone], [data-id=eshs-charged-breachstone], [data-id=eshs-enriched-breachstone], [data-id=eshs-pure-breachstone], [data-id=eshs-flawless-breachstone], [data-id=screaming-invitation], [data-id=the-forgotten], [data-id=ancient-reliquary-key] {
     left: calc(9 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=uul-breachstone], [data-id=uul-charged-breachstone], [data-id=uul-enriched-breachstone], [data-id=uul-pure-breachstone], [data-id=uul-flawless-breachstone], [data-id=ignominious-fate] {
+[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=uul-breachstone], [data-id=uul-charged-breachstone], [data-id=uul-enriched-breachstone], [data-id=uul-pure-breachstone], [data-id=uul-flawless-breachstone], [data-id=polaric-invitation], [data-id=the-hidden], [data-id=timeworn-reliquary-key] {
     left: calc(10 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=fragment-of-terror], [data-id=fragment-of-emptiness], [data-id=chayulas-breachstone], [data-id=chayulas-charged-breachstone], [data-id=chayulas-enriched-breachstone], [data-id=chayulas-pure-breachstone], [data-id=chayulas-flawless-breachstone] {
+[data-id=fragment-of-terror], [data-id=fragment-of-emptiness], [data-id=chayulas-breachstone], [data-id=chayulas-charged-breachstone], [data-id=chayulas-enriched-breachstone], [data-id=chayulas-pure-breachstone], [data-id=chayulas-flawless-breachstone], [data-id=incandescent-invitation], [data-id=the-elderslayers], [data-id=vaal-reliquary-key] {
     left: calc(11 * var(--poe-custom-item-distance)) !important;
 }
 
@@ -1117,7 +1146,7 @@ Table of contents:
 [data-id=mortal-set] {
     left: calc(4.5 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=simulacrum], [data-id=sacred-blossom], [data-id=the-mavens-writ], [data-id=the-feared], [data-id=ritual-vessel] {
+[data-id=simulacrum], [data-id=sacred-blossom], [data-id=the-mavens-writ], [data-id=the-feared] {
     left: calc(5.5 * var(--poe-custom-item-distance)) !important;
 }
 [data-id=key-to-decay] {
@@ -1144,14 +1173,14 @@ Table of contents:
 
 /* setup scarabs container */
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(12) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(15) > .filter-options {
     position: relative !important;
     height: calc(9.5 * var(--poe-custom-item-distance) - var(--poe-custom-lures-indent) + var(--poe-custom-item-margin)) !important;
     width: calc(8.5 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(12) > .filter-options > [data-id] {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(15) > .filter-options > [data-id] {
     position: absolute !important;
 }
 
@@ -1255,7 +1284,7 @@ Table of contents:
 ------------------------------*/
 
 /* setup resonators container */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(13) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-options {
     display: flex !important;
     flex-wrap: wrap !important;
     flex-direction: row !important;
@@ -1325,14 +1354,14 @@ Table of contents:
 
 /* setup fossils container */
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(14) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(17) > .filter-options {
     position: relative !important;
     height: calc(4 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
     width: calc(9 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(14) > .filter-options > [data-id] {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(17) > .filter-options > [data-id] {
     position: absolute !important;
 }
 
@@ -1418,14 +1447,14 @@ Table of contents:
 
 /* setup essences container */
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(15) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(18) > .filter-options {
     position: relative !important;
     height: calc(12 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
     width: calc(11.5 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(15) > .filter-options > [data-id] {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(18) > .filter-options > [data-id] {
     position: absolute !important;
 }
 
@@ -1533,6 +1562,19 @@ Table of contents:
 	"Maps" section
 ------------------------------*/
 
+/* setup maps container */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(20) > .filter-options {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+}
+
+/* fix Tier divider width */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(20) > .filter-options > .split {
+    width: 100% !important;
+}
+
 /* hide non-functional duplicates */
 :is(
     [data-id=forge-of-the-phoenix-map],
@@ -1559,9 +1601,8 @@ Table of contents:
     [data-id=maze-of-the-minotaur-map-tier-16],
     [data-id=pit-of-the-chimera-map-tier-16],
     [data-id=vaal-temple-map-tier-16]
-) > span {
+) {
     position: relative !important;
-    margin-left: var(--image-indent) !important;
 }
 
 /* setup span ::before */
@@ -1571,30 +1612,208 @@ Table of contents:
     [data-id=maze-of-the-minotaur-map-tier-16],
     [data-id=pit-of-the-chimera-map-tier-16],
     [data-id=vaal-temple-map-tier-16]
-) > span::before {
+)::before {
     position: absolute !important;
     transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-scuffed-scale-from) )) !important;
     transform-origin: 0% 0% !important;
-    left: calc(-1 * var(--image-indent)) !important;
-    top: calc( (var(--text-height) - var(--image-size)) / 2 ) !important;
+    left: calc(var(--text-inner-margin) / 2) !important;
+    top: 0px !important;
 }
 
-[data-id=forge-of-the-phoenix-map-tier-16] > span::before {
-    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9QaG9lbml4IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxMiwibXQiOjAsIm1pIjoxfV0/b6e03170bd/Phoenix.png") !important;
+/* add indent for icon */
+:is(
+    [data-id=forge-of-the-phoenix-map-tier-16],
+    [data-id=lair-of-the-hydra-map-tier-16],
+    [data-id=maze-of-the-minotaur-map-tier-16],
+    [data-id=pit-of-the-chimera-map-tier-16],
+    [data-id=vaal-temple-map-tier-16]
+) > span {
+    margin-left: var(--image-indent) !important;
+}
+:is(
+    [data-id=forge-of-the-phoenix-map-tier-16],
+    [data-id=lair-of-the-hydra-map-tier-16],
+    [data-id=maze-of-the-minotaur-map-tier-16],
+    [data-id=pit-of-the-chimera-map-tier-16],
+    [data-id=vaal-temple-map-tier-16]
+)::after {
+    margin-left: var(--image-indent) !important;
 }
 
-[data-id=lair-of-the-hydra-map-tier-16] > span::before {
-    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9IeWRyYSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTIsIm10IjowLCJtaSI6MX1d/7ce44c86b1/Hydra.png") !important;
+[data-id=forge-of-the-phoenix-map-tier-16] { order: 13 !important; }
+[data-id=forge-of-the-phoenix-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9QaG9lbml4IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxMiwibXQiOjAsIm1pIjoxfV0/b6e03170bd/Phoenix.png") !important; }
+
+[data-id=lair-of-the-hydra-map-tier-16] { order: 11 !important; }
+[data-id=lair-of-the-hydra-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9IeWRyYSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTIsIm10IjowLCJtaSI6MX1d/7ce44c86b1/Hydra.png") !important; }
+
+[data-id=maze-of-the-minotaur-map-tier-16] { order: 12 !important; }
+[data-id=maze-of-the-minotaur-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9NaW5vdGF1ciIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTIsIm10IjowLCJtaSI6MX1d/7c6b0ef649/Minotaur.png") !important; }
+
+[data-id=pit-of-the-chimera-map-tier-16] { order: 14 !important; }
+[data-id=pit-of-the-chimera-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9DaGltZXJhIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxMiwibXQiOjAsIm1pIjoxfV0/bda06c2ea6/Chimera.png") !important; }
+
+[data-id=vaal-temple-map-tier-16] { order: 10 !important; }
+[data-id=vaal-temple-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9WYWFsVGVtcGxlQmFzZSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTIsIm10IjowfV0/509857e3ba/VaalTempleBase.png") !important; }
+
+
+
+/* hide real map names */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(20) > .filter-options > div > span {
+    display: none !important;
 }
 
-[data-id=maze-of-the-minotaur-map-tier-16] > span::before {
-    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9NaW5vdGF1ciIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTIsIm10IjowLCJtaSI6MX1d/7c6b0ef649/Minotaur.png") !important;
-}
+/* apply a short name to every map */
+[data-id^="frozen-cabins-map-tier-"]::after { content: "Frozen Cabins"; }
+[data-id^="overgrown-ruin-map-tier-"]::after { content: "Overgrown Ruin"; }
+[data-id^="strand-map-tier-"]::after { content: "Strand"; }
+[data-id^="terrace-map-tier-"]::after { content: "Terrace"; }
+[data-id^="bramble-valley-map-tier-"]::after { content: "Bramble Valley"; }
+[data-id^="carcass-map-tier-"]::after { content: "Carcass"; }
+[data-id^="colosseum-map-tier-"]::after { content: "Colosseum"; }
+[data-id^="crimson-temple-map-tier-"]::after { content: "Crimson Temple"; }
+[data-id^="dark-forest-map-tier-"]::after { content: "Dark Forest"; }
+[data-id^="excavation-map-tier-"]::after { content: "Excavation"; }
+[data-id^="moon-temple-map-tier-"]::after { content: "Moon Temple"; }
+[data-id^="thicket-map-tier-"]::after { content: "Thicket"; }
+[data-id^="bone-crypt-map-tier-"]::after { content: "Bone Crypt"; }
+[data-id^="caldera-map-tier-"]::after { content: "Caldera"; }
+[data-id^="cells-map-tier-"]::after { content: "Cells"; }
+[data-id^="defiled-cathedral-map-tier-"]::after { content: "Defiled Cathedral"; }
+[data-id^="factory-map-tier-"]::after { content: "Factory"; }
+[data-id^="museum-map-tier-"]::after { content: "Museum"; }
+[data-id^="park-map-tier-"]::after { content: "Park"; }
+[data-id^="waterways-map-tier-"]::after { content: "Waterways"; }
+[data-id^="atoll-map-tier-"]::after { content: "Atoll"; }
+[data-id^="chateau-map-tier-"]::after { content: "Chateau"; }
+[data-id^="dungeon-map-tier-"]::after { content: "Dungeon"; }
+[data-id^="laboratory-map-tier-"]::after { content: "Laboratory"; }
+[data-id^="phantasmagoria-map-tier-"]::after { content: "Phantasmagoria"; }
+[data-id^="primordial-pool-map-tier-"]::after { content: "Primordial Pool"; }
+[data-id^="shore-map-tier-"]::after { content: "Shore"; }
+[data-id^="vaal-pyramid-map-tier-"]::after { content: "Vaal Pyramid"; }
+[data-id^="acid-caverns-map-tier-"]::after { content: "Acid Caverns"; }
+[data-id^="coral-ruins-map-tier-"]::after { content: "Coral Ruins"; }
+[data-id^="crater-map-tier-"]::after { content: "Crater"; }
+[data-id^="crimson-township-map-tier-"]::after { content: "Crimson Township"; }
+[data-id^="mud-geyser-map-tier-"]::after { content: "Mud Geyser"; }
+[data-id^="shrine-map-tier-"]::after { content: "Shrine"; }
+[data-id^="temple-map-tier-"]::after { content: "Temple"; }
+[data-id^="wharf-map-tier-"]::after { content: "Wharf"; }
+[data-id^="arachnid-tomb-map-tier-"]::after { content: "Arachnid Tomb"; }
+[data-id^="dry-sea-map-tier-"]::after { content: "Dry Sea"; }
+[data-id^="jungle-valley-map-tier-"]::after { content: "Jungle Valley"; }
+[data-id^="lava-chamber-map-tier-"]::after { content: "Lava Chamber"; }
+[data-id^="overgrown-shrine-map-tier-"]::after { content: "Overgrown Shrine"; }
+[data-id^="plateau-map-tier-"]::after { content: "Plateau"; }
+[data-id^="spider-forest-map-tier-"]::after { content: "Spider Forest"; }
+[data-id^="arachnid-nest-map-tier-"]::after { content: "Arachnid Nest"; }
+[data-id^="colonnade-map-tier-"]::after { content: "Colonnade"; }
+[data-id^="fungal-hollow-map-tier-"]::after { content: "Fungal Hollow"; }
+[data-id^="lair-map-tier-"]::after { content: "Lair"; }
+[data-id^="mausoleum-map-tier-"]::after { content: "Mausoleum"; }
+[data-id^="necropolis-map-tier-"]::after { content: "Necropolis"; }
+[data-id^="summit-map-tier-"]::after { content: "Summit"; }
+[data-id^="ancient-city-map-tier-"]::after { content: "Ancient City"; }
+[data-id^="barrows-map-tier-"]::after { content: "Barrows"; }
+[data-id^="bog-map-tier-"]::after { content: "Bog"; }
+[data-id^="canyon-map-tier-"]::after { content: "Canyon"; }
+[data-id^="ghetto-map-tier-"]::after { content: "Ghetto"; }
+[data-id^="maze-map-tier-"]::after { content: "Maze"; }
+[data-id^="wasteland-map-tier-"]::after { content: "Wasteland"; }
+[data-id^="desert-map-tier-"]::after { content: "Desert"; }
+[data-id^="dig-map-tier-"]::after { content: "Dig"; }
+[data-id^="foundry-map-tier-"]::after { content: "Foundry"; }
+[data-id^="pier-map-tier-"]::after { content: "Pier"; }
+[data-id^="residence-map-tier-"]::after { content: "Residence"; }
+[data-id^="villa-map-tier-"]::after { content: "Villa"; }
+[data-id^="cold-river-map-tier-"]::after { content: "Cold River"; }
+[data-id^="gardens-map-tier-"]::after { content: "Gardens"; }
+[data-id^="leyline-map-tier-"]::after { content: "Leyline"; }
+[data-id^="racecourse-map-tier-"]::after { content: "Racecourse"; }
+[data-id^="stagnation-map-tier-"]::after { content: "Stagnation"; }
+[data-id^="underground-river-map-tier-"]::after { content: "Underground River"; }
+[data-id^="alleyways-map-tier-"]::after { content: "Alleyways"; }
+[data-id^="arena-map-tier-"]::after { content: "Arena"; }
+[data-id^="belfry-map-tier-"]::after { content: "Belfry"; }
+[data-id^="castle-ruins-map-tier-"]::after { content: "Castle Ruins"; }
+[data-id^="peninsula-map-tier-"]::after { content: "Peninsula"; }
+[data-id^="precinct-map-tier-"]::after { content: "Precinct"; }
+[data-id^="cemetery-map-tier-"]::after { content: "Cemetery"; }
+[data-id^="cursed-crypt-map-tier-"]::after { content: "Cursed Crypt"; }
+[data-id^="marshes-map-tier-"]::after { content: "Marshes"; }
+[data-id^="port-map-tier-"]::after { content: "Port"; }
+[data-id^="promenade-map-tier-"]::after { content: "Promenade"; }
+[data-id^="silo-map-tier-"]::after { content: "Silo"; }
+[data-id^="arsenal-map-tier-"]::after { content: "Arsenal"; }
+[data-id^="lava-lake-map-tier-"]::after { content: "Lava Lake"; }
+[data-id^="orchard-map-tier-"]::after { content: "Orchard"; }
+[data-id^="pen-map-tier-"]::after { content: "Pen"; }
+[data-id^="sulphur-vents-map-tier-"]::after { content: "Sulphur Vents"; }
+[data-id^="armoury-map-tier-"]::after { content: "Armoury"; }
+[data-id^="ashen-wood-map-tier-"]::after { content: "Ashen Wood"; }
+[data-id^="mesa-map-tier-"]::after { content: "Mesa"; }
+[data-id^="plaza-map-tier-"]::after { content: "Plaza"; }
+[data-id^="underground-sea-map-tier-"]::after { content: "Underground Sea"; }
+[data-id^="arcade-map-tier-"]::after { content: "Arcade"; }
+[data-id^="dunes-map-tier-"]::after { content: "Dunes"; }
+[data-id^="forking-river-map-tier-"]::after { content: "Forking River"; }
+[data-id^="grotto-map-tier-"]::after { content: "Grotto"; }
+[data-id^="vault-map-tier-"]::after { content: "Vault"; }
+[data-id^="arid-lake-map-tier-"]::after { content: "Arid Lake"; }
+[data-id^="forge-of-the-phoenix-map-tier-"]::after { content: "Forge of the Phoenix"; }
+[data-id^="grave-trough-map-tier-"]::after { content: "Grave Trough"; }
+[data-id^="lair-of-the-hydra-map-tier-"]::after { content: "Lair of the Hydra"; }
+[data-id^="maze-of-the-minotaur-map-tier-"]::after { content: "Maze of the Minotaur"; }
+[data-id^="pit-of-the-chimera-map-tier-"]::after { content: "Pit of the Chimera"; }
+[data-id^="ramparts-map-tier-"]::after { content: "Ramparts"; }
+[data-id^="waste-pool-map-tier-"]::after { content: "Waste Pool"; }
+[data-id^="vaal-temple-map-tier-"]::after { content: "Vaal Temple"; }
+[data-id^="fields-map-tier-"]::after { content: "Fields"; }
+[data-id^="infested-valley-map-tier-"]::after { content: "Infested Valley"; }
+[data-id^="primordial-blocks-map-tier-"]::after { content: "Primordial Blocks"; }
+[data-id^="lighthouse-map-tier-"]::after { content: "Lighthouse"; }
+[data-id^="scriptorium-map-tier-"]::after { content: "Scriptorium"; }
+[data-id^="tower-map-tier-"]::after { content: "Tower"; }
+[data-id^="city-square-map-tier-"]::after { content: "City Square"; }
+[data-id^="courtyard-map-tier-"]::after { content: "Courtyard"; }
+[data-id^="mineral-pools-map-tier-"]::after { content: "Mineral Pools"; }
+[data-id^="pit-map-tier-"]::after { content: "Pit"; }
+[data-id^="toxic-sewer-map-tier-"]::after { content: "Toxic Sewer"; }
+[data-id^="forbidden-woods-map-tier-"]::after { content: "Forbidden Woods"; }
+[data-id^="relic-chambers-map-tier-"]::after { content: "Relic Chambers"; }
+[data-id^="crystal-ore-map-tier-"]::after { content: "Crystal Ore"; }
+[data-id^="flooded-mine-map-tier-"]::after { content: "Flooded Mine"; }
+[data-id^="shipyard-map-tier-"]::after { content: "Shipyard"; }
+[data-id^="siege-map-tier-"]::after { content: "Siege"; }
+[data-id^="beach-map-tier-"]::after { content: "Beach"; }
+[data-id^="geode-map-tier-"]::after { content: "Geode"; }
+[data-id^="malformation-map-tier-"]::after { content: "Malformation"; }
+[data-id^="conservatory-map-tier-"]::after { content: "Conservatory"; }
+[data-id^="desert-spring-map-tier-"]::after { content: "Desert Spring"; }
+[data-id^="core-map-tier-"]::after { content: "Core"; }
+[data-id^="tropical-island-map-tier-"]::after { content: "Tropical Island"; }
+[data-id^="coves-map-tier-"]::after { content: "Coves"; }
+[data-id^="volcano-map-tier-"]::after { content: "Volcano"; }
 
-[data-id=pit-of-the-chimera-map-tier-16] > span::before {
-    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9DaGltZXJhIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxMiwibXQiOjAsIm1pIjoxfV0/bda06c2ea6/Chimera.png") !important;
-}
+[data-id^="estuary-map-tier-"]::after { content: "Estuary"; }
+[data-id^="lookout-map-tier-"]::after { content: "Lookout"; }
+[data-id^="iceberg-map-tier-"]::after { content: "Iceberg"; }
+[data-id^="graveyard-map-tier-"]::after { content: "Graveyard"; }
+[data-id^="cage-map-tier-"]::after { content: "Cage"; }
+[data-id^="bazaar-map-tier-"]::after { content: "Bazaar"; }
+[data-id^="academy-map-tier-"]::after { content: "Academy"; }
+[data-id^="haunted-mansion-map-tier-"]::after { content: "Haunted Mansion"; }
+[data-id^="basilica-map-tier-"]::after { content: "Basilica"; }
+[data-id^="courthouse-map-tier-"]::after { content: "Courthouse"; }
+[data-id^="palace-map-tier-"]::after { content: "Palace"; }
+[data-id^="sunken-city-map-tier-"]::after { content: "Sunken City"; }
+[data-id^="glacier-map-tier-"]::after { content: "Glacier"; }
+[data-id^="reef-map-tier-"]::after { content: "Reef"; }
+[data-id^="channel-map-tier-"]::after { content: "Channel"; }
+[data-id^="ivory-temple-map-tier-"]::after { content: "Ivory Temple"; }
 
-[data-id=vaal-temple-map-tier-16] > span::before {
-    content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9WYWFsVGVtcGxlQmFzZSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTIsIm10IjowfV0/509857e3ba/VaalTempleBase.png") !important;
-}
+
+
+/*------------------------------
+	"Maps (Unique)" section
+------------------------------*/

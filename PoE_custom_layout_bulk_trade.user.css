@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.9.1
+@version      1.9.2
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -28,6 +28,7 @@ Table of contents:
 	Search panel
 	Search results
 	Category icons
+    Group map-like tiers
 	Catch new items
 	"Currency" section
 	"Shards & Splinters" section
@@ -37,14 +38,16 @@ Table of contents:
 	"Resonators" section
 	"Fossils" section
 	"Essences" section
+	"Beasts" section
 	"Maps" section
+    "Conqueror & Elder Maps" section
 */
 
 :root {
     /* firm values */
 
-    --poe-custom-layout-absolute-max-width: 1530px;
-    --poe-custom-layout-absolute-horizontal-padding: 10px;
+    --poe-web-layout-absolute-max-width: 1530px;
+    --poe-web-layout-absolute-horizontal-padding: 10px;
     --poe-custom-background-color: black;
 
     --poe-custom-filter-title-color: rgb(255, 248, 225);
@@ -57,37 +60,54 @@ Table of contents:
     --poe-custom-item-color-search-highlighted: #abab5a;
     --poe-custom-button-background-color-grey: #1e2124;
 
-    --poe-custom-filter-title-height: 30px;
-    --poe-custom-filter-title-bottom-margin: 3px;
+    --poe-web-filter-title-height: 30px;
+    --poe-web-filter-title-bottom-margin: 3px;
     --poe-custom-filter-title-text-vertical-padding: 6px;
 
-    --poe-custom-multiselect-short-width: 131px;
-    --poe-custom-multiselect-long-width: 271px;
+    --poe-web-multiselect-short-width: 131px;
+    --poe-web-multiselect-long-width: 271px;
     --poe-custom-filter-group-name-color: #cec59f;
     --poe-custom-filter-name-color: #a79070;
     --poe-custom-filter-modified-color: #203110;
-    --poe-custom-multiselect-mouseover-color: #465260;
-    --poe-custom-multiselect-selected-color: #2d3136;
-    --poe-custom-multiselect-background-color: #1e2124;
-    
-    --poe-custom-standard-filter-heigh: 30px;
-    --poe-custom-standard-status-heigh: 34px;
-    --poe-custom-standard-filter-bottom-margin: 3px;
-    --poe-custom-standard-filter-vertical-size: calc(var(--poe-custom-standard-filter-heigh) + var(--poe-custom-standard-filter-bottom-margin));
-    --poe-custom-standard-horizontal-separator-width: 3px;
-    
+    --poe-web-multiselect-mouseover-color: #465260;
+    --poe-web-multiselect-selected-color: #2d3136;
+    --poe-web-multiselect-background-color: #1e2124;
+
+    --poe-web-standard-filter-heigh: 30px;
+    --poe-web-standard-status-heigh: 34px;
+    --poe-web-standard-filter-bottom-margin: 3px;
+    --poe-web-standard-filter-vertical-size: calc(var(--poe-web-standard-filter-heigh) + var(--poe-web-standard-filter-bottom-margin));
+    --poe-web-standard-horizontal-separator-width: 3px;
+
+    --poe-game-color-rarity-normal: #c8c8c8 !important;
+    --poe-game-color-rarity-magic: #8888ff !important;
+    --poe-game-color-rarity-rare: #ffff77 !important;
+    --poe-game-color-rarity-unique: #af6025 !important;
+    --poe-game-color-rarity-relic: #82ad6a !important;
+
+    --poe-game-color-gem: #1ba29b !important;
+    --poe-game-color-prophecy: #b54bff !important;
+    --poe-game-color-scourge: #ff6e25 !important;
+    --poe-game-color-corrupted: rgb(210, 0, 0) !important;
+    --poe-game-color-mirrored: rgb(136, 136, 255) !important;
+    --poe-game-color-split: rgb(136, 136, 255) !important;
+    --poe-game-color-crafted: rgb(180, 180, 255) !important;
+    --poe-game-color-veiled: rgb(136, 142, 147) !important;
+
     /* custom values */
 
     --poe-custom-filter-group-name-color: #cec59f;
     --poe-custom-item-text-font-family-enhanced: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
     --poe-custom-item-color-dimmed: Grey;
 
-    --poe-custom-image-size: 32px;
-    --poe-custom-image-size-double: calc(2 * var(--poe-custom-image-size));
-    --poe-custom-item-size: calc(var(--poe-custom-image-size) + 8px);
-    --poe-custom-item-size-double: calc(var(--poe-custom-item-size) + var(--poe-custom-image-size));
-    --poe-custom-item-margin: 2px;
-    --poe-custom-item-distance: calc(var(--poe-custom-item-size) + var(--poe-custom-item-margin));
+    --poe-web-image-size: 32px;
+    --poe-custom-image-size-double: calc(2 * var(--poe-web-image-size));
+    --poe-web-item-size: calc(var(--poe-web-image-size) + 8px);
+    --poe-custom-item-size-double: calc(var(--poe-web-item-size) + var(--poe-web-image-size));
+    --poe-web-item-margin: 2px;
+    --poe-web-item-distance: calc(var(--poe-web-item-size) + 2 * var(--poe-web-item-margin));
+    --poe-custom-item-distance: calc(var(--poe-web-item-size) + var(--poe-web-item-margin));
+    --poe-custom-item-size-double-adjustment: calc( (2 * var(--poe-custom-item-distance) - var(--poe-custom-item-size-double) - var(--poe-web-item-margin)) / 2 );
 
     --poe-custom-lures-indent: 0px;
     --poe-custom-fragment-set-indent: 0px;
@@ -113,6 +133,7 @@ Table of contents:
 , [data-id=armour-recombinator], [data-id=weapon-recombinator], [data-id=jewellery-recombinator]
 , [data-id=farric-lure], [data-id=saqawine-lure], [data-id=fenumal-lure], [data-id=craicic-lure]
 , [data-id=prime-regrading-lens], [data-id=secondary-regrading-lens], [data-id=tainted-blessing], [data-id=enchanted-incubator], [data-id=challenging-delirium-orb], [data-id=challenging-incubator], [data-id=the-tower-of-ordeals]
+[data-id=the-basilisk], [data-id=boulderback], [data-id=tunnelworm], [data-id=the-great-white-bones], [data-id=brinecrack], [data-id=hollowskull-the-willing-host], [data-id=raihara-tukohamas-loyal], [data-id=steelchaw], [data-id=eyepecker], [data-id=the-hundred-foot-shadow], [data-id=paradisae-venenum], [data-id=the-conqueror-wurm], [data-id=thistlesage], [data-id=quru], [data-id=aidan-the-frenzied], [data-id=nadia-the-soothing], [data-id=the-weaver], [data-id=black-death], [data-id=the-great-white-beast], [data-id=ambrosia-daughter-of-merveil], [data-id=amarissa-daughter-of-merveil], [data-id=the-faun], [data-id=brood-princess], [data-id=the-burning-menace], [data-id=ungulath], [data-id=the-dweller-of-the-deep], [data-id=oozeback-bloom]
 , .filter-group:first-child > .filter-group-body > .filter:nth-child(21)
 {
     display: none !important;
@@ -179,7 +200,7 @@ Table of contents:
         .filter:nth-child(16),
         .filter:nth-child(20)
     ) > .filter-options {
-        /*--padding-top-row-height: calc(( var(--poe-custom-filter-title-height) + var(--poe-custom-filter-title-bottom-margin) ) * var(--poe-custom-is-cards-width-doubled)) !important;*/
+        /*--padding-top-row-height: calc(( var(--poe-web-filter-title-height) + var(--poe-web-filter-title-bottom-margin) ) * var(--poe-custom-is-cards-width-doubled)) !important;*/
         
         width: calc(100% + (100% + 20px) * var(--poe-custom-is-cards-width-doubled)) !important;
     }
@@ -189,7 +210,7 @@ Table of contents:
         padding-top: calc(4 * var(--padding-top-row-height)) !important;
     }*/
     .search-advanced-pane:nth-child(1) > .filter-group:first-child > .filter-group-body > .filter:nth-child(16) > .filter-title:has(+.filter-options) {
-        padding-bottom: calc( var(--poe-custom-filter-title-text-vertical-padding) + 4 * calc(( var(--poe-custom-filter-title-height) + var(--poe-custom-filter-title-bottom-margin) ) * var(--poe-custom-is-cards-width-doubled)) ) !important;
+        padding-bottom: calc( var(--poe-custom-filter-title-text-vertical-padding) + 4 * calc(( var(--poe-web-filter-title-height) + var(--poe-web-filter-title-bottom-margin) ) * var(--poe-custom-is-cards-width-doubled)) ) !important;
     }
     
 }
@@ -279,7 +300,7 @@ Table of contents:
 
 /* reduce size of the logo */
 .logo > a {
-    max-width: calc(3 * var(--poe-custom-image-size)) !important;
+    max-width: calc(3 * var(--poe-web-image-size)) !important;
 }
 
 
@@ -336,7 +357,7 @@ input.modified,
         /* always show list */
         display: block !important;
         border: none !important;
-        margin-top: calc(-1 * var(--poe-custom-standard-filter-heigh)) !important;
+        margin-top: calc(-1 * var(--poe-web-standard-filter-heigh)) !important;
         z-index: 0 !important;
         
         & > ul {
@@ -362,7 +383,7 @@ input.modified,
     
     /* color for non/selected */
     &:not(.modified) > .multiselect__content-wrapper > ul > .multiselect__element > .multiselect__option--selected {
-        background-color: var(--poe-custom-multiselect-selected-color) !important;
+        background-color: var(--poe-web-multiselect-selected-color) !important;
     }
     &.modified       > .multiselect__content-wrapper > ul > .multiselect__element > .multiselect__option--selected {
         background-color: var(--poe-custom-filter-modified-color) !important;
@@ -379,10 +400,10 @@ input.modified,
 
 /* exception for Online Only/In League/Any */
 .search-right > .multiselect.status-select:nth-child(3) > .multiselect__content-wrapper {
-    margin-top: calc(-1 * var(--poe-custom-standard-status-heigh)) !important;
+    margin-top: calc(-1 * var(--poe-web-standard-status-heigh)) !important;
     
     & > ul > .multiselect__element {
-        /*max-height: calc(var(--poe-custom-standard-status-heigh) - 2px) !important; /* (-2px for borders) */
+        /*max-height: calc(var(--poe-web-standard-status-heigh) - 2px) !important; /* (-2px for borders) */
         
         /* make Any 1st */
         &:nth-child(3) {
@@ -406,7 +427,7 @@ input.modified,
         
         /* color for non/selected */
         &:nth-child(1)       > .multiselect__option--selected {
-            background-color: var(--poe-custom-multiselect-selected-color) !important;
+            background-color: var(--poe-web-multiselect-selected-color) !important;
         }
         &:not(:nth-child(1)) > .multiselect__option--selected {
             background-color: var(--poe-custom-filter-modified-color) !important;
@@ -519,15 +540,15 @@ input.modified,
         position: fixed !important;
         z-index: 2 !important;
         bottom: 0px !important;
-        width: calc(100% - var(--poe-custom-layout-absolute-horizontal-padding)) !important;
+        width: calc(100% - var(--poe-web-layout-absolute-horizontal-padding)) !important;
         height: var(--poe-custom-search-height) !important;
-        max-width: calc(var(--poe-custom-layout-absolute-max-width) - var(--poe-custom-layout-absolute-horizontal-padding)) !important;
+        max-width: calc(var(--poe-web-layout-absolute-max-width) - var(--poe-web-layout-absolute-horizontal-padding)) !important;
         padding-top: 0px !important;
         padding-bottom: 0px !important;
         background-color: var(--poe-custom-background-color) !important;
     }
     body.bt-body:not(.bt-is-collapsed) .search-panel > .controls {
-        width: calc(100% - var(--poe-custom-layout-absolute-horizontal-padding) - var(--poe-custom-search-bt-width)) !important;
+        width: calc(100% - var(--poe-web-layout-absolute-horizontal-padding) - var(--poe-custom-search-bt-width)) !important;
     }
     
     .search-panel > .controls > .controls-left > div {
@@ -557,7 +578,7 @@ input.modified,
 
 @media (min-width: 1530px) {
     :root {
-        --poe-custom-horizontal-margin: calc((100% - var(--poe-custom-layout-absolute-max-width)) / 2);
+        --poe-custom-horizontal-margin: calc((100% - var(--poe-web-layout-absolute-max-width)) / 2);
     }
 
     /* highlight items input */
@@ -580,7 +601,7 @@ input.modified,
 
 @media (min-width: 1930px) {
     :root {
-        --poe-custom-horizontal-margin: calc((100% - var(--poe-custom-layout-absolute-max-width)) / 2);
+        --poe-custom-horizontal-margin: calc((100% - var(--poe-web-layout-absolute-max-width)) / 2);
     }
 
     /* highlight items input */
@@ -730,7 +751,7 @@ input.modified,
 .results {
     --middle-price-left-right-padding: 8px;
     --middle-price-font-size: 20px;
-    --middle-image-size: var(--poe-custom-image-size);
+    --middle-image-size: var(--poe-web-image-size);
     
     --middle-price-tag-width: 60px;
     --middle-nbsp-width: 3.52px;
@@ -906,10 +927,11 @@ input.modified,
 .filter-group {
     --image-size: 24px;
     --image-size-scale-to: 24;
-    --image-original-size-scale-from: 48;
-    --image-original-size-scuffed47-scale-from: 47;
-    --image-original-size-large94-scale-from: 94;
-    --image-original-size-large95-scale-from: 95;
+    --image-original-size-48-scale-from: 48;
+    --image-original-size-27-scale-from: 27;
+    --image-original-size-47-scale-from: 47;
+    --image-original-size-94-scale-from: 94;
+    --image-original-size-95-scale-from: 95;
     --image-position-left: 6px;
 }
 
@@ -936,10 +958,10 @@ input.modified,
     /* setup ::before */
     & > .filter > .filter-title-clickable > span:first-child::before {
         position: absolute !important;
-        transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-scale-from) )) !important;
+        transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-48-scale-from) )) !important;
         transform-origin: 0% 0% !important;
         left: var(--image-position-left) !important;
-        top: calc( (var(--poe-custom-filter-title-height) - var(--image-size)) / 2 ) !important;
+        top: calc( (var(--poe-web-filter-title-height) - var(--image-size)) / 2 ) !important;
     }
    
     /* special handling of different image sizes */
@@ -955,16 +977,16 @@ input.modified,
         .filter:nth-child(121),
         .filter:nth-child(21)
     ) > .filter-title-clickable > span:first-child::before {
-        transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-scuffed47-scale-from) )) !important;
+        transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-47-scale-from) )) !important;
     }
     
     /* large */
     & > .filter:nth-child(115) > .filter-title-clickable > span:first-child::before {
-        transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-large95-scale-from) )) !important;
+        transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-95-scale-from) )) !important;
     }
     
     & > .filter:nth-child(4) > .filter-title-clickable > span:first-child::before {
-        transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-large94-scale-from) )) !important;
+        transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-94-scale-from) )) !important;
     }
     
     /* 47*94 
@@ -981,7 +1003,6 @@ input.modified,
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(102) > .filter-title-clickable > span:first-child::before {
-    /*content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ29uZmxpY3RPcmJSYW5rMSIsInNjYWxlIjoxfV0/7e02c990fc/ConflictOrbRank1.png") !important;*/
     content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVsbHNjYXBlL0hlbGxzY2FwZU9yYk9mRnVzaW5nIiwic2NhbGUiOjF9XQ/845f3c20ed/HellscapeOrbOfFusing.png") !important;
 }
 
@@ -1086,17 +1107,19 @@ input.modified,
 
 /*@*/}
 
-
+/*---------------------------
+    Group map-like tiers
+---------------------------*/
 
 /*---------------------------
 	Catch new items
 ---------------------------*/
 
-/* move all items that dont have coordinates specified */
+/* move all items that dont have coordinates specified 
 :where(.filter-group:first-child > .filter-group-body > .filter > .filter-options > [data-id]:not(.text)) {
-    top: calc(0 * var(--poe-custom-item-margin)) !important;
+    top: calc(0 * var(--poe-web-item-margin)) !important;
     left: calc(-1 * var(--poe-custom-item-distance)) !important;
-}
+}*/
 
 
 
@@ -1108,7 +1131,7 @@ input.modified,
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(1) > .filter-options {
     position: relative !important;
-    height: calc(10 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
+    height: calc(10 * var(--poe-custom-item-distance) + var(--poe-web-item-margin)) !important;
     width: calc(14 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
@@ -1173,23 +1196,23 @@ input.modified,
     left: calc(6 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=regret], [data-id=enkindling-orb], [data-id=eternal], [data-id=blessing-xoph], [data-id=splinter-xoph] {
+[data-id=regret], [data-id=enkindling-orb], [data-id=eternal] {
     left: calc(7 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=orb-of-unmaking], [data-id=instilling-orb], [data-id=chaos-shard], [data-id=blessing-tul], [data-id=splinter-tul] {
+[data-id=orb-of-unmaking], [data-id=instilling-orb], [data-id=chaos-shard] {
     left: calc(8 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=blessed], [data-id=engineers], [data-id=awakened-sextant], [data-id=regal-shard], [data-id=blessing-esh], [data-id=splinter-esh] {
+[data-id=blessed], [data-id=engineers], [data-id=awakened-sextant], [data-id=regal-shard] {
     left: calc(9 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=whetstone], [data-id=elevated-sextant], [data-id=binding-shard], [data-id=blessing-uul-netol], [data-id=splinter-uul] {
+[data-id=whetstone], [data-id=elevated-sextant], [data-id=binding-shard] {
     left: calc(10 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=scrap], [data-id=harbingers-orb], [data-id=horizon-shard], [data-id=blessing-chayula], [data-id=splinter-chayula] {
+[data-id=scrap], [data-id=harbingers-orb], [data-id=horizon-shard] {
     left: calc(11 * var(--poe-custom-item-distance)) !important;
 }
 
@@ -1197,7 +1220,7 @@ input.modified,
     left: calc(12 * var(--poe-custom-item-distance)) !important;
 }
 
-[data-id=gcp], [data-id=chisel], [data-id=ritual-splinter] {
+[data-id=gcp], [data-id=chisel] {
     left: calc(13 * var(--poe-custom-item-distance)) !important;
 }
 
@@ -1211,7 +1234,7 @@ input.modified,
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(103) > .filter-options {
     position: relative !important;
-    height: calc(2 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
+    height: calc(2 * var(--poe-custom-item-distance) + var(--poe-web-item-margin)) !important;
     width: calc(14 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
@@ -1244,7 +1267,7 @@ input.modified,
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(102) > .filter-options {
     position: relative !important;
-    height: calc(4 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
+    height: calc(4 * var(--poe-custom-item-distance) + var(--poe-web-item-margin)) !important;
     width: calc(14 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
@@ -1343,18 +1366,22 @@ input.modified,
 	"Fragments & Sets" section
 ---------------------------*/
 
-/* setup fragments container 
+/* setup fragments container */
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options {
     position: relative !important;
-    height: calc(10.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent) + var(--poe-custom-item-margin)) !important;
-    width: calc(12 * var(--poe-custom-item-distance)) !important;
+    height: calc(9.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent) + var(--poe-web-item-margin)) !important;
+    width: calc(14 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options > [data-id] {
     position: absolute !important;
-}*/
+}
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options > .split {
+    visibility: hidden;
+}
 
 /* set Y-coordinate for each row */
 
@@ -1368,109 +1395,128 @@ input.modified,
 
 [data-id=sacrifice-set], [data-id=mortal-set], [data-id=crest-of-the-elderslayers], [data-id=shaper-set], [data-id=key-to-decay], [data-id=maddening-object] {
     top: calc(2 * var(--poe-custom-item-distance)) !important;
+    /*top: calc(0.5 * var(--poe-custom-item-distance) + 3px) !important;
+    padding: 0px;
+    height: auto;
+    width: auto;
+    margin-left: 5px;*/
 }
 
 [data-id=ritual-splinter], [data-id=timeless-eternal-empire-splinter], [data-id=timeless-karui-splinter], [data-id=timeless-vaal-splinter], [data-id=timeless-templar-splinter], [data-id=timeless-maraketh-splinter], [data-id=simulacrum-splinter], [data-id=splinter-xoph], [data-id=splinter-tul], [data-id=splinter-esh], [data-id=splinter-uul], [data-id=splinter-chayula], [data-id=crescent-splinter] {
     top: calc(3 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
+[data-id=beauty] {
+    top: calc(3.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
+}
+
 [data-id=timeless-eternal-emblem], [data-id=timeless-karui-emblem], [data-id=timeless-maraketh-emblem], [data-id=timeless-templar-emblem], [data-id=timeless-vaal-emblem], [data-id=simulacrum], [data-id=xophs-breachstone], [data-id=tuls-breachstone], [data-id=eshs-breachstone], [data-id=uul-breachstone], [data-id=chayulas-breachstone] {
     top: calc(4 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
+}
+
+[data-id=curiosity] {
+    top: calc(4.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
 [data-id=uber-timeless-eternal-emblem], [data-id=uber-timeless-karui-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=uber-timeless-templar-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=the-mavens-writ], [data-id=xophs-flawless-breachstone], [data-id=tuls-flawless-breachstone], [data-id=eshs-flawless-breachstone], [data-id=uul-flawless-breachstone], [data-id=chayulas-flawless-breachstone], [data-id=xophs-charged-breachstone], [data-id=tuls-charged-breachstone], [data-id=eshs-charged-breachstone], [data-id=uul-charged-breachstone], [data-id=chayulas-charged-breachstone] {
     top: calc(5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication], [data-id=sacred-blossom], [data-id=xophs-enriched-breachstone], [data-id=tuls-enriched-breachstone], [data-id=eshs-enriched-breachstone], [data-id=uul-enriched-breachstone], [data-id=chayulas-enriched-breachstone], [data-id=blessing-xoph], [data-id=blessing-tul], [data-id=blessing-esh], [data-id=blessing-uul-netol], [data-id=blessing-chayula] {
+[data-id=ambition] {
+    top: calc(5.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
+}
+
+[data-id=ritual-vessel], [data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication], [data-id=sacred-blossom], [data-id=xophs-enriched-breachstone], [data-id=tuls-enriched-breachstone], [data-id=eshs-enriched-breachstone], [data-id=uul-enriched-breachstone], [data-id=chayulas-enriched-breachstone], [data-id=blessing-xoph], [data-id=blessing-tul], [data-id=blessing-esh], [data-id=blessing-uul-netol], [data-id=blessing-chayula] {
     top: calc(6 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=the-atlas], [data-id=writhing-invitation], [data-id=screaming-invitation], [data-id=polaric-invitation], [data-id=incandescent-invitation], [data-id=xophs-pure-breachstone], [data-id=tuls-pure-breachstone], [data-id=eshs-pure-breachstone], [data-id=uul-pure-breachstone], [data-id=chayulas-pure-breachstone] {
+[data-id=cooperation] {
+    top: calc(6.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
+}
+
+[data-id=the-atlas], [data-id=xophs-pure-breachstone], [data-id=tuls-pure-breachstone], [data-id=eshs-pure-breachstone], [data-id=uul-pure-breachstone], [data-id=chayulas-pure-breachstone] {
     top: calc(7 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
-[data-id=ritual-vessel], [data-id=beauty], [data-id=curiosity], [data-id=ambition], [data-id=cooperation], [data-id=the-formed], [data-id=the-twisted], [data-id=the-forgotten], [data-id=the-hidden], [data-id=the-elderslayers], [data-id=the-feared] {
+[data-id=the-formed], [data-id=the-twisted], [data-id=the-forgotten], [data-id=the-hidden], [data-id=the-elderslayers], [data-id=the-feared] {
     top: calc(8 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
+[data-id=awakening-fragment], [data-id=cosmic-fragment], [data-id=blazing-fragment], [data-id=reality-fragment], [data-id=decaying-fragment], [data-id=devouring-fragment], [data-id=synthesising-fragment], [data-id=writhing-invitation], [data-id=screaming-invitation], [data-id=polaric-invitation], [data-id=incandescent-invitation] {
+    top: calc(7.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
+}
+
 [data-id=forgotten-reliquary-key], [data-id=visceral-reliquary-key], [data-id=shiny-reliquary-key], [data-id=archive-reliquary-key], [data-id=oubliette-reliquary-key], [data-id=cosmic-reliquary-key], [data-id=decaying-reliquary-key], [data-id=voidborn-reliquary-key], [data-id=valdos-puzzle-box], [data-id=vaal-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=ancient-reliquary-key] {
-    top: calc(9.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
+    top: calc(8.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent)) !important;
 }
 
 /* set X-coordinate for each column */
 
-[data-id=divine-vessel], [data-id=ritual-vessel], [data-id=dusk], [data-id=noon], [data-id=timeless-eternal-empire-splinter], [data-id=timeless-eternal-emblem], [data-id=uber-timeless-eternal-emblem], [data-id=forgotten-reliquary-key] {
+[data-id=ritual-vessel], [data-id=ritual-splinter] {
     left: calc(0 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=offer], [data-id=mid], [data-id=dawn], [data-id=timeless-karui-splinter], [data-id=timeless-karui-emblem], [data-id=uber-timeless-karui-emblem], [data-id=beauty], [data-id=visceral-reliquary-key] {
+[data-id=divine-vessel], [data-id=dusk], [data-id=noon], [data-id=timeless-eternal-empire-splinter], [data-id=timeless-eternal-emblem], [data-id=uber-timeless-eternal-emblem], [data-id=awakening-fragment], [data-id=oubliette-reliquary-key] {
     left: calc(1 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=veritanias-crest], [data-id=droxs-crest], [data-id=timeless-vaal-splinter], [data-id=timeless-vaal-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=offer-dedication], [data-id=curiosity], [data-id=shiny-reliquary-key] {
+[data-id=offer], [data-id=mid], [data-id=dawn], [data-id=timeless-karui-splinter], [data-id=timeless-karui-emblem], [data-id=uber-timeless-karui-emblem], [data-id=cosmic-fragment], [data-id=cosmic-reliquary-key] {
     left: calc(2 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=al-hezmins-crest], [data-id=barans-crest], [data-id=timeless-templar-splinter], [data-id=timeless-templar-emblem], [data-id=uber-timeless-templar-emblem], [data-id=offer-gift], [data-id=ambition], [data-id=archive-reliquary-key] {
+[data-id=veritanias-crest], [data-id=droxs-crest], [data-id=timeless-vaal-splinter], [data-id=timeless-vaal-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=offer-dedication], [data-id=blazing-fragment], [data-id=archive-reliquary-key] {
     left: calc(3 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=grie], [data-id=ign], [data-id=timeless-maraketh-splinter], [data-id=timeless-maraketh-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=offer-tribute], [data-id=cooperation], [data-id=oubliette-reliquary-key] {
+[data-id=al-hezmins-crest], [data-id=barans-crest], [data-id=timeless-templar-splinter], [data-id=timeless-templar-emblem], [data-id=uber-timeless-templar-emblem], [data-id=offer-gift], [data-id=reality-fragment], [data-id=shiny-reliquary-key] {
     left: calc(4 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=rage], [data-id=hope], [data-id=simulacrum-splinter], [data-id=cosmic-reliquary-key] {
+[data-id=grie], [data-id=ign], [data-id=timeless-maraketh-splinter], [data-id=timeless-maraketh-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=offer-tribute], [data-id=decaying-fragment], [data-id=decaying-reliquary-key] {
     left: calc(5 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=fragment-of-purification], [data-id=fragment-of-constriction], [data-id=crescent-splinter], [data-id=decaying-reliquary-key] {
+[data-id=rage], [data-id=hope], [data-id=simulacrum-splinter], [data-id=devouring-fragment], [data-id=visceral-reliquary-key] {
     left: calc(6 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=fragment-of-enslavement], [data-id=fragment-of-eradication], [data-id=xophs-breachstone], [data-id=xophs-charged-breachstone], [data-id=xophs-enriched-breachstone], [data-id=xophs-pure-breachstone], [data-id=xophs-flawless-breachstone], [data-id=the-atlas], [data-id=the-formed], [data-id=voidborn-reliquary-key] {
+[data-id=fragment-of-purification], [data-id=fragment-of-constriction], [data-id=crescent-splinter], [data-id=synthesising-fragment], [data-id=forgotten-reliquary-key] {
     left: calc(7 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=hydra], [data-id=chimer], [data-id=tuls-breachstone], [data-id=tuls-charged-breachstone], [data-id=tuls-enriched-breachstone], [data-id=tuls-pure-breachstone], [data-id=tuls-flawless-breachstone], [data-id=writhing-invitation], [data-id=the-twisted], [data-id=valdos-puzzle-box] {
+[data-id=fragment-of-enslavement], [data-id=fragment-of-eradication], [data-id=blessing-xoph], [data-id=splinter-xoph], [data-id=xophs-breachstone], [data-id=xophs-charged-breachstone], [data-id=xophs-enriched-breachstone], [data-id=xophs-pure-breachstone], [data-id=xophs-flawless-breachstone], [data-id=the-atlas], [data-id=the-formed], [data-id=voidborn-reliquary-key] {
     left: calc(8 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=phoenix], [data-id=minot], [data-id=eshs-breachstone], [data-id=eshs-charged-breachstone], [data-id=eshs-enriched-breachstone], [data-id=eshs-pure-breachstone], [data-id=eshs-flawless-breachstone], [data-id=screaming-invitation], [data-id=the-forgotten], [data-id=ancient-reliquary-key] {
+[data-id=hydra], [data-id=chimer], [data-id=blessing-tul], [data-id=splinter-tul], [data-id=tuls-breachstone], [data-id=tuls-charged-breachstone], [data-id=tuls-enriched-breachstone], [data-id=tuls-pure-breachstone], [data-id=tuls-flawless-breachstone], [data-id=writhing-invitation], [data-id=the-twisted], [data-id=valdos-puzzle-box] {
     left: calc(9 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=uul-breachstone], [data-id=uul-charged-breachstone], [data-id=uul-enriched-breachstone], [data-id=uul-pure-breachstone], [data-id=uul-flawless-breachstone], [data-id=polaric-invitation], [data-id=the-hidden], [data-id=timeworn-reliquary-key] {
+[data-id=phoenix], [data-id=minot], [data-id=blessing-esh], [data-id=splinter-esh], [data-id=eshs-breachstone], [data-id=eshs-charged-breachstone], [data-id=eshs-enriched-breachstone], [data-id=eshs-pure-breachstone], [data-id=eshs-flawless-breachstone], [data-id=screaming-invitation], [data-id=the-forgotten], [data-id=ancient-reliquary-key] {
     left: calc(10 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=fragment-of-terror], [data-id=fragment-of-emptiness], [data-id=chayulas-breachstone], [data-id=chayulas-charged-breachstone], [data-id=chayulas-enriched-breachstone], [data-id=chayulas-pure-breachstone], [data-id=chayulas-flawless-breachstone], [data-id=incandescent-invitation], [data-id=the-elderslayers], [data-id=vaal-reliquary-key] {
+[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=blessing-uul-netol], [data-id=splinter-uul], [data-id=uul-breachstone], [data-id=uul-charged-breachstone], [data-id=uul-enriched-breachstone], [data-id=uul-pure-breachstone], [data-id=uul-flawless-breachstone], [data-id=polaric-invitation], [data-id=the-hidden], [data-id=timeworn-reliquary-key] {
     left: calc(11 * var(--poe-custom-item-distance)) !important;
+}
+[data-id=fragment-of-terror], [data-id=fragment-of-emptiness], [data-id=blessing-chayula], [data-id=splinter-chayula], [data-id=chayulas-breachstone], [data-id=chayulas-charged-breachstone], [data-id=chayulas-enriched-breachstone], [data-id=chayulas-pure-breachstone], [data-id=chayulas-flawless-breachstone], [data-id=incandescent-invitation], [data-id=the-elderslayers], [data-id=vaal-reliquary-key] {
+    left: calc(12 * var(--poe-custom-item-distance)) !important;
+}
+[data-id=beauty], [data-id=curiosity], [data-id=ambition], [data-id=cooperation] {
+    left: calc(13 * var(--poe-custom-item-distance)) !important;
 }
 
 /**/
 
 [data-id=sacrifice-set] {
-    left: calc(0.5 * var(--poe-custom-item-distance)) !important;
-}
-/*[data-id=] {
     left: calc(1.5 * var(--poe-custom-item-distance)) !important;
-}*/
+}
 [data-id=crest-of-the-elderslayers] {
-    left: calc(2.5 * var(--poe-custom-item-distance)) !important;
-}
-/*[data-id=] {
     left: calc(3.5 * var(--poe-custom-item-distance)) !important;
-}*/
-[data-id=mortal-set] {
-    left: calc(4.5 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=simulacrum], [data-id=sacred-blossom], [data-id=the-mavens-writ], [data-id=the-feared] {
+[data-id=mortal-set] {
     left: calc(5.5 * var(--poe-custom-item-distance)) !important;
 }
-[data-id=key-to-decay] {
+[data-id=simulacrum], [data-id=sacred-blossom], [data-id=the-mavens-writ], [data-id=the-feared] {
     left: calc(6.5 * var(--poe-custom-item-distance)) !important;
 }
-/* {
+[data-id=key-to-decay] {
     left: calc(7.5 * var(--poe-custom-item-distance)) !important;
-}*/
-[data-id=shaper-set] {
-    left: calc(8.5 * var(--poe-custom-item-distance)) !important;
 }
-/* {
+[data-id=shaper-set] {
     left: calc(9.5 * var(--poe-custom-item-distance)) !important;
-}*/
+}
 [data-id=maddening-object] {
-    left: calc(10.5 * var(--poe-custom-item-distance)) !important;
+    left: calc(11.5 * var(--poe-custom-item-distance)) !important;
 }
 
 
@@ -1479,86 +1525,163 @@ input.modified,
 	"Scarabs" section
 ---------------------------*/
 
-/* setup scarabs container */
+/* setup scarabs container 
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(114) > .filter-options {
     position: relative !important;
-    height: calc(9.5 * var(--poe-custom-item-distance) - var(--poe-custom-lures-indent) + var(--poe-custom-item-margin)) !important;
+    height: calc(9.5 * var(--poe-custom-item-distance) - var(--poe-custom-lures-indent) + var(--poe-web-item-margin)) !important;
     width: calc(8.5 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(114) > .filter-options > [data-id] {
     position: absolute !important;
+}*/
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options {
+    height: calc(9.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent) + var(--poe-web-item-margin) + 10 * var(--poe-web-item-distance) + 3.8px) !important;
 }
 
-/* set Y-coordinate for each row */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options > .split:nth-child(2 of .split) {
+    margin-top: calc(9.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent) + var(--poe-web-item-margin)) !important;
+/*     margin-bottom: 0px !important; */
+    visibility: visible !important;
+}
 
-[data-id$=-bestiary-scarab], [data-id$=-shaper-scarab] {
-    top: calc(0 * var(--poe-custom-item-distance)) !important;
+/* setup horizontal indents */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options {
+    --poe-custom-1nd-row-horizontal-indent: 20px;
+    --poe-custom-2nd-row-margin-left: calc(2 * var(--poe-web-item-distance) - 20px);
+    --poe-custom-2nd-row-horizontal-indent: 29px;
+    --poe-custom-345nd-row-horizontal-indent: 29px;
+    --poe-custom-6789nd-row-margin-left: var(--poe-web-item-distance);
+    --poe-custom-6789nd-row-horizontal-indent: var(--poe-web-item-distance);
+    --poe-custom-10nd-row-horizontal-indent: var(--poe-web-item-distance);
 }
-[data-id$=-reliquary-scarab], [data-id$=-expedition-scarab] {
-    top: calc(1 * var(--poe-custom-item-distance)) !important;
+
+/* to fix specificity */
+:where(.filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options > :nth-child(2 of .split) ~ [data-id]:has(~ :nth-child(3 of .split))) {
+    --margin-left: var(--poe-web-item-margin);
 }
-[data-id$=-torment-scarab], [data-id$=-cartography-scarab] {
-    top: calc(2 * var(--poe-custom-item-distance)) !important;
+
+/* setup all scarabs */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options > :nth-child(2 of .split) ~ [data-id]:has(~ :nth-child(3 of .split)) {
+    position: relative !important;
+    --margin-right: calc(100% - var(--n-indents) * (var(--horizontal-indent) - var(--poe-web-item-margin)) - var(--n-items) * var(--poe-web-item-distance) - var(--margin-left) + var(--poe-web-item-margin) - 1px);
 }
-[data-id$=-sulphite-scarab], [data-id$=-harbinger-scarab] {
-    top: calc(3 * var(--poe-custom-item-distance)) !important;
+
+/* 1st row */
+[data-id=sulphite-scarab], [data-id=divination-scarab], [data-id=torment-scarab] {
+    margin-left: var(--poe-custom-1nd-row-horizontal-indent) !important;
 }
-[data-id$=-ultimatum-scarab], [data-id$=-elder-scarab] {
-    top: calc(4 * var(--poe-custom-item-distance)) !important;
+[data-id=torment-scarab-of-release] {
+    --horizontal-indent: var(--poe-custom-1nd-row-horizontal-indent);
+    --n-indents: 3;
+    --n-items: 12;
+    margin-right: var(--margin-right) !important;
 }
-[data-id$=-legion-scarab], [data-id$=-divination-scarab] {
-    top: calc(5 * var(--poe-custom-item-distance)) !important;
+
+/* 2nd row */
+[data-id=anarchy-scarab] {
+    margin-left: var(--poe-custom-2nd-row-margin-left) !important;
 }
-[data-id$=-ambush-scarab], [data-id$=-breach-scarab] {
-    top: calc(6 * var(--poe-custom-item-distance)) !important;
+[data-id=ritual-scarab-of-selectiveness], [data-id=harvest-scarab] {
+    margin-left: var(--poe-custom-2nd-row-horizontal-indent) !important;
 }
-[data-id$=-blight-scarab], [data-id$=-abyss-scarab] {
-    top: calc(7 * var(--poe-custom-item-distance)) !important;
+[data-id=harvest-scarab-of-cornucopia] {
+    --margin-left: var(--poe-custom-2nd-row-margin-left);
+    --horizontal-indent: var(--poe-custom-2nd-row-horizontal-indent);
+    --n-indents: 2;
+    --n-items: 9;
+    margin-right: var(--margin-right) !important;
 }
+
+/* 3 4 5 row */
+[data-id=influencing-scarab-of-the-shaper], [data-id=harbinger-scarab], [data-id=essence-scarab], [data-id=domination-scarab], [data-id=betrayal-scarab], [data-id=blight-scarab] {
+    margin-left: var(--poe-custom-345nd-row-horizontal-indent) !important;
+}
+[data-id=harbinger-scarab-of-warhoards], [data-id=domination-scarab-of-terrors], [data-id=blight-scarab-of-blooming] {
+    --horizontal-indent: var(--poe-custom-345nd-row-horizontal-indent);
+    --n-indents: 2;
+    --n-items: 12;
+    margin-right: var(--margin-right) !important;
+}
+
+/* 6 7 8 9 row */
+[data-id=breach-scarab], [data-id=cartography-scarab], [data-id=ambush-scarab], [data-id=expedition-scarab] {
+    margin-left: var(--poe-custom-6789nd-row-margin-left) !important;
+}
+[data-id=legion-scarab], [data-id=beyond-scarab], [data-id=ultimatum-scarab], [data-id=delirium-scarab] {
+    margin-left: var(--poe-custom-6789nd-row-horizontal-indent) !important;
+}
+[data-id=legion-scarab-of-eternal-conflict], [data-id=beyond-scarab-of-the-invasion], [data-id=ultimatum-scarab-of-inscription], [data-id=delirium-scarab-of-delusions] {
+    --margin-left: var(--poe-custom-6789nd-row-margin-left);
+    --horizontal-indent: var(--poe-custom-6789nd-row-horizontal-indent);
+    --n-indents: 1;
+    --n-items: 10;
+    margin-right: var(--margin-right) !important;
+}
+
+/* 10th row */
+[data-id=horned-scarab-of-bloodlines] {
+    margin-left: var(--poe-custom-10nd-row-horizontal-indent) !important;
+}
+[data-id=horned-scarab-of-pandemonium] {
+    --horizontal-indent: var(--poe-custom-10nd-row-horizontal-indent);
+    --n-indents: 1;
+    --n-items: 12;
+    margin-right: var(--margin-right) !important;
+}
+
+/* set Y-coordinate for each row 
+
+[data-id^=reliquary-scarab], [data-id^=sulphite-scarab], [data-id^=divination-scarab], [data-id^=torment-scarab] {
+    top: calc(10 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=anarchy-scarab], [data-id^=ritual-scarab], [data-id^=harvest-scarab] {
+    top: calc(11 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=bestiary-scarab], [data-id^=influencing-scarab], [data-id^=harbinger-scarab] {
+    top: calc(12 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=abyss-scarab], [data-id^=essence-scarab], [data-id^=domination-scarab] {
+    top: calc(13 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=incursion-scarab], [data-id^=betrayal-scarab], [data-id^=blight-scarab] {
+    top: calc(14 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=breach-scarab], [data-id^=legion-scarab] {
+    top: calc(15 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=cartography-scarab], [data-id^=beyond-scarab] {
+    top: calc(16 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=ambush-scarab], [data-id^=ultimatum-scarab] {
+    top: calc(17 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id^=expedition-scarab], [data-id^=delirium-scarab] {
+    top: calc(18 * var(--poe-custom-item-distance)) !important;
+}
+
+[data-id=mysterious-scarab], [data-id^=scarab-of-], [data-id^=horned-scarab-of-] {
+    top: calc(19 * var(--poe-custom-item-distance)) !important;
+}*/
 
 /**/
-
-[data-id$=farric-lure], [data-id=saqawine-lure], [data-id=fenumal-lure], [data-id=craicic-lure] {
-    top: calc(8.5 * var(--poe-custom-item-distance)) !important;
-}
 
 /* set X-coordinate for each column */
 
-[data-id=rusted-bestiary-scarab], [data-id=rusted-reliquary-scarab], [data-id=rusted-torment-scarab], [data-id=rusted-sulphite-scarab], [data-id=rusted-ultimatum-scarab], [data-id=rusted-legion-scarab], [data-id=rusted-ambush-scarab], [data-id=rusted-blight-scarab] {
+/*[data-id=] {
     left: calc(0 * var(--poe-custom-item-distance)) !important;
-}
-[data-id=polished-bestiary-scarab], [data-id=polished-reliquary-scarab], [data-id=polished-torment-scarab], [data-id=polished-sulphite-scarab], [data-id=polished-ultimatum-scarab], [data-id=polished-legion-scarab], [data-id=polished-ambush-scarab], [data-id=polished-blight-scarab] {
-    left: calc(1 * var(--poe-custom-item-distance)) !important;
-}
-[data-id=gilded-bestiary-scarab], [data-id=gilded-reliquary-scarab], [data-id=gilded-torment-scarab], [data-id=gilded-sulphite-scarab], [data-id=gilded-ultimatum-scarab], [data-id=gilded-legion-scarab], [data-id=gilded-ambush-scarab], [data-id=gilded-blight-scarab] {
-    left: calc(2 * var(--poe-custom-item-distance)) !important;
-}
-[data-id=jewelled-bestiary-scarab], [data-id=jewelled-reliquary-scarab], [data-id=jewelled-torment-scarab], [data-id=jewelled-sulphite-scarab], [data-id=winged-ultimatum-scarab], [data-id=jewelled-legion-scarab], [data-id=jewelled-ambush-scarab], [data-id=winged-blight-scarab] {
-    left: calc(3 * var(--poe-custom-item-distance)) !important;
-}
-
-/**/
-
-[data-id=rusted-shaper-scarab], [data-id=rusted-expedition-scarab], [data-id=rusted-cartography-scarab], [data-id=rusted-harbinger-scarab], [data-id=rusted-elder-scarab], [data-id=rusted-divination-scarab], [data-id=rusted-breach-scarab], [data-id=rusted-abyss-scarab] {
-    left: calc(4.5 * var(--poe-custom-item-distance)) !important;
-}
-[data-id=polished-shaper-scarab], [data-id=polished-expedition-scarab], [data-id=polished-cartography-scarab], [data-id=polished-harbinger-scarab], [data-id=polished-elder-scarab], [data-id=polished-divination-scarab], [data-id=polished-breach-scarab], [data-id=polished-abyss-scarab] {
-    left: calc(5.5 * var(--poe-custom-item-distance)) !important;
-}
-[data-id=gilded-shaper-scarab], [data-id=gilded-expedition-scarab], [data-id=gilded-cartography-scarab], [data-id=gilded-harbinger-scarab], [data-id=gilded-elder-scarab], [data-id=gilded-divination-scarab], [data-id=gilded-breach-scarab], [data-id=gilded-abyss-scarab] {
-    left: calc(6.5 * var(--poe-custom-item-distance)) !important;
-}
-[data-id=jewelled-shaper-scarab], [data-id=winged-expedition-scarab], [data-id=jewelled-cartography-scarab], [data-id=jewelled-harbinger-scarab], [data-id=jewelled-elder-scarab], [data-id=jewelled-divination-scarab], [data-id=jewelled-breach-scarab], [data-id=winged-abyss-scarab] {
-    left: calc(7.5 * var(--poe-custom-item-distance)) !important;
-}
-
-[data-id=farric-lure]   { left: calc(1.5 * var(--poe-custom-item-distance)) !important; }
-[data-id=saqawine-lure] { left: calc(3   * var(--poe-custom-item-distance)) !important; }
-[data-id=fenumal-lure]  { left: calc(4.5 * var(--poe-custom-item-distance)) !important; }
-[data-id=craicic-lure]  { left: calc(6   * var(--poe-custom-item-distance)) !important; }
+}*/
 
 
 
@@ -1633,12 +1756,8 @@ input.modified,
 /* setup fossils container */
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(13) > .filter-options {
-    --poe-custom-magic-number: 5px;
-}
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(13) > .filter-options {
     position: relative !important;
-    height: calc(6 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin) - 2 * var(--poe-custom-magic-number)) !important;
+    height: calc(6 * var(--poe-custom-item-distance) + var(--poe-web-item-margin) - 2 * var(--poe-custom-item-size-double-adjustment)) !important;
     width: calc(9 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
@@ -1674,7 +1793,7 @@ input.modified,
 }
 
 [data-id=primitive-chaotic-resonator] {
-    top: calc(4.5 * var(--poe-custom-item-distance) - var(--poe-custom-magic-number)) !important;
+    top: calc(4.5 * var(--poe-custom-item-distance) - var(--poe-custom-item-size-double-adjustment)) !important;
 }
 
 
@@ -1735,7 +1854,7 @@ input.modified,
 }
 
 [data-id=prime-chaotic-resonator] {
-    left: calc(5.5 * var(--poe-custom-item-distance) - 2 * var(--poe-custom-magic-number)) !important;
+    left: calc(5.5 * var(--poe-custom-item-distance) - 2 * var(--poe-custom-item-size-double-adjustment)) !important;
 }
 
 [data-id=hollow-fossil] {
@@ -1756,7 +1875,7 @@ input.modified,
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(14) > .filter-options {
     position: relative !important;
-    height: calc(12 * var(--poe-custom-item-distance) + var(--poe-custom-item-margin)) !important;
+    height: calc(12 * var(--poe-custom-item-distance) + var(--poe-web-item-margin)) !important;
     width: calc(11.5 * var(--poe-custom-item-distance)) !important;
     margin: auto !important;
 }
@@ -1866,6 +1985,32 @@ input.modified,
 
 
 /*------------------------------
+	"Beasts" section
+------------------------------*/
+
+[data-id=farric-lynx-alpha]::before {
+    content: '(+S -P) ' !important;
+    color: var(--poe-game-color-rarity-rare) !important;
+}
+
+[data-id=farric-wolf-alpha]::before {
+    content: '(+P -S) ' !important;
+    color: var(--poe-game-color-rarity-rare) !important;
+}
+
+[data-id=wild-bristle-matron]::before {
+    content: '(Meta) ' !important;
+    color: var(--poe-game-color-crafted) !important;
+}
+
+[data-id=fenumal-plagued-arachnid]::before {
+    content: '(Split) ' !important;
+    color: var(--poe-game-color-split) !important;
+}
+
+
+
+/*------------------------------
 	"Maps" section
 ------------------------------*/
 
@@ -1903,7 +2048,7 @@ input.modified,
 [data-id=pit-of-the-chimera-map-tier-16] { order: 14 !important; }
 [data-id=vaal-temple-map-tier-16] { order: 10 !important; }
 
-/* add icons to some items */
+/* add icons to some items→ */
 
 [data-id=forge-of-the-phoenix-map-tier-16],
 [data-id=lair-of-the-hydra-map-tier-16],
@@ -1911,14 +2056,8 @@ input.modified,
 [data-id=pit-of-the-chimera-map-tier-16],
 [data-id=vaal-temple-map-tier-16],
 /*[data-id=forbidden-tome],*/
-[data-id=al-hezmins-map],
-[data-id=barans-map],
-[data-id=droxs-map],
-[data-id=veritanias-map],
-[data-id=enslaver-map],
-[data-id=eradicator-map],
-[data-id=constrictor-map],
-[data-id=purifier-map],
+[data-id=vivid-vulture],
+[data-id=craicic-chimeral],
 [data-id=beast] {
 
     /* setup text item */
@@ -1927,7 +2066,7 @@ input.modified,
     /* setup span ::before */
     &::before {
         position: absolute !important;
-        transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-scuffed47-scale-from) )) !important;
+        transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-47-scale-from) )) !important;
         transform-origin: 0% 0% !important;
         left: calc(var(--text-inner-margin) / 2) !important;
         top: 0px !important;
@@ -1939,35 +2078,28 @@ input.modified,
     }
 }
 
-[data-id=forge-of-the-phoenix-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9QaG9lbml4IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxMiwibXQiOjAsIm1pIjoxfV0/b6e03170bd/Phoenix.png") !important; }
+/* different image size */
+[data-id=vivid-vulture]::before {
+    transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-27-scale-from) )) !important;
+}
 
-[data-id=lair-of-the-hydra-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9IeWRyYSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTIsIm10IjowLCJtaSI6MX1d/7ce44c86b1/Hydra.png") !important; }
+[data-id=forge-of-the-phoenix-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9QaG9lbml4IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxOSwibXQiOjAsIm1pIjoxfV0/3a961684d2/Phoenix.png") !important; }
 
-[data-id=maze-of-the-minotaur-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9NaW5vdGF1ciIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTIsIm10IjowLCJtaSI6MX1d/7c6b0ef649/Minotaur.png") !important; }
+[data-id=lair-of-the-hydra-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9IeWRyYSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTksIm10IjowLCJtaSI6MX1d/9014b4b35c/Hydra.png") !important; }
 
-[data-id=pit-of-the-chimera-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9DaGltZXJhIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxMiwibXQiOjAsIm1pIjoxfV0/bda06c2ea6/Chimera.png") !important; }
+[data-id=maze-of-the-minotaur-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9NaW5vdGF1ciIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTksIm10IjowLCJtaSI6MX1d/3652abd61c/Minotaur.png") !important; }
 
-[data-id=vaal-temple-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9WYWFsVGVtcGxlQmFzZSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTIsIm10IjowfV0/509857e3ba/VaalTempleBase.png") !important; }
+[data-id=pit-of-the-chimera-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9DaGltZXJhIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxOSwibXQiOjAsIm1pIjoxfV0/5c2f229dbe/Chimera.png") !important; }
+
+[data-id=vaal-temple-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9WYWFsVGVtcGxlQmFzZSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTksIm10IjowfV0/bd67feb50f/VaalTempleBase.png") !important; }
 
 /*
 [data-id=forbidden-tome]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2FuY3R1bS9TYW5jdHVtS2V5IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/d0326cac9a/SanctumKey.png") !important; }
 */
 
-[data-id=al-hezmins-map]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9Db2xvbm5hZGUiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjE5LCJtdCI6MTUsIm1jIjozfV0/de0d4c426e/Colonnade.png") !important; }
+[data-id=craicic-chimeral]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lJbXByaW50IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/78304c421e/CurrencyImprint.png") !important; }
 
-[data-id=barans-map]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9Fc3R1YXJ5IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxOSwibXQiOjE0LCJtYyI6MX1d/5b0f4a780c/Estuary.png") !important; }
-
-[data-id=droxs-map]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9PdmVyZ3Jvd25TaHJpbmUiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjE5LCJtdCI6MTQsIm1jIjo0fV0/b0a426c071/OvergrownShrine.png") !important; }
-
-[data-id=veritanias-map]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9SZWVmIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxOSwibXQiOjE2LCJtYyI6Mn1d/8dc6727f27/Reef.png") !important; }
-
-[data-id=enslaver-map]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9CYXphYXIiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjE5LCJtdCI6MTYsIm1nIjoxLCJtaSI6Mn1d/501efe2151/Bazaar.png") !important; }
-
-[data-id=eradicator-map]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9DZW1ldGVyeSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTksIm10IjoxNSwibWciOjIsIm1pIjoyfV0/b162031dc3/Cemetery.png") !important; }
-
-[data-id=constrictor-map]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9SZWVmIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxOSwibXQiOjE0LCJtZyI6MywibWkiOjJ9XQ/2815e5b30c/Reef.png") !important; }
-
-[data-id=purifier-map]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9TdHJhbmQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjE5LCJtdCI6MTQsIm1nIjo0LCJtaSI6Mn1d/5e2d5e437d/Strand.png") !important; }
+[data-id=vivid-vulture]::before { content: url("/protected/image/item/popup/synthetic-symbol.png?key=CUVu3Zqxrzd1CwWcIH-6xg") !important; }
 
 [data-id=beast]::before { content: url("https://web.poecdn.com/image/Art/2DItems/Currency/BestiaryOrbFull.png?scale=1&w=1&h=1") !important; }
 
@@ -1984,14 +2116,6 @@ input.modified,
     display: none !important;
 }
 
-/* hide all dividers but last 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(17) > .filter-options > .split:not(:is(
-    :has(+[data-id$=-map-tier-14]),
-    :has(+[data-id$=-map-tier-15]),
-    :has(+[data-id$=-map-tier-16])
-)) {
-    display: none !important;
-}*/
 /* hide T1-T13 dividers */
 .filter-group:first-child > .filter-group-body > .filter:nth-child(17) > .filter-options > :nth-child(-n + 13 of .split) {
     display: none !important;
@@ -2159,6 +2283,78 @@ input.modified,
 [data-id^="reef-map-tier-"]::after { content: "Reef"; }
 [data-id^="channel-map-tier-"]::after { content: "Channel"; }
 [data-id^="ivory-temple-map-tier-"]::after { content: "Ivory Temple"; }
+
+/*------------------------------
+    "Conqueror & Elder Maps" section
+------------------------------*/
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(18) > .filter-options {
+    --min-tier-width: 32px;
+    
+    /* setup items */
+    & > [data-id] {
+        position: relative !important;
+        min-width: var(--min-tier-width) !important;
+    }
+
+    /* hide real map names */
+    & > [data-id] > span {
+        display: none !important;
+    }
+
+    /* prepare icon */
+    & > [data-id]::before {
+        position: absolute !important;
+        transform: scale(calc( var(--image-size-scale-to) / var(--image-original-size-47-scale-from) )) !important;
+        transform-origin: 0% 0% !important;
+        left: calc(var(--text-inner-margin) / 2) !important;
+        top: 0px !important;
+    }
+    
+    & > [data-id]::after {
+        margin-left: var(--image-indent) !important;
+    }
+}
+
+[data-id=al-hezmins-map] {
+    &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9Db2xvbm5hZGUiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjE5LCJtdCI6MTUsIm1jIjozfV0/de0d4c426e/Colonnade.png") !important; }
+    &::after { content: 'Al-Hezmin (Hunter)' !important; }
+}
+
+[data-id=barans-map] {
+    &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9Fc3R1YXJ5IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxOSwibXQiOjE0LCJtYyI6MX1d/5b0f4a780c/Estuary.png") !important; }
+    &::after { content: 'Baran (Crusader)' !important; }
+}
+
+[data-id=droxs-map] {
+    &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9PdmVyZ3Jvd25TaHJpbmUiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjE5LCJtdCI6MTQsIm1jIjo0fV0/b0a426c071/OvergrownShrine.png") !important; }
+    &::after { content: 'Drox (Warlord)' !important; }
+}
+
+[data-id=veritanias-map] {
+    &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9SZWVmIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxOSwibXQiOjE2LCJtYyI6Mn1d/8dc6727f27/Reef.png") !important; }
+    &::after { content: 'Veritania (Redeemer)' !important; }
+}
+
+[data-id=enslaver-map] {
+    &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9CYXphYXIiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjE5LCJtdCI6MTYsIm1nIjoxLCJtaSI6Mn1d/501efe2151/Bazaar.png") !important; }
+    &::after { content: 'Enslaver' !important; }
+}
+
+[data-id=eradicator-map] {
+    &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9DZW1ldGVyeSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTksIm10IjoxNSwibWciOjIsIm1pIjoyfV0/b162031dc3/Cemetery.png") !important; }
+    &::after { content: 'Eradicator' !important; }
+}
+
+[data-id=constrictor-map] {
+    &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9SZWVmIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxOSwibXQiOjE0LCJtZyI6MywibWkiOjJ9XQ/2815e5b30c/Reef.png") !important; }
+    &::after { content: 'Constrictor' !important; }
+}
+
+[data-id=purifier-map] {
+    &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9TdHJhbmQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjE5LCJtdCI6MTQsIm1nIjo0LCJtaSI6Mn1d/5e2d5e437d/Strand.png") !important; }
+    &::after { content: 'Purifier' !important; }
+}
 
 
 

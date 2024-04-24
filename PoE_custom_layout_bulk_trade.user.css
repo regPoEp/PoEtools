@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.11.1
+@version      1.11.2
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -1770,7 +1770,7 @@ body {
 
 /* setup fragments container */
 .filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options {
-    --filter-rows: 20;
+    --filter-rows: 23;
     --filter-columns: 14;
     --container-ver-indent: calc(0px - var(--poe-custom-fragment-set-indent));
 
@@ -1944,9 +1944,13 @@ body {
     --bl2-gr-i: 42px;
     --bl3-gr-i: var(--bl2-gr-i);
     --bl4-gr-i: 84px;
+    --bl5-gr-i: 168px;
 
     --bl1-r-i: 77px;
     --bl3-r-i: 63px;
+    --bl35-r-i: 168px;
+    --bl4-r-i: var(--bl3-r-i);
+    --bl5-r-i: 84px;
 }
 
 /* hardcoded:
@@ -1967,53 +1971,62 @@ body {
 /* set Y-coordinate for each row */
 
 /* row values, group indent, row margin */
-[data-id^=reliquary-scarab], [data-id^=sulphite-scarab], [data-id^=divination-scarab], [data-id^=torment-scarab] {
-    --r: 10; --gr-i: var(--bl1-gr-i); }
+[data-id^=reliquary-scarab], [data-id^=sulphite-scarab], [data-id^=divination-scarab] {
+    --r: 10;   --gr-i: var(--bl1-gr-i); --r-i: var(--bl1-r-i); }
 [data-id^=anarchy-scarab], [data-id^=ritual-scarab], [data-id^=harvest-scarab] {
-    --r: 11; --gr-i: var(--bl1-gr-i); --r-i: var(--bl1-r-i); }
-[data-id^=bestiary-scarab], [data-id^=influencing-scarab], [data-id^=harbinger-scarab] {
-    --r: 12; --gr-i: var(--bl2-gr-i); }
-[data-id^=abyss-scarab], [data-id^=essence-scarab], [data-id^=domination-scarab] {
-    --r: 13; --gr-i: var(--bl2-gr-i); }
-[data-id^=incursion-scarab], [data-id^=betrayal-scarab], [data-id^=blight-scarab] {
-    --r: 14; --gr-i: var(--bl2-gr-i); }
-[data-id^=breach-scarab], [data-id^=legion-scarab] {
-    --r: 15; --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
+    --r: 11;   --gr-i: var(--bl1-gr-i); --r-i: var(--bl1-r-i); }
+[data-id^=influencing-scarab] {
+    --r: 12;   --gr-i: var(--bl2-gr-i); }
+[data-id^=bestiary-scarab], [data-id^=harbinger-scarab] {
+    --r: 12.5; --gr-i: var(--bl2-gr-i); }
+[data-id^=betrayal-scarab] {
+    --r: 13;   --gr-i: var(--bl2-gr-i); }
+[data-id^=incursion-scarab], [data-id^=domination-scarab] {
+    --r: 13.5; --gr-i: var(--bl2-gr-i); }
+[data-id^=torment-scarab] {
+    --r: 14;   --gr-i: var(--bl2-gr-i); }
 [data-id^=cartography-scarab], [data-id^=beyond-scarab] {
-    --r: 16; --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
+    --r: 15;   --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
 [data-id^=ambush-scarab], [data-id^=ultimatum-scarab] {
-    --r: 17; --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
+    --r: 16;   --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
 [data-id^=expedition-scarab], [data-id^=delirium-scarab] {
-    --r: 18; --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
-[data-id=mysterious-scarab], [data-id^=scarab-of-], [data-id^=horned-scarab-of-] {
-    --r: 19; --gr-i: var(--bl4-gr-i); }
+    --r: 17;   --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
+[data-id^=legion-scarab], [data-id^=blight-scarab] {
+    --r: 18;   --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
+[data-id^=abyss-scarab], [data-id^=essence-scarab] {
+    --r: 19;   --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
+[data-id^=breach-scarab] {
+    --r: 20; --r-i: var(--bl35-r-i); }
+[data-id=scarab-of-monstrous-lineage], [data-id=scarab-of-adversaries], [data-id=mysterious-scarab], [data-id=scarab-of-hunted-traitors], [data-id^=horned-scarab-of-] {
+    --r: 21;   --gr-i: var(--bl4-gr-i); --r-i: var(--bl4-r-i); }
+[data-id=scarab-of-stability], [data-id=scarab-of-wisps], [data-id=scarab-of-radiant-stroms], [data-id=horned-scarab-of-glittering], [data-id=horned-scarab-of-pandemonium] {
+    --r: 22;   --gr-i: var(--bl5-gr-i); --r-i: var(--bl5-r-i); }
 
 /* set X-coordinate for each column */
 
 /* group index values */
 
 /* bl1 */
-[data-id^=sulphite-scarab]                  { --gr: 1; }
-[data-id^=divination-scarab]                { --gr: 2; }
-[data-id^=torment-scarab]                   { --gr: 3; }
-
+[data-id^=sulphite-scarab],
 [data-id^=ritual-scarab]                    { --gr: 1; }
+
+[data-id^=divination-scarab],
 [data-id^=harvest-scarab]                   { --gr: 2; }
 
 /* bl2 */
 [data-id^=influencing-scarab],
-[data-id^=essence-scarab],
-[data-id^=betrayal-scarab]                  { --gr: 1; }
+[data-id^=betrayal-scarab],
+[data-id^=torment-scarab]                   { --gr: 1; }
 
 [data-id^=harbinger-scarab],
-[data-id^=domination-scarab],
-[data-id^=blight-scarab]                    { --gr: 2; }
+[data-id^=domination-scarab]                { --gr: 2; }
 
 /* bl3 */
-[data-id^=legion-scarab],
 [data-id^=beyond-scarab],
 [data-id^=ultimatum-scarab],
-[data-id^=delirium-scarab]                  { --gr: 1; }
+[data-id^=delirium-scarab],
+[data-id^=blight-scarab],
+[data-id^=essence-scarab]                   { --gr: 1; }
 
 /* bl4 */
 [data-id^=horned-scarab-of-]                { --gr: 1; }
@@ -2030,9 +2043,6 @@ body {
 [data-id=divination-scarab]                 { --c: 6; }
 [data-id=divination-scarab-of-curation]     { --c: 7; }
 [data-id=divination-scarab-of-completion]   { --c: 8; }
-[data-id=torment-scarab]                    { --c: 9; }
-[data-id=torment-scarab-of-peculiarity]     { --c: 10; }
-[data-id=torment-scarab-of-release]         { --c: 11; }
 
 [data-id=anarchy-scarab]                    { --c: 0; }
 [data-id=anarchy-scarab-of-gigantification] { --c: 1; }
@@ -2046,101 +2056,113 @@ body {
 
 /* bl2 */
 [data-id=bestiary-scarab],
-[data-id=abyss-scarab],
 [data-id=incursion-scarab]                  { --c: 0; }
 [data-id=bestiary-scarab-of-the-herd],
-[data-id=abyss-scarab-of-multitudes],
 [data-id=incursion-scarab-of-invasion]      { --c: 1; }
 [data-id=bestiary-scarab-of-duplicating],
-[data-id=abyss-scarab-of-emptiness],
 [data-id=incursion-scarab-of-champions]     { --c: 2; }
 [data-id=bestiary-scarab-of-the-shadowed-crow],
-[data-id=abyss-scarab-of-edifice],
 [data-id=incursion-scarab-of-timelines]     { --c: 3; }
 
 [data-id=influencing-scarab-of-the-shaper],
-[data-id=essence-scarab],
-[data-id=betrayal-scarab]                   { --c: 4; }
+[data-id=betrayal-scarab],
+[data-id=torment-scarab]                    { --c: 4; }
 [data-id=influencing-scarab-of-the-elder],
-[data-id=essence-scarab-of-ascent],
-[data-id=betrayal-scarab-of-intelligence]   { --c: 5; }
+[data-id=betrayal-scarab-of-intelligence],
+[data-id=torment-scarab-of-peculiarity]     { --c: 5; }
 [data-id=influencing-scarab-of-hordes],
-[data-id=essence-scarab-of-stability],
-[data-id=betrayal-scarab-of-reinforcements] { --c: 6; }
+[data-id=betrayal-scarab-of-reinforcements],
+[data-id=torment-scarab-of-release]         { --c: 6; }
 [data-id=influencing-scarab-of-conversion],
-[data-id=essence-scarab-of-calcification],
-[data-id=betrayal-scarab-of-perpetuation]   { --c: 7; }
+[data-id=betrayal-scarab-of-perpetuation],
+[data-id=torment-scarab-of-possession]      { --c: 7; }
 
 [data-id=harbinger-scarab],
-[data-id=domination-scarab],
-[data-id=blight-scarab]                     { --c: 8; }
+[data-id=domination-scarab]                 { --c: 8; }
 [data-id=harbinger-scarab-of-discernment],
-[data-id=domination-scarab-of-abnormality],
-[data-id=blight-scarab-of-bounty]           { --c: 9; }
+[data-id=domination-scarab-of-abnormality]  { --c: 9; }
 [data-id=harbinger-scarab-of-regency],
-[data-id=domination-scarab-of-teachings],
-[data-id=blight-scarab-of-oils]             { --c: 10; }
+[data-id=domination-scarab-of-teachings]    { --c: 10; }
 [data-id=harbinger-scarab-of-warhoards],
-[data-id=domination-scarab-of-terrors],
-[data-id=blight-scarab-of-blooming]         { --c: 11; }
+[data-id=domination-scarab-of-terrors]      { --c: 11; }
 
-/* bl3 */
+/* bl3, bl35 */
+[data-id=legion-scarab],
 [data-id=breach-scarab],
 [data-id=cartography-scarab],
 [data-id=ambush-scarab],
+[data-id=abyss-scarab],
 [data-id=expedition-scarab]                 { --c: 0; }
+[data-id=legion-scarab-of-officers],
 [data-id=breach-scarab-of-the-dreamer],
 [data-id=cartography-scarab-of-ascension],
 [data-id=ambush-scarab-of-hidden-compartments],
+[data-id=abyss-scarab-of-multitudes],
 [data-id=expedition-scarab-of-runefinding]  { --c: 1; }
+[data-id=legion-scarab-of-command],
 [data-id=breach-scarab-of-lordship],
 [data-id=cartography-scarab-of-singularity],
 [data-id=ambush-scarab-of-potency],
+[data-id=abyss-scarab-of-emptiness],
 [data-id=expedition-scarab-of-verisium-powder]  { --c: 2; }
+[data-id=legion-scarab-of-the-sekhema],
 [data-id=breach-scarab-of-splintering],
 [data-id=cartography-scarab-of-corruption],
 [data-id=ambush-scarab-of-containment],
+[data-id=abyss-scarab-of-edifice],
 [data-id=expedition-scarab-of-the-skald]    { --c: 3; }
+[data-id=legion-scarab-of-eternal-conflict],
 [data-id=breach-scarab-of-snares],
 [data-id=cartography-scarab-of-duplication],
 [data-id=ambush-scarab-of-discernment],
+[data-id=abyss-scarab-of-profound-depth],
 [data-id=expedition-scarab-of-archaeology]  { --c: 4; }
+[data-id=breach-scarab-of-resonant-cascade] { --c: 5; }
 
-[data-id=legion-scarab],
 [data-id=beyond-scarab],
 [data-id=ultimatum-scarab],
-[data-id=delirium-scarab]                   { --c: 5; }
-[data-id=legion-scarab-of-officers],
+[data-id=delirium-scarab],
+[data-id=blight-scarab],
+[data-id=essence-scarab]                    { --c: 5; }
 [data-id=beyond-scarab-of-haemophilia],
 [data-id=ultimatum-scarab-of-bribing],
-[data-id=delirium-scarab-of-mania]          { --c: 6; }
-[data-id=legion-scarab-of-command],
+[data-id=delirium-scarab-of-mania],
+[data-id=blight-scarab-of-bounty],
+[data-id=essence-scarab-of-ascent]          { --c: 6; }
 [data-id=beyond-scarab-of-corruption],
 [data-id=ultimatum-scarab-of-dueling],
-[data-id=delirium-scarab-of-paranoia]       { --c: 7; }
-[data-id=legion-scarab-of-the-sekhema],
+[data-id=delirium-scarab-of-paranoia],
+[data-id=blight-scarab-of-oils],
+[data-id=essence-scarab-of-stability]       { --c: 7; }
 [data-id=beyond-scarab-of-resurgence],
 [data-id=ultimatum-scarab-of-catalysing],
-[data-id=delirium-scarab-of-neuroses]       { --c: 8; }
-[data-id=legion-scarab-of-eternal-conflict],
+[data-id=delirium-scarab-of-neuroses],
+[data-id=blight-scarab-of-blooming],
+[data-id=essence-scarab-of-calcification]   { --c: 8; }
 [data-id=beyond-scarab-of-the-invasion],
 [data-id=ultimatum-scarab-of-inscription],
-[data-id=delirium-scarab-of-delusions]      { --c: 9; }
+[data-id=delirium-scarab-of-delusions],
+[data-id=blight-scarab-of-invigoration],
+[data-id=essence-scarab-of-adaptation]      { --c: 9; }
 
 /* bl4 */
 [data-id=scarab-of-monstrous-lineage]       { --c: 0; }
 [data-id=scarab-of-adversaries]             { --c: 1; }
 [data-id=mysterious-scarab]                 { --c: 2; }
 [data-id=scarab-of-hunted-traitors]         { --c: 3; }
-[data-id=scarab-of-stability]               { --c: 4; }
+[data-id=scarab-of-stability]               { --c: 0; }
 
-[data-id=horned-scarab-of-bloodlines]       { --c: 5; }
-[data-id=horned-scarab-of-nemeses]          { --c: 6; }
-[data-id=horned-scarab-of-preservation]     { --c: 7; }
-[data-id=horned-scarab-of-awakening]        { --c: 8; }
-[data-id=horned-scarab-of-tradition]        { --c: 9; }
-[data-id=horned-scarab-of-glittering]       { --c: 10; }
-[data-id=horned-scarab-of-pandemonium]      { --c: 11; }
+[data-id=scarab-of-wisps]                   { --c: 1; }
+[data-id=scarab-of-radiant-stroms]          { --c: 2; }
+
+[data-id=horned-scarab-of-bloodlines]       { --c: 4; }
+[data-id=horned-scarab-of-nemeses]          { --c: 5; }
+[data-id=horned-scarab-of-preservation]     { --c: 6; }
+[data-id=horned-scarab-of-awakening]        { --c: 7; }
+[data-id=horned-scarab-of-tradition]        { --c: 8; }
+
+[data-id=horned-scarab-of-glittering]       { --c: 3; }
+[data-id=horned-scarab-of-pandemonium]      { --c: 4; }
 
 /*@*/}
 
@@ -2939,5 +2961,5 @@ body {
 [data-id=jewellery-recombinator]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2VudGluZWwvV2VhcG9uUmVjb21iaW5hdG9yIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/8316e9dcee/WeaponRecombinator.png") !important; }
 
 
-    
+
 /*@*/}

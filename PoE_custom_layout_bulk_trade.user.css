@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.11.3
+@version      1.11.4
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -15,7 +15,6 @@
 @var          checkbox poe-custom-option-pin-search "Pin search to the bottom" 1
 @var          checkbox poe-custom-option-show-icons "Show category icons" 1
 @var          checkbox poe-custom-option-hide-legacy "Hide legacy items" 1
-@var          checkbox poe-custom-option-hide-fragment-sets "Hide fragment sets" 1
 @var          checkbox poe-custom-option-double-cards-width "Double the width of Cards section" 1
 @var          checkbox poe-custom-option-cards_maps-font_background "Change font/background for text items" 1
 ==/UserStyle== */
@@ -39,6 +38,7 @@ Table of contents:
 	"Exotic Currency" section
 	"Fragments" section
 	"Scarabs" section
+	"Tattoos & Omens" section
 	"Fossils & Resonators" section
 	"Essences" section
 	"Beasts" section
@@ -159,14 +159,17 @@ Table of contents:
     --poe-custom-lures-indent: calc(1.5 * var(--poe-custom-item-distance));
 }
 
-[data-id=eternal], [data-id=infused-engineers-orb]
+/* , [data-id=whispering-incubator], [data-id=gemcutters-incubator], [data-id=fine-incubator] */
+/* , [data-id=prime-regrading-lens], [data-id=secondary-regrading-lens], [data-id=tainted-blessing] */
+[data-id=eternal], [data-id=infused-engineers-orb], [data-id=veiled-scarab]
 , [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=vaal-reliquary-key]
-, [data-id=whispering-incubator], [data-id=gemcutters-incubator], [data-id=feral-incubator], [data-id=fine-incubator], [data-id=eldritch-incubator], [data-id=time-lost-incubator]
+, [data-id=feral-incubator], [data-id=eldritch-incubator], [data-id=time-lost-incubator], [data-id=enchanted-incubator], [data-id=challenging-incubator]
 , [data-id=primitive-alchemical-resonator], [data-id=potent-alchemical-resonator], [data-id=powerful-alchemical-resonator], [data-id=prime-alchemical-resonator]
-, [data-id=delirium-orb], [data-id=kalguuran-delirium-orb], [data-id=portentous-delirium-orb], [data-id=primal-delirium-orb]
+, [data-id=delirium-orb], [data-id=kalguuran-delirium-orb], [data-id=primal-delirium-orb], [data-id=challenging-delirium-orb]
 , [data-id=farric-lure], [data-id=saqawine-lure], [data-id=fenumal-lure], [data-id=craicic-lure]
-, [data-id=prime-regrading-lens], [data-id=secondary-regrading-lens], [data-id=tainted-blessing], [data-id=enchanted-incubator], [data-id=challenging-delirium-orb], [data-id=challenging-incubator], [data-id=the-tower-of-ordeals]
-[data-id=the-basilisk], [data-id=boulderback], [data-id=tunnelworm], [data-id=the-great-white-bones], [data-id=brinecrack], [data-id=hollowskull-the-willing-host], [data-id=raihara-tukohamas-loyal], [data-id=steelchaw], [data-id=eyepecker], [data-id=the-hundred-foot-shadow], [data-id=paradisae-venenum], [data-id=the-conqueror-wurm], [data-id=thistlesage], [data-id=quru], [data-id=aidan-the-frenzied], [data-id=nadia-the-soothing], [data-id=the-weaver], [data-id=black-death], [data-id=the-great-white-beast], [data-id=ambrosia-daughter-of-merveil], [data-id=amarissa-daughter-of-merveil], [data-id=the-faun], [data-id=brood-princess], [data-id=the-burning-menace], [data-id=ungulath], [data-id=the-dweller-of-the-deep], [data-id=oozeback-bloom]
+, [data-id=sulphite-scarab-of-greed], [data-id=bestiary-scarab-of-the-shadowed-crow], [data-id=betrayal-scarab-of-perpetuation], [data-id=torment-scarab-of-release], [data-id=cartography-scarab-of-singularity], [data-id=beyond-scarab-of-corruption], [data-id=expedition-scarab-of-the-skald], [data-id=legion-scarab-of-the-sekhema], [data-id=blight-scarab-of-bounty], [data-id=abyss-scarab-of-emptiness], [data-id=breach-scarab-of-the-dreamer]
+, [data-id=the-tower-of-ordeals]
+, [data-id=the-basilisk], [data-id=boulderback], [data-id=tunnelworm], [data-id=the-great-white-bones], [data-id=brinecrack], [data-id=hollowskull-the-willing-host], [data-id=raihara-tukohamas-loyal], [data-id=steelchaw], [data-id=eyepecker], [data-id=the-hundred-foot-shadow], [data-id=paradisae-venenum], [data-id=the-conqueror-wurm], [data-id=thistlesage], [data-id=quru], [data-id=aidan-the-frenzied], [data-id=nadia-the-soothing], [data-id=the-weaver], [data-id=black-death], [data-id=the-great-white-beast], [data-id=ambrosia-daughter-of-merveil], [data-id=amarissa-daughter-of-merveil], [data-id=the-faun], [data-id=brood-princess], [data-id=the-burning-menace], [data-id=ungulath], [data-id=the-dweller-of-the-deep], [data-id=oozeback-bloom]
 , .filter-group:first-child > .filter-group-body > .filter:nth-child(22)
 {
     display: none !important;
@@ -179,7 +182,7 @@ Table of contents:
 
 /* hide fragment sets */
 
-/*@*/if poe-custom-option-hide-fragment-sets {
+/*@if poe-custom-option-hide-fragment-sets {*/
 :root {
     --poe-custom-fragment-set-indent: calc(0.5 * var(--poe-custom-item-distance));
 }
@@ -187,7 +190,7 @@ Table of contents:
 [data-id=sacrifice-set], [data-id=mortal-set], [data-id=crest-of-the-elderslayers], [data-id=shaper-set], [data-id=key-to-decay], [data-id=maddening-object] {
     display: none !important;
 }
-/*@*/}
+/*@}*/
 
 /* configure variables related to doubling the width of the "Cards" and "Prophecies" sections */
 
@@ -1033,7 +1036,6 @@ body {
 
     /* scuffed */
     > :is(
-        .filter:nth-child(4),
         .filter:nth-child(7),
         .filter:nth-child(8),
         .filter:nth-child(9),
@@ -1066,9 +1068,9 @@ body {
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhc01hcHMvRnJhZ21lbnRQaG9lbml4Iiwic2NhbGUiOjF9XQ/3091d971ad/FragmentPhoenix.png") !important; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(3) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2V0dGxlcnMvVmlsbGFnZVJ1bmUyIiwic2NhbGUiOjF9XQ/c0bfc39082/VillageRune2.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(3) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2V0dGxlcnMvVmlsbGFnZVJ1bmUxMCIsInNjYWxlIjoxfV0/7a75e42c42/VillageRune10.png") !important; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0FuY2VzdG9yT21lbjNCbHVlIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/90021e045b/AncestorOmen3Blue.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0NvbW1vbkRleFRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/de9fca75ad/CommonDexTatttooEquipment.png") !important; }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(5) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmVsaWNzL1JlbGljVW5pcXVlMngyIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/15bd9eec94/RelicUnique2x2.png") !important; }
 
@@ -1615,7 +1617,8 @@ body {
     }
 
     > :nth-child(2 of .split) {
-        top: calc(8.75 * var(--poe-custom-item-distance)) !important;
+        /* top: calc(8.75 * var(--poe-custom-item-distance)) !important; */
+        display: none !important;
     }
 }
 
@@ -1635,55 +1638,56 @@ body {
 [data-id=exalted], [data-id=annul], [data-id=ancient-orb], [data-id=infused-engineers-orb], [data-id=facetors], [data-id=veiled-scarab], [data-id=mavens-chisel-of-procurement], [data-id=mavens-chisel-of-proliferation], [data-id=mavens-chisel-of-divination], [data-id=mavens-chisel-of-scarabs], [data-id=mavens-chisel-of-avarice] {
     --r: 2; }
 
-[data-id=divine], [data-id=fracturing-orb], [data-id=sacred-orb], [data-id=veiled-orb], [data-id=tempering-orb], [data-id=tailoring-orb] {
+[data-id=divine], [data-id=fracturing-orb], [data-id=sacred-orb], [data-id=veiled-orb], [data-id=tempering-orb], [data-id=tailoring-orb], [data-id=mirror], [data-id=hinekoras-lock], [data-id=reflecting-mist], [data-id=eternal] {
     --r: 3; }
 
-[data-id=stacked-deck], [data-id=rogues-marker], [data-id=wisdom], [data-id=portal], [data-id=mirror], [data-id=hinekoras-lock], [data-id=reflecting-mist], [data-id=eternal] /*,[data-id=p]*/ {
+[data-id=stacked-deck], [data-id=rogues-marker], [data-id=wisdom], [data-id=portal] /*,[data-id=p]*/ {
     --r: 4; }
 
 /* "Shards & Splinters" */
-[data-id=exalted-shard], [data-id=mirror-shard], [data-id=fracturing-shard], [data-id=chaos-shard], [data-id=regal-shard], [data-id=binding-shard], [data-id=engineers-shard], [data-id=horizon-shard], [data-id=annulment-shard], [data-id=ancient-shard], [data-id=harbingers-shard] {
-    --r: 9; }
+[data-id=exalted-shard], [data-id=mirror-shard], [data-id=fracturing-shard], [data-id=annulment-shard], [data-id=ancient-shard], [data-id=harbingers-shard] {
+    --r: 4; }
 
 /* set X-coordinate for each column */
 
-[data-id=chaos], [data-id=alt], [data-id=divine], [data-id=exalted], [data-id=stacked-deck], [data-id=mirror-shard] {
+/* , [data-id=p], [data-id=awakened-sextant], [data-id=elevated-sextant] */
+[data-id=chaos], [data-id=alt], [data-id=divine], [data-id=exalted], [data-id=stacked-deck] {
     --c: 0; }
 
-[data-id=fusing], [data-id=chrome], [data-id=annul], [data-id=fracturing-orb], [data-id=rogues-marker], [data-id=fracturing-shard] {
+[data-id=fusing], [data-id=chrome], [data-id=annul], [data-id=sacred-orb], [data-id=rogues-marker] {
     --c: 1; }
 
-[data-id=alch], [data-id=transmute], [data-id=ancient-orb], [data-id=sacred-orb], [data-id=wisdom] {
+[data-id=alch], [data-id=transmute], [data-id=ancient-orb], [data-id=fracturing-orb], [data-id=wisdom] {
     --c: 2; }
 
-[data-id=scour], [data-id=chance], [data-id=veiled-orb], [data-id=portal], [data-id=exalted-shard] {
+[data-id=scour], [data-id=chance], [data-id=veiled-orb], [data-id=portal] {
     --c: 3; }
 
-[data-id=regal], [data-id=aug], [data-id=facetors], [data-id=annulment-shard] {
+[data-id=regal], [data-id=aug], [data-id=facetors], [data-id=exalted-shard] {
     --c: 4; }
 
-[data-id=orb-of-binding], [data-id=jewellers], [data-id=infused-engineers-orb], [data-id=tempering-orb], [data-id=mirror], [data-id=ancient-shard] {
+[data-id=orb-of-binding], [data-id=jewellers], [data-id=infused-engineers-orb], [data-id=tempering-orb], [data-id=annulment-shard] {
     --c: 5; }
 
-[data-id=vaal], [data-id=veiled-scarab], [data-id=tailoring-orb], [data-id=hinekoras-lock], [data-id=harbingers-shard] {
+[data-id=vaal], [data-id=veiled-scarab], [data-id=tailoring-orb], [data-id=ancient-shard] {
     --c: 6; }
 
-[data-id=regret], [data-id=enkindling-orb], [data-id=reflecting-mist] {
+[data-id=regret], [data-id=enkindling-orb], [data-id=harbingers-shard] {
     --c: 7; }
 
-[data-id=orb-of-unmaking], [data-id=instilling-orb], [data-id=eternal], [data-id=chaos-shard] {
+[data-id=orb-of-unmaking], [data-id=instilling-orb], [data-id=reflecting-mist] {
     --c: 8; }
 
-[data-id=blessed], [data-id=engineers], [data-id=mavens-chisel-of-procurement], [data-id=awakened-sextant], [data-id=regal-shard] {
+[data-id=blessed], [data-id=engineers], [data-id=mavens-chisel-of-procurement], [data-id=hinekoras-lock], [data-id=fracturing-shard] {
     --c: 9; }
 
-[data-id=whetstone], [data-id=mavens-chisel-of-proliferation], [data-id=elevated-sextant], [data-id=binding-shard] {
+[data-id=whetstone], [data-id=mavens-chisel-of-proliferation], [data-id=mirror], [data-id=mirror-shard] {
     --c: 10; }
 
-[data-id=scrap], [data-id=harbingers-orb], [data-id=mavens-chisel-of-scarabs], [data-id=horizon-shard] {
+[data-id=scrap], [data-id=harbingers-orb], [data-id=mavens-chisel-of-scarabs], [data-id=eternal] {
     --c: 11; }
 
-[data-id=bauble], [data-id=orb-of-horizons], [data-id=mavens-chisel-of-avarice], [data-id=engineers-shard] /*,[data-id=p]*/ {
+[data-id=bauble], [data-id=orb-of-horizons], [data-id=mavens-chisel-of-avarice] {
     --c: 12; }
 
 [data-id=gcp], [data-id=chisel], [data-id=mavens-chisel-of-divination] {
@@ -1695,60 +1699,64 @@ body {
 	"Exotic Currency" section
 ---------------------------*/
 
+[data-id=crusaders-exalted-orb], [data-id=redeemers-exalted-orb], [data-id=hunters-exalted-orb], [data-id=warlords-exalted-orb], [data-id=mavens-orb], [data-id=awakeners-orb] {
+/*     display: none; */
+}
+
 /* set Y-coordinate for each row */
 
-[data-id=wild-lifeforce], [data-id=vivid-lifeforce], [data-id=primal-lifeforce], [data-id=sacred-lifeforce] {
-    --r: 4; }
-
-[data-id=crusaders-exalted-orb], [data-id=redeemers-exalted-orb], [data-id=hunters-exalted-orb], [data-id=warlords-exalted-orb], [data-id=awakeners-orb], [data-id=mavens-orb], [data-id=eldritch-chaos-orb], [data-id=eldritch-exalted-orb], [data-id=eldritch-orb-of-annulment], [data-id=orb-of-conflict] {
+[data-id=lesser-eldritch-ichor], [data-id=greater-eldritch-ichor], [data-id=grand-eldritch-ichor], [data-id=exceptional-eldritch-ichor], [data-id=tainted-chaos-orb], [data-id=tainted-exalted-orb], [data-id=tainted-divine-teardrop], [data-id=tainted-mythic-orb], [data-id=crusaders-exalted-orb], [data-id=hunters-exalted-orb] {
     --r: 5.5; }
 
-[data-id=tainted-chaos-orb], [data-id=tainted-exalted-orb], [data-id=tainted-divine-teardrop], [data-id=tainted-mythic-orb], [data-id=tainted-blessing], [data-id=lesser-eldritch-ichor], [data-id=greater-eldritch-ichor], [data-id=grand-eldritch-ichor], [data-id=exceptional-eldritch-ichor] {
+[data-id=lesser-eldritch-ember], [data-id=greater-eldritch-ember], [data-id=grand-eldritch-ember], [data-id=exceptional-eldritch-ember], [data-id=tainted-blacksmiths-whetstone], [data-id=tainted-armourers-scrap], [data-id=redeemers-exalted-orb], [data-id=warlords-exalted-orb] {
     --r: 6.5; }
 
-[data-id=tainted-orb-of-fusing], [data-id=tainted-jewellers-orb], [data-id=tainted-chromatic-orb], [data-id=tainted-blacksmiths-whetstone], [data-id=tainted-armourers-scrap], [data-id=lesser-eldritch-ember], [data-id=greater-eldritch-ember], [data-id=grand-eldritch-ember], [data-id=exceptional-eldritch-ember] {
+[data-id=eldritch-chaos-orb], [data-id=eldritch-exalted-orb], [data-id=eldritch-orb-of-annulment], [data-id=orb-of-conflict], [data-id=tainted-orb-of-fusing], [data-id=tainted-jewellers-orb], [data-id=tainted-chromatic-orb], [data-id=mavens-orb], [data-id=awakeners-orb] {
     --r: 7.5; }
+
+[data-id=wild-lifeforce], [data-id=vivid-lifeforce], [data-id=primal-lifeforce], [data-id=sacred-lifeforce] {
+    --r: 9; }
 
 /* set X-coordinate for each column */
 
-[data-id=crusaders-exalted-orb], [data-id=tainted-orb-of-fusing], [data-id=tainted-chaos-orb] {
+[data-id=lesser-eldritch-ember], [data-id=lesser-eldritch-ichor], [data-id=eldritch-chaos-orb] {
     --c: 0; }
 
-[data-id=redeemers-exalted-orb], [data-id=tainted-jewellers-orb], [data-id=tainted-exalted-orb] {
+[data-id=greater-eldritch-ember], [data-id=greater-eldritch-ichor], [data-id=eldritch-exalted-orb] {
     --c: 1; }
 
-[data-id=hunters-exalted-orb], [data-id=tainted-chromatic-orb], [data-id=tainted-divine-teardrop] {
+[data-id=grand-eldritch-ember], [data-id=grand-eldritch-ichor], [data-id=eldritch-orb-of-annulment] {
     --c: 2; }
 
-[data-id=warlords-exalted-orb], [data-id=tainted-blacksmiths-whetstone], [data-id=tainted-mythic-orb] {
+[data-id=exceptional-eldritch-ember], [data-id=exceptional-eldritch-ichor], [data-id=orb-of-conflict] {
     --c: 3; }
 
-[data-id=awakeners-orb], [data-id=tainted-armourers-scrap] {
-    --c: 4; }
-
-[data-id=mavens-orb], [data-id=tainted-blessing] {
+[data-id=tainted-chaos-orb], [data-id=tainted-blacksmiths-whetstone], [data-id=tainted-orb-of-fusing] {
     --c: 5; }
 
-[data-id=eldritch-chaos-orb], [data-id=lesser-eldritch-ember], [data-id=lesser-eldritch-ichor] {
+[data-id=tainted-exalted-orb], [data-id=tainted-armourers-scrap], [data-id=tainted-jewellers-orb] {
+    --c: 6; }
+
+[data-id=tainted-divine-teardrop], [data-id=tainted-chromatic-orb] {
     --c: 7; }
 
-[data-id=eldritch-exalted-orb], [data-id=greater-eldritch-ember], [data-id=greater-eldritch-ichor] {
+[data-id=tainted-mythic-orb] {
     --c: 8; }
 
-[data-id=eldritch-orb-of-annulment], [data-id=grand-eldritch-ember], [data-id=grand-eldritch-ichor] {
-    --c: 9; }
-
-[data-id=orb-of-conflict], [data-id=exceptional-eldritch-ember], [data-id=exceptional-eldritch-ichor] {
+[data-id=hunters-exalted-orb], [data-id=redeemers-exalted-orb], [data-id=mavens-orb] {
     --c: 10; }
+
+[data-id=crusaders-exalted-orb], [data-id=warlords-exalted-orb], [data-id=awakeners-orb] {
+    --c: 11; }
 
 [data-id=wild-lifeforce] {
-    --c: 10; }
+    --c: 0; }
 [data-id=vivid-lifeforce] {
-    --c: 11; }
+    --c: 1; }
 [data-id=primal-lifeforce] {
-    --c: 12; }
+    --c: 2; }
 [data-id=sacred-lifeforce] {
-    --c: 13; }
+    --c: 3.5; }
 
 /*@*/}
 
@@ -1763,7 +1771,7 @@ body {
 /* setup fragments container */
 .filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options {
     --filter-rows: 23;
-    --filter-rows: 18.5;
+/*     --filter-rows: 18.5; /* UNCOMMENT to undo scarabs */
     --filter-columns: 14;
     --container-ver-indent: calc(0px - var(--poe-custom-fragment-set-indent));
 
@@ -1775,14 +1783,15 @@ body {
         margin: 0px !important;
     }
 
-    /* hide dividers TEMP
+    /* hide dividers (COMMENT this to undo scarabs) */
     > .split {
         display: none !important;
-    }*/
+    }
     
+    /* (UNCOMMENT this to undo scarabs)
     > .split:not(:nth-child(2 of .split)) {
         visibility: hidden !important;
-    }
+    }*/
 }
 
 /* override indent */
@@ -1921,25 +1930,285 @@ body {
 	"Scarabs" section
 ---------------------------*/
 
+/* REPLACE the entire section to undo scarabs */
+
 /*@*/if poe-custom-option-modify-fragment {
 
-/* TEMP */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options > .split:nth-child(2 of .split) {
-    margin-top: calc(9.5 * var(--poe-custom-item-distance) - var(--poe-custom-fragment-set-indent) + var(--poe-web-item-margin)) !important;
-    visibility: visible !important;
+.filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options {
+
+    /* setup dividers */
+    > :nth-child(2 of .split) {
+        display: block !important;
+        position: absolute !important;
+        width: calc(100% - 2 * var(--poe-web-split-hor-margin)) !important;
+        margin: 0px var(--poe-web-split-hor-margin) !important;
+    }
+
+    > :nth-child(2 of .split) {
+        top: calc(9.75 * var(--poe-custom-item-distance) + var(--item-ver-indent)) !important;
+    }
+
+    --bl1-gr-i: 28px;
+    --bl2-gr-i: 42px;
+    --bl3-gr-i: var(--bl2-gr-i);
+    --bl4-gr-i: 84px;
+    --bl5-gr-i: 189px;
+
+    --bl1-r-i: 77px;
+    --bl3-r-i: 63px;
+    --bl35-r-i: 168px;
+    --bl4-r-i: var(--bl3-r-i);
+    --bl5-r-i: 84px;
 }
 
-/* to fix specificity */
-:where(.filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options > :nth-child(2 of .split) ~ [data-id]:has(~ :nth-child(3 of .split))) {
-    --margin-left: var(--poe-web-item-margin);
+/* hardcoded:
+--r: row index
+--c: column index
+--gr: index of scarab group in a row
+--gr-i: horizontal indent between groups in row (px)
+--r-i: left "margin" of 1st item in row (px)
+--bl*-i: horizontal indent between groups in block (px)
+--bl*-r-i: left "margin" of 1st item in block (px)
+*/
+
+/* set additional left indent for all scarabs */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options > :nth-child(2 of .split) ~ .exchange-filter-item:has(~ :nth-child(3 of .split)) {
+    --item-hor-indent: calc(var(--r-i, 0px) + var(--gr, 0) * var(--gr-i, 0px));
 }
 
-/* setup all scarabs */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options > :nth-child(2 of .split) ~ [data-id]:has(~ :nth-child(3 of .split)) {
-    position: relative !important;
-}
+/* set Y-coordinate for each row */
+
+/* row values, group indent, row margin */
+[data-id^=titanic-scarab], [data-id^=sulphite-scarab], [data-id^=divination-scarab] {
+    --r: 10;   --gr-i: var(--bl1-gr-i); --r-i: var(--bl1-r-i); }
+[data-id^=anarchy-scarab], [data-id^=ritual-scarab], [data-id^=harvest-scarab] {
+    --r: 11;   --gr-i: var(--bl1-gr-i); --r-i: var(--bl1-r-i); }
+[data-id^=influencing-scarab] {
+    --r: 12;   --gr-i: var(--bl2-gr-i); }
+[data-id^=bestiary-scarab], [data-id^=harbinger-scarab] {
+    --r: 12.5; --gr-i: var(--bl2-gr-i); }
+[data-id^=betrayal-scarab] {
+    --r: 13;   --gr-i: var(--bl2-gr-i); }
+[data-id^=incursion-scarab], [data-id^=domination-scarab] {
+    --r: 13.5; --gr-i: var(--bl2-gr-i); }
+[data-id^=torment-scarab] {
+    --r: 14;   --gr-i: var(--bl2-gr-i); }
+[data-id^=cartography-scarab], [data-id^=beyond-scarab] {
+    --r: 15;   --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
+[data-id^=ambush-scarab], [data-id^=ultimatum-scarab] {
+    --r: 16;   --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
+[data-id^=expedition-scarab], [data-id^=delirium-scarab] {
+    --r: 17;   --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
+[data-id^=legion-scarab], [data-id^=blight-scarab] {
+    --r: 18;   --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
+[data-id^=abyss-scarab], [data-id^=essence-scarab] {
+    --r: 19;   --gr-i: var(--bl3-gr-i); --r-i: var(--bl3-r-i); }
+[data-id^=breach-scarab] {
+    --r: 20; --r-i: var(--bl35-r-i); }
+[data-id=scarab-of-monstrous-lineage], [data-id=scarab-of-adversaries], [data-id=scarab-of-divinity], [data-id=scarab-of-hunted-traitors], [data-id^=horned-scarab-of-] {
+    --r: 21;   --gr-i: var(--bl4-gr-i); --r-i: var(--bl4-r-i); }
+[data-id=scarab-of-stability], [data-id=scarab-of-wisps], [data-id=scarab-of-radiant-storms], [data-id=scarab-of-bisection], [data-id=horned-scarab-of-glittering], [data-id=horned-scarab-of-pandemonium] {
+    --r: 22;   --gr-i: var(--bl5-gr-i); --r-i: var(--bl4-r-i); }
+
+/* set X-coordinate for each column */
+
+/* group index values */
+
+/* bl1 */
+[data-id^=sulphite-scarab],
+[data-id^=ritual-scarab]                    { --gr: 1; }
+
+[data-id^=divination-scarab],
+[data-id^=harvest-scarab]                   { --gr: 2; }
+
+/* bl2 */
+[data-id^=influencing-scarab],
+[data-id^=betrayal-scarab],
+[data-id^=torment-scarab]                   { --gr: 1; }
+
+[data-id^=harbinger-scarab],
+[data-id^=domination-scarab]                { --gr: 2; }
+
+/* bl3 */
+[data-id^=beyond-scarab],
+[data-id^=ultimatum-scarab],
+[data-id^=delirium-scarab],
+[data-id^=blight-scarab],
+[data-id^=essence-scarab]                   { --gr: 1; }
+
+/* bl4 */
+[data-id^=horned-scarab-of-]                { --gr: 1; }
+
+/* column values */
+
+/* bl1 */
+[data-id=titanic-scarab]                    { --c: 0; }
+[data-id=titanic-scarab-of-treasures]       { --c: 1; }
+[data-id=titanic-scarab-of-legend]          { --c: 2; }
+[data-id=sulphite-scarab]                   { --c: 3; }
+[data-id=sulphite-scarab-of-fumes]          { --c: 4; }
+[data-id=sulphite-scarab-of-greed]          { --c: 5; }
+[data-id=divination-scarab-of-the-cloister] { --c: 6; }
+[data-id=divination-scarab-of-plenty]       { --c: 7; }
+[data-id=divination-scarab-of-pilfering]    { --c: 8; }
+
+[data-id=anarchy-scarab]                    { --c: 0; }
+[data-id=anarchy-scarab-of-gigantification] { --c: 1; }
+[data-id=anarchy-scarab-of-partnership]     { --c: 2; }
+[data-id=ritual-scarab-of-selectiveness]    { --c: 3; }
+[data-id=ritual-scarab-of-wisps]            { --c: 4; }
+[data-id=ritual-scarab-of-abundance]        { --c: 5; }
+[data-id=harvest-scarab]                    { --c: 6; }
+[data-id=harvest-scarab-of-doubling]        { --c: 7; }
+[data-id=harvest-scarab-of-cornucopia]      { --c: 8; }
+
+/* bl2 */
+[data-id=bestiary-scarab],
+[data-id=incursion-scarab]                  { --c: 0; }
+[data-id=bestiary-scarab-of-the-herd],
+[data-id=incursion-scarab-of-invasion]      { --c: 1; }
+[data-id=bestiary-scarab-of-duplicating],
+[data-id=incursion-scarab-of-champions]     { --c: 2; }
+[data-id=bestiary-scarab-of-the-shadowed-crow],
+[data-id=incursion-scarab-of-timelines]     { --c: 3; }
+
+[data-id=influencing-scarab-of-the-shaper],
+[data-id=betrayal-scarab],
+[data-id=torment-scarab]                    { --c: 4; }
+[data-id=influencing-scarab-of-the-elder],
+[data-id=betrayal-scarab-of-intelligence],
+[data-id=torment-scarab-of-peculiarity]     { --c: 5; }
+[data-id=influencing-scarab-of-hordes],
+[data-id=betrayal-scarab-of-reinforcements],
+[data-id=torment-scarab-of-possession]      { --c: 6; }
+[data-id=influencing-scarab-of-conversion],
+[data-id=betrayal-scarab-of-perpetuation],
+[data-id=torment-scarab-of-release]         { --c: 7; }
+
+[data-id=harbinger-scarab],
+[data-id=domination-scarab]                 { --c: 8; }
+[data-id=harbinger-scarab-of-obelisks],
+[data-id=domination-scarab-of-apparitions]  { --c: 9; }
+[data-id=harbinger-scarab-of-regency],
+[data-id=domination-scarab-of-evolution]    { --c: 10; }
+[data-id=harbinger-scarab-of-warhoards],
+[data-id=domination-scarab-of-terrors]      { --c: 11; }
+
+/* bl3, bl35 */
+[data-id=legion-scarab],
+[data-id=breach-scarab],
+[data-id=cartography-scarab-of-escalation],
+[data-id=ambush-scarab],
+[data-id=abyss-scarab],
+[data-id=expedition-scarab]                 { --c: 0; }
+[data-id=legion-scarab-of-officers],
+[data-id=breach-scarab-of-lordship],
+[data-id=cartography-scarab-of-risk],
+[data-id=ambush-scarab-of-hidden-compartments],
+[data-id=abyss-scarab-of-multitudes],
+[data-id=expedition-scarab-of-runefinding]  { --c: 1; }
+[data-id=legion-scarab-of-command],
+[data-id=breach-scarab-of-splintering],
+[data-id=cartography-scarab-of-corruption],
+[data-id=ambush-scarab-of-potency],
+[data-id=abyss-scarab-of-edifice],
+[data-id=expedition-scarab-of-verisium-powder] { --c: 2; }
+[data-id=legion-scarab-of-eternal-conflict],
+[data-id=breach-scarab-of-snares],
+[data-id=cartography-scarab-of-the-multitude],
+[data-id=ambush-scarab-of-containment],
+[data-id=abyss-scarab-of-profound-depth],
+[data-id=expedition-scarab-of-archaeology]  { --c: 3; }
+[data-id=legion-scarab-of-the-sekhema],
+[data-id=breach-scarab-of-resonant-cascade],
+[data-id=cartography-scarab-of-singularity],
+[data-id=ambush-scarab-of-discernment],
+[data-id=abyss-scarab-of-emptiness],
+[data-id=expedition-scarab-of-the-skald]    { --c: 4; }
+[data-id=breach-scarab-of-the-dreamer]      { --c: 5; }
+
+[data-id=beyond-scarab],
+[data-id=ultimatum-scarab],
+[data-id=delirium-scarab],
+[data-id=blight-scarab],
+[data-id=essence-scarab]                    { --c: 5; }
+[data-id=beyond-scarab-of-haemophilia],
+[data-id=ultimatum-scarab-of-bribing],
+[data-id=delirium-scarab-of-mania],
+[data-id=blight-scarab-of-the-blightheart],
+[data-id=essence-scarab-of-ascent]          { --c: 6; }
+[data-id=beyond-scarab-of-resurgence],
+[data-id=ultimatum-scarab-of-dueling],
+[data-id=delirium-scarab-of-paranoia],
+[data-id=blight-scarab-of-blooming],
+[data-id=essence-scarab-of-stability]       { --c: 7; }
+[data-id=beyond-scarab-of-the-invasion],
+[data-id=ultimatum-scarab-of-catalysing],
+[data-id=delirium-scarab-of-neuroses],
+[data-id=blight-scarab-of-invigoration],
+[data-id=essence-scarab-of-calcification]   { --c: 8; }
+[data-id=beyond-scarab-of-corruption],
+[data-id=ultimatum-scarab-of-inscription],
+[data-id=delirium-scarab-of-delusions],
+[data-id=blight-scarab-of-bounty],
+[data-id=essence-scarab-of-adaptation]      { --c: 9; }
+
+/* bl4 */
+[data-id=scarab-of-monstrous-lineage]
+[data-id=scarab-of-stability],              { --c: 0; }
+[data-id=scarab-of-adversaries],
+[data-id=scarab-of-wisps]                   { --c: 1; }
+[data-id=scarab-of-divinity],
+[data-id=scarab-of-radiant-storms]          { --c: 2; }
+[data-id=scarab-of-hunted-traitors],
+[data-id=scarab-of-bisection]               { --c: 3; }
+
+[data-id=horned-scarab-of-bloodlines]       { --c: 4; }
+[data-id=horned-scarab-of-nemeses]          { --c: 5; }
+[data-id=horned-scarab-of-preservation]     { --c: 6; }
+[data-id=horned-scarab-of-awakening]        { --c: 7; }
+[data-id=horned-scarab-of-tradition]        { --c: 8; }
+
+[data-id=horned-scarab-of-glittering]       { --c: 3; }
+[data-id=horned-scarab-of-pandemonium]      { --c: 4; }
 
 /*@*/}
+
+
+
+/*------------------------------
+	"Tattoos & Omens" section
+------------------------------*/
+
+/* setup container */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-options {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+
+    /* configure dividers */
+    > .split {
+        position: relative !important;
+        width: 100% !important;
+        border-bottom: var(--poe-web-split-border-bottom) !important;
+        margin: var(--poe-web-split-margin) !important;
+        color: var(--poe-web-split-color) !important; 
+    }
+}
+
+[data-id=omen-of-amelioration]		{ order: 1; }
+[data-id=omen-of-return]			{ order: 2; }
+[data-id=omen-of-death-dancing]		{ order: 3; }
+[data-id=omen-of-deaths-door]		{ order: 4; }
+[data-id=omen-of-refreshment]		{ order: 5; }
+[data-id=omen-of-adrenaline]		{ order: 6; }
+[data-id=omen-of-the-soul-devourer]	{ order: 7; }
+[data-id=omen-of-brilliance]		{ order: 8; }
+[data-id=omen-of-the-jeweller]		{ order: 9; }
+[data-id=omen-of-connections]		{ order: 10; }
+[data-id=omen-of-blanching]			{ order: 11; }
+[data-id=omen-of-fortune]			{ order: 12; }
 
 
 
@@ -2253,6 +2522,7 @@ body {
 [data-id=forbidden-tome-level-83],
 [data-id=vivid-vulture],
 [data-id=craicic-chimeral],
+/* [data-id=the-black-morrigan], */
 [data-id=beast] {
 
     /* setup text item */
@@ -2284,6 +2554,8 @@ body {
 [data-id=craicic-chimeral]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lJbXByaW50IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/78304c421e/CurrencyImprint.png") !important; }
 
 [data-id=vivid-vulture]::before { content: url("/protected/image/item/popup/synthetic-symbol.png?key=CUVu3Zqxrzd1CwWcIH-6xg") !important; }
+
+/* [data-id=the-black-morrigan]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGluZWtvcmFzTG9jayIsInNjYWxlIjoxfV0/b188026e7f/HinekorasLock.png") !important; } */
 
 [data-id=beast]::before { content: url("https://web.poecdn.com/image/Art/2DItems/Currency/BestiaryOrbFull.png?scale=1&w=1&h=1") !important; }
 

@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.12.0
+@version      1.12.1
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -217,6 +217,7 @@ Table of contents:
 }
 .filter-group:first-child > .filter-group-body > .filter:nth-child(8) > .filter-options > .split,
 .filter-group:first-child > .filter-group-body > .filter:nth-child(18) > .filter-options > .split,
+.filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options > :nth-child(2 of .split),
 .filter-group:first-child > .filter-group-body > .filter:nth-child(8) > .filter-options.filter-options::before {
 	padding-top: calc(var(--poe-web-split-padding) - var(--poe-custom-item-text-font-family-enhanced-vertical-adjustment)) !important;
 	padding-bottom: calc(var(--poe-web-split-padding) + var(--poe-custom-item-text-font-family-enhanced-vertical-adjustment)) !important;
@@ -262,11 +263,13 @@ Table of contents:
 .filter-group:first-child > .filter-group-body {
 	> .filter:nth-child(1)  { order:  10 !important; } /* Currency */
 	> .filter:nth-child(2)  { order:  20 !important; } /* Fragments & Scarabs */
+	> .filter:nth-child(3)  { order:  20 !important; } /* Allflame Embers */
+	> .filter:nth-child(4)  { order:  20 !important; } /* Runegrafts */
 	> .filter:nth-child(5)  { order:  30 !important; } /* Tattoos & Omens */
 	> .filter:nth-child(6)  { order:  40 !important; } /* Sanctum Tomes & Relics */
 	> .filter:nth-child(7)  { order:  60 !important; } /* Scouting Reports */
 	> .filter:nth-child(8)  { order:  70 !important; } /* Heist Contracts & Blueprints */
-	> .filter:nth-child(9) { order:  80 !important; } /* Expedition Currency */
+	> .filter:nth-child(9)  { order:  80 !important; } /* Expedition Currency */
 	> .filter:nth-child(10) { order:  90 !important; } /* Delirium Orbs */
 	> .filter:nth-child(11) { order: 100 !important; } /* Catalysts */
 	> .filter:nth-child(12) { order: 110 !important; } /* Oils & Extractor */
@@ -1048,6 +1051,7 @@ body {
 
 	/* scuffed */
 	> :is(
+		.filter:nth-child(6),
 		.filter:nth-child(7),
 		.filter:nth-child(8),
 		.filter:nth-child(19),
@@ -1057,14 +1061,9 @@ body {
 		--var-image-original-size-scale-from: var(--image-original-size-47-scale-from);
 	}
 	
-	/* large */
-	> .filter:nth-child(115) > .filter-title-clickable > span:first-child::before {
-		--var-image-original-size-scale-from: var(--image-original-size-95-scale-from);
-	}
-	
-	> .filter:nth-child(6) > .filter-title-clickable > span:first-child::before {
+	/*> .filter:nth-child(6) > .filter-title-clickable > span:first-child::before {
 		--var-image-original-size-scale-from: var(--image-original-size-94-scale-from);
-	}
+	}*/
 	
 	/* 47*94 
 	> .filter:nth-child(5) > .filter-title-clickable > span:first-child::before {
@@ -1085,7 +1084,8 @@ body {
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(5) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0NvbW1vbkRleFRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/de9fca75ad/CommonDexTatttooEquipment.png") !important; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmVsaWNzL1JlbGljVW5pcXVlMngyIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/15bd9eec94/RelicUnique2x2.png") !important; }
+/* .filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmVsaWNzL1JlbGljVW5pcXVlMngyIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/15bd9eec94/RelicUnique2x2.png") !important; } */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2FuY3R1bS9TYW5jdHVtS2V5IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/d0326cac9a/SanctumKey.png") !important; }
 
 /*.filter-group:first-child > .filter-group-body > .filter:nth-child(114) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiQnJlYWNoIiwic2NhbGUiOjF9XQ/b129897f73/GreaterScarabBreach.png") !important; }*/
 
@@ -1628,7 +1628,6 @@ body {
 		display: block !important;
 		position: absolute !important;
 		width: calc(100% - 2 * var(--poe-web-split-hor-margin)) !important;
-/*		width: 100% !important; */
 		margin: 0px var(--poe-web-split-hor-margin) !important;
 	}
 
@@ -1637,7 +1636,6 @@ body {
 	}
 
 	> :nth-child(2 of .split) {
-		/* top: calc(8.75 * var(--poe-custom-item-distance)) !important; */
 		display: none !important;
 	}
 }
@@ -1655,10 +1653,10 @@ body {
 [data-id=alt], [data-id=transmute], [data-id=aug], [data-id=chance], [data-id=chrome], [data-id=jewellers], [data-id=enkindling-orb], [data-id=instilling-orb], [data-id=engineers], [data-id=whetstone], [data-id=scrap], [data-id=bauble], [data-id=gcp] {
 	--r: 1; }
 
-[data-id=exalted], [data-id=annul], [data-id=ancient-orb], [data-id=infused-engineers-orb], [data-id=facetors], [data-id=veiled-scarab], [data-id=mavens-chisel-of-procurement], [data-id=mavens-chisel-of-proliferation], [data-id=mavens-chisel-of-divination], [data-id=mavens-chisel-of-scarabs], [data-id=mavens-chisel-of-avarice] {
+[data-id=exalted], [data-id=annul], [data-id=ancient-orb], [data-id=veiled-chaos-orb], [data-id=infused-engineers-orb], [data-id=facetors], [data-id=veiled-scarab] {
 	--r: 2; }
 
-[data-id=divine], [data-id=fracturing-orb], [data-id=sacred-orb], [data-id=veiled-chaos-orb], [data-id=veiled-exalted-orb], [data-id=tempering-orb], [data-id=tailoring-orb], [data-id=mirror], [data-id=hinekoras-lock], [data-id=reflecting-mist], [data-id=eternal] {
+[data-id=divine], [data-id=fracturing-orb], [data-id=sacred-orb], [data-id=veiled-exalted-orb], [data-id=tempering-orb], [data-id=tailoring-orb], [data-id=mirror], [data-id=hinekoras-lock], [data-id=reflecting-mist], [data-id=eternal] {
 	--r: 3; }
 
 [data-id=stacked-deck], [data-id=rogues-marker], [data-id=wisdom], [data-id=portal] /*,[data-id=p]*/ {
@@ -1680,37 +1678,37 @@ body {
 [data-id=alch], [data-id=transmute], [data-id=ancient-orb], [data-id=fracturing-orb], [data-id=wisdom] {
 	--c: 2; }
 
-[data-id=scour], [data-id=chance], [data-id=veiled-chaos-orb], [data-id=portal] {
+[data-id=scour], [data-id=chance], [data-id=veiled-chaos-orb], [data-id=veiled-exalted-orb], [data-id=portal] {
 	--c: 3; }
 
-[data-id=regal], [data-id=aug], [data-id=facetors], [data-id=veiled-exalted-orb], [data-id=exalted-shard] {
+[data-id=regal], [data-id=aug], [data-id=facetors], [data-id=exalted-shard] {
 	--c: 4; }
 
-[data-id=orb-of-binding], [data-id=jewellers], [data-id=infused-engineers-orb], [data-id=annulment-shard] {
+[data-id=orb-of-binding], [data-id=jewellers], [data-id=infused-engineers-orb], [data-id=tempering-orb], [data-id=annulment-shard] {
 	--c: 5; }
 
-[data-id=vaal], [data-id=veiled-scarab], [data-id=tempering-orb], [data-id=ancient-shard] {
+[data-id=vaal], [data-id=veiled-scarab], [data-id=tailoring-orb], [data-id=ancient-shard] {
 	--c: 6; }
 
-[data-id=regret], [data-id=enkindling-orb], [data-id=tailoring-orb], [data-id=harbingers-shard] {
+[data-id=regret], [data-id=enkindling-orb], [data-id=harbingers-shard] {
 	--c: 7; }
 
-[data-id=orb-of-unmaking], [data-id=instilling-orb] {
+[data-id=orb-of-unmaking], [data-id=instilling-orb], [data-id=reflecting-mist] {
 	--c: 8; }
 
-[data-id=blessed], [data-id=engineers], [data-id=mavens-chisel-of-procurement], [data-id=reflecting-mist] {
+[data-id=blessed], [data-id=engineers], [data-id=hinekoras-lock], [data-id=fracturing-shard] {
 	--c: 9; }
 
-[data-id=whetstone], [data-id=mavens-chisel-of-proliferation], [data-id=hinekoras-lock], [data-id=fracturing-shard] {
+[data-id=whetstone], [data-id=mirror], [data-id=mirror-shard] {
 	--c: 10; }
 
-[data-id=scrap], [data-id=harbingers-orb], [data-id=mavens-chisel-of-scarabs], [data-id=mirror], [data-id=mirror-shard] {
+[data-id=scrap], [data-id=harbingers-orb], [data-id=eternal] {
 	--c: 11; }
 
-[data-id=bauble], [data-id=orb-of-horizons], [data-id=mavens-chisel-of-avarice], [data-id=eternal] {
+[data-id=bauble], [data-id=orb-of-horizons] {
 	--c: 12; }
 
-[data-id=gcp], [data-id=chisel], [data-id=mavens-chisel-of-divination] {
+[data-id=gcp], [data-id=chisel] {
 	--c: 13; }
 
 
@@ -1721,58 +1719,67 @@ body {
 
 /* set Y-coordinate for each row */
 
-[data-id=lesser-eldritch-ichor], [data-id=greater-eldritch-ichor], [data-id=grand-eldritch-ichor], [data-id=exceptional-eldritch-ichor], [data-id=tainted-chaos-orb], [data-id=tainted-exalted-orb], [data-id=tainted-divine-teardrop], [data-id=tainted-mythic-orb], [data-id=crusaders-exalted-orb], [data-id=hunters-exalted-orb] {
+[data-id=lesser-eldritch-ichor], [data-id=greater-eldritch-ichor], [data-id=grand-eldritch-ichor], [data-id=exceptional-eldritch-ichor], [data-id=tainted-chaos-orb], [data-id=tainted-exalted-orb], [data-id=tainted-divine-teardrop], [data-id=tainted-mythic-orb], [data-id=hunters-exalted-orb], [data-id=crusaders-exalted-orb], [data-id=shapers-exalted-orb], [data-id=orb-of-remembrance] {
 	--r: 5.5; }
 
-[data-id=lesser-eldritch-ember], [data-id=greater-eldritch-ember], [data-id=grand-eldritch-ember], [data-id=exceptional-eldritch-ember], [data-id=tainted-blacksmiths-whetstone], [data-id=tainted-armourers-scrap], [data-id=redeemers-exalted-orb], [data-id=warlords-exalted-orb] {
+[data-id=lesser-eldritch-ember], [data-id=greater-eldritch-ember], [data-id=grand-eldritch-ember], [data-id=exceptional-eldritch-ember], [data-id=tainted-blacksmiths-whetstone], [data-id=tainted-armourers-scrap], [data-id=redeemers-exalted-orb], [data-id=warlords-exalted-orb], [data-id=elders-exalted-orb], [data-id=orb-of-unravelling] {
 	--r: 6.5; }
 
-[data-id=eldritch-chaos-orb], [data-id=eldritch-exalted-orb], [data-id=eldritch-orb-of-annulment], [data-id=orb-of-conflict], [data-id=tainted-orb-of-fusing], [data-id=tainted-jewellers-orb], [data-id=tainted-chromatic-orb], [data-id=mavens-orb], [data-id=awakeners-orb] {
+[data-id=eldritch-chaos-orb], [data-id=eldritch-exalted-orb], [data-id=eldritch-orb-of-annulment], [data-id=orb-of-conflict], [data-id=tainted-orb-of-fusing], [data-id=tainted-jewellers-orb], [data-id=tainted-chromatic-orb], [data-id=mavens-orb], [data-id=awakeners-orb], [data-id=orb-of-intention] {
 	--r: 7.5; }
 
-[data-id=wild-lifeforce], [data-id=vivid-lifeforce], [data-id=primal-lifeforce], [data-id=sacred-lifeforce] {
+[data-id=wild-lifeforce], [data-id=vivid-lifeforce], [data-id=primal-lifeforce], [data-id=sacred-lifeforce], [data-id=mavens-chisel-of-procurement], [data-id=mavens-chisel-of-proliferation], [data-id=mavens-chisel-of-divination], [data-id=mavens-chisel-of-scarabs], [data-id=mavens-chisel-of-avarice] {
 	--r: 9; }
 
 /* set X-coordinate for each column */
 
-[data-id=lesser-eldritch-ember], [data-id=lesser-eldritch-ichor], [data-id=eldritch-chaos-orb] {
+[data-id=lesser-eldritch-ember], [data-id=lesser-eldritch-ichor], [data-id=eldritch-chaos-orb], [data-id=mavens-chisel-of-procurement] {
 	--c: 0; }
 
-[data-id=greater-eldritch-ember], [data-id=greater-eldritch-ichor], [data-id=eldritch-exalted-orb] {
+[data-id=greater-eldritch-ember], [data-id=greater-eldritch-ichor], [data-id=eldritch-exalted-orb], [data-id=mavens-chisel-of-proliferation] {
 	--c: 1; }
 
-[data-id=grand-eldritch-ember], [data-id=grand-eldritch-ichor], [data-id=eldritch-orb-of-annulment] {
+[data-id=grand-eldritch-ember], [data-id=grand-eldritch-ichor], [data-id=eldritch-orb-of-annulment], [data-id=mavens-chisel-of-scarabs] {
 	--c: 2; }
 
-[data-id=exceptional-eldritch-ember], [data-id=exceptional-eldritch-ichor], [data-id=orb-of-conflict] {
+[data-id=exceptional-eldritch-ember], [data-id=exceptional-eldritch-ichor], [data-id=orb-of-conflict], [data-id=mavens-chisel-of-avarice] {
 	--c: 3; }
 
+[data-id=mavens-chisel-of-divination] {
+	--c: 4; }
+
 [data-id=tainted-chaos-orb], [data-id=tainted-blacksmiths-whetstone], [data-id=tainted-orb-of-fusing] {
-	--c: 5; }
+	--c: 4.5; }
 
 [data-id=tainted-exalted-orb], [data-id=tainted-armourers-scrap], [data-id=tainted-jewellers-orb] {
-	--c: 6; }
+	--c: 5.5; }
 
 [data-id=tainted-divine-teardrop], [data-id=tainted-chromatic-orb] {
-	--c: 7; }
+	--c: 6.5; }
 
 [data-id=tainted-mythic-orb] {
-	--c: 8; }
+	--c: 7.5; }
 
 [data-id=hunters-exalted-orb], [data-id=redeemers-exalted-orb], [data-id=mavens-orb] {
-	--c: 10; }
+	--c: 9; }
 
 [data-id=crusaders-exalted-orb], [data-id=warlords-exalted-orb], [data-id=awakeners-orb] {
+	--c: 10; }
+
+[data-id=shapers-exalted-orb], [data-id=elders-exalted-orb] {
 	--c: 11; }
 
+[data-id=orb-of-remembrance], [data-id=orb-of-unravelling], [data-id=orb-of-intention] {
+    --c: 12.5; }
+
 [data-id=wild-lifeforce] {
-	--c: 0; }
+	--c: 6; }
 [data-id=vivid-lifeforce] {
-	--c: 1; }
+	--c: 7; }
 [data-id=primal-lifeforce] {
-	--c: 2; }
+	--c: 8; }
 [data-id=sacred-lifeforce] {
-	--c: 3.5; }
+	--c: 9; }
 
 /*@*/}
 
@@ -1837,16 +1844,17 @@ body {
 	--item-ver-indent: 0px !important;
 	--r: 1; }
 
-[data-id=sacrifice-set], [data-id=mortal-set], [data-id=crest-of-the-elderslayers], [data-id=shaper-set], [data-id=key-to-decay], [data-id=maddening-object] {
+/*[data-id=sacrifice-set], [data-id=mortal-set], [data-id=crest-of-the-elderslayers], [data-id=shaper-set], [data-id=key-to-decay], [data-id=maddening-object] {
 	--item-ver-indent: 0px !important;
 	--r: 2; }
-	/*top: calc(0.5 * var(--poe-custom-item-distance) + 3px) !important;
+	top: calc(0.5 * var(--poe-custom-item-distance) + 3px) !important;
 	padding: 0px;
 	height: auto;
 	width: auto;
 	margin-left: 5px;*/
 
-[data-id=the-mavens-writ], [data-id=writhing-invitation], [data-id=screaming-invitation], [data-id=polaric-invitation], [data-id=incandescent-invitation], [data-id=sacred-blossom], [data-id=an-audience-with-the-king], [data-id=syndicate-medallion] {
+/* , [data-id=] */
+[data-id=the-mavens-writ], [data-id=writhing-invitation], [data-id=screaming-invitation], [data-id=polaric-invitation], [data-id=incandescent-invitation], [data-id=sacred-blossom], [data-id=an-audience-with-the-king], [data-id=syndicate-medallion], [data-id=echo-of-loneliness], [data-id=echo-of-trauma], [data-id=echo-of-reverence] {
 	--r: 3; }
 
 [data-id=awakening-fragment], [data-id=cosmic-fragment], [data-id=blazing-fragment], [data-id=reality-fragment], [data-id=decaying-fragment], [data-id=devouring-fragment], [data-id=synthesising-fragment] {
@@ -1920,16 +1928,16 @@ body {
 [data-id=fragment-of-enslavement], [data-id=fragment-of-eradication], [data-id=syndicate-medallion], [data-id=blessing-xoph], [data-id=splinter-xoph], [data-id=xophs-breachstone], [data-id=xophs-charged-breachstone], [data-id=xophs-enriched-breachstone], [data-id=xophs-pure-breachstone], [data-id=xophs-flawless-breachstone], [data-id=the-atlas], [data-id=the-formed], [data-id=voidborn-reliquary-key] {
 	--c: 8; }
 
-[data-id=hydra], [data-id=chimer], [data-id=blessing-tul], [data-id=splinter-tul], [data-id=tuls-breachstone], [data-id=tuls-charged-breachstone], [data-id=tuls-enriched-breachstone], [data-id=tuls-pure-breachstone], [data-id=tuls-flawless-breachstone], [data-id=the-twisted], [data-id=valdos-puzzle-box] {
+[data-id=hydra], [data-id=chimer], [data-id=echo-of-trauma], [data-id=blessing-tul], [data-id=splinter-tul], [data-id=tuls-breachstone], [data-id=tuls-charged-breachstone], [data-id=tuls-enriched-breachstone], [data-id=tuls-pure-breachstone], [data-id=tuls-flawless-breachstone], [data-id=the-twisted], [data-id=valdos-puzzle-box] {
 	--c: 9; }
 
 [data-id=shaper-set] {
 	--c: 9.5; }
 
-[data-id=phoenix], [data-id=minot], [data-id=blessing-esh], [data-id=splinter-esh], [data-id=eshs-breachstone], [data-id=eshs-charged-breachstone], [data-id=eshs-enriched-breachstone], [data-id=eshs-pure-breachstone], [data-id=eshs-flawless-breachstone], [data-id=the-forgotten], [data-id=ancient-reliquary-key] {
+[data-id=phoenix], [data-id=minot], [data-id=echo-of-loneliness], [data-id=blessing-esh], [data-id=splinter-esh], [data-id=eshs-breachstone], [data-id=eshs-charged-breachstone], [data-id=eshs-enriched-breachstone], [data-id=eshs-pure-breachstone], [data-id=eshs-flawless-breachstone], [data-id=the-forgotten], [data-id=ancient-reliquary-key] {
 	--c: 10; }
 
-[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=blessing-uul-netol], [data-id=splinter-uul], [data-id=uul-breachstone], [data-id=uul-charged-breachstone], [data-id=uul-enriched-breachstone], [data-id=uul-pure-breachstone], [data-id=uul-flawless-breachstone], [data-id=the-hidden], [data-id=timeworn-reliquary-key] {
+[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=echo-of-reverence], [data-id=blessing-uul-netol], [data-id=splinter-uul], [data-id=uul-breachstone], [data-id=uul-charged-breachstone], [data-id=uul-enriched-breachstone], [data-id=uul-pure-breachstone], [data-id=uul-flawless-breachstone], [data-id=the-hidden], [data-id=timeworn-reliquary-key] {
 	--c: 11; }
 
 [data-id=maddening-object] {
@@ -1989,7 +1997,7 @@ body {
 --gr: index of scarab group in a row
 --gr-i: horizontal indent between groups in row (px)
 --r-i: left "margin" of 1st item in row (px)
---bl*-i: horizontal indent between groups in block (px)
+--bl*-gr-i: horizontal indent between groups in block (px)
 --bl*-r-i: left "margin" of 1st item in block (px)
 */
 
@@ -2004,8 +2012,8 @@ body {
 /* row values, group indent, row margin */
 [data-id^=titanic-scarab], [data-id^=sulphite-scarab], [data-id^=divination-scarab] {
 	--r: 12.5;   --gr-i: var(--bl1-gr-i); --r-i: var(--bl1-r-i); }
-[data-id^=anarchy-scarab], [data-id^=ritual-scarab], [data-id^=harvest-scarab] {
-	--r: 13.5;   --gr-i: var(--bl1-gr-i); --r-i: var(--bl1-r-i); }
+[data-id^=anarchy-scarab], [data-id^=ritual-scarab], [data-id^=harvest-scarab], [data-id^=kalguuran-scarab] {
+	--r: 13.5;   --gr-i: var(--bl1-gr-i); }
 [data-id^=influencing-scarab] {
 	--r: 14.5;   --gr-i: var(--bl2-gr-i); }
 [data-id^=bestiary-scarab], [data-id^=harbinger-scarab] {
@@ -2039,83 +2047,88 @@ body {
 
 /* bl1 */
 [data-id^=sulphite-scarab],
-[data-id^=ritual-scarab]                    { --gr: 1; }
+[data-id^=ritual-scarab]					{ --gr: 1; }
 
 [data-id^=divination-scarab],
-[data-id^=harvest-scarab]                   { --gr: 2; }
+[data-id^=harvest-scarab]					{ --gr: 2; }
+
+[data-id^=kalguuran-scarab]					{ --gr: 3; }
 
 /* bl2 */
 [data-id^=influencing-scarab],
 [data-id^=betrayal-scarab],
-[data-id^=torment-scarab]                   { --gr: 1; }
+[data-id^=torment-scarab]					{ --gr: 1; }
 
 [data-id^=harbinger-scarab],
-[data-id^=domination-scarab]                { --gr: 2; }
+[data-id^=domination-scarab]				{ --gr: 2; }
 
 /* bl3 */
 [data-id^=beyond-scarab],
 [data-id^=ultimatum-scarab],
 [data-id^=delirium-scarab],
 [data-id^=blight-scarab],
-[data-id^=essence-scarab]                   { --gr: 1; }
+[data-id^=essence-scarab]					{ --gr: 1; }
 
 /* bl4 */
-[data-id^=horned-scarab-of-]                { --gr: 1; }
+[data-id^=horned-scarab-of-]				{ --gr: 1; }
 
 /* column values */
 
 /* bl1 */
-[data-id=titanic-scarab]                    { --c: 0; }
-[data-id=titanic-scarab-of-treasures]       { --c: 1; }
-[data-id=titanic-scarab-of-legend]          { --c: 2; }
-[data-id=sulphite-scarab]                   { --c: 3; }
-[data-id=sulphite-scarab-of-fumes]          { --c: 4; }
-[data-id=sulphite-scarab-of-greed]          { --c: 5; }
-[data-id=divination-scarab-of-the-cloister] { --c: 6; }
-[data-id=divination-scarab-of-plenty]       { --c: 7; }
-[data-id=divination-scarab-of-pilfering]    { --c: 8; }
+[data-id=titanic-scarab]					{ --c: 0; }
+[data-id=titanic-scarab-of-treasures]		{ --c: 1; }
+[data-id=titanic-scarab-of-legend]			{ --c: 2; }
+[data-id=sulphite-scarab]					{ --c: 3; }
+[data-id=sulphite-scarab-of-fumes]			{ --c: 4; }
+[data-id=sulphite-scarab-of-greed]			{ --c: 5; }
+[data-id=divination-scarab-of-the-cloister]	{ --c: 6; }
+[data-id=divination-scarab-of-plenty]		{ --c: 7; }
+[data-id=divination-scarab-of-pilfering]	{ --c: 8; }
 
-[data-id=anarchy-scarab]                    { --c: 0; }
-[data-id=anarchy-scarab-of-gigantification] { --c: 1; }
-[data-id=anarchy-scarab-of-partnership]     { --c: 2; }
-[data-id=ritual-scarab-of-selectiveness]    { --c: 3; }
-[data-id=ritual-scarab-of-wisps]            { --c: 4; }
-[data-id=ritual-scarab-of-abundance]        { --c: 5; }
-[data-id=harvest-scarab]                    { --c: 6; }
-[data-id=harvest-scarab-of-doubling]        { --c: 7; }
-[data-id=harvest-scarab-of-cornucopia]      { --c: 8; }
+[data-id=anarchy-scarab]					{ --c: 0; }
+[data-id=anarchy-scarab-of-gigantification]	{ --c: 1; }
+[data-id=anarchy-scarab-of-partnership]		{ --c: 2; }
+[data-id=ritual-scarab-of-selectiveness]	{ --c: 3; }
+[data-id=ritual-scarab-of-wisps]			{ --c: 4; }
+[data-id=ritual-scarab-of-abundance]		{ --c: 5; }
+[data-id=harvest-scarab]					{ --c: 6; }
+[data-id=harvest-scarab-of-doubling]		{ --c: 7; }
+[data-id=harvest-scarab-of-cornucopia]		{ --c: 8; }
+[data-id=kalguuran-scarab]					{ --c: 9; }
+[data-id=kalguuran-scarab-of-guarded-riches]{ --c: 10; }
+[data-id=kalguuran-scarab-of-refinement]	{ --c: 11; }
 
 /* bl2 */
 [data-id=bestiary-scarab],
-[data-id=incursion-scarab]                  { --c: 0; }
+[data-id=incursion-scarab]					{ --c: 0; }
 [data-id=bestiary-scarab-of-the-herd],
-[data-id=incursion-scarab-of-invasion]      { --c: 1; }
+[data-id=incursion-scarab-of-invasion]		{ --c: 1; }
 [data-id=bestiary-scarab-of-duplicating],
-[data-id=incursion-scarab-of-champions]     { --c: 2; }
+[data-id=incursion-scarab-of-champions]		{ --c: 2; }
 [data-id=bestiary-scarab-of-the-shadowed-crow],
-[data-id=incursion-scarab-of-timelines]     { --c: 3; }
+[data-id=incursion-scarab-of-timelines]		{ --c: 3; }
 
 [data-id=influencing-scarab-of-the-shaper],
 [data-id=betrayal-scarab],
-[data-id=torment-scarab]                    { --c: 4; }
+[data-id=torment-scarab]					{ --c: 4; }
 [data-id=influencing-scarab-of-the-elder],
 [data-id=betrayal-scarab-of-the-allflame],
-[data-id=torment-scarab-of-peculiarity]     { --c: 5; }
+[data-id=torment-scarab-of-peculiarity]		{ --c: 5; }
 [data-id=influencing-scarab-of-hordes],
 [data-id=betrayal-scarab-of-reinforcements],
-[data-id=torment-scarab-of-possession]      { --c: 6; }
+[data-id=torment-scarab-of-possession]		{ --c: 6; }
 [data-id=influencing-scarab-of-conversion],
 [data-id=betrayal-scarab-of-perpetuation],
-[data-id=torment-scarab-of-release]         { --c: 7; }
+[data-id=torment-scarab-of-release]			{ --c: 7; }
 
 [data-id=harbinger-scarab],
-[data-id=domination-scarab]                 { --c: 8; }
+[data-id=domination-scarab]					{ --c: 8; }
 [data-id=harbinger-scarab-of-obelisks],
-[data-id=domination-scarab-of-apparitions]  { --c: 9; }
+[data-id=domination-scarab-of-apparitions]	{ --c: 9; }
 [data-id=harbinger-scarab-of-regency],
-[data-id=domination-scarab-of-evolution]    { --c: 10; }
+[data-id=domination-scarab-of-evolution]	{ --c: 10; }
 [data-id=harbinger-scarab-of-warhoards],
-[data-id=domination-scarab-of-terrors]      { --c: 11; }
+[data-id=domination-scarab-of-terrors]		{ --c: 11; }
 
 /* bl3, bl35 */
 [data-id=legion-scarab],
@@ -2123,77 +2136,77 @@ body {
 [data-id=cartography-scarab-of-escalation],
 [data-id=ambush-scarab],
 [data-id=abyss-scarab],
-[data-id=expedition-scarab]                 { --c: 0; }
+[data-id=expedition-scarab]					{ --c: 0; }
 [data-id=legion-scarab-of-officers],
 [data-id=breach-scarab-of-lordship],
 [data-id=cartography-scarab-of-risk],
 [data-id=ambush-scarab-of-hidden-compartments],
 [data-id=abyss-scarab-of-multitudes],
-[data-id=expedition-scarab-of-runefinding]  { --c: 1; }
+[data-id=expedition-scarab-of-runefinding]	{ --c: 1; }
 [data-id=legion-scarab-of-command],
 [data-id=breach-scarab-of-splintering],
 [data-id=cartography-scarab-of-corruption],
 [data-id=ambush-scarab-of-potency],
 [data-id=abyss-scarab-of-edifice],
-[data-id=expedition-scarab-of-verisium-powder] { --c: 2; }
+[data-id=expedition-scarab-of-verisium-powder]{ --c: 2; }
 [data-id=legion-scarab-of-eternal-conflict],
 [data-id=breach-scarab-of-snares],
 [data-id=cartography-scarab-of-the-multitude],
 [data-id=ambush-scarab-of-containment],
 [data-id=abyss-scarab-of-profound-depth],
-[data-id=expedition-scarab-of-archaeology]  { --c: 3; }
+[data-id=expedition-scarab-of-archaeology]	{ --c: 3; }
 [data-id=legion-scarab-of-the-sekhema],
 [data-id=breach-scarab-of-resonant-cascade],
 [data-id=cartography-scarab-of-singularity],
 [data-id=ambush-scarab-of-discernment],
 [data-id=abyss-scarab-of-emptiness],
-[data-id=expedition-scarab-of-the-skald]    { --c: 4; }
-[data-id=breach-scarab-of-the-dreamer]      { --c: 5; }
+[data-id=expedition-scarab-of-the-skald]	{ --c: 4; }
+[data-id=breach-scarab-of-the-dreamer]		{ --c: 5; }
 
 [data-id=beyond-scarab],
 [data-id=ultimatum-scarab],
 [data-id=delirium-scarab],
 [data-id=blight-scarab],
-[data-id=essence-scarab]                    { --c: 5; }
+[data-id=essence-scarab]					{ --c: 5; }
 [data-id=beyond-scarab-of-haemophilia],
 [data-id=ultimatum-scarab-of-bribing],
 [data-id=delirium-scarab-of-mania],
 [data-id=blight-scarab-of-the-blightheart],
-[data-id=essence-scarab-of-ascent]          { --c: 6; }
+[data-id=essence-scarab-of-ascent]			{ --c: 6; }
 [data-id=beyond-scarab-of-resurgence],
 [data-id=ultimatum-scarab-of-dueling],
 [data-id=delirium-scarab-of-paranoia],
 [data-id=blight-scarab-of-blooming],
-[data-id=essence-scarab-of-stability]       { --c: 7; }
+[data-id=essence-scarab-of-stability]		{ --c: 7; }
 [data-id=beyond-scarab-of-the-invasion],
 [data-id=ultimatum-scarab-of-catalysing],
 [data-id=delirium-scarab-of-neuroses],
 [data-id=blight-scarab-of-invigoration],
-[data-id=essence-scarab-of-calcification]   { --c: 8; }
+[data-id=essence-scarab-of-calcification]	{ --c: 8; }
 [data-id=beyond-scarab-of-corruption],
 [data-id=ultimatum-scarab-of-inscription],
 [data-id=delirium-scarab-of-delusions],
 [data-id=blight-scarab-of-bounty],
-[data-id=essence-scarab-of-adaptation]      { --c: 9; }
+[data-id=essence-scarab-of-adaptation]		{ --c: 9; }
 
 /* bl4 */
-[data-id=scarab-of-monstrous-lineage]
-[data-id=scarab-of-stability],              { --c: 0; }
+[data-id=scarab-of-monstrous-lineage],
+[data-id=scarab-of-stability]				{ --c: 0; }
 [data-id=scarab-of-adversaries],
-[data-id=scarab-of-wisps]                   { --c: 1; }
+[data-id=scarab-of-wisps]					{ --c: 1; }
 [data-id=scarab-of-divinity],
-[data-id=scarab-of-radiant-storms]          { --c: 2; }
+[data-id=scarab-of-radiant-storms]			{ --c: 2; }
 [data-id=scarab-of-hunted-traitors],
-[data-id=scarab-of-bisection]               { --c: 3; }
+[data-id=scarab-of-bisection]				{ --c: 3; }
 
-[data-id=horned-scarab-of-bloodlines]       { --c: 4; }
-[data-id=horned-scarab-of-nemeses]          { --c: 5; }
-[data-id=horned-scarab-of-preservation]     { --c: 6; }
-[data-id=horned-scarab-of-awakening]        { --c: 7; }
-[data-id=horned-scarab-of-tradition]        { --c: 8; }
+[data-id=horned-scarab-of-bloodlines]		{ --c: 4; }
+[data-id=horned-scarab-of-nemeses]			{ --c: 5; }
+[data-id=horned-scarab-of-preservation]		{ --c: 6; }
+[data-id=horned-scarab-of-awakening]		{ --c: 7; }
+[data-id=horned-scarab-of-tradition]		{ --c: 8; }
 
-[data-id=horned-scarab-of-glittering]       { --c: 3; }
-[data-id=horned-scarab-of-pandemonium]      { --c: 4; }
+[data-id=horned-scarab-of-glittering]		{ --c: 3; }
+[data-id=horned-scarab-of-pandemonium]		{ --c: 4; }
 
 /*@*/}
 
@@ -2551,7 +2564,6 @@ body {
 [data-id=maze-of-the-minotaur-map-tier-16],
 [data-id=pit-of-the-chimera-map-tier-16],
 [data-id=vaal-temple-map-tier-16],
-[data-id=forbidden-tome-level-83],
 [data-id=vivid-vulture],
 [data-id=craicic-chimeral],
 [data-id=the-black-morrigan],
@@ -2590,7 +2602,7 @@ body {
 
 [data-id=vaal-temple-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9WYWFsVGVtcGxlQmFzZSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTksIm10IjowfV0/bd67feb50f/VaalTempleBase.png") !important; }
 
-[data-id=forbidden-tome-level-83]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2FuY3R1bS9TYW5jdHVtS2V5IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/d0326cac9a/SanctumKey.png") !important; }
+/* [data-id=forbidden-tome-level-83]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2FuY3R1bS9TYW5jdHVtS2V5IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/d0326cac9a/SanctumKey.png") !important; } */
 
 [data-id=craicic-chimeral]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lJbXByaW50IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/78304c421e/CurrencyImprint.png") !important; }
 
@@ -2616,161 +2628,161 @@ body {
 /*:where(.filter-group:first-child > .filter-group-body > .filter:nth-child(18)) .exchange-filter-item::after { content: "*****!!!!!***** MISSING HANDLER *****!!!!!*****"; }/**/
 
 /* apply a short name to every map */
-[data-id^="academy-map-tier-"]::after { content: "Academy"; }
-[data-id^="acid-caverns-map-tier-"]::after { content: "Acid Caverns"; }
-[data-id^="alleyways-map-tier-"]::after { content: "Alleyways"; }
-[data-id^="ancient-city-map-tier-"]::after { content: "Ancient City"; }
-[data-id^="arachnid-nest-map-tier-"]::after { content: "Arachnid Nest"; }
-[data-id^="arachnid-tomb-map-tier-"]::after { content: "Arachnid Tomb"; }
-[data-id^="arcade-map-tier-"]::after { content: "Arcade"; }
-[data-id^="arena-map-tier-"]::after { content: "Arena"; }
-[data-id^="arid-lake-map-tier-"]::after { content: "Arid Lake"; }
-[data-id^="armoury-map-tier-"]::after { content: "Armoury"; }
-[data-id^="arsenal-map-tier-"]::after { content: "Arsenal"; }
-[data-id^="ashen-wood-map-tier-"]::after { content: "Ashen Wood"; }
-[data-id^="atoll-map-tier-"]::after { content: "Atoll"; }
-[data-id^="barrows-map-tier-"]::after { content: "Barrows"; }
-[data-id^="basilica-map-tier-"]::after { content: "Basilica"; }
-[data-id^="bazaar-map-tier-"]::after { content: "Bazaar"; }
-[data-id^="beach-map-tier-"]::after { content: "Beach"; }
-[data-id^="belfry-map-tier-"]::after { content: "Belfry"; }
-[data-id^="bog-map-tier-"]::after { content: "Bog"; }
-[data-id^="bone-crypt-map-tier-"]::after { content: "Bone Crypt"; }
-[data-id^="bramble-valley-map-tier-"]::after { content: "Bramble Valley"; }
-[data-id^="burial-chambers-map-tier-"]::after { content: "Burial Chambers"; }
-[data-id^="cage-map-tier-"]::after { content: "Cage"; }
-[data-id^="caldera-map-tier-"]::after { content: "Caldera"; }
-[data-id^="canyon-map-tier-"]::after { content: "Canyon"; }
-[data-id^="carcass-map-tier-"]::after { content: "Carcass"; }
-[data-id^="castle-ruins-map-tier-"]::after { content: "Castle Ruins"; }
-[data-id^="cells-map-tier-"]::after { content: "Cells"; }
-[data-id^="cemetery-map-tier-"]::after { content: "Cemetery"; }
-[data-id^="channel-map-tier-"]::after { content: "Channel"; }
-[data-id^="chateau-map-tier-"]::after { content: "Chateau"; }
-[data-id^="city-square-map-tier-"]::after { content: "City Square"; }
-[data-id^="cold-river-map-tier-"]::after { content: "Cold River"; }
-[data-id^="colonnade-map-tier-"]::after { content: "Colonnade"; }
-[data-id^="colosseum-map-tier-"]::after { content: "Colosseum"; }
-[data-id^="conservatory-map-tier-"]::after { content: "Conservatory"; }
-[data-id^="coral-ruins-map-tier-"]::after { content: "Coral Ruins"; }
-[data-id^="core-map-tier-"]::after { content: "Core"; }
-[data-id^="courthouse-map-tier-"]::after { content: "Courthouse"; }
-[data-id^="courtyard-map-tier-"]::after { content: "Courtyard"; }
-[data-id^="coves-map-tier-"]::after { content: "Coves"; }
-[data-id^="crater-map-tier-"]::after { content: "Crater"; }
-[data-id^="crimson-temple-map-tier-"]::after { content: "Crimson Temple"; }
-[data-id^="crimson-township-map-tier-"]::after { content: "Crimson Township"; }
-[data-id^="crystal-ore-map-tier-"]::after { content: "Crystal Ore"; }
-[data-id^="cursed-crypt-map-tier-"]::after { content: "Cursed Crypt"; }
-[data-id^="dark-forest-map-tier-"]::after { content: "Dark Forest"; }
-[data-id^="defiled-cathedral-map-tier-"]::after { content: "Defiled Cathedral"; }
-[data-id^="desert-map-tier-"]::after { content: "Desert"; }
-[data-id^="desert-spring-map-tier-"]::after { content: "Desert Spring"; }
-[data-id^="dig-map-tier-"]::after { content: "Dig"; }
-[data-id^="dry-sea-map-tier-"]::after { content: "Dry Sea"; }
-[data-id^="dunes-map-tier-"]::after { content: "Dunes"; }
-[data-id^="dungeon-map-tier-"]::after { content: "Dungeon"; }
-[data-id^="estuary-map-tier-"]::after { content: "Estuary"; }
-[data-id^="excavation-map-tier-"]::after { content: "Excavation"; }
-[data-id^="factory-map-tier-"]::after { content: "Factory"; }
-[data-id^="fields-map-tier-"]::after { content: "Fields"; }
-[data-id^="flooded-mine-map-tier-"]::after { content: "Flooded Mine"; }
-[data-id^="forbidden-woods-map-tier-"]::after { content: "Forbidden Woods"; }
-[data-id^="forge-of-the-phoenix-map-tier-"]::after { content: "Forge of the Phoenix"; }
-[data-id^="forking-river-map-tier-"]::after { content: "Forking River"; }
-[data-id^="foundry-map-tier-"]::after { content: "Foundry"; }
-[data-id^="frozen-cabins-map-tier-"]::after { content: "Frozen Cabins"; }
-[data-id^="fungal-hollow-map-tier-"]::after { content: "Fungal Hollow"; }
-[data-id^="gardens-map-tier-"]::after { content: "Gardens"; }
-[data-id^="geode-map-tier-"]::after { content: "Geode"; }
-[data-id^="ghetto-map-tier-"]::after { content: "Ghetto"; }
-[data-id^="glacier-map-tier-"]::after { content: "Glacier"; }
-[data-id^="grave-trough-map-tier-"]::after { content: "Grave Trough"; }
-[data-id^="graveyard-map-tier-"]::after { content: "Graveyard"; }
-[data-id^="grotto-map-tier-"]::after { content: "Grotto"; }
-[data-id^="haunted-mansion-map-tier-"]::after { content: "Haunted Mansion"; }
-[data-id^="iceberg-map-tier-"]::after { content: "Iceberg"; }
-[data-id^="infested-valley-map-tier-"]::after { content: "Infested Valley"; }
-[data-id^="ivory-temple-map-tier-"]::after { content: "Ivory Temple"; }
-[data-id^="jungle-valley-map-tier-"]::after { content: "Jungle Valley"; }
-[data-id^="laboratory-map-tier-"]::after { content: "Laboratory"; }
-[data-id^="lair-map-tier-"]::after { content: "Lair"; }
-[data-id^="lair-of-the-hydra-map-tier-"]::after { content: "Lair of the Hydra"; }
-[data-id^="lava-chamber-map-tier-"]::after { content: "Lava Chamber"; }
-[data-id^="lava-lake-map-tier-"]::after { content: "Lava Lake"; }
-[data-id^="leyline-map-tier-"]::after { content: "Leyline"; }
-[data-id^="lighthouse-map-tier-"]::after { content: "Lighthouse"; }
-[data-id^="lookout-map-tier-"]::after { content: "Lookout"; }
-[data-id^="malformation-map-tier-"]::after { content: "Malformation"; }
-[data-id^="marshes-map-tier-"]::after { content: "Marshes"; }
-[data-id^="mausoleum-map-tier-"]::after { content: "Mausoleum"; }
-[data-id^="maze-map-tier-"]::after { content: "Maze"; }
-[data-id^="maze-of-the-minotaur-map-tier-"]::after { content: "Maze of the Minotaur"; }
-[data-id^="mesa-map-tier-"]::after { content: "Mesa"; }
-[data-id^="mineral-pools-map-tier-"]::after { content: "Mineral Pools"; }
-[data-id^="moon-temple-map-tier-"]::after { content: "Moon Temple"; }
-[data-id^="mud-geyser-map-tier-"]::after { content: "Mud Geyser"; }
-[data-id^="museum-map-tier-"]::after { content: "Museum"; }
-[data-id^="necropolis-map-tier-"]::after { content: "Necropolis"; }
-[data-id^="orchard-map-tier-"]::after { content: "Orchard"; }
-[data-id^="overgrown-ruin-map-tier-"]::after { content: "Overgrown Ruin"; }
-[data-id^="overgrown-shrine-map-tier-"]::after { content: "Overgrown Shrine"; }
-[data-id^="palace-map-tier-"]::after { content: "Palace"; }
-[data-id^="park-map-tier-"]::after { content: "Park"; }
-[data-id^="pen-map-tier-"]::after { content: "Pen"; }
-[data-id^="peninsula-map-tier-"]::after { content: "Peninsula"; }
-[data-id^="phantasmagoria-map-tier-"]::after { content: "Phantasmagoria"; }
-[data-id^="pier-map-tier-"]::after { content: "Pier"; }
-[data-id^="pit-map-tier-"]::after { content: "Pit"; }
-[data-id^="pit-of-the-chimera-map-tier-"]::after { content: "Pit of the Chimera"; }
-[data-id^="plateau-map-tier-"]::after { content: "Plateau"; }
-[data-id^="plaza-map-tier-"]::after { content: "Plaza"; }
-[data-id^="port-map-tier-"]::after { content: "Port"; }
-[data-id^="precinct-map-tier-"]::after { content: "Precinct"; }
-[data-id^="primordial-blocks-map-tier-"]::after { content: "Primordial Blocks"; }
-[data-id^="primordial-pool-map-tier-"]::after { content: "Primordial Pool"; }
-[data-id^="promenade-map-tier-"]::after { content: "Promenade"; }
-[data-id^="racecourse-map-tier-"]::after { content: "Racecourse"; }
-[data-id^="ramparts-map-tier-"]::after { content: "Ramparts"; }
-[data-id^="reef-map-tier-"]::after { content: "Reef"; }
-[data-id^="relic-chambers-map-tier-"]::after { content: "Relic Chambers"; }
-[data-id^="residence-map-tier-"]::after { content: "Residence"; }
-[data-id^="scriptorium-map-tier-"]::after { content: "Scriptorium"; }
-[data-id^="sepulchre-map-tier-"]::after { content: "Sepulchre"; }
-[data-id^="shipyard-map-tier-"]::after { content: "Shipyard"; }
-[data-id^="shore-map-tier-"]::after { content: "Shore"; }
-[data-id^="shrine-map-tier-"]::after { content: "Shrine"; }
-[data-id^="siege-map-tier-"]::after { content: "Siege"; }
-[data-id^="silo-map-tier-"]::after { content: "Silo"; }
-[data-id^="spider-forest-map-tier-"]::after { content: "Spider Forest"; }
-[data-id^="spider-lair-map-tier-"]::after { content: "Spider Lair"; }
-[data-id^="stagnation-map-tier-"]::after { content: "Stagnation"; }
-[data-id^="strand-map-tier-"]::after { content: "Strand"; }
-[data-id^="sulphur-vents-map-tier-"]::after { content: "Sulphur Vents"; }
-[data-id^="summit-map-tier-"]::after { content: "Summit"; }
-[data-id^="sunken-city-map-tier-"]::after { content: "Sunken City"; }
-[data-id^="temple-map-tier-"]::after { content: "Temple"; }
-[data-id^="terrace-map-tier-"]::after { content: "Terrace"; }
-[data-id^="thicket-map-tier-"]::after { content: "Thicket"; }
-[data-id^="tower-map-tier-"]::after { content: "Tower"; }
-[data-id^="toxic-sewer-map-tier-"]::after { content: "Toxic Sewer"; }
-[data-id^="tropical-island-map-tier-"]::after { content: "Tropical Island"; }
-[data-id^="underground-river-map-tier-"]::after { content: "Underground River"; }
-[data-id^="underground-sea-map-tier-"]::after { content: "Underground Sea"; }
-[data-id^="vaal-pyramid-map-tier-"]::after { content: "Vaal Pyramid"; }
-[data-id^="vaal-temple-map-tier-"]::after { content: "Vaal Temple"; }
-[data-id^="vault-map-tier-"]::after { content: "Vault"; }
-[data-id^="villa-map-tier-"]::after { content: "Villa"; }
-[data-id^="volcano-map-tier-"]::after { content: "Volcano"; }
-[data-id^="waste-pool-map-tier-"]::after { content: "Waste Pool"; }
-[data-id^="wasteland-map-tier-"]::after { content: "Wasteland"; }
-[data-id^="waterways-map-tier-"]::after { content: "Waterways"; }
-[data-id^="wharf-map-tier-"]::after { content: "Wharf"; }
-[data-id^="abomination-map-tier-"]::after { content: "Abomination"; }
-[data-id^="citadel-map-tier-"]::after { content: "Citadel"; }
-[data-id^="fortress-map-tier-"]::after { content: "Fortress"; }
-[data-id^="sanctuary-map-tier-"]::after { content: "Sanctuary"; }
-[data-id^="ziggurat-map-tier-"]::after { content: "Ziggurat"; }
+[data-id^="academy-map-tier-"]::after, [data-id$="-academy-map"]::after { content: "Academy"; }
+[data-id^="acid-caverns-map-tier-"]::after, [data-id$="-acid-caverns-map"]::after { content: "Acid Caverns"; }
+[data-id^="alleyways-map-tier-"]::after, [data-id$="-alleyways-map"]::after { content: "Alleyways"; }
+[data-id^="ancient-city-map-tier-"]::after, [data-id$="-ancient-city-map"]::after { content: "Ancient City"; }
+[data-id^="arachnid-nest-map-tier-"]::after, [data-id$="-arachnid-nest-map"]::after { content: "Arachnid Nest"; }
+[data-id^="arachnid-tomb-map-tier-"]::after, [data-id$="-arachnid-tomb-map"]::after { content: "Arachnid Tomb"; }
+[data-id^="arcade-map-tier-"]::after, [data-id$="-arcade-map"]::after { content: "Arcade"; }
+[data-id^="arena-map-tier-"]::after, [data-id$="-arena-map"]::after { content: "Arena"; }
+[data-id^="arid-lake-map-tier-"]::after, [data-id$="-arid-lake-map"]::after { content: "Arid Lake"; }
+[data-id^="armoury-map-tier-"]::after, [data-id$="-armoury-map"]::after { content: "Armoury"; }
+[data-id^="arsenal-map-tier-"]::after, [data-id$="-arsenal-map"]::after { content: "Arsenal"; }
+[data-id^="ashen-wood-map-tier-"]::after, [data-id$="-ashen-wood-map"]::after { content: "Ashen Wood"; }
+[data-id^="atoll-map-tier-"]::after, [data-id$="-atoll-map"]::after { content: "Atoll"; }
+[data-id^="barrows-map-tier-"]::after, [data-id$="-barrows-map"]::after { content: "Barrows"; }
+[data-id^="basilica-map-tier-"]::after, [data-id$="-basilica-map"]::after { content: "Basilica"; }
+[data-id^="bazaar-map-tier-"]::after, [data-id$="-bazaar-map"]::after { content: "Bazaar"; }
+[data-id^="beach-map-tier-"]::after, [data-id$="-beach-map"]::after { content: "Beach"; }
+[data-id^="belfry-map-tier-"]::after, [data-id$="-belfry-map"]::after { content: "Belfry"; }
+[data-id^="bog-map-tier-"]::after, [data-id$="-bog-map"]::after { content: "Bog"; }
+[data-id^="bone-crypt-map-tier-"]::after, [data-id$="-bone-crypt-map"]::after { content: "Bone Crypt"; }
+[data-id^="bramble-valley-map-tier-"]::after, [data-id$="-bramble-valley-map"]::after { content: "Bramble Valley"; }
+[data-id^="burial-chambers-map-tier-"]::after, [data-id$="-burial-chambers-map"]::after { content: "Burial Chambers"; }
+[data-id^="cage-map-tier-"]::after, [data-id$="-cage-map"]::after { content: "Cage"; }
+[data-id^="caldera-map-tier-"]::after, [data-id$="-caldera-map"]::after { content: "Caldera"; }
+[data-id^="canyon-map-tier-"]::after, [data-id$="-canyon-map"]::after { content: "Canyon"; }
+[data-id^="carcass-map-tier-"]::after, [data-id$="-carcass-map"]::after { content: "Carcass"; }
+[data-id^="castle-ruins-map-tier-"]::after, [data-id$="-castle-ruins-map"]::after { content: "Castle Ruins"; }
+[data-id^="cells-map-tier-"]::after, [data-id$="-cells-map"]::after { content: "Cells"; }
+[data-id^="cemetery-map-tier-"]::after, [data-id$="-cemetery-map"]::after { content: "Cemetery"; }
+[data-id^="channel-map-tier-"]::after, [data-id$="-channel-map"]::after { content: "Channel"; }
+[data-id^="chateau-map-tier-"]::after, [data-id$="-chateau-map"]::after { content: "Chateau"; }
+[data-id^="city-square-map-tier-"]::after, [data-id$="-city-square-map"]::after { content: "City Square"; }
+[data-id^="cold-river-map-tier-"]::after, [data-id$="-cold-river-map"]::after { content: "Cold River"; }
+[data-id^="colonnade-map-tier-"]::after, [data-id$="-colonnade-map"]::after { content: "Colonnade"; }
+[data-id^="colosseum-map-tier-"]::after, [data-id$="-colosseum-map"]::after { content: "Colosseum"; }
+[data-id^="conservatory-map-tier-"]::after, [data-id$="-conservatory-map"]::after { content: "Conservatory"; }
+[data-id^="coral-ruins-map-tier-"]::after, [data-id$="-coral-ruins-map"]::after { content: "Coral Ruins"; }
+[data-id^="core-map-tier-"]::after, [data-id$="-core-map"]::after { content: "Core"; }
+[data-id^="courthouse-map-tier-"]::after, [data-id$="-courthouse-map"]::after { content: "Courthouse"; }
+[data-id^="courtyard-map-tier-"]::after, [data-id$="-courtyard-map"]::after { content: "Courtyard"; }
+[data-id^="coves-map-tier-"]::after, [data-id$="-coves-map"]::after { content: "Coves"; }
+[data-id^="crater-map-tier-"]::after, [data-id$="-crater-map"]::after { content: "Crater"; }
+[data-id^="crimson-temple-map-tier-"]::after, [data-id$="-crimson-temple-map"]::after { content: "Crimson Temple"; }
+[data-id^="crimson-township-map-tier-"]::after, [data-id$="-crimson-township-map"]::after { content: "Crimson Township"; }
+[data-id^="crystal-ore-map-tier-"]::after, [data-id$="-crystal-ore-map"]::after { content: "Crystal Ore"; }
+[data-id^="cursed-crypt-map-tier-"]::after, [data-id$="-cursed-crypt-map"]::after { content: "Cursed Crypt"; }
+[data-id^="dark-forest-map-tier-"]::after, [data-id$="-dark-forest-map"]::after { content: "Dark Forest"; }
+[data-id^="defiled-cathedral-map-tier-"]::after, [data-id$="-defiled-cathedral-map"]::after { content: "Defiled Cathedral"; }
+[data-id^="desert-map-tier-"]::after, [data-id$="-desert-map"]::after { content: "Desert"; }
+[data-id^="desert-spring-map-tier-"]::after, [data-id$="-desert-spring-map"]::after { content: "Desert Spring"; }
+[data-id^="dig-map-tier-"]::after, [data-id$="-dig-map"]::after { content: "Dig"; }
+[data-id^="dry-sea-map-tier-"]::after, [data-id$="-dry-sea-map"]::after { content: "Dry Sea"; }
+[data-id^="dunes-map-tier-"]::after, [data-id$="-dunes-map"]::after { content: "Dunes"; }
+[data-id^="dungeon-map-tier-"]::after, [data-id$="-dungeon-map"]::after { content: "Dungeon"; }
+[data-id^="estuary-map-tier-"]::after, [data-id$="-estuary-map"]::after { content: "Estuary"; }
+[data-id^="excavation-map-tier-"]::after, [data-id$="-excavation-map"]::after { content: "Excavation"; }
+[data-id^="factory-map-tier-"]::after, [data-id$="-factory-map"]::after { content: "Factory"; }
+[data-id^="fields-map-tier-"]::after, [data-id$="-fields-map"]::after { content: "Fields"; }
+[data-id^="flooded-mine-map-tier-"]::after, [data-id$="-flooded-mine-map"]::after { content: "Flooded Mine"; }
+[data-id^="forbidden-woods-map-tier-"]::after, [data-id$="-forbidden-woods-map"]::after { content: "Forbidden Woods"; }
+[data-id^="forge-of-the-phoenix-map-tier-"]::after, [data-id$="-forge-of-the-phoenix-map"]::after { content: "Forge of the Phoenix"; }
+[data-id^="forking-river-map-tier-"]::after, [data-id$="-forking-river-map"]::after { content: "Forking River"; }
+[data-id^="foundry-map-tier-"]::after, [data-id$="-foundry-map"]::after { content: "Foundry"; }
+[data-id^="frozen-cabins-map-tier-"]::after, [data-id$="-frozen-cabins-map"]::after { content: "Frozen Cabins"; }
+[data-id^="fungal-hollow-map-tier-"]::after, [data-id$="-fungal-hollow-map"]::after { content: "Fungal Hollow"; }
+[data-id^="gardens-map-tier-"]::after, [data-id$="-gardens-map"]::after { content: "Gardens"; }
+[data-id^="geode-map-tier-"]::after, [data-id$="-geode-map"]::after { content: "Geode"; }
+[data-id^="ghetto-map-tier-"]::after, [data-id$="-ghetto-map"]::after { content: "Ghetto"; }
+[data-id^="glacier-map-tier-"]::after, [data-id$="-glacier-map"]::after { content: "Glacier"; }
+[data-id^="grave-trough-map-tier-"]::after, [data-id$="-grave-trough-map"]::after { content: "Grave Trough"; }
+[data-id^="graveyard-map-tier-"]::after, [data-id$="-graveyard-map"]::after { content: "Graveyard"; }
+[data-id^="grotto-map-tier-"]::after, [data-id$="-grotto-map"]::after { content: "Grotto"; }
+[data-id^="haunted-mansion-map-tier-"]::after, [data-id$="-haunted-mansion-map"]::after { content: "Haunted Mansion"; }
+[data-id^="iceberg-map-tier-"]::after, [data-id$="-iceberg-map"]::after { content: "Iceberg"; }
+[data-id^="infested-valley-map-tier-"]::after, [data-id$="-infested-valley-map"]::after { content: "Infested Valley"; }
+[data-id^="ivory-temple-map-tier-"]::after, [data-id$="-ivory-temple-map"]::after { content: "Ivory Temple"; }
+[data-id^="jungle-valley-map-tier-"]::after, [data-id$="-jungle-valley-map"]::after { content: "Jungle Valley"; }
+[data-id^="laboratory-map-tier-"]::after, [data-id$="-laboratory-map"]::after { content: "Laboratory"; }
+[data-id^="lair-map-tier-"]::after, [data-id$="-lair-map"]::after { content: "Lair"; }
+[data-id^="lair-of-the-hydra-map-tier-"]::after, [data-id$="-lair-of-the-hydra-map"]::after { content: "Lair of the Hydra"; }
+[data-id^="lava-chamber-map-tier-"]::after, [data-id$="-lava-chamber-map"]::after { content: "Lava Chamber"; }
+[data-id^="lava-lake-map-tier-"]::after, [data-id$="-lava-lake-map"]::after { content: "Lava Lake"; }
+[data-id^="leyline-map-tier-"]::after, [data-id$="-leyline-map"]::after { content: "Leyline"; }
+[data-id^="lighthouse-map-tier-"]::after, [data-id$="-lighthouse-map"]::after { content: "Lighthouse"; }
+[data-id^="lookout-map-tier-"]::after, [data-id$="-lookout-map"]::after { content: "Lookout"; }
+[data-id^="malformation-map-tier-"]::after, [data-id$="-malformation-map"]::after { content: "Malformation"; }
+[data-id^="marshes-map-tier-"]::after, [data-id$="-marshes-map"]::after { content: "Marshes"; }
+[data-id^="mausoleum-map-tier-"]::after, [data-id$="-mausoleum-map"]::after { content: "Mausoleum"; }
+[data-id^="maze-map-tier-"]::after, [data-id$="-maze-map"]::after { content: "Maze"; }
+[data-id^="maze-of-the-minotaur-map-tier-"]::after, [data-id$="-maze-of-the-minotaur-map"]::after { content: "Maze of the Minotaur"; }
+[data-id^="mesa-map-tier-"]::after, [data-id$="-mesa-map"]::after { content: "Mesa"; }
+[data-id^="mineral-pools-map-tier-"]::after, [data-id$="-mineral-pools-map"]::after { content: "Mineral Pools"; }
+[data-id^="moon-temple-map-tier-"]::after, [data-id$="-moon-temple-map"]::after { content: "Moon Temple"; }
+[data-id^="mud-geyser-map-tier-"]::after, [data-id$="-mud-geyser-map"]::after { content: "Mud Geyser"; }
+[data-id^="museum-map-tier-"]::after, [data-id$="-museum-map"]::after { content: "Museum"; }
+[data-id^="necropolis-map-tier-"]::after, [data-id$="-necropolis-map"]::after { content: "Necropolis"; }
+[data-id^="orchard-map-tier-"]::after, [data-id$="-orchard-map"]::after { content: "Orchard"; }
+[data-id^="overgrown-ruin-map-tier-"]::after, [data-id$="-overgrown-ruin-map"]::after { content: "Overgrown Ruin"; }
+[data-id^="overgrown-shrine-map-tier-"]::after, [data-id$="-overgrown-shrine-map"]::after { content: "Overgrown Shrine"; }
+[data-id^="palace-map-tier-"]::after, [data-id$="-palace-map"]::after { content: "Palace"; }
+[data-id^="park-map-tier-"]::after, [data-id$="-park-map"]::after { content: "Park"; }
+[data-id^="pen-map-tier-"]::after, [data-id$="-pen-map"]::after { content: "Pen"; }
+[data-id^="peninsula-map-tier-"]::after, [data-id$="-peninsula-map"]::after { content: "Peninsula"; }
+[data-id^="phantasmagoria-map-tier-"]::after, [data-id$="-phantasmagoria-map"]::after { content: "Phantasmagoria"; }
+[data-id^="pier-map-tier-"]::after, [data-id$="-pier-map"]::after { content: "Pier"; }
+[data-id^="pit-map-tier-"]::after, [data-id$="-pit-map"]::after { content: "Pit"; }
+[data-id^="pit-of-the-chimera-map-tier-"]::after, [data-id$="-pit-of-the-chimera-map"]::after { content: "Pit of the Chimera"; }
+[data-id^="plateau-map-tier-"]::after, [data-id$="-plateau-map"]::after { content: "Plateau"; }
+[data-id^="plaza-map-tier-"]::after, [data-id$="-plaza-map"]::after { content: "Plaza"; }
+[data-id^="port-map-tier-"]::after, [data-id$="-port-map"]::after { content: "Port"; }
+[data-id^="precinct-map-tier-"]::after, [data-id$="-precinct-map"]::after { content: "Precinct"; }
+[data-id^="primordial-blocks-map-tier-"]::after, [data-id$="-primordial-blocks-map"]::after { content: "Primordial Blocks"; }
+[data-id^="primordial-pool-map-tier-"]::after, [data-id$="-primordial-pool-map"]::after { content: "Primordial Pool"; }
+[data-id^="promenade-map-tier-"]::after, [data-id$="-promenade-map"]::after { content: "Promenade"; }
+[data-id^="racecourse-map-tier-"]::after, [data-id$="-racecourse-map"]::after { content: "Racecourse"; }
+[data-id^="ramparts-map-tier-"]::after, [data-id$="-ramparts-map"]::after { content: "Ramparts"; }
+[data-id^="reef-map-tier-"]::after, [data-id$="-reef-map"]::after { content: "Reef"; }
+[data-id^="relic-chambers-map-tier-"]::after, [data-id$="-relic-chambers-map"]::after { content: "Relic Chambers"; }
+[data-id^="residence-map-tier-"]::after, [data-id$="-residence-map"]::after { content: "Residence"; }
+[data-id^="scriptorium-map-tier-"]::after, [data-id$="-scriptorium-map"]::after { content: "Scriptorium"; }
+[data-id^="sepulchre-map-tier-"]::after, [data-id$="-sepulchre-map"]::after { content: "Sepulchre"; }
+[data-id^="shipyard-map-tier-"]::after, [data-id$="-shipyard-map"]::after { content: "Shipyard"; }
+[data-id^="shore-map-tier-"]::after, [data-id$="-shore-map"]::after { content: "Shore"; }
+[data-id^="shrine-map-tier-"]::after, [data-id$="-shrine-map"]::after { content: "Shrine"; }
+[data-id^="siege-map-tier-"]::after, [data-id$="-siege-map"]::after { content: "Siege"; }
+[data-id^="silo-map-tier-"]::after, [data-id$="-silo-map"]::after { content: "Silo"; }
+[data-id^="spider-forest-map-tier-"]::after, [data-id$="-spider-forest-map"]::after { content: "Spider Forest"; }
+[data-id^="spider-lair-map-tier-"]::after, [data-id$="-spider-lair-map"]::after { content: "Spider Lair"; }
+[data-id^="stagnation-map-tier-"]::after, [data-id$="-stagnation-map"]::after { content: "Stagnation"; }
+[data-id^="strand-map-tier-"]::after, [data-id$="-strand-map"]::after { content: "Strand"; }
+[data-id^="sulphur-vents-map-tier-"]::after, [data-id$="-sulphur-vents-map"]::after { content: "Sulphur Vents"; }
+[data-id^="summit-map-tier-"]::after, [data-id$="-summit-map"]::after { content: "Summit"; }
+[data-id^="sunken-city-map-tier-"]::after, [data-id$="-sunken-city-map"]::after { content: "Sunken City"; }
+[data-id^="temple-map-tier-"]::after, [data-id$="-temple-map"]::after { content: "Temple"; }
+[data-id^="terrace-map-tier-"]::after, [data-id$="-terrace-map"]::after { content: "Terrace"; }
+[data-id^="thicket-map-tier-"]::after, [data-id$="-thicket-map"]::after { content: "Thicket"; }
+[data-id^="tower-map-tier-"]::after, [data-id$="-tower-map"]::after { content: "Tower"; }
+[data-id^="toxic-sewer-map-tier-"]::after, [data-id$="-toxic-sewer-map"]::after { content: "Toxic Sewer"; }
+[data-id^="tropical-island-map-tier-"]::after, [data-id$="-tropical-island-map"]::after { content: "Tropical Island"; }
+[data-id^="underground-river-map-tier-"]::after, [data-id$="-underground-river-map"]::after { content: "Underground River"; }
+[data-id^="underground-sea-map-tier-"]::after, [data-id$="-underground-sea-map"]::after { content: "Underground Sea"; }
+[data-id^="vaal-pyramid-map-tier-"]::after, [data-id$="-vaal-pyramid-map"]::after { content: "Vaal Pyramid"; }
+[data-id^="vaal-temple-map-tier-"]::after, [data-id$="-vaal-temple-map"]::after { content: "Vaal Temple"; }
+[data-id^="vault-map-tier-"]::after, [data-id$="-vault-map"]::after { content: "Vault"; }
+[data-id^="villa-map-tier-"]::after, [data-id$="-villa-map"]::after { content: "Villa"; }
+[data-id^="volcano-map-tier-"]::after, [data-id$="-volcano-map"]::after { content: "Volcano"; }
+[data-id^="waste-pool-map-tier-"]::after, [data-id$="-waste-pool-map"]::after { content: "Waste Pool"; }
+[data-id^="wasteland-map-tier-"]::after, [data-id$="-wasteland-map"]::after { content: "Wasteland"; }
+[data-id^="waterways-map-tier-"]::after, [data-id$="-waterways-map"]::after { content: "Waterways"; }
+[data-id^="wharf-map-tier-"]::after, [data-id$="-wharf-map"]::after { content: "Wharf"; }
+[data-id^="abomination-map-tier-"]::after, [data-id$="-abomination-map"]::after { content: "Abomination"; }
+[data-id^="citadel-map-tier-"]::after, [data-id$="-citadel-map"]::after { content: "Citadel"; }
+[data-id^="fortress-map-tier-"]::after, [data-id$="-fortress-map"]::after { content: "Fortress"; }
+[data-id^="sanctuary-map-tier-"]::after, [data-id$="-sanctuary-map"]::after { content: "Sanctuary"; }
+[data-id^="ziggurat-map-tier-"]::after, [data-id$="-ziggurat-map"]::after { content: "Ziggurat"; }
 
 
 
@@ -2786,14 +2798,23 @@ body {
 	}
 
 	/* hide real map names */
-	> .exchange-filter-item:not([data-id^="memory-influenced-"]) > span {
+/* :not([data-id^="memory-influenced-"]) */
+	> .exchange-filter-item > span {
 		display: none !important;
 	}
+}
 
-	/* add indent for images */
-	> .exchange-filter-item::after {
-		margin-left: var(--text-indent-for-image) !important;
-	}
+/* add indent for images */
+:is(
+[data-id=al-hezmins-map],
+[data-id=barans-map],
+[data-id=droxs-map],
+[data-id=veritanias-map],
+[data-id=enslaver-map],
+[data-id=eradicator-map],
+[data-id=constrictor-map],
+[data-id=purifier-map])::after {
+    margin-left: var(--text-indent-for-image) !important;
 }
 
 [data-id=al-hezmins-map] {

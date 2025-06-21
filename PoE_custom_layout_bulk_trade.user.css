@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.12.1
+@version      1.12.2
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -163,7 +163,6 @@ Table of contents:
 , [data-id=feral-incubator], [data-id=eldritch-incubator], [data-id=time-lost-incubator], [data-id=enchanted-incubator], [data-id=challenging-incubator]
 , [data-id=primitive-alchemical-resonator], [data-id=potent-alchemical-resonator], [data-id=powerful-alchemical-resonator], [data-id=prime-alchemical-resonator]
 , [data-id=delirium-orb], [data-id=kalguuran-delirium-orb], [data-id=primal-delirium-orb], [data-id=challenging-delirium-orb]
-, [data-id=farric-lure], [data-id=saqawine-lure], [data-id=fenumal-lure], [data-id=craicic-lure]
 , [data-id=sulphite-scarab-of-greed], [data-id=bestiary-scarab-of-the-shadowed-crow], [data-id=betrayal-scarab-of-perpetuation], [data-id=torment-scarab-of-release], [data-id=cartography-scarab-of-singularity], [data-id=beyond-scarab-of-corruption], [data-id=expedition-scarab-of-the-skald], [data-id=legion-scarab-of-the-sekhema], [data-id=blight-scarab-of-bounty], [data-id=abyss-scarab-of-emptiness], [data-id=breach-scarab-of-the-dreamer]
 , [data-id=the-tower-of-ordeals]
 , [data-id=the-basilisk], [data-id=boulderback], [data-id=tunnelworm], [data-id=the-great-white-bones], [data-id=brinecrack], [data-id=hollowskull-the-willing-host], [data-id=raihara-tukohamas-loyal], [data-id=steelchaw], [data-id=eyepecker], [data-id=the-hundred-foot-shadow], [data-id=paradisae-venenum], [data-id=the-conqueror-wurm], [data-id=thistlesage], [data-id=quru], [data-id=aidan-the-frenzied], [data-id=nadia-the-soothing], [data-id=the-weaver], [data-id=black-death], [data-id=the-great-white-beast], [data-id=ambrosia-daughter-of-merveil], [data-id=amarissa-daughter-of-merveil], [data-id=the-faun], [data-id=brood-princess], [data-id=the-burning-menace], [data-id=ungulath], [data-id=the-dweller-of-the-deep], [data-id=oozeback-bloom]
@@ -1826,6 +1825,11 @@ body {
 	}*/
 }
 
+/* hide placeholders */
+.exchange-filter-item.placeholder {
+	display: none !important;
+}
+
 /* override indent */
 .filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-options {
 	> .split,
@@ -1853,7 +1857,6 @@ body {
 	width: auto;
 	margin-left: 5px;*/
 
-/* , [data-id=] */
 [data-id=the-mavens-writ], [data-id=writhing-invitation], [data-id=screaming-invitation], [data-id=polaric-invitation], [data-id=incandescent-invitation], [data-id=sacred-blossom], [data-id=an-audience-with-the-king], [data-id=syndicate-medallion], [data-id=echo-of-loneliness], [data-id=echo-of-trauma], [data-id=echo-of-reverence] {
 	--r: 3; }
 
@@ -1875,10 +1878,10 @@ body {
 [data-id=ritual-vessel] {
 	--r: 8.5; }
 
-[data-id=uber-timeless-eternal-emblem], [data-id=uber-timeless-karui-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=uber-timeless-templar-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=xophs-flawless-breachstone], [data-id=tuls-flawless-breachstone], [data-id=eshs-flawless-breachstone], [data-id=uul-flawless-breachstone], [data-id=chayulas-flawless-breachstone], [data-id=xophs-charged-breachstone], [data-id=tuls-charged-breachstone], [data-id=eshs-charged-breachstone], [data-id=uul-charged-breachstone], [data-id=chayulas-charged-breachstone] {
+[data-id=uber-timeless-eternal-emblem], [data-id=uber-timeless-karui-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=uber-timeless-templar-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=xophs-flawless-breachstone], [data-id=tuls-flawless-breachstone], [data-id=eshs-flawless-breachstone], [data-id=uul-flawless-breachstone], [data-id=chayulas-flawless-breachstone] {
 	--r: 9; }
 
-[data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication], [data-id=xophs-enriched-breachstone], [data-id=tuls-enriched-breachstone], [data-id=eshs-enriched-breachstone], [data-id=uul-enriched-breachstone], [data-id=chayulas-enriched-breachstone], [data-id=blessing-xoph], [data-id=blessing-tul], [data-id=blessing-esh], [data-id=blessing-uul-netol], [data-id=blessing-chayula] {
+[data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication], [data-id=blessing-xoph], [data-id=blessing-tul], [data-id=blessing-esh], [data-id=blessing-uul-netol], [data-id=blessing-chayula] {
 	--r: 10; }
 
 [data-id=beauty], [data-id=curiosity], [data-id=ambition], [data-id=cooperation] {
@@ -1892,17 +1895,11 @@ body {
 [data-id=divine-vessel], [data-id=dusk], [data-id=noon], [data-id=timeless-eternal-empire-splinter], [data-id=timeless-eternal-emblem], [data-id=uber-timeless-eternal-emblem], [data-id=the-mavens-writ], [data-id=awakening-fragment], [data-id=oubliette-reliquary-key] {
 	--c: 1; }
 
-[data-id=sacrifice-set] {
-	--c: 1.5; }
-
 [data-id=offer], [data-id=mid], [data-id=dawn], [data-id=timeless-karui-splinter], [data-id=timeless-karui-emblem], [data-id=uber-timeless-karui-emblem], [data-id=writhing-invitation], [data-id=cosmic-fragment], [data-id=cosmic-reliquary-key] {
 	--c: 2; }
 
 [data-id=veritanias-crest], [data-id=droxs-crest], [data-id=timeless-vaal-splinter], [data-id=timeless-vaal-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=offer-dedication], [data-id=screaming-invitation], [data-id=blazing-fragment], [data-id=archive-reliquary-key] {
 	--c: 3; }
-
-[data-id=crest-of-the-elderslayers] {
-	--c: 3.5; }
 
 [data-id=al-hezmins-crest], [data-id=barans-crest], [data-id=timeless-templar-splinter], [data-id=timeless-templar-emblem], [data-id=uber-timeless-templar-emblem], [data-id=offer-gift], [data-id=polaric-invitation], [data-id=reality-fragment], [data-id=shiny-reliquary-key] {
 	--c: 4; }
@@ -1910,40 +1907,25 @@ body {
 [data-id=grie], [data-id=ign], [data-id=timeless-maraketh-splinter], [data-id=timeless-maraketh-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=offer-tribute], [data-id=incandescent-invitation], [data-id=decaying-fragment], [data-id=decaying-reliquary-key] {
 	--c: 5; }
 
-[data-id=mortal-set] {
-	--c: 5.5; }
-
 [data-id=rage], [data-id=hope], [data-id=sacred-blossom], [data-id=devouring-fragment], [data-id=visceral-reliquary-key] {
 	--c: 6; }
-
-[data-id=the-feared] {
-	--c: 6.5; }
 
 [data-id=fragment-of-purification], [data-id=fragment-of-constriction], [data-id=an-audience-with-the-king], [data-id=synthesising-fragment], [data-id=forgotten-reliquary-key], [data-id=simulacrum-splinter], [data-id=simulacrum] {
 	--c: 7; }
 
-[data-id=key-to-decay] {
-	--c: 7.5; }
-
-[data-id=fragment-of-enslavement], [data-id=fragment-of-eradication], [data-id=syndicate-medallion], [data-id=blessing-xoph], [data-id=splinter-xoph], [data-id=xophs-breachstone], [data-id=xophs-charged-breachstone], [data-id=xophs-enriched-breachstone], [data-id=xophs-pure-breachstone], [data-id=xophs-flawless-breachstone], [data-id=the-atlas], [data-id=the-formed], [data-id=voidborn-reliquary-key] {
+[data-id=fragment-of-enslavement], [data-id=fragment-of-eradication], [data-id=syndicate-medallion], [data-id=blessing-xoph], [data-id=splinter-xoph], [data-id=xophs-breachstone], [data-id=xophs-flawless-breachstone], [data-id=voidborn-reliquary-key] {
 	--c: 8; }
 
-[data-id=hydra], [data-id=chimer], [data-id=echo-of-trauma], [data-id=blessing-tul], [data-id=splinter-tul], [data-id=tuls-breachstone], [data-id=tuls-charged-breachstone], [data-id=tuls-enriched-breachstone], [data-id=tuls-pure-breachstone], [data-id=tuls-flawless-breachstone], [data-id=the-twisted], [data-id=valdos-puzzle-box] {
+[data-id=hydra], [data-id=chimer], [data-id=echo-of-trauma], [data-id=blessing-tul], [data-id=splinter-tul], [data-id=tuls-breachstone], [data-id=tuls-flawless-breachstone], [data-id=valdos-puzzle-box] {
 	--c: 9; }
 
-[data-id=shaper-set] {
-	--c: 9.5; }
-
-[data-id=phoenix], [data-id=minot], [data-id=echo-of-loneliness], [data-id=blessing-esh], [data-id=splinter-esh], [data-id=eshs-breachstone], [data-id=eshs-charged-breachstone], [data-id=eshs-enriched-breachstone], [data-id=eshs-pure-breachstone], [data-id=eshs-flawless-breachstone], [data-id=the-forgotten], [data-id=ancient-reliquary-key] {
+[data-id=phoenix], [data-id=minot], [data-id=echo-of-loneliness], [data-id=blessing-esh], [data-id=splinter-esh], [data-id=eshs-breachstone], [data-id=eshs-flawless-breachstone], [data-id=ancient-reliquary-key] {
 	--c: 10; }
 
-[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=echo-of-reverence], [data-id=blessing-uul-netol], [data-id=splinter-uul], [data-id=uul-breachstone], [data-id=uul-charged-breachstone], [data-id=uul-enriched-breachstone], [data-id=uul-pure-breachstone], [data-id=uul-flawless-breachstone], [data-id=the-hidden], [data-id=timeworn-reliquary-key] {
+[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=echo-of-reverence], [data-id=blessing-uul-netol], [data-id=splinter-uul], [data-id=uul-breachstone], [data-id=uul-flawless-breachstone], [data-id=timeworn-reliquary-key] {
 	--c: 11; }
 
-[data-id=maddening-object] {
-	--c: 11.5; }
-
-[data-id=fragment-of-terror], [data-id=fragment-of-emptiness], [data-id=blessing-chayula], [data-id=splinter-chayula], [data-id=chayulas-breachstone], [data-id=chayulas-charged-breachstone], [data-id=chayulas-enriched-breachstone], [data-id=chayulas-pure-breachstone], [data-id=chayulas-flawless-breachstone], [data-id=the-elderslayers], [data-id=vaal-reliquary-key] {
+[data-id=fragment-of-terror], [data-id=fragment-of-emptiness], [data-id=blessing-chayula], [data-id=splinter-chayula], [data-id=chayulas-breachstone], [data-id=chayulas-flawless-breachstone], [data-id=vaal-reliquary-key] {
 	--c: 12; }
 
 [data-id=crescent-splinter] {
@@ -2518,23 +2500,23 @@ body {
 	}
 
 	/* set order for dividers */
-	> :nth-child(1 of .split)  { --o-t:  1; }
-	> :nth-child(2 of .split)  { --o-t:  2; }
-	> :nth-child(3 of .split)  { --o-t:  3; }
-	> :nth-child(4 of .split)  { --o-t:  4; }
-	> :nth-child(5 of .split)  { --o-t:  5; }
-	> :nth-child(6 of .split)  { --o-t:  6; }
-	> :nth-child(7 of .split)  { --o-t:  7; }
-	> :nth-child(8 of .split)  { --o-t:  8; }
-	> :nth-child(9 of .split)  { --o-t:  9; }
-	> :nth-child(10 of .split) { --o-t: 10; }
-	> :nth-child(11 of .split) { --o-t: 11; }
-	> :nth-child(12 of .split) { --o-t: 12; }
-	> :nth-child(13 of .split) { --o-t: 13; }
-	> :nth-child(14 of .split) { --o-t: 14; }
-	> :nth-child(15 of .split) { --o-t: 15; }
-	> :nth-child(16 of .split) { --o-t: 16; }
-	> :nth-child(17 of .split) { --o-t: 17; }
+	> :nth-child(1 of .split)	{ --o-t:  1; }
+	> :nth-child(2 of .split)	{ --o-t:  2; }
+	> :nth-child(3 of .split)	{ --o-t:  3; }
+	> :nth-child(4 of .split)	{ --o-t:  4; }
+	> :nth-child(5 of .split)	{ --o-t:  5; }
+	> :nth-child(6 of .split)	{ --o-t:  6; }
+	> :nth-child(7 of .split)	{ --o-t:  7; }
+	> :nth-child(8 of .split)	{ --o-t:  8; }
+	> :nth-child(9 of .split)	{ --o-t:  9; }
+	> :nth-child(10 of .split)	{ --o-t: 10; }
+	> :nth-child(11 of .split)	{ --o-t: 11; }
+	> :nth-child(12 of .split)	{ --o-t: 12; }
+	> :nth-child(13 of .split)	{ --o-t: 13; }
+	> :nth-child(14 of .split)	{ --o-t: 14; }
+	> :nth-child(15 of .split)	{ --o-t: 15; }
+	> :nth-child(16 of .split)	{ --o-t: 16; }
+	> :nth-child(17 of .split)	{ --o-t: 17; }
 }
 
 /* reorder maps */

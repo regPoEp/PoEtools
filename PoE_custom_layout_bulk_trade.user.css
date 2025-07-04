@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.12.2
+@version      1.12.3
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -1004,8 +1004,8 @@ body {
 ------------------------------*/
 
 .filter-group {
-	--image-size: 24px;
 	--image-size-scale-to: 24;
+	--image-size: calc(var(--image-size-scale-to) * 1px);
 	--image-original-size-48-scale-from: 48;
 	--image-original-size-27-scale-from: 27;
 	--image-original-size-40-scale-from: 40;
@@ -2549,6 +2549,8 @@ body {
 [data-id=vivid-vulture],
 [data-id=craicic-chimeral],
 [data-id=the-black-morrigan],
+[data-id=vivid-watcher],
+[data-id=wild-hellion-alpha],
 [data-id=beast] {
 
 	/* setup text item */
@@ -2588,10 +2590,14 @@ body {
 
 [data-id=craicic-chimeral]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lJbXByaW50IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/78304c421e/CurrencyImprint.png") !important; }
 
-[data-id=vivid-vulture]::before { content: url("/protected/image/item/popup/synthetic-symbol.png?key=CUVu3Zqxrzd1CwWcIH-6xg") !important; }
+[data-id=vivid-vulture]::before { content: url("https://web.poecdn.com/protected/image/item/popup/synthetic-symbol.png?key=CUVu3Zqxrzd1CwWcIH-6xg") !important; }
 
 /* [data-id=the-black-morrigan]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGluZWtvcmFzTG9jayIsInNjYWxlIjoxfV0/b188026e7f/HinekorasLock.png") !important; } */
-[data-id=the-black-morrigan]::before { content: url("/protected/image/item/popup/foresight.png?v=1739989653429&key=Lef8eETW43fyBwYaZ_f3SA") !important; }
+[data-id=the-black-morrigan]::before { content: url("https://web.poecdn.com/protected/image/item/popup/foresight.png?v=1739989653429&key=Lef8eETW43fyBwYaZ_f3SA") !important; }
+
+[data-id=vivid-watcher]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9TdXBwb3J0L1N1cHBvcnRQbHVzL011bHRpcGxlQXR0YWNrc1BsdXMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/c32ddc2121/MultipleAttacksPlus.png") !important; }
+
+[data-id=wild-hellion-alpha]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvSmV3ZWxzL0VsZGVySmV3ZWwiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/278c673716/ElderJewel.png") !important; }
 
 [data-id=beast]::before { content: url("https://web.poecdn.com/image/Art/2DItems/Currency/BestiaryOrbFull.png?scale=1&w=1&h=1") !important; }
 

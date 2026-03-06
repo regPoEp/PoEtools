@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.12.4
+@version      1.12.5
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -160,9 +160,9 @@ Table of contents:
 /* , [data-id=prime-regrading-lens], [data-id=secondary-regrading-lens], [data-id=tainted-blessing] */
 [data-id=eternal], [data-id=infused-engineers-orb], [data-id=veiled-scarab]
 , [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=vaal-reliquary-key]
-, [data-id=feral-incubator], [data-id=eldritch-incubator], [data-id=time-lost-incubator], [data-id=enchanted-incubator], [data-id=challenging-incubator]
+, [data-id=feral-incubator], [data-id=eldritch-incubator], [data-id=time-lost-incubator], [data-id=enchanted-incubator], [data-id=challenging-incubator], [data-id=fossilised-incubator]
 , [data-id=primitive-alchemical-resonator], [data-id=potent-alchemical-resonator], [data-id=powerful-alchemical-resonator], [data-id=prime-alchemical-resonator]
-, [data-id=delirium-orb], [data-id=kalguuran-delirium-orb], [data-id=primal-delirium-orb], [data-id=challenging-delirium-orb]
+, [data-id=delirium-orb], [data-id=kalguuran-delirium-orb], [data-id=primal-delirium-orb], [data-id=challenging-delirium-orb], [data-id=obscured-delirium-orb], [data-id=fossilised-delirium-orb]
 , [data-id=sulphite-scarab-of-greed], [data-id=bestiary-scarab-of-the-shadowed-crow], [data-id=betrayal-scarab-of-perpetuation], [data-id=torment-scarab-of-release], [data-id=cartography-scarab-of-singularity], [data-id=beyond-scarab-of-corruption], [data-id=expedition-scarab-of-the-skald], [data-id=legion-scarab-of-the-sekhema], [data-id=blight-scarab-of-bounty], [data-id=abyss-scarab-of-emptiness]
 , [data-id=the-tower-of-ordeals]
 , [data-id=the-basilisk], [data-id=boulderback], [data-id=tunnelworm], [data-id=the-great-white-bones], [data-id=brinecrack], [data-id=hollowskull-the-willing-host], [data-id=raihara-tukohamas-loyal], [data-id=steelchaw], [data-id=eyepecker], [data-id=the-hundred-foot-shadow], [data-id=paradisae-venenum], [data-id=the-conqueror-wurm], [data-id=thistlesage], [data-id=quru], [data-id=aidan-the-frenzied], [data-id=nadia-the-soothing], [data-id=the-weaver], [data-id=black-death], [data-id=the-great-white-beast], [data-id=ambrosia-daughter-of-merveil], [data-id=amarissa-daughter-of-merveil], [data-id=the-faun], [data-id=brood-princess], [data-id=the-burning-menace], [data-id=ungulath], [data-id=the-dweller-of-the-deep], [data-id=oozeback-bloom]
@@ -170,8 +170,8 @@ Table of contents:
 , [data-id=xophs-breachstone], [data-id=tuls-breachstone], [data-id=eshs-breachstone], [data-id=uul-breachstone], [data-id=chayulas-breachstone]
 , [data-id=xophs-flawless-breachstone], [data-id=tuls-flawless-breachstone], [data-id=eshs-flawless-breachstone], [data-id=uul-flawless-breachstone], [data-id=chayulas-flawless-breachstone]
 , [data-id=blessing-xoph], [data-id=blessing-tul], [data-id=blessing-esh], [data-id=blessing-uul-netol], [data-id=blessing-chayula]
-, [data-id=breach-scarab], [data-id=breach-scarab-of-lordship], [data-id=breach-scarab-of-splintering], [data-id=breach-scarab-of-snares], [data-id=breach-scarab-of-resonant-cascade], [data-id=breach-scarab-of-the-dreamer]
-, .filter-group:first-child > .filter-group-body > .filter:nth-child(23)
+, [data-id=breach-scarab-of-the-dreamer]
+, .filter-group:first-child > .filter-group-body > .filter:nth-child(22)
 {
 	display: none !important;
 }
@@ -221,7 +221,7 @@ Table of contents:
 }
 .filter-group:first-child > .filter-group-body > .filter:nth-child(9) > .filter-options > .split,
 .filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options > .split,
-.filter-group:first-child > .filter-group-body > .filter:nth-child(20) > .filter-options > :nth-child(2 of .split),
+/* .filter-group:first-child > .filter-group-body > .filter:nth-child(20) > .filter-options > :nth-child(2 of .split), */
 .filter-group:first-child > .filter-group-body > .filter:nth-child(9) > .filter-options.filter-options::before {
 	padding-top: calc(var(--poe-web-split-padding) - var(--poe-custom-item-text-font-family-enhanced-vertical-adjustment)) !important;
 	padding-bottom: calc(var(--poe-web-split-padding) + var(--poe-custom-item-text-font-family-enhanced-vertical-adjustment)) !important;
@@ -246,12 +246,12 @@ Table of contents:
 	> .filter:nth-child(1)  { order:  10 !important; } /* Currency */
 	> .filter:nth-child(2)  { order:  20 !important; } /* Fragments & Scarabs */
 	> .filter:nth-child(4)  { order:  20 !important; } /* Allflame Embers */
-	> .filter:nth-child(5)  { order:  20 !important; } /* Runegrafts */
-	> .filter:nth-child(6)  { order:  30 !important; } /* Tattoos & Omens */
-	> .filter:nth-child(7)  { order:  40 !important; } /* Sanctum Tomes & Relics */
-	> .filter:nth-child(8)  { order:  60 !important; } /* Scouting Reports */
+	> .filter:nth-child(6)  { order:  20 !important; } /* Runegrafts */
+	> .filter:nth-child(7)  { order:  30 !important; } /* Tattoos & Omens */
+	> .filter:nth-child(8)  { order:  40 !important; } /* Sanctum Tomes & Relics */
+	/*> .filter:nth-child(108)  { order:  60 !important; } /* Scouting Reports */
 	> .filter:nth-child(9)  { order:  70 !important; } /* Heist Contracts & Blueprints */
-	> .filter:nth-child(10)  { order:  80 !important; } /* Expedition Currency */
+	> .filter:nth-child(10)	{ order:  80 !important; } /* Expedition Currency */
 	> .filter:nth-child(11) { order:  90 !important; } /* Delirium Orbs */
 	> .filter:nth-child(12) { order: 100 !important; } /* Catalysts */
 	> .filter:nth-child(13) { order: 110 !important; } /* Oils & Extractor */
@@ -262,10 +262,10 @@ Table of contents:
 	> .filter:nth-child(17) { order: 150 !important; } /* Beasts */
 	> .filter:nth-child(18) { order: 160 !important; } /* Cards */
 	> .filter:nth-child(19) { order: 170 !important; } /* Maps */
-	> .filter:nth-child(20) { order: 180 !important; } /* Conqueror & Elder Maps */
-	> .filter:nth-child(21) { order: 190 !important; } /* Blighted Maps */
-	> .filter:nth-child(22) { order: 200 !important; } /* Unique Maps*/
-	> .filter:nth-child(23) { order: 210 !important; } /* Legacy Items */
+	> .filter:nth-child(20) { order: 180 !important; } /* Shaper, Conqueror & Elder Maps */
+	/*> .filter:nth-child(121) { order: 190 !important; } /* Blighted Maps */
+	> .filter:nth-child(21) { order: 200 !important; } /* Unique Maps*/
+	> .filter:nth-child(22) { order: 210 !important; } /* Legacy Items */
 }
 
 /* hide borders for icon items */
@@ -1017,7 +1017,7 @@ body {
 	--var-image-original-size-scale-from: var(--image-original-size-48-scale-from);
 
 	> .filter:nth-child(2) > .filter-title-clickable,
-	> .filter:nth-child(6) > .filter-title-clickable,
+	> .filter:nth-child(7) > .filter-title-clickable,
 	> .filter > .filter-title-clickable > span:first-child {
 
 		/* push headers to the right */
@@ -1036,7 +1036,7 @@ body {
 
 	/* setup for 2nd image */
 	> .filter:nth-child(2) > .filter-title-clickable,
-	> .filter:nth-child(6) > .filter-title-clickable {
+	> .filter:nth-child(7) > .filter-title-clickable {
 		padding-left: calc(var(--title-margin-left) + var(--poe-web-filter-title-text-horizontal-padding)) !important;
 		&::before {
 			left: calc(var(--image-position-left) + var(--title-margin-left)) !important;
@@ -1047,22 +1047,22 @@ body {
 
 	/* scuffed */
 	> :is(
-		.filter:nth-child(7),
 		.filter:nth-child(8),
+		.filter:nth-child(108),
 		.filter:nth-child(9),
 		.filter:nth-child(20),
-		.filter:nth-child(21),
-		.filter:nth-child(23)
+		.filter:nth-child(121),
+		.filter:nth-child(22)
 	) > .filter-title-clickable > span:first-child::before {
 		--var-image-original-size-scale-from: var(--image-original-size-47-scale-from);
 	}
 	
-	/*> .filter:nth-child(7) > .filter-title-clickable > span:first-child::before {
+	/*> .filter:nth-child(8) > .filter-title-clickable > span:first-child::before {
 		--var-image-original-size-scale-from: var(--image-original-size-94-scale-from);
 	}*/
 	
 	/* 47*94 
-	> .filter:nth-child(6) > .filter-title-clickable > span:first-child::before {
+	> .filter:nth-child(7) > .filter-title-clickable > span:first-child::before {
 		--var-image-original-size-scale-from: var(--image-original-size-94-scale-from);
 		transform-origin: 1% 18% !important;
 	}*/
@@ -1080,18 +1080,20 @@ body {
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTmVjcm9wb2xpcy9BbGxmbGFtZUJldHJheWFsIiwic2NhbGUiOjF9XQ/a587ae1050/AllflameBetrayal.png") !important; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(5) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2V0dGxlcnMvVmlsbGFnZVJ1bmUxMCIsInNjYWxlIjoxfV0/7a75e42c42/VillageRune10.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(5) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRmFyaWR1bi9XaXNoQ3VycmVuY3lJdGVtIiwic2NhbGUiOjF9XQ/443f7ba4fb/WishCurrencyItem.png") !important; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0NvbW1vbkRleFRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/de9fca75ad/CommonDexTatttooEquipment.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2V0dGxlcnMvVmlsbGFnZVJ1bmUxMCIsInNjYWxlIjoxfV0/7a75e42c42/VillageRune10.png") !important; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-title-clickable::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQXptZXJpL1Zvb2Rvb09tZW5zMVB1cnBsZSIsInNjYWxlIjoxfV0/f7558b6e48/VoodooOmens1Purple.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(7) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0NvbW1vbkRleFRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/de9fca75ad/CommonDexTatttooEquipment.png") !important; }
 
-/* .filter-group:first-child > .filter-group-body > .filter:nth-child(7) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmVsaWNzL1JlbGljVW5pcXVlMngyIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/15bd9eec94/RelicUnique2x2.png") !important; } */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(7) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2FuY3R1bS9TYW5jdHVtS2V5IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/d0326cac9a/SanctumKey.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(7) > .filter-title-clickable::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQXptZXJpL1Zvb2Rvb09tZW5zMVB1cnBsZSIsInNjYWxlIjoxfV0/f7558b6e48/VoodooOmens1Purple.png") !important; }
+
+/* .filter-group:first-child > .filter-group-body > .filter:nth-child(8) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmVsaWNzL1JlbGljVW5pcXVlMngyIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/15bd9eec94/RelicUnique2x2.png") !important; } */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(8) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2FuY3R1bS9TYW5jdHVtS2V5IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/d0326cac9a/SanctumKey.png") !important; }
 
 /* .filter-group:first-child > .filter-group-body > .filter:nth-child() > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTWVtb3J5TGluZS9OaWtvTWVtb3J5SXRlbSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/5c560ea8fd/NikoMemoryItem.png") !important; } */
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(8) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NvdXRpbmdSZXBvcnQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/584635f3c8/ScoutingReport.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(108) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NvdXRpbmdSZXBvcnQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/584635f3c8/ScoutingReport.png") !important; }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(9) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvQmx1ZXByaW50Tm90QXBwcm92ZWQ0IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/2705c5829f/BlueprintNotApproved4.png") !important; }
 
@@ -1117,13 +1119,13 @@ body {
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(20) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9SZWVmIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxOSwibXQiOjE2LCJtYyI6Mn1d/8dc6727f27/Reef.png") !important; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXNcL01hcHNcL0F0bGFzMk1hcHNcL05ld1wvTHVuYXJpc1RlbXBsZSIsInciOjEsImgiOjEsInNjYWxlIjp0cnVlLCJtbiI6MTAsIm10IjoxNCwibWIiOnRydWV9XQ/038c28d2e1/Item.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(121) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXNcL01hcHNcL0F0bGFzMk1hcHNcL05ld1wvTHVuYXJpc1RlbXBsZSIsInciOjEsImgiOjEsInNjYWxlIjp0cnVlLCJtbiI6MTAsIm10IjoxNCwibWIiOnRydWV9XQ/038c28d2e1/Item.png") !important; }
 
 /*.filter-group:first-child > .filter-group-body > .filter:nth-child(121) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9GaWVsZHMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjEyLCJtdCI6MTYsIm11YiI6dHJ1ZX1d/a7ab3884c4/Fields.png") !important; }*/
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(22) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/image/Art/2DItems/Maps/UndeadSiege.png?scale=1&w=1&h=1") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/image/Art/2DItems/Maps/UndeadSiege.png?scale=1&w=1&h=1") !important; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(23) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1VuaXF1ZTRUYXR0dG9vRXF1aXBtZW50IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/6e8c1bd4e6/Unique4TatttooEquipment.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(22) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1VuaXF1ZTRUYXR0dG9vRXF1aXBtZW50IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/6e8c1bd4e6/Unique4TatttooEquipment.png") !important; }
 
 /*@*/}
 
@@ -1254,11 +1256,11 @@ body {
 
 /* all */
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(7) > .filter-options,
+.filter-group:first-child > .filter-group-body > .filter:nth-child(8) > .filter-options,
 .filter-group:first-child > .filter-group-body > .filter:nth-child(9) > .filter-options,
 .filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options,
-.filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-options,
-.filter-group:first-child > .filter-group-body > .filter:nth-child(22) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(121) > .filter-options,
+.filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-options {
 	--text-item-left-indent-in-container: calc(var(--poe-web-filter-title-text-horizontal-padding) + var(--title-margin-left) - var(--poe-web-item-margin));
 
 	/* setup container */
@@ -1301,7 +1303,7 @@ body {
 /* assign lowest order to tomes */
 [data-id^=forbidden-tome-level-] { --o-m: -1; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(7) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(8) > .filter-options {
 	justify-content: center !important;
 
 	/* add divider 
@@ -1386,7 +1388,7 @@ body {
 
 /* Maps */
 
-/* different order formula */
+/* different order formula 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options {
 	&::before,
 	&::after,
@@ -1394,7 +1396,7 @@ body {
 	> .exchange-filter-item {
 		--map-order: calc(0 - var(--o-t) * 100 + var(--o-m));
 	}
-}
+}*/
 
 /* Blighted Maps */
 
@@ -1402,7 +1404,7 @@ body {
 [data-id^=blighted-map-tier-]       { --o-m: -1; }
 [data-id^=blight-ravaged-map-tier-] { --o-m:  1; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(121) > .filter-options {
 	justify-content: center !important;
 }
 
@@ -1439,7 +1441,7 @@ body {
 [data-id^=vaults-of-atziri-tier-]           { --o-m: 2138; --n-t: 5; --w-m: 157px; --s-m: "Vaults of Atziri"; }
 [data-id^=whakawairua-tuahu-tier-]          { --o-m: 2139; --n-t: 5; --w-m: 196px; --s-m: "Whakawairua Tuahu"; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(22) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-options {
 	padding-left: var(--text-item-left-indent-in-container);
 	
 	/* setup items */
@@ -1447,116 +1449,125 @@ body {
 		--map-short-name: "T" var(--s-t);
 	}
 
-	/* hide dividers and real map names */
+	/* hide dividers and real map names 
 	> .split,
 	> .exchange-filter-item > span {
 		display: none !important;
-	}
+	}*/
 
-	/* add divider */
+	/* add divider 
 	&::before {
 		content: "";
 		--o-m: 2000;
+	}*/
+}
+
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-options > [data-id] {
+
+	/* setup text item */
+	position: relative !important;
+	
+	/* add indent for icon */
+	> span {
+		margin-left: var(--text-indent-for-image) !important;
 	}
 }
 
-/* assign short name according to tier */
-:where(.filter-group:first-child > .filter-group-body > .filter:nth-child(22) > .filter-options) > .exchange-filter-item::after {
+
+
+/* assign short name according to tier 
+:where(.filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-options) > .exchange-filter-item::after {
 	content: var(--map-short-name) !important;
-}
+}*/
 
 /* add pseudo line breaks via right margin */
 :nth-child(1 of [data-id^=actons-nightmare-tier-]),
 /*:nth-child(1 of [data-id^=altered-distant-memory]),*/
 :nth-child(1 of [data-id^=augmented-distant-memory]),
-:nth-child(1 of [data-id^=caer-blaidd-tier-]),
+/* :nth-child(1 of [data-id^=caer-blaidd-tier-]), */
 :nth-child(1 of [data-id^=cortex]),
-:nth-child(1 of [data-id^=death-and-taxes-tier-]),
+/*:nth-child(1 of [data-id^=death-and-taxes-tier-]),
 :nth-child(1 of [data-id^=doryanis-machinarium-tier-]),
 :nth-child(1 of [data-id^=hall-of-grandmasters-tier-]),
-:nth-child(1 of [data-id^=hallowed-ground-tier-]),
+:nth-child(1 of [data-id^=hallowed-ground-tier-]),*/
 /*:nth-child(1 of [data-id^=infused-beachhead]),*/
-:nth-child(1 of [data-id^=maelstrom-of-chaos-tier-]),
+/*:nth-child(1 of [data-id^=maelstrom-of-chaos-tier-]),
 :nth-child(1 of [data-id^=mao-kun-tier-]),
 :nth-child(1 of [data-id^=obas-cursed-trove-tier-]),
 :nth-child(1 of [data-id^=olmecs-sanctum-tier-]),
 :nth-child(1 of [data-id^=pillars-of-arun-tier-]),
-:nth-child(1 of [data-id^=poorjoys-asylum-tier-]),
+:nth-child(1 of [data-id^=poorjoys-asylum-tier-]),*/
 /*:nth-child(1 of [data-id^=replica-cortex]),*/
-:nth-child(1 of [data-id^=replica-pillars-of-arun-tier-]),
-:nth-child(1 of [data-id^=replica-poorjoys-asylum-tier-]),
+/*:nth-child(1 of [data-id^=replica-pillars-of-arun-tier-]),
+:nth-child(1 of [data-id^=replica-poorjoys-asylum-tier-]),*/
 /*:nth-child(1 of [data-id^=rewritten-distant-memory]),*/
-:nth-child(1 of [data-id^=the-beachhead-tier-]),
-:nth-child(1 of [data-id^=the-cowards-trial-tier-]),
+/*:nth-child(1 of [data-id^=the-cowards-trial-tier-]),
 :nth-child(1 of [data-id^=the-putrid-cloister-tier-]),
 [data-id=the-tower-of-ordeals], 
 :nth-child(1 of [data-id^=the-twilight-temple-tier-]),
-:nth-child(1 of [data-id^=the-vinktar-square-tier-]),
+:nth-child(1 of [data-id^=the-vinktar-square-tier-]),*/
 :nth-child(1 of [data-id^=twisted-distant-memory]),
-:nth-child(1 of [data-id^=vaults-of-atziri-tier-]),
-:nth-child(1 of [data-id^=whakawairua-tuahu-tier-]) {
+/*:nth-child(1 of [data-id^=vaults-of-atziri-tier-]),
+:nth-child(1 of [data-id^=whakawairua-tuahu-tier-])*/ {
 	margin-right: var(--text-item-right-indent-in-row) !important;
 }
 
 /* assign icon and override name for each highest-tier map */
 
-:nth-last-child(1 of [data-id^=actons-nightmare-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9tdXNpY2JveCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/765ebfd00f/musicbox.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=actons-nightmare]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9tdXNpY2JveCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/765ebfd00f/musicbox.png") !important; }
 
-:nth-last-child(1 of [data-id^=altered-distant-memory]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNDb2xkR3VhcmRpYW5NYXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/5800fc91db/SynthesisColdGuardianMap.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=altered-distant-memory] { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNDb2xkR3VhcmRpYW5NYXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/5800fc91db/SynthesisColdGuardianMap.png") !important; } &::after { margin-left: var(--text-indent-for-image) !important; } }
 
-:nth-last-child(1 of [data-id^=augmented-distant-memory]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNGaXJlR3VhcmRpYW5NYXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/924cb164d0/SynthesisFireGuardianMap.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=augmented-distant-memory] { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNGaXJlR3VhcmRpYW5NYXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/924cb164d0/SynthesisFireGuardianMap.png") !important; } &::after { margin-left: var(--text-indent-for-image) !important; } }
 
-:nth-last-child(1 of [data-id^=caer-blaidd-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Xb2xmTWFwIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/db94bff258/WolfMap.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=caer-blaidd-wolfpacks-den]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Xb2xmTWFwIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/db94bff258/WolfMap.png") !important; }
 
-:nth-last-child(1 of [data-id^=cortex]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNCb3NzR3VhcmRpYW5NYXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/542f2635c7/SynthesisBossGuardianMap.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=cortex] { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNCb3NzR3VhcmRpYW5NYXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/542f2635c7/SynthesisBossGuardianMap.png") !important; } &::after { margin-left: var(--text-indent-for-image) !important; } }
 
-:nth-last-child(1 of [data-id^=death-and-taxes-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9EZWF0aGFuZFRheGVzIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/0cc72adc19/DeathandTaxes.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=death-and-taxes]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9EZWF0aGFuZFRheGVzIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/0cc72adc19/DeathandTaxes.png") !important; }
 
-:nth-last-child(1 of [data-id^=doryanis-machinarium-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Eb3J5YW5pcyIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/581444be53/Doryanis.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=doryanis-machinarium]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Eb3J5YW5pcyIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/581444be53/Doryanis.png") !important; }
 
-:nth-last-child(1 of [data-id^=hall-of-grandmasters-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IYWxsT2ZHcmFuZG1hc3RlcnMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/73778c0f28/HallOfGrandmasters.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=hall-of-grandmasters]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IYWxsT2ZHcmFuZG1hc3RlcnMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/73778c0f28/HallOfGrandmasters.png") !important; }
 
-:nth-last-child(1 of [data-id^=hallowed-ground-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IYWxsb3dlZEdyb3VuZCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/0dfbdc7da9/HallowedGround.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=hallowed-ground]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IYWxsb3dlZEdyb3VuZCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/0dfbdc7da9/HallowedGround.png") !important; }
 
-:nth-last-child(1 of [data-id^=infused-beachhead]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IYXJiaW5nZXJVYmVyIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/91398360e4/HarbingerUber.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=maelstrom-of-chaos]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9NYWVsc3Ryb21vZkNoYW9zIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/7772c4e971/MaelstromofChaos.png") !important; }
 
-:nth-last-child(1 of [data-id^=maelstrom-of-chaos-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9NYWVsc3Ryb21vZkNoYW9zIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/7772c4e971/MaelstromofChaos.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=mao-kun]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9GYWlyZ3JhdmVzTWFwMDEiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/e1c1de7d51/FairgravesMap01.png") !important; }
 
-:nth-last-child(1 of [data-id^=mao-kun-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9GYWlyZ3JhdmVzTWFwMDEiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/e1c1de7d51/FairgravesMap01.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=obas-cursed-trove]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9vYmEiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/c94e09c1a8/oba.png") !important; }
 
-:nth-last-child(1 of [data-id^=obas-cursed-trove-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9vYmEiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/c94e09c1a8/oba.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=olmecs-sanctum]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9vbG1lYyIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/844fea2e54/olmec.png") !important; }
 
-:nth-last-child(1 of [data-id^=olmecs-sanctum-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9vbG1lYyIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/844fea2e54/olmec.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=pillars-of-arun]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9QaWxsYXJzT2ZWYXN0aXJpIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/f030aac473/PillarsOfVastiri.png") !important; }
 
-:nth-last-child(1 of [data-id^=pillars-of-arun-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9QaWxsYXJzT2ZWYXN0aXJpIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/f030aac473/PillarsOfVastiri.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=poorjoys-asylum]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Qb29yam95c0FzeWx1bSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/d7e9aba922/PoorjoysAsylum.png") !important; }
 
-:nth-last-child(1 of [data-id^=poorjoys-asylum-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Qb29yam95c0FzeWx1bSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/d7e9aba922/PoorjoysAsylum.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=replica-cortex] { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNCb3NzR3VhcmRpYW5NYXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/542f2635c7/SynthesisBossGuardianMap.png") !important; } &::after { margin-left: var(--text-indent-for-image) !important; } }
 
-:nth-last-child(1 of [data-id^=replica-cortex]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNCb3NzR3VhcmRpYW5NYXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/542f2635c7/SynthesisBossGuardianMap.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=replica-pillars-of-arun]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9QaWxsYXJzT2ZWYXN0aXJpIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/f030aac473/PillarsOfVastiri.png") !important; }
 
-:nth-last-child(1 of [data-id^=replica-pillars-of-arun-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9QaWxsYXJzT2ZWYXN0aXJpIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/f030aac473/PillarsOfVastiri.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=replica-poorjoys-asylum]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Qb29yam95c0FzeWx1bSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/d7e9aba922/PoorjoysAsylum.png") !important; }
 
-:nth-last-child(1 of [data-id^=replica-poorjoys-asylum-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Qb29yam95c0FzeWx1bSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/d7e9aba922/PoorjoysAsylum.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=rewritten-distant-memory] { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNHb2xlbUd1YXJkaWFuTWFwIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/f4fd693221/SynthesisGolemGuardianMap.png") !important; } &::after { margin-left: var(--text-indent-for-image) !important; } }
 
-:nth-last-child(1 of [data-id^=rewritten-distant-memory]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNHb2xlbUd1YXJkaWFuTWFwIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/f4fd693221/SynthesisGolemGuardianMap.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=the-cowards-trial]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VbmRlYWRTaWVnZSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/53f1dbdcb4/UndeadSiege.png") !important; }
 
-:nth-last-child(1 of [data-id^=the-beachhead-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IYXJiaW5nZXJSZWQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/1321ebcec0/HarbingerRed.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=the-putrid-cloister]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9QdXRyaWRDbG9pc3RlciIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/4113992f12/PutridCloister.png") !important; }
 
-:nth-last-child(1 of [data-id^=the-cowards-trial-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VbmRlYWRTaWVnZSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/53f1dbdcb4/UndeadSiege.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=the-tower-of-ordeals]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UcmlhbG1hc3Rlck1hcCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/f3cdcd5d7a/TrialmasterMap.png") !important; }
 
-:nth-last-child(1 of [data-id^=the-putrid-cloister-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9QdXRyaWRDbG9pc3RlciIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/4113992f12/PutridCloister.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=the-twilight-temple]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9DZWxlc3RpYWwiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/2b43e37784/Celestial.png") !important; }
 
-:nth-last-child(1 of [data-id^=the-tower-of-ordeals]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UcmlhbG1hc3Rlck1hcCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/f3cdcd5d7a/TrialmasterMap.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=the-vinktar-square]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaGVWaW5rdGFyU3F1YXJlIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/d26b82ca56/TheVinktarSquare.png") !important; }
 
-:nth-last-child(1 of [data-id^=the-twilight-temple-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9DZWxlc3RpYWwiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/2b43e37784/Celestial.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=twisted-distant-memory] { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNMaWdodG5pbmdHdWFyZGlhbk1hcCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/30f4dc76de/SynthesisLightningGuardianMap.png") !important; } &::after { margin-left: var(--text-indent-for-image) !important; } }
 
-:nth-last-child(1 of [data-id^=the-vinktar-square-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaGVWaW5rdGFyU3F1YXJlIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/d26b82ca56/TheVinktarSquare.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=vaults-of-atziri]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VbmlxdWVNYXAxIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/7612528d07/UniqueMap1.png") !important; }
 
-:nth-last-child(1 of [data-id^=twisted-distant-memory]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNMaWdodG5pbmdHdWFyZGlhbk1hcCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/30f4dc76de/SynthesisLightningGuardianMap.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
-
-:nth-last-child(1 of [data-id^=vaults-of-atziri-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VbmlxdWVNYXAxIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/7612528d07/UniqueMap1.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
-
-:nth-last-child(1 of [data-id^=whakawairua-tuahu-tier-]) { &::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VbmlxdWVNYXBFeWUiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/7c20a66814/UniqueMapEye.png") !important; } &::after { content: var(--map-top-tier-name) !important; margin-left: var(--text-indent-for-image) !important; } }
+[data-id=whakawairua-tuahu]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VbmlxdWVNYXBFeWUiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/7c20a66814/UniqueMapEye.png") !important; }
 
 /*@*/}
 
@@ -1639,6 +1650,12 @@ body {
 [data-id=chaos-shard], [data-id=regal-shard], [data-id=binding-shard], [data-id=engineers-shard], [data-id=horizon-shard] {
 	display: none !important;
 }
+
+[data-id=blessing-general] { --r: 2; --c: 9; }
+[data-id=tainted-divine-orb] { --r: 2; --c: 10; }
+[data-id=sandswept-lifeforce] { --r: 2; --c: 11; }
+[data-id=cluster-fog] { --r: 2; --c: 8; }
+
 
 /* set Y-coordinate for each row */
 
@@ -2046,6 +2063,8 @@ body {
 [data-id=scarab-of-stability], [data-id=scarab-of-wisps], [data-id=scarab-of-radiant-storms], [data-id=scarab-of-bisection], [data-id=horned-scarab-of-glittering], [data-id=horned-scarab-of-pandemonium] {
 	--r: 25.5;   --gr-i: var(--bl5-gr-i); --r-i: var(--bl4-r-i); }
 
+	[data-id^=ritual-scarab] { --r: 14.75; }
+
 /* set X-coordinate for each column */
 
 /* group index values */
@@ -2093,15 +2112,18 @@ body {
 [data-id=anarchy-scarab]					{ --c: 0; }
 [data-id=anarchy-scarab-of-gigantification]	{ --c: 1; }
 [data-id=anarchy-scarab-of-partnership]		{ --c: 2; }
+	[data-id=anarchy-scarab-of-the-exceptional]		{ --c: 3; }
 [data-id=ritual-scarab-of-selectiveness]	{ --c: 3; }
 [data-id=ritual-scarab-of-wisps]			{ --c: 4; }
 [data-id=ritual-scarab-of-abundance]		{ --c: 5; }
+	[data-id=ritual-scarab-of-corpses]			{ --c: 6; }
 [data-id=harvest-scarab]					{ --c: 6; }
 [data-id=harvest-scarab-of-doubling]		{ --c: 7; }
 [data-id=harvest-scarab-of-cornucopia]		{ --c: 8; }
 [data-id=kalguuran-scarab]					{ --c: 9; }
 [data-id=kalguuran-scarab-of-guarded-riches]{ --c: 10; }
 [data-id=kalguuran-scarab-of-refinement]	{ --c: 11; }
+	[data-id=kalguuran-scarab-of-enriching]		{ --c: 12; }
 
 /* bl2 */
 [data-id=bestiary-scarab],
@@ -2222,7 +2244,7 @@ body {
 ------------------------------*/
 
 /* setup container */
-.filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-options {
+.filter-group:first-child > .filter-group-body > .filter:nth-child(7) > .filter-options {
 	display: flex !important;
 	flex-wrap: wrap !important;
 	flex-direction: row !important;
@@ -2547,7 +2569,7 @@ body {
 		width: 100% !important;
 	}
 
-	/* set order for dividers */
+	/* set order for dividers 
 	> :nth-child(1 of .split)	{ --o-t:  1; }
 	> :nth-child(2 of .split)	{ --o-t:  2; }
 	> :nth-child(3 of .split)	{ --o-t:  3; }
@@ -2564,10 +2586,10 @@ body {
 	> :nth-child(14 of .split)	{ --o-t: 14; }
 	> :nth-child(15 of .split)	{ --o-t: 15; }
 	> :nth-child(16 of .split)	{ --o-t: 16; }
-	> :nth-child(17 of .split)	{ --o-t: 17; }
+	> :nth-child(17 of .split)	{ --o-t: 17; }*/
 }
 
-/* reorder maps */
+/* reorder maps 
 :where(.filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options) {
 	&::before,
 	&::after,
@@ -2576,28 +2598,28 @@ body {
 		--map-order: calc(var(--o-t) * 100 + var(--o-m));
 		order: var(--map-order, unset) !important;
 	}
-}
+}*/
 
-/* move special maps to the end of T16 group */
+/* move special maps to the end of T16 group 
 [data-id=vaal-temple-map-tier-16]           { --o-m: 10; }
 [data-id=forge-of-the-phoenix-map-tier-16]  { --o-m: 13; }
 [data-id=lair-of-the-hydra-map-tier-16]     { --o-m: 11; }
 [data-id=maze-of-the-minotaur-map-tier-16]  { --o-m: 12; }
-[data-id=pit-of-the-chimera-map-tier-16]    { --o-m: 14; }
+[data-id=pit-of-the-chimera-map-tier-16]    { --o-m: 14; }*/
 
 
 
 /* add icons to some items */
 
-[data-id=forge-of-the-phoenix-map-tier-16],
+/*[data-id=forge-of-the-phoenix-map-tier-16],
 [data-id=lair-of-the-hydra-map-tier-16],
 [data-id=maze-of-the-minotaur-map-tier-16],
 [data-id=pit-of-the-chimera-map-tier-16],
-[data-id=vaal-temple-map-tier-16],
+[data-id=vaal-temple-map-tier-16],*/
 [data-id=vivid-vulture],
 [data-id=craicic-chimeral],
 [data-id=the-black-morrigan],
-[data-id=vivid-watcher],
+/* [data-id=vivid-watcher], */
 [data-id=wild-hellion-alpha],
 [data-id=beast] {
 
@@ -2624,16 +2646,6 @@ body {
 	--var-image-original-size-scale-from: var(--image-original-size-48-scale-from);
 }
 
-[data-id=forge-of-the-phoenix-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9QaG9lbml4IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxOSwibXQiOjAsIm1pIjoxfV0/3a961684d2/Phoenix.png") !important; }
-
-[data-id=lair-of-the-hydra-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9IeWRyYSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTksIm10IjowLCJtaSI6MX1d/9014b4b35c/Hydra.png") !important; }
-
-[data-id=maze-of-the-minotaur-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9NaW5vdGF1ciIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTksIm10IjowLCJtaSI6MX1d/3652abd61c/Minotaur.png") !important; }
-
-[data-id=pit-of-the-chimera-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9DaGltZXJhIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxOSwibXQiOjAsIm1pIjoxfV0/5c2f229dbe/Chimera.png") !important; }
-
-[data-id=vaal-temple-map-tier-16]::before { content: url("https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9BdGxhczJNYXBzL05ldy9WYWFsVGVtcGxlQmFzZSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MTksIm10IjowfV0/bd67feb50f/VaalTempleBase.png") !important; }
-
 /* [data-id=forbidden-tome-level-83]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2FuY3R1bS9TYW5jdHVtS2V5IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/d0326cac9a/SanctumKey.png") !important; } */
 
 [data-id=craicic-chimeral]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lJbXByaW50IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/78304c421e/CurrencyImprint.png") !important; }
@@ -2643,182 +2655,11 @@ body {
 /* [data-id=the-black-morrigan]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGluZWtvcmFzTG9jayIsInNjYWxlIjoxfV0/b188026e7f/HinekorasLock.png") !important; } */
 [data-id=the-black-morrigan]::before { content: url("https://web.poecdn.com/protected/image/item/popup/foresight.png?v=1739989653429&key=Lef8eETW43fyBwYaZ_f3SA") !important; }
 
-[data-id=vivid-watcher]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9TdXBwb3J0L1N1cHBvcnRQbHVzL011bHRpcGxlQXR0YWNrc1BsdXMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/c32ddc2121/MultipleAttacksPlus.png") !important; }
+/*[data-id=vivid-watcher]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9TdXBwb3J0L1N1cHBvcnRQbHVzL011bHRpcGxlQXR0YWNrc1BsdXMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/c32ddc2121/MultipleAttacksPlus.png") !important; }*/
 
 [data-id=wild-hellion-alpha]::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvSmV3ZWxzL0VsZGVySmV3ZWwiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/278c673716/ElderJewel.png") !important; }
 
 [data-id=beast]::before { content: url("https://web.poecdn.com/image/Art/2DItems/Currency/BestiaryOrbFull.png?scale=1&w=1&h=1") !important; }
-
-
-
-/* rename maps */
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options {
-
-	/* hide real map names */
-	> .exchange-filter-item > span {
-		display: none !important;
-	}
-}
-
-/*:where(.filter-group:first-child > .filter-group-body > .filter:nth-child(19)) .exchange-filter-item::after { content: "*****!!!!!***** MISSING HANDLER *****!!!!!*****"; }/**/
-
-/* apply a short name to every map */
-[data-id^="academy-map-tier-"]::after, [data-id$="-academy-map"]::after { content: "Academy"; }
-[data-id^="acid-caverns-map-tier-"]::after, [data-id$="-acid-caverns-map"]::after { content: "Acid Caverns"; }
-[data-id^="alleyways-map-tier-"]::after, [data-id$="-alleyways-map"]::after { content: "Alleyways"; }
-[data-id^="ancient-city-map-tier-"]::after, [data-id$="-ancient-city-map"]::after { content: "Ancient City"; }
-[data-id^="arachnid-nest-map-tier-"]::after, [data-id$="-arachnid-nest-map"]::after { content: "Arachnid Nest"; }
-[data-id^="arachnid-tomb-map-tier-"]::after, [data-id$="-arachnid-tomb-map"]::after { content: "Arachnid Tomb"; }
-[data-id^="arcade-map-tier-"]::after, [data-id$="-arcade-map"]::after { content: "Arcade"; }
-[data-id^="arena-map-tier-"]::after, [data-id$="-arena-map"]::after { content: "Arena"; }
-[data-id^="arid-lake-map-tier-"]::after, [data-id$="-arid-lake-map"]::after { content: "Arid Lake"; }
-[data-id^="armoury-map-tier-"]::after, [data-id$="-armoury-map"]::after { content: "Armoury"; }
-[data-id^="arsenal-map-tier-"]::after, [data-id$="-arsenal-map"]::after { content: "Arsenal"; }
-[data-id^="ashen-wood-map-tier-"]::after, [data-id$="-ashen-wood-map"]::after { content: "Ashen Wood"; }
-[data-id^="atoll-map-tier-"]::after, [data-id$="-atoll-map"]::after { content: "Atoll"; }
-[data-id^="barrows-map-tier-"]::after, [data-id$="-barrows-map"]::after { content: "Barrows"; }
-[data-id^="basilica-map-tier-"]::after, [data-id$="-basilica-map"]::after { content: "Basilica"; }
-[data-id^="bazaar-map-tier-"]::after, [data-id$="-bazaar-map"]::after { content: "Bazaar"; }
-[data-id^="beach-map-tier-"]::after, [data-id$="-beach-map"]::after { content: "Beach"; }
-[data-id^="belfry-map-tier-"]::after, [data-id$="-belfry-map"]::after { content: "Belfry"; }
-[data-id^="bog-map-tier-"]::after, [data-id$="-bog-map"]::after { content: "Bog"; }
-[data-id^="bone-crypt-map-tier-"]::after, [data-id$="-bone-crypt-map"]::after { content: "Bone Crypt"; }
-[data-id^="bramble-valley-map-tier-"]::after, [data-id$="-bramble-valley-map"]::after { content: "Bramble Valley"; }
-[data-id^="burial-chambers-map-tier-"]::after, [data-id$="-burial-chambers-map"]::after { content: "Burial Chambers"; }
-[data-id^="cage-map-tier-"]::after, [data-id$="-cage-map"]::after { content: "Cage"; }
-[data-id^="caldera-map-tier-"]::after, [data-id$="-caldera-map"]::after { content: "Caldera"; }
-[data-id^="canyon-map-tier-"]::after, [data-id$="-canyon-map"]::after { content: "Canyon"; }
-[data-id^="carcass-map-tier-"]::after, [data-id$="-carcass-map"]::after { content: "Carcass"; }
-[data-id^="castle-ruins-map-tier-"]::after, [data-id$="-castle-ruins-map"]::after { content: "Castle Ruins"; }
-[data-id^="cells-map-tier-"]::after, [data-id$="-cells-map"]::after { content: "Cells"; }
-[data-id^="cemetery-map-tier-"]::after, [data-id$="-cemetery-map"]::after { content: "Cemetery"; }
-[data-id^="channel-map-tier-"]::after, [data-id$="-channel-map"]::after { content: "Channel"; }
-[data-id^="chateau-map-tier-"]::after, [data-id$="-chateau-map"]::after { content: "Chateau"; }
-[data-id^="city-square-map-tier-"]::after, [data-id$="-city-square-map"]::after { content: "City Square"; }
-[data-id^="cold-river-map-tier-"]::after, [data-id$="-cold-river-map"]::after { content: "Cold River"; }
-[data-id^="colonnade-map-tier-"]::after, [data-id$="-colonnade-map"]::after { content: "Colonnade"; }
-[data-id^="colosseum-map-tier-"]::after, [data-id$="-colosseum-map"]::after { content: "Colosseum"; }
-[data-id^="conservatory-map-tier-"]::after, [data-id$="-conservatory-map"]::after { content: "Conservatory"; }
-[data-id^="coral-ruins-map-tier-"]::after, [data-id$="-coral-ruins-map"]::after { content: "Coral Ruins"; }
-[data-id^="core-map-tier-"]::after, [data-id$="-core-map"]::after { content: "Core"; }
-[data-id^="courthouse-map-tier-"]::after, [data-id$="-courthouse-map"]::after { content: "Courthouse"; }
-[data-id^="courtyard-map-tier-"]::after, [data-id$="-courtyard-map"]::after { content: "Courtyard"; }
-[data-id^="coves-map-tier-"]::after, [data-id$="-coves-map"]::after { content: "Coves"; }
-[data-id^="crater-map-tier-"]::after, [data-id$="-crater-map"]::after { content: "Crater"; }
-[data-id^="crimson-temple-map-tier-"]::after, [data-id$="-crimson-temple-map"]::after { content: "Crimson Temple"; }
-[data-id^="crimson-township-map-tier-"]::after, [data-id$="-crimson-township-map"]::after { content: "Crimson Township"; }
-[data-id^="crystal-ore-map-tier-"]::after, [data-id$="-crystal-ore-map"]::after { content: "Crystal Ore"; }
-[data-id^="cursed-crypt-map-tier-"]::after, [data-id$="-cursed-crypt-map"]::after { content: "Cursed Crypt"; }
-[data-id^="dark-forest-map-tier-"]::after, [data-id$="-dark-forest-map"]::after { content: "Dark Forest"; }
-[data-id^="defiled-cathedral-map-tier-"]::after, [data-id$="-defiled-cathedral-map"]::after { content: "Defiled Cathedral"; }
-[data-id^="desert-map-tier-"]::after, [data-id$="-desert-map"]::after { content: "Desert"; }
-[data-id^="desert-spring-map-tier-"]::after, [data-id$="-desert-spring-map"]::after { content: "Desert Spring"; }
-[data-id^="dig-map-tier-"]::after, [data-id$="-dig-map"]::after { content: "Dig"; }
-[data-id^="dry-sea-map-tier-"]::after, [data-id$="-dry-sea-map"]::after { content: "Dry Sea"; }
-[data-id^="dunes-map-tier-"]::after, [data-id$="-dunes-map"]::after { content: "Dunes"; }
-[data-id^="dungeon-map-tier-"]::after, [data-id$="-dungeon-map"]::after { content: "Dungeon"; }
-[data-id^="estuary-map-tier-"]::after, [data-id$="-estuary-map"]::after { content: "Estuary"; }
-[data-id^="excavation-map-tier-"]::after, [data-id$="-excavation-map"]::after { content: "Excavation"; }
-[data-id^="factory-map-tier-"]::after, [data-id$="-factory-map"]::after { content: "Factory"; }
-[data-id^="fields-map-tier-"]::after, [data-id$="-fields-map"]::after { content: "Fields"; }
-[data-id^="flooded-mine-map-tier-"]::after, [data-id$="-flooded-mine-map"]::after { content: "Flooded Mine"; }
-[data-id^="forbidden-woods-map-tier-"]::after, [data-id$="-forbidden-woods-map"]::after { content: "Forbidden Woods"; }
-[data-id^="forge-of-the-phoenix-map-tier-"]::after, [data-id$="-forge-of-the-phoenix-map"]::after { content: "Forge of the Phoenix"; }
-[data-id^="forking-river-map-tier-"]::after, [data-id$="-forking-river-map"]::after { content: "Forking River"; }
-[data-id^="foundry-map-tier-"]::after, [data-id$="-foundry-map"]::after { content: "Foundry"; }
-[data-id^="frozen-cabins-map-tier-"]::after, [data-id$="-frozen-cabins-map"]::after { content: "Frozen Cabins"; }
-[data-id^="fungal-hollow-map-tier-"]::after, [data-id$="-fungal-hollow-map"]::after { content: "Fungal Hollow"; }
-[data-id^="gardens-map-tier-"]::after, [data-id$="-gardens-map"]::after { content: "Gardens"; }
-[data-id^="geode-map-tier-"]::after, [data-id$="-geode-map"]::after { content: "Geode"; }
-[data-id^="ghetto-map-tier-"]::after, [data-id$="-ghetto-map"]::after { content: "Ghetto"; }
-[data-id^="glacier-map-tier-"]::after, [data-id$="-glacier-map"]::after { content: "Glacier"; }
-[data-id^="grave-trough-map-tier-"]::after, [data-id$="-grave-trough-map"]::after { content: "Grave Trough"; }
-[data-id^="graveyard-map-tier-"]::after, [data-id$="-graveyard-map"]::after { content: "Graveyard"; }
-[data-id^="grotto-map-tier-"]::after, [data-id$="-grotto-map"]::after { content: "Grotto"; }
-[data-id^="haunted-mansion-map-tier-"]::after, [data-id$="-haunted-mansion-map"]::after { content: "Haunted Mansion"; }
-[data-id^="iceberg-map-tier-"]::after, [data-id$="-iceberg-map"]::after { content: "Iceberg"; }
-[data-id^="infested-valley-map-tier-"]::after, [data-id$="-infested-valley-map"]::after { content: "Infested Valley"; }
-[data-id^="ivory-temple-map-tier-"]::after, [data-id$="-ivory-temple-map"]::after { content: "Ivory Temple"; }
-[data-id^="jungle-valley-map-tier-"]::after, [data-id$="-jungle-valley-map"]::after { content: "Jungle Valley"; }
-[data-id^="laboratory-map-tier-"]::after, [data-id$="-laboratory-map"]::after { content: "Laboratory"; }
-[data-id^="lair-map-tier-"]::after, [data-id$="-lair-map"]::after { content: "Lair"; }
-[data-id^="lair-of-the-hydra-map-tier-"]::after, [data-id$="-lair-of-the-hydra-map"]::after { content: "Lair of the Hydra"; }
-[data-id^="lava-chamber-map-tier-"]::after, [data-id$="-lava-chamber-map"]::after { content: "Lava Chamber"; }
-[data-id^="lava-lake-map-tier-"]::after, [data-id$="-lava-lake-map"]::after { content: "Lava Lake"; }
-[data-id^="leyline-map-tier-"]::after, [data-id$="-leyline-map"]::after { content: "Leyline"; }
-[data-id^="lighthouse-map-tier-"]::after, [data-id$="-lighthouse-map"]::after { content: "Lighthouse"; }
-[data-id^="lookout-map-tier-"]::after, [data-id$="-lookout-map"]::after { content: "Lookout"; }
-[data-id^="malformation-map-tier-"]::after, [data-id$="-malformation-map"]::after { content: "Malformation"; }
-[data-id^="marshes-map-tier-"]::after, [data-id$="-marshes-map"]::after { content: "Marshes"; }
-[data-id^="mausoleum-map-tier-"]::after, [data-id$="-mausoleum-map"]::after { content: "Mausoleum"; }
-[data-id^="maze-map-tier-"]::after, [data-id$="-maze-map"]::after { content: "Maze"; }
-[data-id^="maze-of-the-minotaur-map-tier-"]::after, [data-id$="-maze-of-the-minotaur-map"]::after { content: "Maze of the Minotaur"; }
-[data-id^="mesa-map-tier-"]::after, [data-id$="-mesa-map"]::after { content: "Mesa"; }
-[data-id^="mineral-pools-map-tier-"]::after, [data-id$="-mineral-pools-map"]::after { content: "Mineral Pools"; }
-[data-id^="moon-temple-map-tier-"]::after, [data-id$="-moon-temple-map"]::after { content: "Moon Temple"; }
-[data-id^="mud-geyser-map-tier-"]::after, [data-id$="-mud-geyser-map"]::after { content: "Mud Geyser"; }
-[data-id^="museum-map-tier-"]::after, [data-id$="-museum-map"]::after { content: "Museum"; }
-[data-id^="necropolis-map-tier-"]::after, [data-id$="-necropolis-map"]::after { content: "Necropolis"; }
-[data-id^="orchard-map-tier-"]::after, [data-id$="-orchard-map"]::after { content: "Orchard"; }
-[data-id^="overgrown-ruin-map-tier-"]::after, [data-id$="-overgrown-ruin-map"]::after { content: "Overgrown Ruin"; }
-[data-id^="overgrown-shrine-map-tier-"]::after, [data-id$="-overgrown-shrine-map"]::after { content: "Overgrown Shrine"; }
-[data-id^="palace-map-tier-"]::after, [data-id$="-palace-map"]::after { content: "Palace"; }
-[data-id^="park-map-tier-"]::after, [data-id$="-park-map"]::after { content: "Park"; }
-[data-id^="pen-map-tier-"]::after, [data-id$="-pen-map"]::after { content: "Pen"; }
-[data-id^="peninsula-map-tier-"]::after, [data-id$="-peninsula-map"]::after { content: "Peninsula"; }
-[data-id^="phantasmagoria-map-tier-"]::after, [data-id$="-phantasmagoria-map"]::after { content: "Phantasmagoria"; }
-[data-id^="pier-map-tier-"]::after, [data-id$="-pier-map"]::after { content: "Pier"; }
-[data-id^="pit-map-tier-"]::after, [data-id$="-pit-map"]::after { content: "Pit"; }
-[data-id^="pit-of-the-chimera-map-tier-"]::after, [data-id$="-pit-of-the-chimera-map"]::after { content: "Pit of the Chimera"; }
-[data-id^="plateau-map-tier-"]::after, [data-id$="-plateau-map"]::after { content: "Plateau"; }
-[data-id^="plaza-map-tier-"]::after, [data-id$="-plaza-map"]::after { content: "Plaza"; }
-[data-id^="port-map-tier-"]::after, [data-id$="-port-map"]::after { content: "Port"; }
-[data-id^="precinct-map-tier-"]::after, [data-id$="-precinct-map"]::after { content: "Precinct"; }
-[data-id^="primordial-blocks-map-tier-"]::after, [data-id$="-primordial-blocks-map"]::after { content: "Primordial Blocks"; }
-[data-id^="primordial-pool-map-tier-"]::after, [data-id$="-primordial-pool-map"]::after { content: "Primordial Pool"; }
-[data-id^="promenade-map-tier-"]::after, [data-id$="-promenade-map"]::after { content: "Promenade"; }
-[data-id^="racecourse-map-tier-"]::after, [data-id$="-racecourse-map"]::after { content: "Racecourse"; }
-[data-id^="ramparts-map-tier-"]::after, [data-id$="-ramparts-map"]::after { content: "Ramparts"; }
-[data-id^="reef-map-tier-"]::after, [data-id$="-reef-map"]::after { content: "Reef"; }
-[data-id^="relic-chambers-map-tier-"]::after, [data-id$="-relic-chambers-map"]::after { content: "Relic Chambers"; }
-[data-id^="residence-map-tier-"]::after, [data-id$="-residence-map"]::after { content: "Residence"; }
-[data-id^="scriptorium-map-tier-"]::after, [data-id$="-scriptorium-map"]::after { content: "Scriptorium"; }
-[data-id^="sepulchre-map-tier-"]::after, [data-id$="-sepulchre-map"]::after { content: "Sepulchre"; }
-[data-id^="shipyard-map-tier-"]::after, [data-id$="-shipyard-map"]::after { content: "Shipyard"; }
-[data-id^="shore-map-tier-"]::after, [data-id$="-shore-map"]::after { content: "Shore"; }
-[data-id^="shrine-map-tier-"]::after, [data-id$="-shrine-map"]::after { content: "Shrine"; }
-[data-id^="siege-map-tier-"]::after, [data-id$="-siege-map"]::after { content: "Siege"; }
-[data-id^="silo-map-tier-"]::after, [data-id$="-silo-map"]::after { content: "Silo"; }
-[data-id^="spider-forest-map-tier-"]::after, [data-id$="-spider-forest-map"]::after { content: "Spider Forest"; }
-[data-id^="spider-lair-map-tier-"]::after, [data-id$="-spider-lair-map"]::after { content: "Spider Lair"; }
-[data-id^="stagnation-map-tier-"]::after, [data-id$="-stagnation-map"]::after { content: "Stagnation"; }
-[data-id^="strand-map-tier-"]::after, [data-id$="-strand-map"]::after { content: "Strand"; }
-[data-id^="sulphur-vents-map-tier-"]::after, [data-id$="-sulphur-vents-map"]::after { content: "Sulphur Vents"; }
-[data-id^="summit-map-tier-"]::after, [data-id$="-summit-map"]::after { content: "Summit"; }
-[data-id^="sunken-city-map-tier-"]::after, [data-id$="-sunken-city-map"]::after { content: "Sunken City"; }
-[data-id^="temple-map-tier-"]::after, [data-id$="-temple-map"]::after { content: "Temple"; }
-[data-id^="terrace-map-tier-"]::after, [data-id$="-terrace-map"]::after { content: "Terrace"; }
-[data-id^="thicket-map-tier-"]::after, [data-id$="-thicket-map"]::after { content: "Thicket"; }
-[data-id^="tower-map-tier-"]::after, [data-id$="-tower-map"]::after { content: "Tower"; }
-[data-id^="toxic-sewer-map-tier-"]::after, [data-id$="-toxic-sewer-map"]::after { content: "Toxic Sewer"; }
-[data-id^="tropical-island-map-tier-"]::after, [data-id$="-tropical-island-map"]::after { content: "Tropical Island"; }
-[data-id^="underground-river-map-tier-"]::after, [data-id$="-underground-river-map"]::after { content: "Underground River"; }
-[data-id^="underground-sea-map-tier-"]::after, [data-id$="-underground-sea-map"]::after { content: "Underground Sea"; }
-[data-id^="vaal-pyramid-map-tier-"]::after, [data-id$="-vaal-pyramid-map"]::after { content: "Vaal Pyramid"; }
-[data-id^="vaal-temple-map-tier-"]::after, [data-id$="-vaal-temple-map"]::after { content: "Vaal Temple"; }
-[data-id^="vault-map-tier-"]::after, [data-id$="-vault-map"]::after { content: "Vault"; }
-[data-id^="villa-map-tier-"]::after, [data-id$="-villa-map"]::after { content: "Villa"; }
-[data-id^="volcano-map-tier-"]::after, [data-id$="-volcano-map"]::after { content: "Volcano"; }
-[data-id^="waste-pool-map-tier-"]::after, [data-id$="-waste-pool-map"]::after { content: "Waste Pool"; }
-[data-id^="wasteland-map-tier-"]::after, [data-id$="-wasteland-map"]::after { content: "Wasteland"; }
-[data-id^="waterways-map-tier-"]::after, [data-id$="-waterways-map"]::after { content: "Waterways"; }
-[data-id^="wharf-map-tier-"]::after, [data-id$="-wharf-map"]::after { content: "Wharf"; }
-[data-id^="abomination-map-tier-"]::after, [data-id$="-abomination-map"]::after { content: "Abomination"; }
-[data-id^="citadel-map-tier-"]::after, [data-id$="-citadel-map"]::after { content: "Citadel"; }
-[data-id^="fortress-map-tier-"]::after, [data-id$="-fortress-map"]::after { content: "Fortress"; }
-[data-id^="sanctuary-map-tier-"]::after, [data-id$="-sanctuary-map"]::after { content: "Sanctuary"; }
-[data-id^="ziggurat-map-tier-"]::after, [data-id$="-ziggurat-map"]::after { content: "Ziggurat"; }
 
 
 
@@ -2834,8 +2675,7 @@ body {
 	}
 
 	/* hide real map names */
-/* :not([data-id^="memory-influenced-"]) */
-	> .exchange-filter-item > span {
+	> .exchange-filter-item:not([data-id="shaper-guardian-map"]) > span {
 		display: none !important;
 	}
 }

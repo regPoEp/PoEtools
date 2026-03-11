@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.12.6
+@version      1.12.7
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -14,7 +14,7 @@
 @var          checkbox poe-custom-option-group-map "Reorder and group map-like items" 1
 @var          checkbox poe-custom-option-pin-search "Pin search to the bottom" 1
 @var          checkbox poe-custom-option-show-icons "Show category icons" 1
-@var          checkbox poe-custom-option-hide-legacy "Hide legacy items" 1
+@var          checkbox poe-custom-option-hide-legacy "Hide legacy items" 0
 @var          checkbox poe-custom-option-double-cards-width "Double the width of Cards section" 1
 @var          checkbox poe-custom-option-cards_maps-font_background "Change font/background for text items" 1
 ==/UserStyle== */
@@ -162,8 +162,7 @@ Table of contents:
 , [data-id=feral-incubator], [data-id=eldritch-incubator], [data-id=time-lost-incubator], [data-id=enchanted-incubator], [data-id=challenging-incubator], [data-id=fossilised-incubator]
 , [data-id=primitive-alchemical-resonator], [data-id=potent-alchemical-resonator], [data-id=powerful-alchemical-resonator], [data-id=prime-alchemical-resonator]
 , [data-id=delirium-orb], [data-id=kalguuran-delirium-orb], [data-id=primal-delirium-orb], [data-id=challenging-delirium-orb], [data-id=obscured-delirium-orb], [data-id=fossilised-delirium-orb]
-, [data-id=sulphite-scarab-of-greed], [data-id=bestiary-scarab-of-the-shadowed-crow], [data-id=betrayal-scarab-of-perpetuation], [data-id=torment-scarab-of-release], [data-id=cartography-scarab-of-singularity], [data-id=beyond-scarab-of-corruption], [data-id=expedition-scarab-of-the-skald], [data-id=legion-scarab-of-the-sekhema], [data-id=blight-scarab-of-bounty], [data-id=abyss-scarab-of-emptiness]
-/* , [data-id=the-tower-of-ordeals] */
+, [data-id=sulphite-scarab-of-greed], [data-id=bestiary-scarab-of-the-shadowed-crow], [data-id=betrayal-scarab-of-perpetuation], [data-id=torment-scarab-of-release], [data-id=cartography-scarab-of-singularity], [data-id=beyond-scarab-of-corruption], [data-id=legion-scarab-of-the-sekhema], [data-id=blight-scarab-of-bounty], [data-id=scarab-of-hunted-traitors], [data-id=blight-scarab-of-bounty]
 , [data-id=the-basilisk], [data-id=boulderback], [data-id=tunnelworm], [data-id=the-great-white-bones], [data-id=brinecrack], [data-id=hollowskull-the-willing-host], [data-id=raihara-tukohamas-loyal], [data-id=steelchaw], [data-id=eyepecker], [data-id=the-hundred-foot-shadow], [data-id=paradisae-venenum], [data-id=the-conqueror-wurm], [data-id=thistlesage], [data-id=quru], [data-id=aidan-the-frenzied], [data-id=nadia-the-soothing], [data-id=the-weaver], [data-id=black-death], [data-id=the-great-white-beast], [data-id=ambrosia-daughter-of-merveil], [data-id=amarissa-daughter-of-merveil], [data-id=the-faun], [data-id=brood-princess], [data-id=the-burning-menace], [data-id=ungulath], [data-id=the-dweller-of-the-deep], [data-id=oozeback-bloom]
 , [data-id=splinter-xoph], [data-id=splinter-tul], [data-id=splinter-esh], [data-id=splinter-uul], [data-id=splinter-chayula]
 , [data-id=xophs-breachstone], [data-id=tuls-breachstone], [data-id=eshs-breachstone], [data-id=uul-breachstone], [data-id=chayulas-breachstone]
@@ -176,7 +175,7 @@ Table of contents:
 }
 /*@*/}
 
-[data-id=gold] {
+[data-id=gold], [data-id=harbinger-scarab], [data-id=harbinger-scarab-of-obelisks], [data-id=harbinger-scarab-of-regency], [data-id=harbinger-scarab-of-warhoards] {
 	display: none !important;
 }
 
@@ -244,7 +243,9 @@ Table of contents:
 .filter-group:first-child > .filter-group-body {
 	> .filter:nth-child(1)  { order:  10 !important; } /* Currency */
 	> .filter:nth-child(2)  { order:  20 !important; } /* Fragments & Scarabs */
-	> .filter:nth-child(4)  { order:  20 !important; } /* Allflame Embers */
+	> .filter:nth-child(3)  { order:  30 !important; } /* Djinn Coins */
+	> .filter:nth-child(4)  { order:  20 !important; } /* Foulborn Currency & Wombgifts */
+	> .filter:nth-child(5)  { order:  20 !important; } /* Allflame Embers */
 	> .filter:nth-child(6)  { order:  20 !important; } /* Runegrafts */
 	> .filter:nth-child(7)  { order:  30 !important; } /* Tattoos & Omens */
 	> .filter:nth-child(8)  { order:  40 !important; } /* Sanctum Tomes & Relics */
@@ -1017,6 +1018,7 @@ body {
 	--var-image-original-size-scale-from: var(--image-original-size-48-scale-from);
 
 	> .filter:nth-child(2) > .filter-title-clickable,
+	> .filter:nth-child(4) > .filter-title-clickable,
 	> .filter:nth-child(7) > .filter-title-clickable,
 	> .filter > .filter-title-clickable > span:first-child {
 
@@ -1036,6 +1038,7 @@ body {
 
 	/* setup for 2nd image */
 	> .filter:nth-child(2) > .filter-title-clickable,
+	> .filter:nth-child(4) > .filter-title-clickable,
 	> .filter:nth-child(7) > .filter-title-clickable {
 		padding-left: calc(var(--title-margin-left) + var(--poe-web-filter-title-text-horizontal-padding)) !important;
 		&::before {
@@ -1076,11 +1079,13 @@ body {
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-title-clickable::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiQnJlYWNoIiwic2NhbGUiOjF9XQ/b129897f73/GreaterScarabBreach.png") !important; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(3) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ2hheXVsYS9CcmVhY2hGcnVpdDMiLCJzY2FsZSI6MX1d/7178f48f5e/BreachFruit3.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(3) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRmFyaWR1bi9XaXNoQ3VycmVuY3lJdGVtIiwic2NhbGUiOjF9XQ/443f7ba4fb/WishCurrencyItem.png") !important; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTmVjcm9wb2xpcy9BbGxmbGFtZUJldHJheWFsIiwic2NhbGUiOjF9XQ/a587ae1050/AllflameBetrayal.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ2hheXVsYS9Gb3VsYm9ybkF1Z21lbnRhdGlvbiIsInNjYWxlIjoxfV0/44a866f879/FoulbornAugmentation.png") !important; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(5) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRmFyaWR1bi9XaXNoQ3VycmVuY3lJdGVtIiwic2NhbGUiOjF9XQ/443f7ba4fb/WishCurrencyItem.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-title-clickable::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ2hheXVsYS9CcmVhY2hGcnVpdDMiLCJzY2FsZSI6MX1d/7178f48f5e/BreachFruit3.png") !important; }
+
+.filter-group:first-child > .filter-group-body > .filter:nth-child(5) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTmVjcm9wb2xpcy9BbGxmbGFtZUJldHJheWFsIiwic2NhbGUiOjF9XQ/a587ae1050/AllflameBetrayal.png") !important; }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(6) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2V0dGxlcnMvVmlsbGFnZVJ1bmUxMCIsInNjYWxlIjoxfV0/7a75e42c42/VillageRune10.png") !important; }
 
@@ -1156,6 +1161,7 @@ body {
 /* setup generic variables */
 :where(.filter-options)::before,
 :where(.filter-options)::after,
+:where(.filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options),
 :where(
 	.filter-options > .split,
 	.exchange-filter-item.text
@@ -1187,18 +1193,18 @@ body {
 
 /* add metadata to maps */
 
+[data-id=replica-cortex],
 [data-id$=-tier-17]  { --o-t: 17; --s-t: "17"; }
+[data-id=cortex],
 [data-id$=-tier-16]  { --o-t: 16; --s-t: "16"; }
 [data-id$=-tier-15]  { --o-t: 15; --s-t: "15"; }
-[data-id$=-tier-14]  { --o-t: 14; --s-t: "14"; }
-[data-id$=-tier-13]  { --o-t: 13; --s-t: "13"; }
-[data-id$=-tier-12]  { --o-t: 12; --s-t: "12"; }
 [data-id=altered-distant-memory],
 [data-id=augmented-distant-memory],
 [data-id=rewritten-distant-memory],
 [data-id=twisted-distant-memory],
-[data-id=cortex],
-[data-id=replica-cortex],
+[data-id$=-tier-14]  { --o-t: 14; --s-t: "14"; }
+[data-id$=-tier-13]  { --o-t: 13; --s-t: "13"; }
+[data-id$=-tier-12]  { --o-t: 12; --s-t: "12"; }
 [data-id$=-tier-11]  { --o-t: 11; --s-t: "11"; }
 [data-id$=-tier-10]  { --o-t: 10; --s-t: "10"; }
 [data-id$=-tier-9]   { --o-t: 9;  --s-t: "9";  }
@@ -1257,7 +1263,7 @@ body {
 .filter-group:first-child > .filter-group-body > .filter:nth-child(8) > .filter-options,
 .filter-group:first-child > .filter-group-body > .filter:nth-child(9) > .filter-options,
 .filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options,
-.filter-group:first-child > .filter-group-body > .filter:nth-child(121) > .filter-options,
+.filter-group:first-child > .filter-group-body > .filter:nth-child(20) > .filter-options,
 .filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-options {
 	--text-item-left-indent-in-container: calc(var(--poe-web-filter-title-text-horizontal-padding) + var(--title-margin-left) - var(--poe-web-item-margin));
 
@@ -1384,59 +1390,50 @@ body {
 	margin-right: var(--text-item-right-indent-in-row) !important;
 }
 
-/* Maps */
-
-/* different order formula 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options {
-	&::before,
-	&::after,
-	> .split,
-	> .exchange-filter-item {
-		--map-order: calc(0 - var(--o-t) * 100 + var(--o-m));
-	}
-}*/
-
-/* Blighted Maps */
-
-/* reorder */
-[data-id^=blighted-map-tier-]       { --o-m: -1; }
-[data-id^=blight-ravaged-map-tier-] { --o-m:  1; }
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(121) > .filter-options {
+/* Shaper, Conqueror & Elder Maps */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(20) > .filter-options {
 	justify-content: center !important;
+	
+	& > :nth-child(2 of .split) {
+		--o-m: -1;
+	}
+}
+[data-id=shaper-guardian-map] {
+	--o-m: -2;
 }
 
 /* Unique Maps */
 
 /* add metadata for each unique map type */
-[data-id^=actons-nightmare-tier-]           { --o-m: 2111; --n-t: 5; --w-m: 182px; --s-m: "Acton's Nightmare"; }
-[data-id^=altered-distant-memory]           { --o-m: 1112; --n-t: 1; --w-m:   0px; --s-m: "Altered Distant Memory"; }
-[data-id^=augmented-distant-memory]         { --o-m: 1113; --n-t: 1; --w-m: 455px; --s-m: "Augmented Distant Memory"; }
-[data-id^=caer-blaidd-tier-]                { --o-m: 2114; --n-t: 2; --w-m: 244px; --s-m: "Caer Blaidd, Wolfpack's Den"; }
-[data-id^=cortex]                           { --o-m: 1315; --n-t: 1; --w-m: 274px; --s-m: "Cortex"; }
-[data-id^=death-and-taxes-tier-]            { --o-m: 2116; --n-t: 3; --w-m: 173px; --s-m: "Death and Taxes"; }
-[data-id^=doryanis-machinarium-tier-]       { --o-m: 2117; --n-t: 2; --w-m: 209px; --s-m: "Doryani's Machinarium"; }
-[data-id^=hall-of-grandmasters-tier-]       { --o-m: 2118; --n-t: 4; --w-m: 200px; --s-m: "Hall of Grandmasters"; }
-[data-id^=hallowed-ground-tier-]            { --o-m: 2119; --n-t: 5; --w-m: 177px; --s-m: "Hallowed Ground"; }
-[data-id^=infused-beachhead]                { --o-m: 1420; --n-t: 1; --w-m:   0px; --s-m: "Infused Beachhead"; }
-[data-id^=maelstrom-of-chaos-tier-]         { --o-m: 2121; --n-t: 4; --w-m: 193px; --s-m: "Maelström of Chaos"; }
-[data-id^=mao-kun-tier-]                    { --o-m: 2122; --n-t: 4; --w-m: 126px; --s-m: "Mao Kun"; }
-[data-id^=obas-cursed-trove-tier-]          { --o-m: 2123; --n-t: 3; --w-m: 192px; --s-m: "Oba's Cursed Trove"; }
-[data-id^=olmecs-sanctum-tier-]             { --o-m: 2124; --n-t: 5; --w-m: 178px; --s-m: "Olmec's Sanctum"; }
-[data-id^=pillars-of-arun-tier-]            { --o-m: 2125; --n-t: 5; --w-m: 155px; --s-m: "Pillars of Arun"; }
-[data-id^=poorjoys-asylum-tier-]            { --o-m: 2126; --n-t: 2; --w-m: 175px; --s-m: "Poorjoy's Asylum"; }
-[data-id^=replica-cortex]                   { --o-m: 1227; --n-t: 1; --w-m:   0px; --s-m: "Replica Cortex"; }
-[data-id^=replica-pillars-of-arun-tier-]    { --o-m: 2128; --n-t: 5; --w-m: 205px; --s-m: "Replica Pillars of Arun"; }
-[data-id^=replica-poorjoys-asylum-tier-]    { --o-m: 2129; --n-t: 2; --w-m: 224px; --s-m: "Replica Poorjoy's Asylum"; }
-[data-id^=rewritten-distant-memory]         { --o-m: 1130; --n-t: 1; --w-m:   0px; --s-m: "Rewritten Distant Memory"; }
-[data-id^=the-beachhead-tier-]              { --o-m: 1431; --n-t: 3; --w-m: 359px; --s-m: "The Beachhead"; }
-[data-id^=the-cowards-trial-tier-]          { --o-m: 2132; --n-t: 4; --w-m: 184px; --s-m: "The Coward's Trial"; }
-[data-id^=the-putrid-cloister-tier-]        { --o-m: 2133; --n-t: 3; --w-m: 184px; --s-m: "The Putrid Cloister"; }
-[data-id^=the-twilight-temple-tier-]        { --o-m: 2135; --n-t: 5; --w-m: 191px; --s-m: "The Twilight Temple"; }
-[data-id^=the-vinktar-square-tier-]         { --o-m: 2136; --n-t: 4; --w-m: 188px; --s-m: "The Vinktar Square"; }
-[data-id^=twisted-distant-memory]           { --o-m: 1137; --n-t: 1; --w-m: 446px; --s-m: "Twisted Distant Memory"; }
-[data-id^=vaults-of-atziri-tier-]           { --o-m: 2138; --n-t: 5; --w-m: 157px; --s-m: "Vaults of Atziri"; }
-[data-id^=whakawairua-tuahu-tier-]          { --o-m: 2139; --n-t: 5; --w-m: 196px; --s-m: "Whakawairua Tuahu"; }
+[data-id=actons-nightmare]           { --o-m: 2111; --n-t: 5; --w-m: 182px; --s-m: "Acton's Nightmare"; }
+[data-id=altered-distant-memory]     { --o-m: 1112; --n-t: 1; --w-m:   0px; --s-m: "Altered Distant Memory"; }
+[data-id=augmented-distant-memory]   { --o-m: 1113; --n-t: 1; --w-m: 455px; --s-m: "Augmented Distant Memory"; }
+[data-id=caer-blaidd-wolfpacks-den]	 { --o-m: 2114; --n-t: 2; --w-m: 244px; --s-m: "Caer Blaidd, Wolfpack's Den"; }
+[data-id=cortex]                     { --o-m: 1315; --n-t: 1; --w-m: 274px; --s-m: "Cortex"; }
+[data-id=death-and-taxes]            { --o-m: 2116; --n-t: 3; --w-m: 173px; --s-m: "Death and Taxes"; }
+[data-id=doryanis-machinarium]       { --o-m: 2117; --n-t: 2; --w-m: 209px; --s-m: "Doryani's Machinarium"; }
+[data-id=hall-of-grandmasters]       { --o-m: 2118; --n-t: 4; --w-m: 200px; --s-m: "Hall of Grandmasters"; }
+[data-id=hallowed-ground]            { --o-m: 2119; --n-t: 5; --w-m: 177px; --s-m: "Hallowed Ground"; }
+[data-id=infused-beachhead]          { --o-m: 1420; --n-t: 1; --w-m:   0px; --s-m: "Infused Beachhead"; }
+[data-id=maelstrom-of-chaos]         { --o-m: 2121; --n-t: 4; --w-m: 193px; --s-m: "Maelström of Chaos"; }
+[data-id=mao-kun]                    { --o-m: 2122; --n-t: 4; --w-m: 126px; --s-m: "Mao Kun"; }
+[data-id=obas-cursed-trove]          { --o-m: 2123; --n-t: 3; --w-m: 192px; --s-m: "Oba's Cursed Trove"; }
+[data-id=olmecs-sanctum]             { --o-m: 2124; --n-t: 5; --w-m: 178px; --s-m: "Olmec's Sanctum"; }
+[data-id=pillars-of-arun]            { --o-m: 2125; --n-t: 5; --w-m: 155px; --s-m: "Pillars of Arun"; }
+[data-id=poorjoys-asylum]            { --o-m: 2126; --n-t: 2; --w-m: 175px; --s-m: "Poorjoy's Asylum"; }
+[data-id=replica-cortex]             { --o-m: 1227; --n-t: 1; --w-m:   0px; --s-m: "Replica Cortex"; }
+[data-id=replica-pillars-of-arun]    { --o-m: 2128; --n-t: 5; --w-m: 205px; --s-m: "Replica Pillars of Arun"; }
+[data-id=replica-poorjoys-asylum]    { --o-m: 2129; --n-t: 2; --w-m: 224px; --s-m: "Replica Poorjoy's Asylum"; }
+[data-id=rewritten-distant-memory]   { --o-m: 1130; --n-t: 1; --w-m:   0px; --s-m: "Rewritten Distant Memory"; }
+[data-id=the-beachhead]              { --o-m: 1431; --n-t: 3; --w-m: 359px; --s-m: "The Beachhead"; }
+[data-id=the-cowards-trial]          { --o-m: 2132; --n-t: 4; --w-m: 184px; --s-m: "The Coward's Trial"; }
+[data-id=the-putrid-cloister]        { --o-m: 2133; --n-t: 3; --w-m: 184px; --s-m: "The Putrid Cloister"; }
+[data-id=the-twilight-temple]        { --o-m: 2135; --n-t: 5; --w-m: 191px; --s-m: "The Twilight Temple"; }
+[data-id=the-vinktar-square]         { --o-m: 2136; --n-t: 4; --w-m: 188px; --s-m: "The Vinktar Square"; }
+[data-id=twisted-distant-memory]     { --o-m: 1137; --n-t: 1; --w-m: 446px; --s-m: "Twisted Distant Memory"; }
+[data-id=vaults-of-atziri]           { --o-m: 2138; --n-t: 5; --w-m: 157px; --s-m: "Vaults of Atziri"; }
+[data-id=whakawairua-tuahu]          { --o-m: 2139; --n-t: 5; --w-m: 196px; --s-m: "Whakawairua Tuahu"; }
+[data-id=untainted-paradise]		 { --o-m: 2137; --n-t: 1; --w-m:   0px; --s-m: "Untainted Paradise"; }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-options {
 	padding-left: var(--text-item-left-indent-in-container);
@@ -1452,13 +1449,12 @@ body {
 		display: none !important;
 	}*/
 
-	/* add divider 
+	/* add divider */
 	&::before {
 		content: "";
 		--o-m: 2000;
-	}*/
+	}
 }
-
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(21) > .filter-options > [data-id] {
 
@@ -1482,9 +1478,9 @@ body {
 /*[data-id^=altered-distant-memory],
 [data-id^=replica-cortex],
 [data-id^=rewritten-distant-memory],*/
-[data-id^=augmented-distant-memory],
-[data-id^=cortex],
-[data-id^=twisted-distant-memory] {
+[data-id=augmented-distant-memory],
+[data-id=cortex],
+[data-id=twisted-distant-memory] {
 	margin-right: var(--text-item-right-indent-in-row) !important;
 }
 
@@ -1622,7 +1618,7 @@ body {
 }
 
 /* permanently hide cheap shards */
-[data-id=chaos-shard], [data-id=regal-shard], [data-id=binding-shard], [data-id=engineers-shard], [data-id=horizon-shard] {
+[data-id=chaos-shard], [data-id=regal-shard], [data-id=binding-shard], [data-id=engineers-shard], [data-id=horizon-shard], [data-id=transmutation-shard], [data-id=alteration-shard], [data-id=alchemy-shard], [data-id=exalted-shard] {
 	display: none !important;
 }
 
@@ -1634,10 +1630,10 @@ body {
 [data-id=alt], [data-id=transmute], [data-id=aug], [data-id=chance], [data-id=chrome], [data-id=jewellers], [data-id=enkindling-orb], [data-id=instilling-orb], [data-id=engineers], [data-id=whetstone], [data-id=scrap], [data-id=bauble], [data-id=gcp] {
 	--r: 1; }
 
-[data-id=exalted], [data-id=annul], [data-id=ancient-orb], [data-id=veiled-chaos-orb], [data-id=cluster-fog], [data-id=infused-engineers-orb], [data-id=facetors], [data-id=veiled-scarab] {
+[data-id=exalted], [data-id=annul], [data-id=ancient-orb], [data-id=veiled-chaos-orb], [data-id=cluster-fog], [data-id=blessing-general], [data-id=infused-engineers-orb], [data-id=facetors], [data-id=veiled-scarab] {
 	--r: 2; }
 
-[data-id=divine], [data-id=fracturing-orb], [data-id=sacred-orb], [data-id=veiled-exalted-orb], [data-id=blessing-general], [data-id=tempering-orb], [data-id=tailoring-orb], [data-id=mirror], [data-id=hinekoras-lock], [data-id=reflecting-mist], [data-id=eternal] {
+[data-id=divine], [data-id=fracturing-orb], [data-id=sacred-orb], [data-id=veiled-exalted-orb], [data-id=tempering-orb], [data-id=tailoring-orb], [data-id=mirror], [data-id=hinekoras-lock], [data-id=reflecting-mist], [data-id=eternal] {
 	--r: 3; }
 
 [data-id=stacked-deck], [data-id=rogues-marker], [data-id=wisdom], [data-id=portal] /*,[data-id=p]*/ {
@@ -1662,19 +1658,19 @@ body {
 [data-id=scour], [data-id=chance], [data-id=veiled-chaos-orb], [data-id=veiled-exalted-orb], [data-id=portal] {
 	--c: 3; }
 
-[data-id=regal], [data-id=aug], [data-id=facetors], [data-id=exalted-shard], [data-id=cluster-fog], [data-id=blessing-general] {
+[data-id=regal], [data-id=aug], [data-id=facetors], [data-id=exalted-shard] {
 	--c: 4; }
 
-[data-id=orb-of-binding], [data-id=jewellers], [data-id=infused-engineers-orb], [data-id=tempering-orb], [data-id=annulment-shard] {
+[data-id=orb-of-binding], [data-id=jewellers], [data-id=cluster-fog], [data-id=tempering-orb], [data-id=annulment-shard] {
 	--c: 5; }
 
-[data-id=vaal], [data-id=veiled-scarab], [data-id=tailoring-orb], [data-id=ancient-shard] {
+[data-id=vaal], [data-id=blessing-general], [data-id=tailoring-orb], [data-id=ancient-shard] {
 	--c: 6; }
 
-[data-id=regret], [data-id=enkindling-orb], [data-id=harbingers-shard] {
+[data-id=regret], [data-id=enkindling-orb], [data-id=infused-engineers-orb], [data-id=harbingers-shard] {
 	--c: 7; }
 
-[data-id=orb-of-unmaking], [data-id=instilling-orb], [data-id=reflecting-mist] {
+[data-id=orb-of-unmaking], [data-id=instilling-orb], [data-id=veiled-scarab], [data-id=reflecting-mist] {
 	--c: 8; }
 
 [data-id=blessed], [data-id=engineers], [data-id=hinekoras-lock], [data-id=fracturing-shard] {
@@ -1698,13 +1694,13 @@ body {
 
 /* set Y-coordinate for each row */
 
-[data-id=lesser-eldritch-ichor], [data-id=greater-eldritch-ichor], [data-id=grand-eldritch-ichor], [data-id=exceptional-eldritch-ichor], [data-id=tainted-chaos-orb], [data-id=tainted-exalted-orb], [data-id=tainted-divine-teardrop], [data-id=tainted-mythic-orb], [data-id=hunters-exalted-orb], [data-id=crusaders-exalted-orb], [data-id=shapers-exalted-orb], [data-id=orb-of-remembrance] {
+[data-id=eldritch-chaos-orb], [data-id=eldritch-exalted-orb], [data-id=eldritch-orb-of-annulment], [data-id=orb-of-conflict], [data-id=tainted-chaos-orb], [data-id=tainted-exalted-orb], [data-id=tainted-divine-teardrop], [data-id=tainted-mythic-orb], [data-id=hunters-exalted-orb], [data-id=crusaders-exalted-orb], [data-id=shapers-exalted-orb], [data-id=orb-of-remembrance] {
 	--r: 5.5; }
 
 [data-id=lesser-eldritch-ember], [data-id=greater-eldritch-ember], [data-id=grand-eldritch-ember], [data-id=exceptional-eldritch-ember], [data-id=tainted-blacksmiths-whetstone], [data-id=tainted-armourers-scrap], [data-id=tainted-divine-orb], [data-id=redeemers-exalted-orb], [data-id=warlords-exalted-orb], [data-id=elders-exalted-orb], [data-id=orb-of-unravelling] {
 	--r: 6.5; }
 
-[data-id=eldritch-chaos-orb], [data-id=eldritch-exalted-orb], [data-id=eldritch-orb-of-annulment], [data-id=orb-of-conflict], [data-id=tainted-orb-of-fusing], [data-id=tainted-jewellers-orb], [data-id=tainted-chromatic-orb], [data-id=mavens-orb], [data-id=awakeners-orb], [data-id=orb-of-intention] {
+[data-id=lesser-eldritch-ichor], [data-id=greater-eldritch-ichor], [data-id=grand-eldritch-ichor], [data-id=exceptional-eldritch-ichor], [data-id=tainted-orb-of-fusing], [data-id=tainted-jewellers-orb], [data-id=tainted-chromatic-orb], [data-id=mavens-orb], [data-id=awakeners-orb], [data-id=orb-of-intention] {
 	--r: 7.5; }
 
 [data-id=wild-lifeforce], [data-id=vivid-lifeforce], [data-id=primal-lifeforce], [data-id=sacred-lifeforce], [data-id=sandswept-lifeforce], [data-id=mavens-chisel-of-procurement], [data-id=mavens-chisel-of-proliferation], [data-id=mavens-chisel-of-divination], [data-id=mavens-chisel-of-scarabs], [data-id=mavens-chisel-of-avarice] {
@@ -1845,7 +1841,7 @@ body {
 	width: auto;
 	margin-left: 5px;*/
 
-[data-id=writhing-invitation], [data-id=polaric-invitation], [data-id=sacred-blossom], [data-id=an-audience-with-the-king], [data-id=syndicate-medallion], [data-id=hivebrain-gland] {
+[data-id=writhing-invitation], [data-id=polaric-invitation], [data-id=sacred-blossom], [data-id=an-audience-with-the-king], [data-id=syndicate-medallion], [data-id=hivebrain-gland], [data-id=memory-of-trauma], [data-id=memory-of-reverence], [data-id=memory-of-loneliness], [data-id=the-black-barya] {
 	--r: 3; }
 
 [data-id=the-mavens-writ], [data-id=incandescent-invitation], [data-id=screaming-invitation], [data-id=echo-of-loneliness], [data-id=echo-of-trauma], [data-id=echo-of-reverence] {
@@ -1878,10 +1874,10 @@ body {
 [data-id=uber-timeless-eternal-emblem], [data-id=uber-timeless-karui-emblem], [data-id=uber-timeless-vaal-emblem], [data-id=uber-timeless-templar-emblem], [data-id=uber-timeless-maraketh-emblem], [data-id=xophs-flawless-breachstone], [data-id=tuls-flawless-breachstone], [data-id=eshs-flawless-breachstone], [data-id=uul-flawless-breachstone], [data-id=chayulas-flawless-breachstone] {
 	--r: 10; }
 
-[data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication], [data-id=blessing-xoph], [data-id=blessing-tul], [data-id=blessing-esh], [data-id=blessing-uul-netol], [data-id=blessing-chayula] {
+[data-id=divine-vessel], [data-id=offer], [data-id=offer-tribute], [data-id=offer-gift], [data-id=offer-dedication] {
 	--r: 11; }
 
-[data-id=beauty], [data-id=curiosity], [data-id=ambition], [data-id=cooperation] {
+[data-id=beauty], [data-id=curiosity], [data-id=ambition], [data-id=cooperation], [data-id=blessing-xoph], [data-id=blessing-tul], [data-id=blessing-esh], [data-id=blessing-uul-netol], [data-id=blessing-chayula] {
 	--r: 12; }
 
 /* set X-coordinate for each column */
@@ -1926,20 +1922,20 @@ body {
 
 [data-id=fragment-of-enslavement], [data-id=fragment-of-eradication], [data-id=blessing-xoph], [data-id=splinter-xoph], [data-id=xophs-breachstone], [data-id=xophs-flawless-breachstone] {
 	--c: 8; }
-[data-id=echo-of-trauma], [data-id=traumatic-fragment], [data-id=traumatic-reliquary-key] {
+[data-id=memory-of-trauma], [data-id=echo-of-trauma], [data-id=traumatic-fragment], [data-id=traumatic-reliquary-key] {
 	--c: 8; }
 
 [data-id=hydra], [data-id=chimer], [data-id=blessing-tul], [data-id=splinter-tul], [data-id=tuls-breachstone], [data-id=tuls-flawless-breachstone] {
 	--c: 9; }
-[data-id=echo-of-loneliness], [data-id=lonely-fragment], [data-id=lonely-reliquary-key] {
+[data-id=memory-of-loneliness], [data-id=echo-of-loneliness], [data-id=lonely-fragment], [data-id=lonely-reliquary-key] {
 	--c: 9; }
 
 [data-id=phoenix], [data-id=minot], [data-id=blessing-esh], [data-id=splinter-esh], [data-id=eshs-breachstone], [data-id=eshs-flawless-breachstone] {
 	--c: 10; }
-[data-id=echo-of-reverence], [data-id=reverent-fragment], [data-id=reverent-reliquary-key] {
+[data-id=memory-of-reverence], [data-id=echo-of-reverence], [data-id=reverent-fragment], [data-id=reverent-reliquary-key] {
 	--c: 10; }
 
-[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=blessing-uul-netol], [data-id=splinter-uul], [data-id=uul-breachstone], [data-id=uul-flawless-breachstone], [data-id=voidborn-reliquary-key] {
+[data-id=fragment-of-knowledge], [data-id=fragment-of-shape], [data-id=blessing-uul-netol], [data-id=splinter-uul], [data-id=uul-breachstone], [data-id=uul-flawless-breachstone], [data-id=voidborn-reliquary-key], [data-id=the-black-barya] {
 	--c: 11; }
 
 [data-id=fragment-of-terror], [data-id=fragment-of-emptiness], [data-id=blessing-chayula], [data-id=splinter-chayula], [data-id=chayulas-breachstone], [data-id=chayulas-flawless-breachstone], [data-id=valdos-puzzle-box] {
@@ -1956,6 +1952,23 @@ body {
 	--c: 3.5; }
 [data-id=cooperation] {
 	--c: 4.5; }
+
+/* astrolabes */
+[data-id=templar-astrolabe] {
+	--r: 8; }
+[data-id=grasping-astrolabe], [data-id=lightless-astrolabe], [data-id=timeless-astrolabe] {
+	--r: 9; }
+[data-id=fungal-astrolabe], [data-id=enshrouded-astrolabe], [data-id=fruiting-astrolabe] {
+	--r: 10; }
+[data-id=nameless-astrolabe], [data-id=chaotic-astrolabe], [data-id=runic-astrolabe] {
+	--r: 11; }
+
+[data-id=grasping-astrolabe], [data-id=fungal-astrolabe], [data-id=nameless-astrolabe] {
+	--c: 9; }
+[data-id=templar-astrolabe], [data-id=lightless-astrolabe], [data-id=enshrouded-astrolabe], [data-id=chaotic-astrolabe] {
+	--c: 10; }
+[data-id=timeless-astrolabe], [data-id=fruiting-astrolabe], [data-id=runic-astrolabe] {
+	--c: 11; }
 
 /*@*/}
 
@@ -2019,7 +2032,7 @@ body {
 	--r: 23; }
 [data-id^=essence-scarab], [data-id^=ritual-scarab] {
 	--r: 23.5; }
-[data-id^=torment-scarab], [data-id^=ultimatum-scarab] {
+[data-id^=torment-scarab], [data-id^=ultimatum-scarab], [data-id=scarab-of-hunted-traitors] {
 	--r: 24.5; }
 
 /* set X-coordinate for each column */
@@ -2044,13 +2057,13 @@ body {
 	--c: 8; }
 [data-id=influencing-scarab-of-conversion], [data-id=abyss-scarab-of-emptiness], [data-id=blight-scarab-of-invigoration], [data-id=breach-scarab-of-snares], [data-id=delirium-scarab-of-neuroses], [data-id=expedition-scarab-of-the-skald], [data-id=kalguuran-scarab-of-enriching], [data-id=legion-scarab-of-eternal-conflict], [data-id=ritual-scarab-of-corpses], [data-id=ultimatum-scarab-of-catalysing] {
 	--c: 9; }
-[data-id=abyss-scarab-of-profound-depth], [data-id=breach-scarab-of-resonant-cascade], [data-id=delirium-scarab-of-delusions], [data-id=expedition-scarab-of-archaeology], [data-id=legion-scarab-of-the-sekhema], [data-id=ultimatum-scarab-of-inscription] {
+[data-id=abyss-scarab-of-profound-depth], [data-id=blight-scarab-of-bounty], [data-id=breach-scarab-of-resonant-cascade], [data-id=delirium-scarab-of-delusions], [data-id=expedition-scarab-of-archaeology], [data-id=legion-scarab-of-the-sekhema], [data-id=ultimatum-scarab-of-inscription] {
 	--c: 10; }
 [data-id=breach-scarab-of-the-dreamer] {
 	--c: 11; }
 [data-id=scarab-of-monstrous-lineage], [data-id=scarab-of-adversaries], [data-id=scarab-of-divinity], [data-id=scarab-of-the-dextral], [data-id=scarab-of-bisection], [data-id=scarab-of-wisps], [data-id=scarab-of-radiant-storms], [data-id=scarab-of-stability] {
 	--c: 12; }
-[data-id=horned-scarab-of-bloodlines], [data-id=horned-scarab-of-nemeses], [data-id=horned-scarab-of-preservation], [data-id=horned-scarab-of-awakening], [data-id=horned-scarab-of-tradition], [data-id=horned-scarab-of-glittering], [data-id=horned-scarab-of-pandemonium] {
+[data-id=horned-scarab-of-bloodlines], [data-id=horned-scarab-of-nemeses], [data-id=horned-scarab-of-preservation], [data-id=horned-scarab-of-awakening], [data-id=horned-scarab-of-tradition], [data-id=horned-scarab-of-glittering], [data-id=horned-scarab-of-pandemonium], [data-id=scarab-of-hunted-traitors] {
 	--c: 13; }
 
 /*@*/}
@@ -2283,6 +2296,11 @@ body {
 [data-id=deafening-essence-of-loathing], [data-id=deafening-essence-of-zeal], [data-id=deafening-essence-of-anguish], [data-id=deafening-essence-of-spite], [data-id=deafening-essence-of-scorn], [data-id=deafening-essence-of-envy], [data-id=deafening-essence-of-misery], [data-id=deafening-essence-of-dread], [data-id=essence-of-insanity], [data-id=essence-of-horror], [data-id=essence-of-delirium], [data-id=essence-of-hysteria] {
 	--c: 10.5; }
 
+[data-id=essence-of-desolation] {
+	--r: 9.5;
+	--c: 11.5;
+}
+
 
 
 /*------------------------------
@@ -2349,32 +2367,6 @@ body {
 	"Maps" section
 ------------------------------*/
 
-/* @var          checkbox poe-custom-option-hide-low-tier-maps "Hide <T14 Maps" 0 */
-
-/*@if poe-custom-option-hide-low-tier-maps {
-
-.filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options {*/
-
-	/* hide T1-T13 maps 
-	> .exchange-filter-item:not(:is(
-		[data-id$="-14"],
-		[data-id$="-15"],
-		[data-id$="-16"],
-		[data-id$="-17"]
-	)) {
-		display: none !important;
-	}*/
-
-	/* hide T1-T13 dividers 
-	> :nth-child(-n + 13 of .split) {
-		display: none !important;
-	}*/
-/*}
-
-/*@}*/
-
-
-
 /* setup maps container */
 .filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options {
 	display: flex !important;
@@ -2385,6 +2377,7 @@ body {
 	/* fix divider width */    
 	> .split {
 		width: 100% !important;
+		--o-t: 0;
 	}
 
 	/* set order for dividers 
@@ -2405,18 +2398,42 @@ body {
 	> :nth-child(15 of .split)	{ --o-t: 15; }
 	> :nth-child(16 of .split)	{ --o-t: 16; }
 	> :nth-child(17 of .split)	{ --o-t: 17; }*/
+	> :nth-child(1 of .split)	{ --o-m:  1; }
+	> :nth-child(2 of .split)	{ --o-m:  4; }
+	> :nth-child(3 of .split)	{ --o-m:  5; }
+	> :nth-child(4 of .split)	{ --o-m:  3; }
 }
 
-/* reorder maps 
+/* different order formula 
+.filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options {
+	&::before,
+	&::after,
+	> .split,
+	> .exchange-filter-item {
+		--map-order: calc(0 - var(--o-t) * 100 + var(--o-m));
+	}
+}*/
+
+/* reorder maps */
 :where(.filter-group:first-child > .filter-group-body > .filter:nth-child(19) > .filter-options) {
 	&::before,
 	&::after,
 	> .split,
 	> .exchange-filter-item {
-		--map-order: calc(var(--o-t) * 100 + var(--o-m));
+/* 		--map-order: calc(var(--o-t) * 100 + var(--o-m)); */
+		--map-order: calc(0 + var(--o-m) * 100 + var(--o-t));
 		order: var(--map-order, unset) !important;
 	}
-}*/
+}
+
+/* Blighted Maps */
+
+/* reorder */
+[data-id^=map-tier-]				{ --o-m: 1; }
+[data-id=nightmare-map],[data-id=vaal-temple-map],[data-id=valdo-map] { --o-m: 2; }
+[data-id^=zana-map-tier-]			{ --o-m: 3; }
+[data-id^=blighted-map-tier-]       { --o-m: 4; }
+[data-id^=blight-ravaged-map-tier-] { --o-m: 5; }
 
 /* move special maps to the end of T16 group 
 [data-id=vaal-temple-map-tier-16]           { --o-m: 10; }

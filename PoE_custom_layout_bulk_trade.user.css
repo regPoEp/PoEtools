@@ -14,7 +14,7 @@
 @var          checkbox poe-custom-option-group-map "Reorder and group map-like items" 1
 @var          checkbox poe-custom-option-pin-search "Pin search to the bottom" 1
 @var          checkbox poe-custom-option-show-icons "Show category icons" 1
-@var          checkbox poe-custom-option-hide-legacy "Hide legacy items" 0
+@var          checkbox poe-custom-option-hide-legacy "Hide legacy items" 1
 @var          checkbox poe-custom-option-double-cards-width "Double the width of Cards section" 1
 @var          checkbox poe-custom-option-cards_maps-font_background "Change font/background for text items" 1
 ==/UserStyle== */

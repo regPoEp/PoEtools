@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.12.7
+@version      1.12.8
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -2016,7 +2016,7 @@ body {
 	--r: 19; }
 [data-id^=ambush-scarab], [data-id^=expedition-scarab], [data-id=horned-scarab-of-awakening] {
 	--r: 19.5; }
-[data-id=scarab-of-bisection] {
+[data-id=scarab-of-the-sinistral] {
 	--r: 20; }
 [data-id^=anarchy-scarab], [data-id^=harvest-scarab], [data-id=horned-scarab-of-tradition] {
 	--r: 20.5; }
@@ -2061,7 +2061,7 @@ body {
 	--c: 10; }
 [data-id=breach-scarab-of-the-dreamer] {
 	--c: 11; }
-[data-id=scarab-of-monstrous-lineage], [data-id=scarab-of-adversaries], [data-id=scarab-of-divinity], [data-id=scarab-of-the-dextral], [data-id=scarab-of-bisection], [data-id=scarab-of-wisps], [data-id=scarab-of-radiant-storms], [data-id=scarab-of-stability] {
+[data-id=scarab-of-monstrous-lineage], [data-id=scarab-of-adversaries], [data-id=scarab-of-divinity], [data-id=scarab-of-the-dextral], [data-id=scarab-of-the-sinistral], [data-id=scarab-of-wisps], [data-id=scarab-of-radiant-storms], [data-id=scarab-of-stability] {
 	--c: 12; }
 [data-id=horned-scarab-of-bloodlines], [data-id=horned-scarab-of-nemeses], [data-id=horned-scarab-of-preservation], [data-id=horned-scarab-of-awakening], [data-id=horned-scarab-of-tradition], [data-id=horned-scarab-of-glittering], [data-id=horned-scarab-of-pandemonium], [data-id=scarab-of-hunted-traitors] {
 	--c: 13; }

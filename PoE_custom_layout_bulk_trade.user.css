@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.12.8
+@version      1.12.9
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -37,6 +37,7 @@ Table of contents:
 	"Currency" section
 	"Fragments" section
 	"Scarabs" section
+	"Foulborn Currency & Wombgifts" section
 	"Tattoos & Omens" section
 	"Fossils & Resonators" section
 	"Essences" section
@@ -159,7 +160,7 @@ Table of contents:
 /* , [data-id=prime-regrading-lens], [data-id=secondary-regrading-lens], [data-id=tainted-blessing] */
 [data-id=eternal], [data-id=infused-engineers-orb], [data-id=veiled-scarab]
 , [data-id=ancient-reliquary-key], [data-id=timeworn-reliquary-key], [data-id=vaal-reliquary-key]
-, [data-id=feral-incubator], [data-id=eldritch-incubator], [data-id=time-lost-incubator], [data-id=enchanted-incubator], [data-id=challenging-incubator], [data-id=fossilised-incubator]
+, [data-id=feral-incubator], [data-id=eldritch-incubator], [data-id=time-lost-incubator], [data-id=enchanted-incubator], [data-id=challenging-incubator], [data-id=fossilised-incubator], [data-id=foreboding-incubator], [data-id=obscured-incubator]
 , [data-id=primitive-alchemical-resonator], [data-id=potent-alchemical-resonator], [data-id=powerful-alchemical-resonator], [data-id=prime-alchemical-resonator]
 , [data-id=delirium-orb], [data-id=kalguuran-delirium-orb], [data-id=primal-delirium-orb], [data-id=challenging-delirium-orb], [data-id=obscured-delirium-orb], [data-id=fossilised-delirium-orb]
 , [data-id=sulphite-scarab-of-greed], [data-id=bestiary-scarab-of-the-shadowed-crow], [data-id=betrayal-scarab-of-perpetuation], [data-id=torment-scarab-of-release], [data-id=cartography-scarab-of-singularity], [data-id=beyond-scarab-of-corruption], [data-id=legion-scarab-of-the-sekhema], [data-id=blight-scarab-of-bounty], [data-id=scarab-of-hunted-traitors], [data-id=blight-scarab-of-bounty]
@@ -1079,7 +1080,7 @@ body {
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(2) > .filter-title-clickable::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiQnJlYWNoIiwic2NhbGUiOjF9XQ/b129897f73/GreaterScarabBreach.png") !important; }
 
-.filter-group:first-child > .filter-group-body > .filter:nth-child(3) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRmFyaWR1bi9XaXNoQ3VycmVuY3lJdGVtIiwic2NhbGUiOjF9XQ/443f7ba4fb/WishCurrencyItem.png") !important; }
+.filter-group:first-child > .filter-group-body > .filter:nth-child(3) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lXaXNoU3VwcG9ydEdlbVJlZCIsInNjYWxlIjoxfV0/9b061d74ee/CurrencyWishSupportGemRed.png") !important; }
 
 .filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-title-clickable > span:first-child::before { content: url("https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ2hheXVsYS9Gb3VsYm9ybkF1Z21lbnRhdGlvbiIsInNjYWxlIjoxfV0/44a866f879/FoulbornAugmentation.png") !important; }
 
@@ -1630,7 +1631,7 @@ body {
 [data-id=alt], [data-id=transmute], [data-id=aug], [data-id=chance], [data-id=chrome], [data-id=jewellers], [data-id=enkindling-orb], [data-id=instilling-orb], [data-id=engineers], [data-id=whetstone], [data-id=scrap], [data-id=bauble], [data-id=gcp] {
 	--r: 1; }
 
-[data-id=exalted], [data-id=annul], [data-id=ancient-orb], [data-id=veiled-chaos-orb], [data-id=cluster-fog], [data-id=blessing-general], [data-id=infused-engineers-orb], [data-id=facetors], [data-id=veiled-scarab] {
+[data-id=exalted], [data-id=annul], [data-id=ancient-orb], [data-id=veiled-chaos-orb], [data-id=cluster-fog], [data-id=flesh-of-xesht], [data-id=infused-engineers-orb], [data-id=facetors], [data-id=veiled-scarab], [data-id=silver-coin] {
 	--r: 2; }
 
 [data-id=divine], [data-id=fracturing-orb], [data-id=sacred-orb], [data-id=veiled-exalted-orb], [data-id=tempering-orb], [data-id=tailoring-orb], [data-id=mirror], [data-id=hinekoras-lock], [data-id=reflecting-mist], [data-id=eternal] {
@@ -1664,7 +1665,7 @@ body {
 [data-id=orb-of-binding], [data-id=jewellers], [data-id=cluster-fog], [data-id=tempering-orb], [data-id=annulment-shard] {
 	--c: 5; }
 
-[data-id=vaal], [data-id=blessing-general], [data-id=tailoring-orb], [data-id=ancient-shard] {
+[data-id=vaal], [data-id=flesh-of-xesht], [data-id=tailoring-orb], [data-id=ancient-shard] {
 	--c: 6; }
 
 [data-id=regret], [data-id=enkindling-orb], [data-id=infused-engineers-orb], [data-id=harbingers-shard] {
@@ -1673,7 +1674,7 @@ body {
 [data-id=orb-of-unmaking], [data-id=instilling-orb], [data-id=veiled-scarab], [data-id=reflecting-mist] {
 	--c: 8; }
 
-[data-id=blessed], [data-id=engineers], [data-id=hinekoras-lock], [data-id=fracturing-shard] {
+[data-id=blessed], [data-id=engineers], [data-id=hinekoras-lock], [data-id=fracturing-shard], [data-id=silver-coin] {
 	--c: 9; }
 
 [data-id=whetstone], [data-id=mirror], [data-id=mirror-shard] {
@@ -2067,6 +2068,34 @@ body {
 	--c: 13; }
 
 /*@*/}
+
+
+
+/*------------------------------
+	"Foulborn Currency & Wombgifts" section
+------------------------------*/
+
+/* setup container */
+.filter-group:first-child > .filter-group-body > .filter:nth-child(4) > .filter-options {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	flex-direction: row !important;
+	justify-content: center !important;
+
+	/* add divider */
+	&::before {
+		content: "";
+		position: relative !important;
+		width: 100% !important;
+		border-bottom: var(--poe-web-split-border-bottom) !important;
+		margin: var(--poe-web-split-margin) !important;
+		color: var(--poe-web-split-color) !important;
+	}
+}
+
+[data-id=foulborn-orb-of-augmentation], [data-id=foulborn-regal-orb], [data-id=foulborn-exalted-orb] {
+	order: -1 !important;
+}
 
 
 

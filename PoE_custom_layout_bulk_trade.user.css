@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         PoE - custom layout (bulk trade)
-@version      1.12.9
+@version      1.12.10
 @description  Custom layout for an official PathOfExile trade site (bulk trade section a.k.a. "exchange")
 @author       regularPoEplayer
 @homepageURL  https://github.com/regPoEp/PoEtools
@@ -2111,6 +2111,7 @@ body {
 	justify-content: center !important;
 
 	/* configure dividers */
+	&::before,
 	> .split {
 		position: relative !important;
 		width: 100% !important;
@@ -2118,20 +2119,46 @@ body {
 		margin: var(--poe-web-split-margin) !important;
 		color: var(--poe-web-split-color) !important; 
 	}
+	
+	/* add divider */
+	&::before {
+		content: "";
+		order: 100;
+	}
 }
 
-[data-id=omen-of-amelioration]		{ order: 1; }
-[data-id=omen-of-return]			{ order: 2; }
-[data-id=omen-of-death-dancing]		{ order: 3; }
-[data-id=omen-of-deaths-door]		{ order: 4; }
-[data-id=omen-of-refreshment]		{ order: 5; }
-[data-id=omen-of-adrenaline]		{ order: 6; }
-[data-id=omen-of-the-soul-devourer]	{ order: 7; }
-[data-id=omen-of-brilliance]		{ order: 8; }
-[data-id=omen-of-the-jeweller]		{ order: 9; }
-[data-id=omen-of-connections]		{ order: 10; }
-[data-id=omen-of-blanching]			{ order: 11; }
-[data-id=omen-of-fortune]			{ order: 12; }
+[data-id^=tattoo-of-the-][data-id$=-makanga] {
+	order: 2;
+}
+
+[data-id^=loyalty-tattoo-of-] {
+	order: 3;
+}
+
+[data-id^=honoured-tattoo-of-] {
+	order: 4;
+}
+
+[data-id=ancestral-tattoo-of-bloodlines], [data-id=journey-tattoo-of-the-makanui] {
+	order: 5;
+}
+
+[data-id^=forbidden-tattoo-of-the-] {
+	order: 6;
+}
+
+[data-id=omen-of-amelioration]		{ order: 101; }
+[data-id=omen-of-return]			{ order: 102; }
+[data-id=omen-of-death-dancing]		{ order: 103; }
+[data-id=omen-of-deaths-door]		{ order: 104; }
+[data-id=omen-of-refreshment]		{ order: 105; }
+[data-id=omen-of-adrenaline]		{ order: 106; }
+[data-id=omen-of-the-soul-devourer]	{ order: 107; }
+[data-id=omen-of-brilliance]		{ order: 108; }
+[data-id=omen-of-the-jeweller]		{ order: 109; }
+[data-id=omen-of-connections]		{ order: 110; }
+[data-id=omen-of-blanching]			{ order: 111; }
+[data-id=omen-of-fortune]			{ order: 112; }
 
 
 
